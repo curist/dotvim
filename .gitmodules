@@ -1,0 +1,60 @@
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/vim-scripts/SuperTab-continued..git
+[submodule "easytags.vim"]
+	path = bundle/easytags
+	url = https://github.com/vim-scripts/easytags.vim.git
+[submodule "bundle/git_vim"]
+	path = bundle/git_vim
+	url = https://github.com/motemen/git-vim.git
+[submodule "bundle/wokmarks"]
+	path = bundle/wokmarks
+	url = https://github.com/vim-scripts/wokmarks.vim.git
+[submodule "bundle/mru"]
+	path = bundle/mru
+	url = https://github.com/vim-scripts/mru.vim.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/vim-scripts/matchit.zip.git
+[submodule "bundle/autoclose"]
+	path = bundle/autoclose
+	url = https://github.com/vim-scripts/AutoClose.git
+[submodule "bundle/commandt"]
+	path = bundle/commandt
+	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/marks_browser"]
+	path = bundle/marks_browser
+	url = https://github.com/vim-scripts/Marks-Browser.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/vim-scripts/Tagbar.git
+[submodule "bundle/nerdtree_vim"]
+	path = bundle/nerdtree_vim
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/vim_wiki"]
+	path = bundle/vim_wiki
+	url = https://github.com/vim-scripts/vimwiki.git
+[submodule "bundle/vim_javascript"]
+	path = bundle/vim_javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/repmo"]
+	path = bundle/repmo
+	url = https://github.com/vim-scripts/repmo.vim.git
+[submodule "bundle/tabular_vim"]
+	path = bundle/tabular_vim
+	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/vim_rails"]
+	path = bundle/vim_rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "bundle/vim_rake"]
+	path = bundle/vim_rake
+	url = https://github.com/tpope/vim-rake.git
+[submodule "bundle/showmarks"]
+	path = bundle/showmarks
+	url = https://github.com/vim-scripts/ShowMarks.git
