@@ -43,6 +43,7 @@ set backspace=indent,eol,start
 set ignorecase
 set smartcase
 set hidden
+set cursorline
 "set autochdir
 "set winaltkeys=no
 call pathogen#infect()
@@ -108,7 +109,8 @@ nn mt :ShowMarksToggle<cr>
 nn mc :ShowMarksClearAll<cr>
 nn mb :MarksBrowser<cr>
 " autocmd User WokmarksChange :ShowMarksOn
-" autocmd FileType !vimwiki colorscheme desert256
+autocmd FileType vimwiki colorscheme desert256
+autocmd FileType vimwiki set nocursorline
 let g:showmarks_enable=0
 
 " tintin++ setting
