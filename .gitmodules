@@ -1,9 +1,6 @@
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/vim-scripts/SuperTab-continued..git
-[submodule "easytags.vim"]
-	path = bundle/easytags
-	url = https://github.com/vim-scripts/easytags.vim.git
+[submodule "bundle/vim_rails"]
+	path = bundle/vim_rails
+	url = https://github.com/tpope/vim-rails.git
 [submodule "bundle/git_vim"]
 	path = bundle/git_vim
 	url = https://github.com/motemen/git-vim.git
@@ -49,12 +46,15 @@
 [submodule "bundle/tabular_vim"]
 	path = bundle/tabular_vim
 	url = https://github.com/godlygeek/tabular.git
-[submodule "bundle/vim_rails"]
-	path = bundle/vim_rails
-	url = https://github.com/tpope/vim-rails.git
 [submodule "bundle/vim_rake"]
 	path = bundle/vim_rake
 	url = https://github.com/tpope/vim-rake.git
 [submodule "bundle/showmarks"]
 	path = bundle/showmarks
 	url = https://github.com/vim-scripts/ShowMarks.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/vim-scripts/SuperTab-continued..git
+[submodule "bundle/easytags"]
+	path = bundle/easytags
+	url = https://github.com/vim-scripts/easytags.vim.git
