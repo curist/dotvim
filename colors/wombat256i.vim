@@ -245,12 +245,12 @@ call <SID>X("Search",		"444444",	"af87d7",	"")
 call <SID>X("MatchParen",	"ecee90",	"857b6f",	"bold")
 call <SID>X("SpecialKey",	"6c6c6c",	"",	        "none")
 call <SID>X("Visual",		"ecee90",	"597418",	"none")
-call <SID>X("LineNr",		"FFFFFF",	"242424",	"none")
+call <SID>X("LineNr",		"f6f3e8",	"32322e",	"none")
 call <SID>X("Folded",		"a0a8b0",	"404048",	"none")
 call <SID>X("Title",		"f6f3e8",	"",			"bold")
-call <SID>X("VertSplit",	"444444",	"444444",	"none")
-call <SID>X("StatusLine",	"f6f3e8",	"444444",	"italic")
-call <SID>X("StatusLineNC",	"857b6f",	"444444",	"none")
+call <SID>X("VertSplit",	"32322e",	"32322e",	"none")
+call <SID>X("StatusLine",	"f6f3e8",	"32322e",	"italic")
+call <SID>X("StatusLineNC",	"857b6f",	"32322e",	"none")
 			"Scrollbar
 			"Tooltip
 			"Menu
