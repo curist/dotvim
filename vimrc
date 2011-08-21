@@ -95,7 +95,8 @@ nmap <leader>P "+P
 
 " commandT mapping
 let g:CommandTMaxHeight = 15
-nn <leader>f :CommandTFlush<cr>
+nn <silent> <leader>f :CommandTFlush<cr>
+nn <silent> <leader>v :CommandTBuffer<cr>
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -104,16 +105,25 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:rubycomplete_rails = 1
 
 " mark settings
+function! ToggleShowMarks()
+    if g:showmarks_enable == 0
+        autocmd User WokmarksChange :ShowMarksOn
+        :colorscheme wombat256i
+    else
+        autocmd! User WokmarksChange :ShowMarksOn
+    endif
+    :ShowMarksToggle
+endfunction
+
 let g:wokmarks_do_maps = 0
 let g:wokmarks_pool = "abcdefghijklmnopqrstuvwxyz"
 map mm <Plug>ToggleMarkWok
 map mj <Plug>NextMarkWok
 map mk <Plug>PrevMarkWok
-nn mt :ShowMarksToggle<cr>
-nn mc :ShowMarksClearAll<cr>
-nn mb :MarksBrowser<cr>
 let g:showmarks_enable=0
-""autocmd User WokmarksChange :ShowMarksOn
+nn <silent> mt :call ToggleShowMarks()<cr>
+nn <silent> mc :delmarks a-z<cr>:ShowMarksOn<cr>:echo "All marks are cleared."<cr>
+nn <silent> mb :MarksBrowser<cr>
 
 
 
@@ -121,10 +131,10 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 set completeopt=menu,menuone
 
-nn <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-nn <F12> :set number!<cr>
-nn <F2> <ESC>:NERDTreeToggle<cr>
-nn <F3> <ESC>:TagbarToggle<cr>
+nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nn <silent> <F12> :set number!<cr>
+nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
+nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn w!! w !sudo tee "%"
 "nn gf :edit <cfile><cr>
 
@@ -149,7 +159,7 @@ function! QFixToggle(forced)
         let g:qfix_win = bufnr("$")
     endif
 endfunction
-nnoremap <leader>q :QFix<CR>
+nnoremap <silent> <leader>q :QFix<CR>
 
 function! HasError(qflist)
     for i in a:qflist
