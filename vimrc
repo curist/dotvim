@@ -128,11 +128,6 @@ nn <silent> mt :call ToggleShowMarks()<cr>
 nn <silent> mc :delmarks a-z<cr>:ShowMarksOn<cr>:echo "All marks are cleared."<cr>
 nn <silent> mb :MarksBrowser<cr>
 
-
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-set completeopt=menu,menuone
-
 nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
