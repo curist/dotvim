@@ -51,43 +51,45 @@ set nobackup
 set noswapfile
 
 augroup MyFileTypeSettings
-    autocmd FileType javascript,ruby,eruby,yaml set ai sw=2 sts=2 et
-    " manpage don't show line number
-    autocmd FileType man set number!
+  autocmd FileType javascript,ruby,eruby,yaml,vim set ai sw=2 sts=2 et
+  " manpage don't show line number
+  autocmd FileType man set number!
 
-    " exclusive use cindent for c and cpp
-    autocmd FileType c,h,cpp,hpp set cindent
+  " exclusive use cindent for c and cpp
+  autocmd FileType c,h,cpp,hpp set cindent
 
-    autocmd FileType marksbuffer set list!
+  autocmd FileType marksbuffer set list!
 
-    " vimwiki related..
-    autocmd FileType vimwiki colorscheme desert256
-    autocmd FileType vimwiki set nocursorline
+  autocmd FileType html,xhtml,eruby so ~/.vim/bundle/xmledit/ftplugin/xml.vim
 
-    " c/c++ compiletion settings"
-    autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
-    autocmd FileType cpp set mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
+  " vimwiki related..
+  autocmd FileType vimwiki colorscheme desert256
+  autocmd FileType vimwiki set nocursorline
 
-    " lua quickfix settings "
-    autocmd FileType lua setlocal mp=lua\ %
-    autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
+  " c/c++ compiletion settings"
+  autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
+  autocmd FileType cpp set mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
 
-    " tintin++ setting
-    autocmd BufEnter,BufNew *.tt set syntax=tt
+  " lua quickfix settings "
+  autocmd FileType lua setlocal mp=lua\ %
+  autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
 
-    "" killing trailing spaces when saving file
-    autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre * :call KillTrailingSpaces()
+  " tintin++ setting
+  autocmd BufEnter,BufNew *.tt set syntax=tt
 
-    " run settings
-    "autocmd FileType c nnoremap <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-    autocmd FileType c nnoremap <leader>r :w<cr>:call MakeAndRun()<cr>
-    "autocmd FileType cpp nnoremap <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-    autocmd FileType cpp nnoremap <leader>r :w<cr>:call MakeAndRun()<cr>
-    autocmd FileType cs nnoremap <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
-    autocmd FileType java nnoremap <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
-    autocmd FileType python nnoremap <leader>r :w<cr>:!ipython %<cr>
-    autocmd FileType perl nnoremap <leader>r :w<cr>:!perl %<cr>
-    autocmd FileType lua nnoremap <leader>r :w<cr>:make<cr>
+  "" killing trailing spaces when saving file
+  autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre * :call KillTrailingSpaces()
+
+  " run settings
+  "autocmd FileType c nnoremap <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType c nnoremap <leader>r :w<cr>:call MakeAndRun()<cr>
+  "autocmd FileType cpp nnoremap <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType cpp nnoremap <leader>r :w<cr>:call MakeAndRun()<cr>
+  autocmd FileType cs nnoremap <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
+  autocmd FileType java nnoremap <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
+  autocmd FileType python nnoremap <leader>r :w<cr>:!ipython %<cr>
+  autocmd FileType perl nnoremap <leader>r :w<cr>:!perl %<cr>
+  autocmd FileType lua nnoremap <leader>r :w<cr>:make<cr>
 augroup END
 
 
@@ -109,13 +111,13 @@ let g:rubycomplete_rails = 1
 
 " mark settings
 function! ToggleShowMarks()
-    if g:showmarks_enable == 0
-        autocmd User WokmarksChange :ShowMarksOn
-        :colorscheme wombat256i
-    else
-        autocmd! User WokmarksChange
-    endif
-    :ShowMarksToggle
+  if g:showmarks_enable == 0
+    autocmd User WokmarksChange :ShowMarksOn
+    :colorscheme wombat256i
+  else
+    autocmd! User WokmarksChange
+  endif
+  :ShowMarksToggle
 endfunction
 
 let g:wokmarks_do_maps = 0
@@ -146,49 +148,73 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 0
 
+let g:highlighting = 0
+function! Highlighting()
+  if &filetype=="qf"
+    return "\<cr>"
+  endif
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+  " check if the current word is meaningful
+  if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_]*$'
+    let @/ = '\<'.expand('<cword>').'\>'
+  " or we just check the g:highlighting to toggle highlight
+  elseif g:highlighting == 1
+      let g:highlighting = 0
+      return ":silent nohlsearch\<CR>"
+  endif
+  let g:highlighting = 1
+  return ":silent set hlsearch\<CR>"
+endfunction
+nn <silent> <expr> <CR> Highlighting()
+nn <silent> n :let g:highlighting=1<cr>n
+nn <silent> N :let g:highlighting=1<cr>N
+
 " QUICKFIX WINDOW
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
-    if exists("g:qfix_win") && a:forced == 0
-        cclose
-        unlet g:qfix_win
-    else
-        copen 10
-        let g:qfix_win = bufnr("$")
-    endif
+  if exists("g:qfix_win") && a:forced == 0
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
 endfunction
 nnoremap <silent> <leader>q :QFix<CR>
 
 function! HasError(qflist)
-    for i in a:qflist
-        if i.valid == 1
-            return 1
-        endif
-    endfor
-    return 0
+  for i in a:qflist
+    if i.valid == 1
+      return 1
+    endif
+  endfor
+  return 0
 endfunction
 
 function! MakeAndRun()
-    make
-    if HasError(getqflist())
-        QFix
-    else
-        !~/bin/%:t:r
-    endif
+  make
+  if HasError(getqflist())
+    QFix
+  else
+    !~/bin/%:t:r
+  endif
 endfunction
 
 "auto update ctags"
 function! UPDATE_TAGS()
-    let _cmd_ = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ."
-    let _resp = system(_cmd_)
-    unlet _cmd_
-    unlet _resp
+  let _cmd_ = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ."
+  let _resp = system(_cmd_)
+  unlet _cmd_
+  unlet _resp
 endfunction
 autocmd BufWritePost *.cpp,*.hpp,*.h,*.c call UPDATE_TAGS()
 
 function! KillTrailingSpaces()
-    let save_cursor = getpos('.')
-    :%s/\s\+$//e
-    :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
-    unlet save_cursor
+  let save_cursor = getpos('.')
+  :%s/\s\+$//e
+  :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
+  unlet save_cursor
 endfunction
