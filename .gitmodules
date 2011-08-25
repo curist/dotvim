@@ -67,6 +67,3 @@
 [submodule "bundle/vim_ruby"]
 	path = bundle/vim_ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
