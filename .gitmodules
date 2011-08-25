@@ -13,9 +13,6 @@
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
-[submodule "bundle/autoclose"]
-	path = bundle/autoclose
-	url = https://github.com/vim-scripts/AutoClose.git
 [submodule "bundle/commandt"]
 	path = bundle/commandt
 	url = https://github.com/wincent/Command-T.git
@@ -67,3 +64,6 @@
 [submodule "bundle/vim_ruby"]
 	path = bundle/vim_ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/delimtMate"]
+	path = bundle/delimtMate
+	url = https://github.com/Raimondi/delimitMate.git
