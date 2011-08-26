@@ -22,7 +22,7 @@ set expandtab
 set smarttab
 set mouse=n
 set nowrap
-set foldmethod=syntax " fold by syntax (indent is another good option)
+set foldmethod=indent " fold by method (indent & syntax are both good)
 set foldlevelstart=99 " we want all fold to be expand at start
 set foldnestmax=3     " we want 3 fold levels at max
 set autoindent
@@ -61,8 +61,6 @@ augroup MyFileTypeSettings
   autocmd FileType c,h,cpp,hpp set cindent
 
   autocmd FileType marksbuffer set list!
-
-  autocmd FileType html,xhtml,eruby so ~/.vim/bundle/xmledit/ftplugin/xml.vim
 
   " vimwiki related..
   autocmd FileType vimwiki colorscheme desert256
