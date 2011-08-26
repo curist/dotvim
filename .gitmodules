@@ -70,14 +70,6 @@
 	path = bundle/supertab
 	url = https://github.com/vim-scripts/SuperTab-continued..git
 	ignore = untracked
-[submodule "bundle/easytags"]
-	path = bundle/easytags
-	url = https://github.com/vim-scripts/easytags.vim.git
-	ignore = untracked
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-	ignore = untracked
 [submodule "bundle/endwise"]
 	path = bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -90,3 +82,7 @@
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
 	ignore = untracked
+
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

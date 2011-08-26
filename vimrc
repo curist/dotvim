@@ -170,6 +170,7 @@ endfunction
 nn <silent> <expr> <CR> Highlighting()
 nn <silent> n :let g:highlighting=1<cr>n
 nn <silent> N :let g:highlighting=1<cr>N
+nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
 
 " QUICKFIX WINDOW
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
