@@ -67,3 +67,6 @@
 [submodule "bundle/delimtMate"]
 	path = bundle/delimtMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "bundle/vim_coffee"]
+	path = bundle/vim_coffee
+	url = https://github.com/kchmck/vim-coffee-script.git
