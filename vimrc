@@ -139,7 +139,8 @@ nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn <silent> <leader>s :exec 'vimgrep /'.expand('<cword>').'/g **/*.rb **/*.erb **/*.yml **/*.js'<CR>
 vn <c-c> <esc>
-nn w!! w !sudo tee "%"
+"command! -bar -nargs=0 SudoW :silent exe "write !sudo tee % >/dev/null"|silent edit!
+ca <silent> w!! silent exe "write !sudo tee % >/dev/null"|silent edit!
 
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
