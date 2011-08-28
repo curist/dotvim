@@ -28,7 +28,8 @@ set foldnestmax=3     " we want 3 fold levels at max
 set autoindent
 set backspace=indent,eol,start
 set ignorecase " ignore case in general
-set smartcase  " but when we typed something in Capitalized, we want vim to be case sensitive!
+set smartcase  " but when we typed something in Capitalized, we want vim to be
+               " case sensitive!
 set hidden     " it's ok to switch buffer w/o saving
 
 set laststatus=2                                      " status bar setting
@@ -52,6 +53,7 @@ set wildmenu
 set nobackup
 set noswapfile
 
+
 augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim set ai sw=2 sts=2 et
   " manpage don't show line number
@@ -62,7 +64,7 @@ augroup MyFileTypeSettings
 
   autocmd FileType marksbuffer set list!
 
-  autocmd FileType html,xhtml,eruby so ~/.vim/bundle/xmledit/ftplugin/xml.vim
+  autocmd FileType vimwiki set nohidden
 
   " vimwiki related..
   autocmd FileType vimwiki colorscheme desert256
