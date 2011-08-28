@@ -66,10 +66,6 @@ augroup MyFileTypeSettings
 
   autocmd FileType vimwiki set nohidden
 
-  " vimwiki related..
-  autocmd FileType vimwiki colorscheme desert256
-  autocmd FileType vimwiki set nocursorline
-
   " c/c++ compiletion settings"
   autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
   autocmd FileType cpp set mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
@@ -146,7 +142,10 @@ nn <c-k> <c-w>k
 nn <c-l> <c-w>l
 nn <c-h> <c-w>h
 
-"NERDTree options"
+" vimwiki
+let g:vimwiki_hl_headers = 1
+
+" NERDTree options
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 0
