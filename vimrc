@@ -28,7 +28,8 @@ set foldnestmax=3     " we want 3 fold levels at max
 set autoindent
 set backspace=indent,eol,start
 set ignorecase " ignore case in general
-set smartcase  " but when we typed something in Capitalized, we want vim to be case sensitive!
+set smartcase  " but when we typed something in Capitalized, we want vim to be
+               " case sensitive!
 set hidden     " it's ok to switch buffer w/o saving
 
 set laststatus=2                                      " status bar setting
@@ -52,6 +53,7 @@ set wildmenu
 set nobackup
 set noswapfile
 
+
 augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim set ai sw=2 sts=2 et
   " manpage don't show line number
@@ -61,6 +63,8 @@ augroup MyFileTypeSettings
   autocmd FileType c,h,cpp,hpp set cindent
 
   autocmd FileType marksbuffer set list!
+
+  autocmd FileType vimwiki set nohidden
 
   " vimwiki related..
   autocmd FileType vimwiki colorscheme desert256
@@ -135,7 +139,7 @@ nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn <silent> <leader>s :exec 'vimgrep /'.expand('<cword>').'/g **/*.rb **/*.erb **/*.yml **/*.js'<CR>
 vn <c-c> <esc>
-nn w!! w !sudo tee "%"
+ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k

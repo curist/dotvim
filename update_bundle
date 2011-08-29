@@ -1,5 +1,7 @@
 #!/bin/sh
 git submodule foreach git pull origin master
+
+printf "\n\e[1;32mWill now compile Commnad-T...\e[0m\n\n"
 cd ~/.vim/bundle/commandt/ruby/command-t
 ruby extconf.rb
 make
