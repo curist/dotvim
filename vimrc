@@ -1,6 +1,6 @@
 set nocompatible
-call pathogen#helptags()
 call pathogen#infect()
+call pathogen#helptags()
 syntax on
 filetype on
 filetype plugin indent on
@@ -65,10 +65,6 @@ augroup MyFileTypeSettings
   autocmd FileType marksbuffer set list!
 
   autocmd FileType vimwiki set nohidden
-
-  " vimwiki related..
-  autocmd FileType vimwiki colorscheme desert256
-  autocmd FileType vimwiki set nocursorline
 
   " c/c++ compiletion settings"
   autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
