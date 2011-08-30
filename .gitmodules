@@ -90,3 +90,11 @@
 	path = bundle/vim_coffee
 	url = https://github.com/kchmck/vim-coffee-script.git
 	ignore = untracked
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
+	ignore = untracked
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+	ignore = untracked

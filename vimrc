@@ -145,6 +145,9 @@ nn <c-h> <c-w>h
 " vimwiki
 let g:vimwiki_hl_headers = 1
 
+" gundo
+nn <silent> <leader>g :GundoToggle<cr>
+
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeChDirMode = 2
