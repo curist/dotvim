@@ -142,7 +142,10 @@ nn <c-k> <c-w>k
 nn <c-l> <c-w>l
 nn <c-h> <c-w>h
 
-"NERDTree options"
+" vimwiki
+let g:vimwiki_hl_headers = 1
+
+" NERDTree options
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 0
