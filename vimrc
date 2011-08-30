@@ -38,8 +38,8 @@ set statusline+=\ [%{&fileencoding},                  " encoding
 set statusline+=%{&fileformat}]%m                     " file format
 set statusline+=%=%{GitBranch()}\ %y\ %l,\ %c\ \<%P\> " git branch
 
-set ofu=syntaxcomplete#Complete
-set completeopt=longest,menu
+"set ofu=syntaxcomplete#Complete
+"set completeopt=longest,menu
 let g:bufExplorerFindActive=0
 let mapleader = ","
 
