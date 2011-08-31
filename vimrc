@@ -60,11 +60,11 @@ augroup MyFileTypeSettings
   autocmd FileType man set number!
 
   " exclusive use cindent for c and cpp
-  autocmd FileType c,h,cpp,hpp set cindent
+  autocmd FileType c,h,cpp,hpp setlocal cindent
 
-  autocmd FileType marksbuffer set list!
+  autocmd FileType marksbuffer setlocal list!
 
-  autocmd FileType vimwiki set nohidden
+  autocmd FileType vimwiki setlocal nohidden
 
   " c/c++ compiletion settings"
   autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
@@ -144,9 +144,6 @@ nn <c-h> <c-w>h
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
-
-" gundo
-nn <silent> <leader>g :GundoToggle<cr>
 
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
