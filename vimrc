@@ -104,6 +104,8 @@ nn <silent> <leader>v :CommandTBuffer<cr>
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
+set ofu=syntaxcomplete#Complete
+set completeopt=menu
 
 " rails settings
 let g:rubycomplete_rails = 1
