@@ -147,8 +147,8 @@ nn <c-h> <c-w>h
 " vimwiki
 let g:vimwiki_hl_headers = 1
 
-" gundo
-nn <silent> <leader>g :GundoToggle<cr>
+" ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
@@ -180,15 +180,25 @@ nn <silent> n :let g:highlighting=1<cr>n
 nn <silent> N :let g:highlighting=1<cr>N
 nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
 
-" QUICKFIX WINDOW
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
-function! QFixToggle(forced)
-  if exists("g:qfix_win") && a:forced == 0
+" quickfix window number
+function QFwinnr()
+  let i=1
+  while i <= winnr('$')
+    if getbufvar(winbufnr(i), '&buftype') == 'quickfix'
+      return i
+    endif
+    let i += 1
+  endwhile
+  return 0
+endfunction
+
+" quickfix toggle
+command -bang -nargs=? QFix call QFixToggle()
+function! QFixToggle()
+  if QFwinnr()
     cclose
-    unlet g:qfix_win
   else
     copen 10
-    let g:qfix_win = bufnr("$")
   endif
 endfunction
 nnoremap <silent> <leader>q :QFix<CR>
