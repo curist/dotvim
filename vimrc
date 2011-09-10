@@ -180,28 +180,23 @@ nn <silent> n :let g:highlighting=1<cr>n
 nn <silent> N :let g:highlighting=1<cr>N
 nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
 
-" quickfix window number
-function QFwinnr()
-  let i=1
-  while i <= winnr('$')
-    if getbufvar(winbufnr(i), '&buftype') == 'quickfix'
-      return i
-    endif
-    let i += 1
-  endwhile
-  return 0
-endfunction
-
-" quickfix toggle
-command -bang -nargs=? QFix call QFixToggle()
-function! QFixToggle()
-  if QFwinnr()
+" toggles the quickfix window.
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+  if exists("g:qfix_win") && a:forced == 0
     cclose
   else
     copen 10
   endif
 endfunction
-nnoremap <silent> <leader>q :QFix<CR>
+nn <silent> <leader>q :QFix<cr>
+
+" used to track the quickfix window
+augroup QFixToggle
+ autocmd!
+ autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
+ autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
+augroup END
 
 function! HasError(qflist)
   for i in a:qflist
