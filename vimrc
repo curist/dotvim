@@ -20,6 +20,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+
 set mouse=n
 set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
@@ -27,28 +28,28 @@ set foldlevelstart=99 " we want all fold to be expand at start
 set foldnestmax=3     " we want 3 fold levels at max
 set autoindent
 set backspace=indent,eol,start
-set ignorecase " ignore case in general
-set smartcase  " but when we typed something in Capitalized, we want vim to be
-               " case sensitive!
 set hidden     " it's ok to switch buffer w/o saving
+
+set wildmenu
 
 set laststatus=2                                      " status bar setting
 set statusline=[%F]                                   " file name
 set statusline+=\ [%{&fileencoding},                  " encoding
-set statusline+=%{&fileformat}]%m                     " file format
+set statusline+=%{&fileformat}]                       " file format
+set statusline+=%{HasPaste()}                         " paste mode status
+set statusline+=%m                                    " file modified?
 set statusline+=%=%{GitBranch()}\ %y\ %l,\ %c\ \<%P\> " git branch
 
-"set ofu=syntaxcomplete#Complete
-"set completeopt=longest,menu
 let g:bufExplorerFindActive=0
 let mapleader = ","
 
 set list
 set listchars=tab:>-,trail:-
 
+set ignorecase " ignore case in general
+set smartcase  " when we typed something in Capitalized, be case sensitive
 set incsearch
 set hlsearch
-set wildmenu
 
 set nobackup
 set noswapfile
@@ -103,7 +104,7 @@ nn <silent> <leader>f :CommandTFlush<cr>
 nn <silent> <leader>v :CommandTBuffer<cr>
 
 " supertab
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 set ofu=syntaxcomplete#Complete
 set completeopt=menu
 
@@ -135,7 +136,8 @@ nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
-nn <silent> <leader>s :exec 'vimgrep /'.expand('<cword>').'/g **/*.rb **/*.erb **/*.yml **/*.js'<CR>
+nn <silent> <F4> <ESC>:set paste!<cr>
+nn <silent> <leader>s :exec 'Ack '.expand('<cword>')<CR>
 vn <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 
@@ -146,6 +148,9 @@ nn <c-h> <c-w>h
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
+
+" ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
@@ -177,18 +182,23 @@ nn <silent> n :let g:highlighting=1<cr>n
 nn <silent> N :let g:highlighting=1<cr>N
 nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
 
-" QUICKFIX WINDOW
+" toggles the quickfix window.
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
     cclose
-    unlet g:qfix_win
   else
     copen 10
-    let g:qfix_win = bufnr("$")
   endif
 endfunction
-nnoremap <silent> <leader>q :QFix<CR>
+nn <silent> <leader>q :QFix<cr>
+
+" used to track the quickfix window
+augroup QFixToggle
+  autocmd!
+  autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
+  autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
+augroup END
 
 function! HasError(qflist)
   for i in a:qflist
@@ -222,4 +232,11 @@ function! KillTrailingSpaces()
   :%s/\s\+$//e
   :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
   unlet save_cursor
+endfunction
+
+function! HasPaste()
+  if &paste
+    return '[PASTE MODE]'
+  en
+  return ''
 endfunction
