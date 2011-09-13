@@ -102,3 +102,11 @@
 	path = bundle/git_vim
 	url = https://github.com/motemen/git-vim.git
 	ignore = untracked
+[submodule "bundle/nrrw_rgn"]
+	path = bundle/nrrw_rgn
+	url = https://github.com/chrisbra/NrrwRgn.git
+	ignore = untracked
+[submodule "bundle/nrrw_rgn"]
+	path = bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+	ignore = untracked
