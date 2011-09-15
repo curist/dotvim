@@ -108,6 +108,10 @@ nn <silent> <leader>v :CommandTBuffer<cr>
 set ofu=syntaxcomplete#Complete
 set completeopt=menu
 
+" deconflicting mappings between bufexplorer and surround
+autocmd BufEnter \[BufExplorer\] unmap ds
+autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
+
 " rails settings
 let g:rubycomplete_rails = 1
 
