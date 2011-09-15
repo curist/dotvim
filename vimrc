@@ -136,7 +136,8 @@ nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
-nn <silent> <F4> <ESC>:set paste!<cr>
+nn <silent> <F4> <ESC>:Ack TODO<cr>
+nn <silent> <F5> <ESC>:set paste!<cr>
 nn <silent> <leader>s :exec 'Ack '.expand('<cword>')<CR>
 vn <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
