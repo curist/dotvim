@@ -91,6 +91,7 @@ augroup MyFileTypeSettings
   autocmd FileType python nnoremap <leader>r :w<cr>:!ipython %<cr>
   autocmd FileType perl nnoremap <leader>r :w<cr>:!perl %<cr>
   autocmd FileType lua nnoremap <leader>r :w<cr>:make<cr>
+  autocmd FileType javascript nnoremap <leader>r :!node %<cr>
 augroup END
 
 " mapping to make copy/paste to clipboard easier
