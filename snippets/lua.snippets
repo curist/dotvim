@@ -1,0 +1,47 @@
+# if condition
+snippet if
+	if ${1} then
+		${2}
+	end
+
+# do block
+snippet do
+	do
+		${1}
+	end
+
+# while loop
+snippet while
+	while ${1} do
+		${2}
+	end
+
+# for loop
+snippet for
+	for i = ${1}, ${2} do
+		${3}
+	end
+
+# generic for (pairs)
+snippet pa
+	for k,v in pairs(${1}) do
+		${2}
+	end
+
+# generic for (ipairs)
+snippet ip
+	for i,v in ipairs(${1}) do
+	${2}
+	end
+
+# repeat loop
+snippet re
+	repeat
+		${1}
+	until ${2}
+
+# function definition
+snippet fn
+	local function ${1}(${2})
+		${3}
+	end
