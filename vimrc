@@ -21,7 +21,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-set mouse=n
+set mouse=vn
 set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
 set foldlevelstart=99 " we want all fold to be expand at start
