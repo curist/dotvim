@@ -8,4 +8,4 @@ make
 
 printf "\n\e[1;32mWill now update snippets...\e[0m\n\n"
 mv -nu ~/.vim/bundle/snipmate/snippets/* ~/.vim/snippets
-rm ~/.vim/bundle/snippets/*
+rm ~/.vim/bundle/snipmate/snippets/*

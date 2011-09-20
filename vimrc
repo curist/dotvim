@@ -174,6 +174,7 @@ function! Highlighting()
     let g:highlighting = 0
     return ":silent nohlsearch\<CR>"
   endif
+
   " check if the current word is meaningful
   if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_]*$'
     let @/ = '\<'.expand('<cword>').'\>'
@@ -182,6 +183,7 @@ function! Highlighting()
       let g:highlighting = 0
       return ":silent nohlsearch\<CR>"
   endif
+
   let g:highlighting = 1
   return ":silent set hlsearch\<CR>"
 endfunction
