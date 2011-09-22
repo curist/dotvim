@@ -32,6 +32,8 @@ set hidden     " it's ok to switch buffer w/o saving
 
 set wildmenu
 
+set timeoutlen=390
+
 set laststatus=2                                      " status bar setting
 set statusline=[%F]                                   " file name
 set statusline+=\ [%{&fileencoding},                  " encoding
