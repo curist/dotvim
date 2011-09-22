@@ -2,10 +2,6 @@
 	path = bundle/vim_rails
 	url = https://github.com/tpope/vim-rails.git
 	ignore = untracked
-[submodule "bundle/wokmarks"]
-	path = bundle/wokmarks
-	url = https://github.com/vim-scripts/wokmarks.vim.git
-	ignore = untracked
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
@@ -17,10 +13,6 @@
 [submodule "bundle/commandt"]
 	path = bundle/commandt
 	url = https://github.com/wincent/Command-T.git
-	ignore = untracked
-[submodule "bundle/marks_browser"]
-	path = bundle/marks_browser
-	url = https://github.com/vim-scripts/Marks-Browser.git
 	ignore = untracked
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
@@ -109,10 +101,6 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-	ignore = untracked
-[submodule "bundle/showmarks"]
-	path = bundle/showmarks
-	url = https://github.com/vim-scripts/ShowMarks
 	ignore = untracked
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion

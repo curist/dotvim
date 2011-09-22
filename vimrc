@@ -65,8 +65,6 @@ augroup MyFileTypeSettings
   " exclusive use cindent for c and cpp
   autocmd FileType c,h,cpp,hpp setlocal cindent
 
-  autocmd FileType marksbuffer setlocal list!
-
   autocmd FileType vimwiki setlocal nohidden
 
   " c/c++ compiletion settings"
@@ -118,27 +116,6 @@ autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 
 " rails settings
 let g:rubycomplete_rails = 1
-
-" mark settings
-function! ToggleShowMarks()
-  if g:showmarks_enable == 0
-    autocmd User WokmarksChange :ShowMarksOn
-    :colorscheme wombat256i
-  else
-    autocmd! User WokmarksChange
-  endif
-  :ShowMarksToggle
-endfunction
-
-let g:wokmarks_do_maps = 0
-let g:wokmarks_pool = "abcdefghijklmnopqrstuvwxyz"
-map mm <Plug>ToggleMarkWok
-map mj <Plug>NextMarkWok
-map mk <Plug>PrevMarkWok
-let g:showmarks_enable=0
-nn <silent> mt :call ToggleShowMarks()<cr>
-nn <silent> mc :delmarks a-z<cr>:ShowMarksOn<cr>:echo "All marks are cleared."<cr>
-nn <silent> mb :MarksBrowser<cr>
 
 nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
