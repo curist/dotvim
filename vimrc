@@ -9,7 +9,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
-"desert256 herald tir_black moria baycomb inkpot xoria256 wombat256i vividchalk
+"desert256 herald tir_black baycomb inkpot xoria256 wombat256i zenburn
 colorscheme wombat256i
 set t_Co=256
 set cursorline
@@ -142,9 +142,9 @@ nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
-nn <silent> <F4> <ESC>:Ack TODO<cr>
+nn <silent> <F4> <ESC>:Ack! TODO<cr>
 nn <silent> <F5> <ESC>:set paste!<cr>
-nn <silent> <leader>s :exec 'Ack '.expand('<cword>')<CR>
+nn <silent> <leader>s :Ack!<CR>
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vn <c-c> <esc>
