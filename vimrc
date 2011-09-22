@@ -58,7 +58,7 @@ set noswapfile
 
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,ruby,eruby,yaml,vim set ai sw=2 sts=2 et
+  autocmd FileType javascript,ruby,eruby,yaml,vim,coffee set ai sw=2 sts=2 et
   " manpage don't show line number
   autocmd FileType man set number!
 
