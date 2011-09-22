@@ -114,3 +114,7 @@
 	path = bundle/showmarks
 	url = https://github.com/vim-scripts/ShowMarks
 	ignore = untracked
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+	ignore = untracked

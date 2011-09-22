@@ -161,6 +161,9 @@ let g:vimwiki_hl_headers = 1
 " ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" easymotion
+let g:EasyMotion_leader_key = '<Leader>g'
+
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeChDirMode = 2
