@@ -80,17 +80,18 @@ augroup MyFileTypeSettings
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre * :call KillTrailingSpaces()
 
   " run settings
-  "autocmd FileType c nnoremap <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType c nnoremap <leader>r :w<cr>:call MakeAndRun()<cr>
-  "autocmd FileType cpp nnoremap <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType cpp nnoremap <leader>r :w<cr>:call MakeAndRun()<cr>
-  autocmd FileType cs nnoremap <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
-  autocmd FileType java nnoremap <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
-  autocmd FileType python nnoremap <leader>r :w<cr>:!ipython %<cr>
-  autocmd FileType perl nnoremap <leader>r :w<cr>:!perl %<cr>
-  autocmd FileType lua nnoremap <leader>r :w<cr>:make<cr>
-  autocmd FileType javascript nnoremap <leader>r :w<cr>:!node %<cr>
-  autocmd FileType coffee nnoremap <leader>r :w<cr>:!coffee %<cr>
+  "autocmd FileType c nn <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType c nn <leader>r :w<cr>:call MakeAndRun()<cr>
+  "autocmd FileType cpp nn <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType cpp nn <leader>r :w<cr>:call MakeAndRun()<cr>
+  autocmd FileType cs nn <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
+  autocmd FileType java nn <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
+  autocmd FileType python nn <leader>r :w<cr>:!ipython %<cr>
+  autocmd FileType perl nn <leader>r :w<cr>:!perl %<cr>
+  autocmd FileType lua nn <leader>r :w<cr>:make<cr>
+  autocmd FileType javascript nn <leader>r :w<cr>:!node %<cr>
+  autocmd FileType coffee nn <leader>r :w<cr>:!coffee %<cr>
+  autocmd FileType coffee vn <leader>r ::w !coffee -s<cr>
 augroup END
 
 " mapping to make copy/paste to clipboard easier
@@ -114,6 +115,10 @@ autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 
 " rails settings
 let g:rubycomplete_rails = 1
+
+" tagbar
+let g:tagbar_sort = 0
+
 
 nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
