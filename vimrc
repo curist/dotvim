@@ -162,7 +162,7 @@ function! Highlighting()
   endif
 
   " check if the current word is meaningful
-  if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_]*$'
+  if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
     let @/ = '\<'.expand('<cword>').'\>'
   " or we just check the g:highlighting to toggle highlight
   elseif g:highlighting == 1
