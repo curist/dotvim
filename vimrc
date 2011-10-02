@@ -77,7 +77,7 @@ augroup MyFileTypeSettings
   autocmd BufEnter,BufNew *.tt set syntax=tt
 
   "" killing trailing spaces when saving file
-  autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre * :call KillTrailingSpaces()
+  autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
 
   " run settings
   "autocmd FileType c nn <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
