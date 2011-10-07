@@ -92,6 +92,8 @@ augroup MyFileTypeSettings
   autocmd FileType javascript nn <leader>r :w<cr>:!node %<cr>
   autocmd FileType coffee nn <leader>r :w<cr>:!coffee %<cr>
   autocmd FileType coffee vn <leader>r ::w !coffee -s<cr>
+  autocmd FileType coffee nn <leader>c :w<cr>:!coffee -p %<cr>
+  autocmd FileType coffee vn <leader>c ::w !coffee -psb<cr>
 augroup END
 
 " mapping to make copy/paste to clipboard easier
