@@ -74,14 +74,6 @@
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
 	ignore = untracked
-[submodule "bundle/js_indent"]
-	path = bundle/js_indent
-	url = https://github.com/vim-scripts/JavaScript-Indent.git
-	ignore = untracked
-[submodule "bundle/js_syntax"]
-	path = bundle/js_syntax
-	url = https://github.com/othree/javascript-syntax.vim.git
-	ignore = untracked
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
@@ -110,3 +102,6 @@
 	path = bundle/gist
 	url = https://github.com/mattn/gist-vim.git
 	ignore = untracked
+[submodule "bundle/vim_js"]
+	path = bundle/vim_js
+	url = https://github.com/pangloss/vim-javascript.git
