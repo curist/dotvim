@@ -96,11 +96,6 @@ augroup MyFileTypeSettings
   autocmd FileType coffee vn <leader>c ::w !coffee -psb<cr>
 augroup END
 
-" mapping to make copy/paste to clipboard easier
-vmap <leader>y "+y
-nmap <leader>p "+p
-nmap <leader>P "+P
-
 " commandT mapping
 let g:CommandTMaxHeight = 15
 nn <silent> <leader>f :CommandTFlush<cr>
@@ -121,7 +116,18 @@ let g:rubycomplete_rails = 1
 " tagbar
 let g:tagbar_sort = 0
 
+" mapping to make copy/paste to clipboard easier
+vmap <leader>y "+y
+nmap <leader>p "+p
+nmap <leader>P "+P
 
+" mappings to make indention easier
+nn <tab> >>
+nn <s-tab> <<
+vn <tab> >gv
+vn <s-tab> <gv
+
+" other sweet mappings
 nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
@@ -138,6 +144,7 @@ nn <c-j> <c-w>j
 nn <c-k> <c-w>k
 nn <c-l> <c-w>l
 nn <c-h> <c-w>h
+
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
