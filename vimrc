@@ -150,7 +150,7 @@ nn <c-h> <c-w>h
 let g:vimwiki_hl_headers = 1
 
 " ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column --type-set haml=.haml"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " easymotion
 let g:EasyMotion_leader_key = '<Leader>g'
