@@ -104,7 +104,7 @@ nn <silent> <leader>v :CommandTBuffer<cr>
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
 set ofu=syntaxcomplete#Complete
-set completeopt=menu
+set completeopt=menu,longest
 
 " deconflicting mappings between bufexplorer and surround
 autocmd BufEnter \[BufExplorer\] unmap ds
