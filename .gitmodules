@@ -118,3 +118,6 @@
 	path = bundle/threesom
 	url = https://github.com/sjl/threesome.vim.git
 	ignore = untracked
+[submodule "bundle/autotag"]
+	path = bundle/autotag
+	url = https://github.com/vim-scripts/AutoTag.git

@@ -4,6 +4,7 @@ call pathogen#helptags()
 syntax on
 filetype on
 filetype plugin indent on
+language messages POSIX
 
 set encoding=utf-8
 set fileencoding=utf-8
