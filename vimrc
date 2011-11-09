@@ -129,7 +129,7 @@ vn <tab> >gv
 vn <s-tab> <gv
 
 " other sweet mappings
-nn <silent> <SPACE> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nn <silent> <SPACE> za
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
@@ -243,6 +243,6 @@ endfunction
 function! HasPaste()
   if &paste
     return '[PASTE MODE]'
-  en
+  end
   return ''
 endfunction
