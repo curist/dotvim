@@ -123,8 +123,8 @@ nmap <leader>p "+p
 nmap <leader>P "+P
 
 " mappings to make indention easier
-nn <tab> >>
-nn <s-tab> <<
+" nn <tab> >>
+" nn <s-tab> <<
 vn <tab> >gv
 vn <s-tab> <gv
 
