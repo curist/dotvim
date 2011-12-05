@@ -95,6 +95,7 @@ augroup MyFileTypeSettings
   autocmd FileType coffee vn <leader>r ::w !coffee -s<cr>
   autocmd FileType coffee nn <leader>c :w<cr>:!coffee -p %<cr>
   autocmd FileType coffee vn <leader>c ::w !coffee -psb<cr>
+  autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
 augroup END
 
 " commandT mapping
@@ -135,11 +136,13 @@ nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn <silent> <F4> <ESC>:Ack! TODO<cr>
 nn <silent> <F5> <ESC>:set paste!<cr>
-nn <silent> <leader>s :Ack!<CR>
+nn <silent> <leader>s :Ack!<cr>
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vn <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
+
+im <c-j> <esc>F<lyt>$a</">
 
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
