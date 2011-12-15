@@ -13,7 +13,8 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 set t_Co=256
 "desert256 herald tir_black baycomb inkpot xoria256 wombat256i zenburn
 colorscheme wombat256i
-set cursorline
+autocmd WinLeave * set nocursorline
+autocmd WinEnter,BufRead * set cursorline
 highlight Pmenu ctermbg=300 gui=bold
 
 set number
