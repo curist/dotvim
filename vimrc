@@ -163,6 +163,8 @@ let g:EasyMotion_leader_key = '<Leader>g'
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeChDirMode = 2
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeDirArrows = 1
 let g:NERDTreeQuitOnOpen = 0
 
 let g:highlighting = 0
