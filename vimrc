@@ -48,6 +48,11 @@ let mapleader = ","
 set list
 set listchars=tab:>-,trail:-
 
+set formatoptions-=o
+
+set sidescrolloff=5
+set sidescroll=1
+
 set ignorecase " ignore case in general
 set smartcase  " when we typed something in Capitalized, be case sensitive
 set incsearch
