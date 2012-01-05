@@ -109,6 +109,11 @@ let g:CommandTMaxHeight = 15
 nn <silent> <leader>f :CommandTFlush<cr>
 nn <silent> <leader>v :CommandTBuffer<cr>
 
+" ctrlp settings
+let g:ctrlp_max_height = 15
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
 set ofu=syntaxcomplete#Complete
