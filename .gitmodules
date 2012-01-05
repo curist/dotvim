@@ -58,10 +58,6 @@
 	path = bundle/vim_ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
 	ignore = untracked
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
-	ignore = untracked
 [submodule "bundle/vim_coffee"]
 	path = bundle/vim_coffee
 	url = https://github.com/kchmck/vim-coffee-script.git
@@ -90,14 +86,6 @@
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	ignore = untracked
-[submodule "bundle/easymotion"]
-	path = bundle/easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
-	ignore = untracked
-[submodule "bundle/gist"]
-	path = bundle/gist
-	url = https://github.com/mattn/gist-vim.git
-	ignore = untracked
 [submodule "bundle/vim_js"]
 	path = bundle/vim_js
 	url = https://github.com/pangloss/vim-javascript.git
@@ -105,18 +93,6 @@
 [submodule "bundle/jade"]
 	path = bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
-	ignore = untracked
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
-	ignore = untracked
-[submodule "bundle/threesom"]
-	path = bundle/threesom
-	url = https://github.com/sjl/threesome.vim.git
-	ignore = untracked
-[submodule "bundle/autotag"]
-	path = bundle/autotag
-	url = https://github.com/vim-scripts/AutoTag.git
 	ignore = untracked
 [submodule "bundle/gitv"]
 	path = bundle/gitv
