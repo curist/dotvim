@@ -48,6 +48,11 @@ let mapleader = ","
 set list
 set listchars=tab:>-,trail:-
 
+set formatoptions-=o
+
+set sidescrolloff=5
+set sidescroll=1
+
 set ignorecase " ignore case in general
 set smartcase  " when we typed something in Capitalized, be case sensitive
 set incsearch
@@ -99,7 +104,7 @@ augroup MyFileTypeSettings
   autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
 augroup END
 
-" commandT mapping
+" commandT settings
 let g:CommandTMaxHeight = 15
 nn <silent> <leader>f :CommandTFlush<cr>
 nn <silent> <leader>v :CommandTBuffer<cr>
@@ -156,9 +161,6 @@ let g:vimwiki_hl_headers = 1
 
 " ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
-" easymotion
-let g:EasyMotion_leader_key = '<Leader>g'
 
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 1
