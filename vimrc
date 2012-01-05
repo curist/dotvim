@@ -104,15 +104,10 @@ augroup MyFileTypeSettings
   autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
 augroup END
 
-" commandT mapping
+" commandT settings
 let g:CommandTMaxHeight = 15
 nn <silent> <leader>f :CommandTFlush<cr>
 nn <silent> <leader>v :CommandTBuffer<cr>
-
-" ctrlp settings
-let g:ctrlp_max_height = 15
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_dotfiles = 0
 
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
