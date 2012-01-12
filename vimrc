@@ -203,7 +203,8 @@ nn <c-l> <c-w>l
 nn <c-h> <c-w>h
 
 " YankRing
-nn <silent> <leader>ys :YRShow<cr>
+let g:yankring_history_file = '.yankring_history'
+nn <silent> <leader>yr :YRShow<cr>
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
