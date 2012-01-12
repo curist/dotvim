@@ -29,6 +29,7 @@ augroup Bundles
   Bundle 'chrisbra/NrrwRgn'
   Bundle 'gregsexton/gitv'
   Bundle 'curist/vim-AutoClose'
+  Bundle 'YankRing.vim'
 
   " language specific
   Bundle 'vim-ruby/vim-ruby'
@@ -194,6 +195,8 @@ nn <c-k> <c-w>k
 nn <c-l> <c-w>l
 nn <c-h> <c-w>h
 
+" YankRing
+nn <silent> <leader>ys :YRShow<cr>
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
