@@ -7,35 +7,44 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 augroup Bundles
+  " text manipulating helpers
+  Bundle 'YankRing.vim'
+  Bundle 'tpope/vim-surround'
+  Bundle 'curist/vim-AutoClose'
+  Bundle 'tpope/vim-endwise'
+  Bundle 'godlygeek/tabular'
+
+  " moving around:
+  "   file/buffer switching
+  "   in file quick jumps
   Bundle 'mru.vim'
   Bundle 'matchit.zip'
   Bundle 'bufexplorer.zip'
-  Bundle 'Tagbar'
-  Bundle 'vimwiki'
-  Bundle 'repmo.vim'
-  Bundle 'SuperTab-continued.'
-  Bundle 'tpope/vim-rails'
-  Bundle 'tpope/vim-rake'
-  Bundle 'tpope/vim-endwise'
-  Bundle 'tpope/vim-surround'
-  Bundle 'tpope/vim-repeat'
-  Bundle 'tpope/vim-fugitive'
   Bundle 'wincent/Command-T'
-  Bundle 'msanders/snipmate.vim'
   Bundle 'scrooloose/nerdtree'
-  Bundle 'godlygeek/tabular'
-  Bundle 'mileszs/ack.vim'
+  Bundle 'Tagbar'
+
+  " git
   Bundle 'motemen/git-vim'
-  Bundle 'chrisbra/NrrwRgn'
+  Bundle 'tpope/vim-fugitive'
   Bundle 'gregsexton/gitv'
-  Bundle 'curist/vim-AutoClose'
-  Bundle 'YankRing.vim'
 
   " language specific
   Bundle 'vim-ruby/vim-ruby'
+  Bundle 'tpope/vim-rails'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
   Bundle 'pangloss/vim-javascript'
+
+  " other handy plugins
+  Bundle 'vimwiki'
+  Bundle 'repmo.vim'
+  Bundle 'SuperTab-continued.'
+  Bundle 'tpope/vim-rake'
+  Bundle 'tpope/vim-repeat'
+  Bundle 'msanders/snipmate.vim'
+  Bundle 'mileszs/ack.vim'
+  Bundle 'chrisbra/NrrwRgn'
 
   " good to have
   " Bundle 'sjl/threesome.vim'
