@@ -136,10 +136,8 @@ augroup MyFileTypeSettings
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
 
   " run settings
-  "autocmd FileType c nn <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType c nn <leader>r :w<cr>:call MakeAndRun()<cr>
-  "autocmd FileType cpp nn <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType cpp nn <leader>r :w<cr>:call MakeAndRun()<cr>
+  autocmd FileType c nn <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType cpp nn <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
   autocmd FileType cs nn <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType java nn <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
   autocmd FileType python nn <leader>r :w<cr>:!ipython %<cr>
@@ -264,33 +262,6 @@ augroup QFixToggle
   autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
   autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
 augroup END
-
-function! HasError(qflist)
-  for i in a:qflist
-    if i.valid == 1
-      return 1
-    endif
-  endfor
-  return 0
-endfunction
-
-function! MakeAndRun()
-  make
-  if HasError(getqflist())
-    QFix
-  else
-    !~/bin/%:t:r
-  endif
-endfunction
-
-"auto update ctags"
-function! UPDATE_TAGS()
-  let _cmd_ = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ."
-  let _resp = system(_cmd_)
-  unlet _cmd_
-  unlet _resp
-endfunction
-autocmd BufWritePost *.cpp,*.hpp,*.h,*.c call UPDATE_TAGS()
 
 function! KillTrailingSpaces()
   let save_cursor = getpos('.')
