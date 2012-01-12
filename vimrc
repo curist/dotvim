@@ -6,33 +6,41 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" my bundles
-Bundle 'mru.vim'
-Bundle 'matchit.zip'
-Bundle 'bufexplorer.zip'
-Bundle 'Tagbar'
-Bundle 'vimwiki'
-Bundle 'repmo.vim'
-Bundle 'SuperTab-continued.'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-fugitive'
-Bundle 'wincent/Command-T'
-Bundle 'msanders/snipmate.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'godlygeek/tabular'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mileszs/ack.vim'
-Bundle 'motemen/git-vim'
-Bundle 'chrisbra/NrrwRgn'
-Bundle 'pangloss/vim-javascript'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'gregsexton/gitv'
-Bundle 'curist/vim-AutoClose'
+augroup Bundles
+  Bundle 'mru.vim'
+  Bundle 'matchit.zip'
+  Bundle 'bufexplorer.zip'
+  Bundle 'Tagbar'
+  Bundle 'vimwiki'
+  Bundle 'repmo.vim'
+  Bundle 'SuperTab-continued.'
+  Bundle 'tpope/vim-rails'
+  Bundle 'tpope/vim-rake'
+  Bundle 'tpope/vim-endwise'
+  Bundle 'tpope/vim-surround'
+  Bundle 'tpope/vim-repeat'
+  Bundle 'tpope/vim-fugitive'
+  Bundle 'wincent/Command-T'
+  Bundle 'msanders/snipmate.vim'
+  Bundle 'scrooloose/nerdtree'
+  Bundle 'godlygeek/tabular'
+  Bundle 'mileszs/ack.vim'
+  Bundle 'motemen/git-vim'
+  Bundle 'chrisbra/NrrwRgn'
+  Bundle 'gregsexton/gitv'
+  Bundle 'curist/vim-AutoClose'
+
+  " language specific
+  Bundle 'vim-ruby/vim-ruby'
+  Bundle 'digitaltoad/vim-jade'
+  Bundle 'kchmck/vim-coffee-script'
+  Bundle 'pangloss/vim-javascript'
+
+  " good to have
+  " Bundle 'sjl/threesome.vim'
+  " Bundle 'sjl/gundo.vim'
+  " Bundle 'scrooloose/syntastic'
+augroup END
 
 filetype plugin indent on
 language messages POSIX
