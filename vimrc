@@ -8,7 +8,6 @@ Bundle 'gmarik/vundle'
 
 augroup Bundles
   " text manipulating helpers
-  Bundle 'YankRing.vim'
   Bundle 'tpope/vim-surround'
   Bundle 'curist/vim-AutoClose'
   Bundle 'tpope/vim-endwise'
@@ -50,6 +49,7 @@ augroup Bundles
   " Bundle 'sjl/threesome.vim'
   " Bundle 'sjl/gundo.vim'
   " Bundle 'scrooloose/syntastic'
+  " Bundle 'YankRing.vim'
 augroup END
 
 filetype plugin indent on
@@ -201,10 +201,6 @@ nn <c-j> <c-w>j
 nn <c-k> <c-w>k
 nn <c-l> <c-w>l
 nn <c-h> <c-w>h
-
-" YankRing
-let g:yankring_history_file = '.yankring_history'
-nn <silent> <leader>yr :YRShow<cr>
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
