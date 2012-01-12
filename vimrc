@@ -1,8 +1,39 @@
 set nocompatible
-call pathogen#infect()
-call pathogen#helptags()
-syntax on
-filetype on
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" my bundles
+Bundle 'mru.vim'
+Bundle 'matchit.zip'
+Bundle 'bufexplorer.zip'
+Bundle 'Tagbar'
+Bundle 'vimwiki'
+Bundle 'repmo.vim'
+Bundle 'SuperTab-continued.'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-fugitive'
+Bundle 'wincent/Command-T'
+Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'godlygeek/tabular'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'mileszs/ack.vim'
+Bundle 'motemen/git-vim'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'pangloss/vim-javascript'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'gregsexton/gitv'
+Bundle 'curist/vim-AutoClose'
+
 filetype plugin indent on
 language messages POSIX
 
