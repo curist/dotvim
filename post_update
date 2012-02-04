@@ -1,0 +1,15 @@
+#!/bin/bash
+
+printf "compiling Commnad-T...\n"
+cd ~/.vim/bundle/Command-T/ruby/command-t
+make clean
+gcc -I. -I/usr/lib/ruby/1.8/x86_64-linux -I/usr/lib/ruby/1.8/x86_64-linux -I. -DHAVE_RUBY_H    -fPIC -fno-strict-aliasing -g -g -O2  -fPIC   -std=c99 -Wall -Wextra -Wno-unused-parameter -c matcher.c
+gcc -I. -I/usr/lib/ruby/1.8/x86_64-linux -I/usr/lib/ruby/1.8/x86_64-linux -I. -DHAVE_RUBY_H    -fPIC -fno-strict-aliasing -g -g -O2  -fPIC   -std=c99 -Wall -Wextra -Wno-unused-parameter -c match.c
+gcc -I. -I/usr/lib/ruby/1.8/x86_64-linux -I/usr/lib/ruby/1.8/x86_64-linux -I. -DHAVE_RUBY_H    -fPIC -fno-strict-aliasing -g -g -O2  -fPIC   -std=c99 -Wall -Wextra -Wno-unused-parameter -c ext.c
+gcc -shared -o ext.so matcher.o match.o ext.o -L. -L/usr/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic    -lruby1.8  -lpthread -lrt -ldl -lcrypt -lm   -lc
+
+printf "updating snippets...\n"
+mv -u ~/.vim/bundle/snipmate.vim/snippets/* ~/.vim/snippets
+rm ~/.vim/bundle/snipmate.vim/snippets/*
+
+printf "done.\n"

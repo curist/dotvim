@@ -1,7 +1,0 @@
-#!/bin/bash
-
-printf "\n\e[1;32mWill now compile Commnad-T...\e[0m\n\n"
-cd ~/.vim/bundle/Command-T/ruby/command-t
-make clean
-ruby extconf.rb
-make
