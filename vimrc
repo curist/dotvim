@@ -220,7 +220,8 @@ function! Highlighting()
   if &filetype=="qf"
     return "\<cr>"
   endif
-  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+  "if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+  if g:highlighting == 1 && @/ =~ expand('<cword>')
     let g:highlighting = 0
     return ":silent nohlsearch\<CR>"
   endif
@@ -240,6 +241,8 @@ endfunction
 nn <silent> <expr> <CR> Highlighting()
 nn <silent> n :let g:highlighting=1<cr>n
 nn <silent> N :let g:highlighting=1<cr>N
+nn <silent> / :let g:highlighting=1<cr>/
+nn <silent> ? :let g:highlighting=1<cr>?
 nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
 
 " toggles the quickfix window.
