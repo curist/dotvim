@@ -37,7 +37,7 @@ augroup Bundles
 
   " other handy plugins
   Bundle 'vimwiki'
-  Bundle 'repmo.vim'
+  " Bundle 'repmo.vim'
   Bundle 'SuperTab-continued.'
   Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
@@ -52,16 +52,17 @@ augroup Bundles
   " Bundle 'YankRing.vim'
 augroup END
 
+syntax on
 filetype plugin indent on
-language messages POSIX
+" language messages POSIX
 
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 set t_Co=256
-"desert256 herald tir_black baycomb inkpot xoria256 wombat256i zenburn
-colorscheme wombat256i
+"desert256 herald tir_black baycomb lucius inkpot jellybeans xoria256 wombat256i zenburn
+colorscheme jellybeans
 autocmd WinLeave * set nocursorline
 autocmd WinEnter,BufRead * set cursorline
 highlight Pmenu ctermbg=300 gui=bold
@@ -112,7 +113,7 @@ set noswapfile
 
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,ruby,eruby,yaml,vim,coffee set ai sw=2 sts=2 et
+  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee set ai sw=2 sts=2 et
   " manpage don't show line number
   autocmd FileType man set number!
 
@@ -140,7 +141,7 @@ augroup MyFileTypeSettings
   autocmd FileType cpp nn <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
   autocmd FileType cs nn <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType java nn <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
-  autocmd FileType python nn <leader>r :w<cr>:!ipython %<cr>
+  autocmd FileType python nn <leader>r :w<cr>:!ipython -i %<cr>
   autocmd FileType perl nn <leader>r :w<cr>:!perl %<cr>
   autocmd FileType lua nn <leader>r :w<cr>:make<cr>
   autocmd FileType javascript nn <leader>r :w<cr>:!node %<cr>
@@ -214,6 +215,7 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeQuitOnOpen = 0
+nn <silent> <leader>nf :NERDTreeFind<cr>
 
 let g:highlighting = 0
 function! Highlighting()
