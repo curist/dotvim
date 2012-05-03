@@ -34,6 +34,7 @@ augroup Bundles
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
   Bundle 'pangloss/vim-javascript'
+  Bundle 'javacomplete'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -122,6 +123,10 @@ augroup MyFileTypeSettings
 
   autocmd FileType vimwiki setlocal nohidden
 
+  " java complete setting
+  autocmd FileType java set omnifunc=javacomplete#Complete
+  autocmd FileType java set completefunc=javacomplete#Complete
+
   " c/c++ compiletion settings"
   autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
   autocmd FileType cpp set mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
@@ -141,7 +146,7 @@ augroup MyFileTypeSettings
   autocmd FileType cpp nn <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
   autocmd FileType cs nn <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType java nn <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
-  autocmd FileType python nn <leader>r :w<cr>:!ipython -i %<cr>
+  autocmd FileType python nn <leader>r :w<cr>:!python %<cr>
   autocmd FileType perl nn <leader>r :w<cr>:!perl %<cr>
   autocmd FileType lua nn <leader>r :w<cr>:make<cr>
   autocmd FileType javascript nn <leader>r :w<cr>:!node %<cr>
