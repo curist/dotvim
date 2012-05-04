@@ -64,9 +64,8 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 set t_Co=256
 "desert256 herald tir_black baycomb lucius inkpot jellybeans xoria256 wombat256i zenburn
 colorscheme jellybeans
-autocmd WinLeave * set nocursorline
-autocmd WinEnter,BufRead * set cursorline
 highlight Pmenu ctermbg=300 gui=bold
+set cursorline
 
 set number
 set tabstop=4
@@ -215,7 +214,7 @@ let g:vimwiki_hl_headers = 1
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " NERDTree options
-let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeHighlightCursorline = 0
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeDirArrows = 1
