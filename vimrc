@@ -111,6 +111,7 @@ set hlsearch
 set nobackup
 set noswapfile
 
+set shortmess+=I " no intro message
 
 augroup MyFileTypeSettings
   autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee set ai sw=2 sts=2 et
