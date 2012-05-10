@@ -19,9 +19,9 @@ augroup Bundles
   Bundle 'mru.vim'
   Bundle 'matchit.zip'
   Bundle 'bufexplorer.zip'
-  Bundle 'wincent/Command-T'
   Bundle 'scrooloose/nerdtree'
   Bundle 'Tagbar'
+  Bundle 'kien/ctrlp.vim'
 
   " git
   Bundle 'motemen/git-vim'
@@ -51,6 +51,7 @@ augroup Bundles
   " Bundle 'sjl/gundo.vim'
   " Bundle 'scrooloose/syntastic'
   " Bundle 'YankRing.vim'
+  " Bundle 'wincent/Command-T'
 augroup END
 
 syntax on
@@ -158,9 +159,13 @@ augroup MyFileTypeSettings
 augroup END
 
 " commandT settings
-let g:CommandTMaxHeight = 15
-nn <silent> <leader>f :CommandTFlush<cr>
-nn <silent> <leader>v :CommandTBuffer<cr>
+" let g:CommandTMaxHeight = 15
+" nn <silent> <leader>f :CommandTFlush<cr>
+" nn <silent> <leader>v :CommandTBuffer<cr>
+
+" ctrlp settings
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_working_path_mode = 0
 
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
