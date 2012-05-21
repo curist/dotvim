@@ -45,6 +45,7 @@ augroup Bundles
   Bundle 'msanders/snipmate.vim'
   Bundle 'mileszs/ack.vim'
   Bundle 'chrisbra/NrrwRgn'
+  Bundle 'Lokaltog/vim-powerline'
 
   " good to have
   " Bundle 'sjl/threesome.vim'
@@ -86,12 +87,6 @@ set hidden     " it's ok to switch buffer w/o saving
 set wildmenu
 
 set laststatus=2                                      " status bar setting
-set statusline=[%F]                                   " file name
-set statusline+=\ [%{&fileencoding},                  " encoding
-set statusline+=%{&fileformat}]                       " file format
-set statusline+=%{HasPaste()}                         " paste mode status
-set statusline+=%m                                    " file modified?
-set statusline+=%=%{GitBranch()}\ %y\ %l,\ %c\ \<%P\> " git branch
 
 let g:bufExplorerFindActive=0
 let mapleader = ","
@@ -167,6 +162,9 @@ augroup END
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_working_path_mode = 0
 
+" powerline settings
+let g:Powerline_symbols='unicode'
+
 " supertab
 " let g:SuperTabDefaultCompletionType = "context"
 set ofu=syntaxcomplete#Complete
@@ -239,7 +237,7 @@ function! Highlighting()
   endif
 
   " check if the current word is meaningful
-  if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
+  if expand('<cword>') =~ '^[a-zA-Z_][a-zA-Z#_0-9]*$'
     let @/ = '\<'.expand('<cword>').'\>'
   " or we just check the g:highlighting to toggle highlight
   elseif g:highlighting == 1
@@ -280,11 +278,4 @@ function! KillTrailingSpaces()
   :%s/\s\+$//e
   :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
   unlet save_cursor
-endfunction
-
-function! HasPaste()
-  if &paste
-    return '[PASTE MODE]'
-  end
-  return ''
 endfunction
