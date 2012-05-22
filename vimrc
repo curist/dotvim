@@ -176,6 +176,9 @@ set completeopt=menu,longest
 autocmd BufEnter \[BufExplorer\] unmap ds
 autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 
+" don't show quickfix in buffers list
+autocmd BufRead quickfix setlocal nobuflisted
+
 " rails settings
 let g:rubycomplete_rails = 1
 
@@ -258,7 +261,7 @@ nn <silent> ? :let g:highlighting=1<cr>?
 nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
 
 " toggles the quickfix window.
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
+command -bang -nargs=0 QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
     cclose
