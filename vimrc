@@ -35,6 +35,7 @@ augroup Bundles
   Bundle 'kchmck/vim-coffee-script'
   Bundle 'pangloss/vim-javascript'
   Bundle 'javacomplete'
+  Bundle 'tpope/vim-markdown'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -156,6 +157,9 @@ augroup MyFileTypeSettings
   autocmd FileType coffee nn <leader>c :w<cr>:!coffee -p %<cr>
   autocmd FileType coffee vn <leader>c ::w !coffee -psb<cr>
   autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
+  " markdown preview, use the same key binding as
+  " running scripts just feel right
+  autocmd FileType markdown nn <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 augroup END
 
 " commandT settings
