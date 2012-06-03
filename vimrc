@@ -38,13 +38,12 @@ augroup Bundles
 
   " other handy plugins
   Bundle 'vimwiki'
-  " Bundle 'repmo.vim'
   Bundle 'SuperTab-continued.'
   Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
-  Bundle 'msanders/snipmate.vim'
   Bundle 'mileszs/ack.vim'
   Bundle 'chrisbra/NrrwRgn'
+  Bundle 'UltiSnips'
 
   " good to have
   " Bundle 'sjl/threesome.vim'
@@ -52,11 +51,12 @@ augroup Bundles
   " Bundle 'scrooloose/syntastic'
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
+  " Bundle 'repmo.vim'
 augroup END
 
 syntax on
 filetype plugin indent on
-" language messages POSIX
+language messages POSIX
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -158,10 +158,9 @@ augroup MyFileTypeSettings
   autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
 augroup END
 
-" commandT settings
-" let g:CommandTMaxHeight = 15
-" nn <silent> <leader>f :CommandTFlush<cr>
-" nn <silent> <leader>v :CommandTBuffer<cr>
+
+" UltiSnips settings
+let g:UltiSnipsSnippetDirectories=["snippets"]
 
 " ctrlp settings
 let g:ctrlp_map = '<leader>t'
@@ -209,8 +208,10 @@ nn <silent> <c-p> :cp<cr>
 vn <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 
+" complete unclosed xml tag
 im <c-j> <esc>F<lyt>$a</">
 
+" moving between windows
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
 nn <c-l> <c-w>l
