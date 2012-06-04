@@ -67,7 +67,7 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 set t_Co=256
 "desert256 herald tir_black baycomb lucius inkpot jellybeans xoria256 wombat256i zenburn
 colorscheme jellybeans
-highlight Pmenu ctermbg=300 gui=bold
+" highlight Pmenu ctermbg=300 gui=bold
 set cursorline
 
 set number
@@ -99,7 +99,7 @@ let g:bufExplorerFindActive=0
 let mapleader = ","
 
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:>-,trail:·,precedes:←,extends:→
 
 set formatoptions-=o
 
@@ -174,7 +174,7 @@ let g:ctrlp_map = '<leader>t'
 let g:ctrlp_working_path_mode = 0
 
 " supertab
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
 set ofu=syntaxcomplete#Complete
 set completeopt=menu,longest
 
