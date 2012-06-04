@@ -36,6 +36,7 @@ augroup Bundles
   Bundle 'pangloss/vim-javascript'
   Bundle 'javacomplete'
   Bundle 'tpope/vim-markdown'
+  Bundle 'MatchTag'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -116,7 +117,7 @@ set noswapfile
 set shortmess+=I " no intro message
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee set ai sw=2 sts=2 et
+  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html set ai sw=2 sts=2 et
   " manpage don't show line number
   autocmd FileType man set number!
 
@@ -213,9 +214,6 @@ nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vn <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
-
-" complete unclosed xml tag
-im <c-j> <esc>F<lyt>$a</">
 
 " moving between windows
 nn <c-j> <c-w>j
