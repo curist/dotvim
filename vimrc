@@ -165,6 +165,8 @@ augroup END
 
 " UltiSnips settings
 let g:UltiSnipsSnippetDirectories=["snippets"]
+" snippet editing helper
+nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
 
 " ctrlp settings
 let g:ctrlp_map = '<leader>t'
