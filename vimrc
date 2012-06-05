@@ -117,9 +117,13 @@ set noswapfile
 set shortmess+=I " no intro message
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html set ai sw=2 sts=2 et
+  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html setlocal ai sw=2 sts=2 et
+
+  " markdown wrap lines
+  autocmd FileType markdown setlocal wrap
+
   " manpage don't show line number
-  autocmd FileType man set number!
+  autocmd FileType man setlocal number!
 
   " exclusive use cindent for c and cpp
   autocmd FileType c,h,cpp,hpp setlocal cindent
@@ -127,19 +131,19 @@ augroup MyFileTypeSettings
   autocmd FileType vimwiki setlocal nohidden
 
   " java complete setting
-  autocmd FileType java set omnifunc=javacomplete#Complete
-  autocmd FileType java set completefunc=javacomplete#Complete
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  autocmd FileType java setlocal completefunc=javacomplete#Complete
 
   " c/c++ compiletion settings"
-  autocmd FileType c set mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
-  autocmd FileType cpp set mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
+  autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
+  autocmd FileType cpp setlocal mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
 
   " lua quickfix settings "
   autocmd FileType lua setlocal mp=lua\ %
   autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
 
   " tintin++ setting
-  autocmd BufEnter,BufNew *.tt set syntax=tt
+  autocmd BufEnter,BufNew *.tt setlocal syntax=tt
 
   "" killing trailing spaces when saving file
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
