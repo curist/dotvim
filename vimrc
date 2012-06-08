@@ -158,9 +158,9 @@ augroup MyFileTypeSettings
   autocmd FileType lua nn <leader>r :w<cr>:make<cr>
   autocmd FileType javascript nn <leader>r :w<cr>:!node %<cr>
   autocmd FileType coffee nn <leader>r :w<cr>:!coffee %<cr>
-  autocmd FileType coffee vn <leader>r ::w !coffee -s<cr>
+  autocmd FileType coffee vn <leader>r :w !coffee -s<cr>
   autocmd FileType coffee nn <leader>c :w<cr>:!coffee -p %<cr>
-  autocmd FileType coffee vn <leader>c ::w !coffee -psb<cr>
+  autocmd FileType coffee vn <leader>c :w !coffee -psb<cr>
   autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
   " markdown preview, use the same key binding as
   " running scripts just feel right
@@ -199,12 +199,6 @@ let g:tagbar_sort = 0
 vmap <leader>y "+y
 nmap <leader>p "+p
 nmap <leader>P "+P
-
-" mappings to make indention easier
-" nn <tab> >>
-" nn <s-tab> <<
-vn <tab> >gv
-vn <s-tab> <gv
 
 " other sweet mappings
 nn <silent> <SPACE> za
