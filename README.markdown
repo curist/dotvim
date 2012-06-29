@@ -7,3 +7,16 @@ Install
 5. :BundleInstall
 
 and you are good to go!!
+
+Key Bindings
+=========================
+* __,es__
+
+   edit the snip for current file type 
+
+Useful Custom Snippet
+=========================
+* javascripts
+  * clog
+
+      console.log
