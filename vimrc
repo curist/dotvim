@@ -176,6 +176,10 @@ nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
 " ctrlp settings
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$'
+      \ }
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -247,10 +251,10 @@ function! Highlighting()
   " check if the current word is meaningful
   if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
     let @/ = '\<'.expand('<cword>').'\>'
-  " or we just check the g:highlighting to toggle highlight
+    " or we just check the g:highlighting to toggle highlight
   elseif g:highlighting == 1
-      let g:highlighting = 0
-      return ":silent nohlsearch\<CR>"
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
   endif
 
   let g:highlighting = 1
