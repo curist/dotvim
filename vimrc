@@ -167,6 +167,8 @@ augroup MyFileTypeSettings
   autocmd FileType markdown nn <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 augroup END
 
+" git-vim
+let g:git_no_map_default = 1
 
 " UltiSnips settings
 let g:UltiSnipsSnippetDirectories=["snippets"]
