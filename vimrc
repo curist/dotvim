@@ -178,7 +178,7 @@ let g:ctrlp_map = '<leader>t'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$'
+      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
       \ }
 
 " supertab
