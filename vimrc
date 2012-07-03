@@ -177,6 +177,7 @@ nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
 
 " ctrlp settings
 nn <silent> <leader>t :CtrlPBufTag<cr>
+nn <silent> <leader>g :CtrlPTag<cr>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = {
