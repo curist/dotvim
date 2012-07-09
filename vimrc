@@ -117,7 +117,7 @@ set noswapfile
 set shortmess+=I " no intro message
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown setlocal ai sw=2 sts=2 et
 
   " markdown wrap lines
   autocmd FileType markdown setlocal wrap

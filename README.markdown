@@ -16,6 +16,13 @@ Key Bindings
 
 Useful Custom Snippet
 =========================
+* general
+  * filename
+
+      current filename without path
+  * ddate
+
+      date in the format of "Jul 09, 2012"
 * javascripts
   * clog
 
