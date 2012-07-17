@@ -46,14 +46,14 @@ augroup Bundles
   Bundle 'mileszs/ack.vim'
   Bundle 'chrisbra/NrrwRgn'
   Bundle 'UltiSnips'
+  Bundle 'sjl/gundo.vim'
 
   " good to have
-  " Bundle 'sjl/threesome.vim'
-  " Bundle 'sjl/gundo.vim'
   " Bundle 'scrooloose/syntastic'
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
   " Bundle 'repmo.vim'
+  " Bundle 'sjl/splice.vim'
 augroup END
 
 syntax on
@@ -186,7 +186,7 @@ let g:ctrlp_custom_ignore = {
       \ }
 
 " supertab
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 set ofu=syntaxcomplete#Complete
 set completeopt=menu,longest
 
