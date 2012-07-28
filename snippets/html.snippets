@@ -1,4 +1,4 @@
-###########################################################################
+#body##########################################################################
 #                            TextMate Snippets                            #
 ###########################################################################
 
@@ -160,17 +160,20 @@ snippet base "XHTML <base>"
 endsnippet
 
 snippet body "XHTML <body>"
-<body id="${1:`!p
-snip.rv = snip.fn and 'Hallo' or 'Nothin'
-`}"${2: onload="$3"}>
+<body>
 	$0
 </body>
 endsnippet
 
 snippet div "XHTML <div>"
-<div${1: id="${2:name}"}>
-	$0
+<div id="${1:name}">
+	$2
 </div>
+$0
+endsnippet
+
+snippet span "XHTML <span>"
+<span id="${1:name}">$2</span>$0
 endsnippet
 
 snippet form "XHTML <form>"
