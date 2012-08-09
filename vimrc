@@ -33,10 +33,10 @@ augroup Bundles
   Bundle 'tpope/vim-rails'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
-  Bundle 'pangloss/vim-javascript'
-  Bundle 'javacomplete'
   Bundle 'tpope/vim-markdown'
   Bundle 'MatchTag'
+  Bundle 'pangloss/vim-javascript'
+  Bundle 'wookiehangover/jshint.vim'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -54,6 +54,7 @@ augroup Bundles
   " Bundle 'wincent/Command-T'
   " Bundle 'repmo.vim'
   " Bundle 'sjl/splice.vim'
+  " Bundle 'javacomplete'
 augroup END
 
 syntax on
@@ -117,7 +118,7 @@ set noswapfile
 set shortmess+=I " no intro message
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki setlocal ai sw=2 sts=2 et
 
   " markdown wrap lines
   autocmd FileType markdown setlocal wrap
@@ -131,8 +132,8 @@ augroup MyFileTypeSettings
   autocmd FileType vimwiki setlocal nohidden
 
   " java complete setting
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  autocmd FileType java setlocal completefunc=javacomplete#Complete
+  " autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  " autocmd FileType java setlocal completefunc=javacomplete#Complete
 
   " c/c++ compiletion settings"
   autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
@@ -162,8 +163,6 @@ augroup MyFileTypeSettings
   autocmd FileType coffee nn <leader>c :w<cr>:!coffee -p %<cr>
   autocmd FileType coffee vn <leader>c :w !coffee -psb<cr>
   autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
-  " markdown preview, use the same key binding as
-  " running scripts just feel right
   autocmd FileType markdown nn <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 augroup END
 
