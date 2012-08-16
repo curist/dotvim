@@ -215,6 +215,7 @@ nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn <silent> <F4> <ESC>:Ack! TODO<cr>
 nn <silent> <F5> <ESC>:set paste!<cr>
 nn <silent> <leader>s :Ack!<cr>
+nn <silent> <leader>z :execute 'vimgrep '.expand('<cword>').' '.expand('%')<cr>:copen<cr>:cc<cr>
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vn <c-c> <esc>
