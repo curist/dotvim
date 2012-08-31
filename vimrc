@@ -120,8 +120,8 @@ set shortmess+=I " no intro message
 augroup MyFileTypeSettings
   autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki setlocal ai sw=2 sts=2 et
 
-  " markdown wrap lines
-  autocmd FileType markdown setlocal wrap
+  " markdown and vimwiki wrap lines
+  autocmd FileType markdown,vimwiki setlocal wrap
 
   " manpage don't show line number
   autocmd FileType man setlocal number!
