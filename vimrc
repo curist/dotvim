@@ -54,7 +54,7 @@ augroup Bundles
   " Bundle 'wincent/Command-T'
   " Bundle 'repmo.vim'
   " Bundle 'sjl/splice.vim'
-  " Bundle 'javacomplete'
+  Bundle 'javacomplete'
 augroup END
 
 syntax on
@@ -81,7 +81,7 @@ set mouse=vn
 set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
 set foldlevelstart=99 " we want all fold to be expand at start
-set foldnestmax=3     " we want 3 fold levels at max
+set foldnestmax=6     " fold levels don't go too deep
 set autoindent
 set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
@@ -118,7 +118,7 @@ set noswapfile
 set shortmess+=I " no intro message
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
 
   " markdown and vimwiki wrap lines
   autocmd FileType markdown,vimwiki setlocal wrap
@@ -132,8 +132,8 @@ augroup MyFileTypeSettings
   autocmd FileType vimwiki setlocal nohidden
 
   " java complete setting
-  " autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  " autocmd FileType java setlocal completefunc=javacomplete#Complete
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  autocmd FileType java setlocal completefunc=javacomplete#Complete
 
   " c/c++ compiletion settings"
   autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
