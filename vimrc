@@ -31,12 +31,13 @@ augroup Bundles
   " language specific
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'tpope/vim-rails'
-  Bundle 'digitaltoad/vim-jade'
-  Bundle 'kchmck/vim-coffee-script'
   Bundle 'tpope/vim-markdown'
   Bundle 'MatchTag'
   Bundle 'pangloss/vim-javascript'
+  Bundle 'digitaltoad/vim-jade'
+  Bundle 'kchmck/vim-coffee-script'
   Bundle 'wookiehangover/jshint.vim'
+  Bundle 'wavded/vim-stylus'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -66,7 +67,8 @@ set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 set t_Co=256
-"desert256 herald tir_black baycomb lucius inkpot jellybeans xoria256 wombat256i zenburn
+"desert256 herald tir_black baycomb lucius inkpot jellybeans
+"xoria256 wombat256i zenburn
 colorscheme jellybeans
 " highlight Pmenu ctermbg=300 gui=bold
 set cursorline
@@ -145,6 +147,9 @@ augroup MyFileTypeSettings
 
   " tintin++ setting
   autocmd BufEnter,BufNew *.tt setlocal syntax=tt
+
+  " xml formatting
+  autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
   "" killing trailing spaces when saving file
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
