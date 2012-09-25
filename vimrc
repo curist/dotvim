@@ -99,7 +99,7 @@ set statusline+=%m                                    " file modified?
 set statusline+=%=%{GitBranch()}\ %y\ %l,\ %c\ \<%P\> " git branch
 
 let g:bufExplorerFindActive=0
-let mapleader = ","
+let g:mapleader = ","
 
 set list
 set listchars=tab:>-,trail:·,precedes:←,extends:→
@@ -206,6 +206,9 @@ let g:rubycomplete_rails = 1
 
 " tagbar
 let g:tagbar_sort = 0
+
+" NrrwRgn window maximize as default
+autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 
 " mapping to make copy/paste to clipboard easier
 vmap <leader>y "+y
