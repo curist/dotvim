@@ -36,7 +36,7 @@ augroup Bundles
   Bundle 'pangloss/vim-javascript'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
-  Bundle 'wookiehangover/jshint.vim'
+  Bundle 'curist/jshint.vim'
   Bundle 'wavded/vim-stylus'
 
   " other handy plugins
