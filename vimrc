@@ -116,6 +116,7 @@ set hlsearch
 
 set nobackup
 set noswapfile
+set backupdir=/tmp
 
 set shortmess+=I " no intro message
 
