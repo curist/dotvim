@@ -38,6 +38,7 @@ augroup Bundles
   Bundle 'kchmck/vim-coffee-script'
   Bundle 'curist/jshint.vim'
   Bundle 'wavded/vim-stylus'
+  Bundle 'javacomplete'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -55,7 +56,6 @@ augroup Bundles
   " Bundle 'wincent/Command-T'
   " Bundle 'repmo.vim'
   " Bundle 'sjl/splice.vim'
-  Bundle 'javacomplete'
 augroup END
 
 syntax on
@@ -155,20 +155,20 @@ augroup MyFileTypeSettings
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
 
   " run settings
-  autocmd FileType c nn <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType cpp nn <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType cs nn <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
-  autocmd FileType java nn <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
-  autocmd FileType python nn <leader>r :w<cr>:!python %<cr>
-  autocmd FileType perl nn <leader>r :w<cr>:!perl %<cr>
-  autocmd FileType lua nn <leader>r :w<cr>:make<cr>
-  autocmd FileType javascript nn <leader>r :w<cr>:!node %<cr>
-  autocmd FileType coffee nn <leader>r :w<cr>:!coffee %<cr>
-  autocmd FileType coffee vn <leader>r :w !coffee -s<cr>
-  autocmd FileType coffee nn <leader>c :w<cr>:!coffee -p %<cr>
-  autocmd FileType coffee vn <leader>c :w !coffee -psb<cr>
-  autocmd FileType ruby nn <leader>r :w<cr>:!ruby %<cr>
-  autocmd FileType markdown nn <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
+  autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
+  autocmd FileType java nn <buffer> <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
+  autocmd FileType python nn <buffer> <leader>r :w<cr>:!python %<cr>
+  autocmd FileType perl nn <buffer> <leader>r :w<cr>:!perl %<cr>
+  autocmd FileType lua nn <buffer> <leader>r :w<cr>:make<cr>
+  autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
+  autocmd FileType coffee nn <buffer> <leader>r :w<cr>:!coffee %<cr>
+  autocmd FileType coffee vn <buffer> <leader>r :w !coffee -s<cr>
+  autocmd FileType coffee nn <buffer> <leader>c :w<cr>:!coffee -p %<cr>
+  autocmd FileType coffee vn <buffer> <leader>c :w !coffee -psb<cr>
+  autocmd FileType ruby nn <buffer> <leader>r :w<cr>:!ruby %<cr>
+  autocmd FileType markdown nn <buffer> <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 augroup END
 
 " git-vim
