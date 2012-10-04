@@ -8,10 +8,11 @@ Bundle 'gmarik/vundle'
 
 augroup Bundles
   " text manipulating helpers
-  Bundle 'tpope/vim-surround'
   Bundle 'curist/vim-AutoClose'
-  Bundle 'tpope/vim-endwise'
   Bundle 'godlygeek/tabular'
+  Bundle 'tpope/vim-surround'
+  Bundle 'tpope/vim-endwise'
+  Bundle 'tpope/vim-commentary'
 
   " moving around:
   "   file/buffer switching
@@ -87,6 +88,7 @@ set foldnestmax=6     " fold levels don't go too deep
 set autoindent
 set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
+set showcmd
 
 set wildmenu
 
