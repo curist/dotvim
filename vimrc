@@ -68,7 +68,7 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 set t_Co=256
 "desert256 herald tir_black baycomb lucius inkpot jellybeans
-"xoria256 wombat256i zenburn
+"xoria256 wombat256i zenburn summerfruit256
 colorscheme jellybeans
 " highlight Pmenu ctermbg=300 gui=bold
 set cursorline
@@ -211,6 +211,12 @@ let g:tagbar_sort = 0
 " NrrwRgn window maximize as default
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 
+" vimwiki
+let g:vimwiki_hl_headers = 1
+
+" ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
 " mapping to make copy/paste to clipboard easier
 vmap <leader>y "+y
 nmap <leader>p "+p
@@ -227,20 +233,17 @@ nn <silent> <leader>s :Ack!<cr>
 nn <silent> <leader>z :execute 'vimgrep '.expand('<cword>').' '.expand('%')<cr>:copen<cr>:cc<cr>
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
-vn <c-c> <esc>
+vmap <c-c> <esc>
+imap <c-c> <esc>
+smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
+nn <leader><leader> <c-^>
 
 " moving between windows
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
 nn <c-l> <c-w>l
 nn <c-h> <c-w>h
-
-" vimwiki
-let g:vimwiki_hl_headers = 1
-
-" ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " NERDTree options
 let g:NERDTreeHighlightCursorline = 0
