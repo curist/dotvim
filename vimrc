@@ -123,6 +123,8 @@ set directory=/tmp
 
 set shortmess+=I " no intro message
 
+set iminsert=1   " to enable lmap
+
 augroup MyFileTypeSettings
   autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
 
@@ -237,7 +239,7 @@ nn <silent> <leader>z :execute 'vimgrep '.expand('<cword>').' '.expand('%')<cr>:
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vmap <c-c> <esc>
-imap <c-c> <esc>
+lmap <c-c> <esc>
 smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
