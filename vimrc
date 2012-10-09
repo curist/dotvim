@@ -68,9 +68,9 @@ set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 set t_Co=256
-"desert256 herald tir_black baycomb lucius inkpot jellybeans
-"xoria256 wombat256i zenburn summerfruit256
-colorscheme jellybeans
+"desert256 herald tir_black baycomb lucius inkpot zenburn
+"xoria256 wombat256i vividchalk molokai jellybeans
+colorscheme molokai
 " highlight Pmenu ctermbg=300 gui=bold
 set cursorline
 
