@@ -236,6 +236,8 @@ nn <silent> <F4> <ESC>:Ack! TODO<cr>
 nn <silent> <F5> <ESC>:set paste!<cr>
 nn <silent> <leader>s :Ack!<cr>
 nn <silent> <leader>z :execute 'vimgrep '.expand('<cword>').' '.expand('%')<cr>:copen<cr>:cc<cr>
+vn <silent> <leader>s :<c-w>Ack! '<c-r>-'<cr>
+vn <silent> <leader>z :<c-w>execute 'vimgrep "<c-r>-"'.expand('%')<cr>:copen<cr>:cc<cr>
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vmap <c-c> <esc>
