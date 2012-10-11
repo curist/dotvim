@@ -23,6 +23,7 @@ augroup Bundles
   Bundle 'scrooloose/nerdtree'
   Bundle 'Tagbar'
   Bundle 'kien/ctrlp.vim'
+  Bundle 'repmo.vim'
 
   " git
   Bundle 'motemen/git-vim'
@@ -50,12 +51,12 @@ augroup Bundles
   Bundle 'chrisbra/NrrwRgn'
   Bundle 'UltiSnips'
   Bundle 'sjl/gundo.vim'
+  Bundle 'henrik/vim-indexed-search'
 
   " good to have
   " Bundle 'scrooloose/syntastic'
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
-  " Bundle 'repmo.vim'
   " Bundle 'sjl/splice.vim'
 augroup END
 
@@ -68,7 +69,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
 
 set t_Co=256
-"desert256 herald tir_black baycomb lucius inkpot zenburn
+"desert256 herald tir_black lucius inkpot zenburn
 "xoria256 wombat256i vividchalk molokai jellybeans
 colorscheme molokai
 " highlight Pmenu ctermbg=300 gui=bold
@@ -126,7 +127,8 @@ set shortmess+=I " no intro message
 set iminsert=1   " to enable lmap
 
 augroup MyFileTypeSettings
-  autocmd FileType javascript,python,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
+  autocmd FileType python setlocal ai sw=4 sts=4 et
 
   " markdown and vimwiki wrap lines
   autocmd FileType markdown,vimwiki setlocal wrap
@@ -192,7 +194,7 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
+      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pyc$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
       \ }
 
 " supertab
@@ -218,9 +220,14 @@ autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 
 " vimwiki
 let g:vimwiki_hl_headers = 1
+let g:vimwiki_ext2syntax = {}
+let g:vimwiki_list = [{'syntax': 'markdown'}]
 
 " ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" repmo
+let g:repmo_mapmotions = "j|k h|l <C-E>|<C-Y> zh|zl gj|gk"
 
 " mapping to make copy/paste to clipboard easier
 vmap <leader>y "+y
