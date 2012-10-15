@@ -97,7 +97,7 @@ set laststatus=2                                      " status bar setting
 set statusline=[%F]                                   " file name
 set statusline+=\ [%{&fileencoding},                  " encoding
 set statusline+=%{&fileformat}]                       " file format
-set statusline+=%{HasPaste()}                         " paste mode status
+set statusline+=%{&paste?'\ [PASTE]':''}              " paste mode status
 set statusline+=%m                                    " file modified?
 set statusline+=%=%{GitBranch()}\ %y\ %l,\ %c\ \<%P\> " git branch
 
@@ -320,11 +320,4 @@ function! KillTrailingSpaces()
   :%s/\s\+$//e
   :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
   unlet save_cursor
-endfunction
-
-function! HasPaste()
-  if &paste
-    return '[PASTE MODE]'
-  end
-  return ''
 endfunction
