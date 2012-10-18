@@ -38,7 +38,7 @@ augroup Bundles
   Bundle 'pangloss/vim-javascript'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
-  Bundle 'curist/jshint.vim'
+  "Bundle 'curist/jshint.vim'
   Bundle 'wavded/vim-stylus'
   Bundle 'javacomplete'
 
@@ -244,8 +244,8 @@ nn <silent> <F5> <ESC>:set paste!<cr>
 "nn <silent> <leader>s :Ack!<cr>
 nn <silent> <leader>s :execute 'noautocmd vimgrep /'.expand('<cword>').'/j **/*.'.expand('%:e')<cr>:copen<cr>
 nn <silent> <leader>z :execute 'noautocmd vimgrep /'.expand('<cword>').'/gj '.expand('%')<cr>:copen<cr>
-"vn <silent> <leader>s :<c-w>execute 'noautocmd vimgrep /'.expand('<cword>').'/j **/*.'.expand('%:e')<cr>:copen<cr>
-"vn <silent> <leader>z :<c-w>execute 'vimgrep "<c-r>-"'.expand('%')<cr>:copen<cr>:cc<cr>
+vn <silent> <leader>s :<c-w>noautocmd vimgrep /<c-r>*/j **/*.<c-r>=expand('%:e')<cr><cr>:copen<cr>
+vn <silent> <leader>z :<c-w>noautocmd vimgrep /<c-r>*/gj <c-r>=expand('%')<cr><cr>:copen<cr>
 nn <silent> <c-n> :cn<cr>
 nn <silent> <c-p> :cp<cr>
 vmap <c-c> <esc>
