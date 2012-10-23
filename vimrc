@@ -13,6 +13,7 @@ augroup Bundles
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-endwise'
   Bundle 'tpope/vim-commentary'
+  Bundle 'kurkale6ka/vim-swap'
 
   " moving around:
   "   file/buffer switching

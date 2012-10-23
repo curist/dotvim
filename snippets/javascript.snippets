@@ -66,4 +66,16 @@ snippet clog "console.log"
 console.log(${1});$0
 endsnippet
 
+snippet timeit "benchmark function"
+function timeit(fn) {
+  var start_t = +new Date()
+    , i;
+
+  for(i = 0; i < ${1:1000}; i++) {
+    fn();
+  }
+  console.log((+new Date() - start_t) + ' ms');
+}
+endsnippet
+
 # vim:ft=snippets:
