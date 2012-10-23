@@ -231,8 +231,11 @@ let g:repmo_mapmotions = "j|k h|l <C-E>|<C-Y> zh|zl gj|gk"
 
 " mapping to make copy/paste to clipboard easier
 vmap <leader>y "+y
-nmap <leader>p "+pv`]
-nmap <leader>P "+Pv`]
+nmap <leader>p "+p
+nmap <leader>P "+P
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
