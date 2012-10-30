@@ -39,9 +39,9 @@ augroup Bundles
   Bundle 'pangloss/vim-javascript'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
-  "Bundle 'curist/jshint.vim'
   Bundle 'wavded/vim-stylus'
   Bundle 'javacomplete'
+  Bundle 'walm/jshint.vim'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -67,7 +67,7 @@ language messages POSIX
 
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
+set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
 set t_Co=256
 "desert256 herald tir_black lucius inkpot zenburn
@@ -156,6 +156,9 @@ augroup MyFileTypeSettings
 
   " tintin++ setting
   autocmd BufEnter,BufNew *.tt setlocal syntax=tt
+
+  " javascript files run JSHint upon save
+  autocmd FileType javascript autocmd BufWritePost <buffer> exe ":JSHint"
 
   " xml formatting
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
