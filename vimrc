@@ -160,6 +160,13 @@ augroup MyFileTypeSettings
   " javascript files run JSHint upon save
   autocmd FileType javascript autocmd BufWritePost <buffer> exe ":JSHint"
 
+  " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END
+  autocmd BufNewFile,BufRead afiedt.buf setfiletype sql
+  autocmd BufWritePre afiedt.buf call SqlRemarkWrapping()
+
+  " remap sql omni-completion
+  let g:ftplugin_sql_omni_key = '<c-j>'
+
   " xml formatting
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
@@ -328,4 +335,13 @@ function! KillTrailingSpaces()
   :%s/\s\+$//e
   :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
   unlet save_cursor
+endfunction
+
+function! SqlRemarkWrapping()
+  execute "norm ggOREMARK BEGIN"
+  execute "norm Gk"
+  if search(';', 'nW') == 0
+    execute "norm Go;"
+  endif
+  execute "norm GoREMARK END"
 endfunction
