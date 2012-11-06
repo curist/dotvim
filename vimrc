@@ -27,9 +27,7 @@ augroup Bundles
   Bundle 'repmo.vim'
 
   " git
-  Bundle 'motemen/git-vim'
   Bundle 'tpope/vim-fugitive'
-  Bundle 'gregsexton/gitv'
 
   " language specific
   Bundle 'vim-ruby/vim-ruby'
@@ -59,6 +57,7 @@ augroup Bundles
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'
+  " Bundle 'gregsexton/gitv'
 augroup END
 
 syntax on
@@ -73,7 +72,6 @@ set t_Co=256
 "desert256 herald tir_black lucius inkpot zenburn
 "xoria256 wombat256i vividchalk molokai jellybeans
 colorscheme molokai
-" highlight Pmenu ctermbg=300 gui=bold
 set cursorline
 
 set number
@@ -100,7 +98,8 @@ set statusline+=\ [%{&fileencoding},                  " encoding
 set statusline+=%{&fileformat}]                       " file format
 set statusline+=%{&paste?'\ [PASTE]':''}              " paste mode status
 set statusline+=%m                                    " file modified?
-set statusline+=%=%{GitBranch()}\ %y\ %l,\ %c\ \<%P\> " git branch
+set statusline+=%=%{fugitive#head(6)}                 " git branch
+set statusline+=\ %y\ %l,\ %c\ \<%P\>                 " ruler
 
 let g:bufExplorerFindActive=0
 let g:mapleader = ","
