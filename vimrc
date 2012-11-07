@@ -46,7 +46,6 @@ augroup Bundles
   Bundle 'SuperTab-continued.'
   Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
-  Bundle 'mileszs/ack.vim'
   Bundle 'chrisbra/NrrwRgn'
   Bundle 'UltiSnips'
   Bundle 'sjl/gundo.vim'
@@ -58,6 +57,7 @@ augroup Bundles
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'
   " Bundle 'gregsexton/gitv'
+  " Bundle 'mileszs/ack.vim'
 augroup END
 
 syntax on
@@ -252,9 +252,8 @@ nn <silent> <SPACE> za
 nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
-nn <silent> <F4> <ESC>:Ack! TODO<cr>
+nn <silent> <F4> :execute 'noautocmd vimgrep /\v(TODO\|FIXME)/ '.expand('%')<cr>:copen<cr>:cc<cr>
 nn <silent> <F5> <ESC>:set paste!<cr>
-"nn <silent> <leader>s :Ack!<cr>
 nn <silent> <leader>s :execute 'noautocmd vimgrep /'.expand('<cword>').'/j **/*.'.expand('%:e')<cr>:copen<cr>
 nn <silent> <leader>z :execute 'noautocmd vimgrep /'.expand('<cword>').'/gj '.expand('%')<cr>:copen<cr>
 vn <silent> <leader>s :<c-w>noautocmd vimgrep /<c-r>*/j **/*.<c-r>=expand('%:e')<cr><cr>:copen<cr>
