@@ -74,7 +74,7 @@ set t_Co=256
 colorscheme molokai
 set cursorline
 
-set number
+set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -105,7 +105,7 @@ let g:bufExplorerFindActive=0
 let g:mapleader = ","
 
 set list
-set listchars=tab:>-,trail:·,precedes:←,extends:→
+set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
 
 set formatoptions-=o
 
@@ -126,20 +126,20 @@ set shortmess+=I " no intro message
 
 set iminsert=1   " to enable lmap
 
+autocmd InsertEnter * set number
+autocmd InsertLeave * set relativenumber
+
 augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
   " markdown and vimwiki wrap lines
   autocmd FileType markdown,vimwiki setlocal wrap
-
-  " manpage don't show line number
-  autocmd FileType man setlocal number!
+  autocmd FileType vimwiki setlocal nohidden
+  autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
 
   " exclusive use cindent for c and cpp
   autocmd FileType c,h,cpp,hpp setlocal cindent
-
-  autocmd FileType vimwiki setlocal nohidden
 
   " java complete setting
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -249,7 +249,6 @@ nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
-nn <silent> <F12> :set number!<cr>
 nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn <silent> <F4> :execute 'noautocmd vimgrep /\v(TODO\|FIXME)/ '.expand('%')<cr>:copen<cr>:cc<cr>
@@ -280,35 +279,27 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeQuitOnOpen = 0
 nn <silent> <leader>nf :NERDTreeFind<cr>
 
-let g:highlighting = 0
 function! Highlighting()
   if &filetype=="qf"
     return "\<cr>"
   endif
-  "if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
-  if g:highlighting == 1 && @/ =~ expand('<cword>')
-    let g:highlighting = 0
-    return ":silent nohlsearch\<CR>"
+  "if &hls == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+  if &hls == 1 && @/ =~ expand('<cword>')
+    return ":silent set nohlsearch\<CR>"
   endif
 
   " check if the current word is meaningful
   if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
     let @/ = '\<'.expand('<cword>').'\>'
-    " or we just check the g:highlighting to toggle highlight
-  elseif g:highlighting == 1
-    let g:highlighting = 0
-    return ":silent nohlsearch\<CR>"
+    " or we just check the &hls to toggle highlight
+  elseif &hls == 1
+    return ":silent set nohlsearch\<CR>"
   endif
 
-  let g:highlighting = 1
   return ":silent set hlsearch\<CR>"
 endfunction
 nn <silent> <expr> <CR> Highlighting()
-nn <silent> n :let g:highlighting=1<cr>n
-nn <silent> N :let g:highlighting=1<cr>N
-nn <silent> / :let g:highlighting=1<cr>/
-nn <silent> ? :let g:highlighting=1<cr>?
-nn <silent> <leader>h :noh<cr>:let g:highlighting=0<cr>
+nn <silent> <leader>h :set nohlsearch<cr>
 
 " toggles the quickfix window.
 command -bang -nargs=0 QFix call QFixToggle(<bang>0)
