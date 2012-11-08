@@ -280,26 +280,14 @@ let g:NERDTreeQuitOnOpen = 0
 nn <silent> <leader>nf :NERDTreeFind<cr>
 
 function! Highlighting()
-  if &filetype=="qf"
-    return "\<cr>"
-  endif
-  "if &hls == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
-  if &hls == 1 && @/ =~ expand('<cword>')
-    return ":silent set nohlsearch\<CR>"
-  endif
-
   " check if the current word is meaningful
   if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
     let @/ = '\<'.expand('<cword>').'\>'
-    " or we just check the &hls to toggle highlight
-  elseif &hls == 1
-    return ":silent set nohlsearch\<CR>"
   endif
-
   return ":silent set hlsearch\<CR>"
 endfunction
-nn <silent> <expr> <CR> Highlighting()
-nn <silent> <leader>h :set nohlsearch<cr>
+autocmd BufEnter * if &modifiable == 1 | nn <buffer> <silent> <expr> <CR> Highlighting() | endif
+nn <silent> <leader>h :noh<cr>
 
 " toggles the quickfix window.
 command -bang -nargs=0 QFix call QFixToggle(<bang>0)
