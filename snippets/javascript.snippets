@@ -78,4 +78,19 @@ function timeit(fn) {
 }
 endsnippet
 
+snippet class "class pattern" !b
+${1:ClassName} = (function (){
+  var $1 = function(){
+    this.${2:some_private_var} = 10;
+  };
+
+  $1.prototype.${3:some_public_method} = function $3(){
+    return $2;
+  };
+
+  return $1;
+})();
+$0
+endsnippet
+
 # vim:ft=snippets:
