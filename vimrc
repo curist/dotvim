@@ -280,11 +280,16 @@ let g:NERDTreeQuitOnOpen = 0
 nn <silent> <leader>nf :NERDTreeFind<cr>
 
 function! Highlighting()
+  " just in case..
+  if &modifiable != 1
+    return "\<cr>"
+  endif
+
   " check if the current word is meaningful
   if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
     let @/ = '\<'.expand('<cword>').'\>'
   endif
-  return ":silent set hlsearch\<CR>"
+  return ":silent set hlsearch\<cr>:ShowSearchIndex\<cr>"
 endfunction
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
       \ nn <buffer> <silent> <expr> <CR> Highlighting() |
