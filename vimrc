@@ -99,7 +99,7 @@ set statusline+=%{&fileformat}]                       " file format
 set statusline+=%{&paste?'\ [PASTE]':''}              " paste mode status
 set statusline+=%m                                    " file modified?
 set statusline+=%=%{fugitive#head(6)}                 " git branch
-set statusline+=\ %y\ %l,\ %c\ \<%P\>                 " ruler
+set statusline+=\ %y\ %l,\ %c\ \<%3.p%%\>             " ruler
 
 let g:bufExplorerFindActive=0
 let g:mapleader = ","
