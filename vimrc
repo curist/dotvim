@@ -286,7 +286,9 @@ function! Highlighting()
   endif
   return ":silent set hlsearch\<CR>"
 endfunction
-autocmd BufEnter * if &modifiable == 1 | nn <buffer> <silent> <expr> <CR> Highlighting() | endif
+autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
+      \ nn <buffer> <silent> <expr> <CR> Highlighting() |
+      \ endif
 nn <silent> <leader>h :noh<cr>
 
 " toggles the quickfix window.
