@@ -92,14 +92,15 @@ set showcmd
 
 set wildmenu
 
-set laststatus=2                                      " status bar setting
-set statusline=[%F]                                   " file name
-set statusline+=\ [%{&fileencoding},                  " encoding
-set statusline+=%{&fileformat}]                       " file format
-set statusline+=%{&paste?'\ [PASTE]':''}              " paste mode status
-set statusline+=%m                                    " file modified?
-set statusline+=%=%{fugitive#head(6)}                 " git branch
-set statusline+=\ %y\ %l,\ %c\ \<%3.p%%\>             " ruler
+set laststatus=2                          " status bar setting
+set statusline=[%F]                       " file name
+set statusline+=\ [%{&fileencoding},      " encoding
+set statusline+=%{&fileformat}]           " file format
+set statusline+=%{&paste?'\ [PASTE]':''}  " paste mode status
+set statusline+=%m                        " file modified?
+set statusline+=%=%{fugitive#head(6)}     " git branch
+set statusline+=\ %y                      " filetype
+set statusline+=\ %c,\ %l\ \/\ %L         " cursor position, total lines
 
 let g:bufExplorerFindActive=0
 let g:mapleader = ","
