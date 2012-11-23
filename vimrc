@@ -127,9 +127,6 @@ set shortmess+=I " no intro message
 
 set iminsert=1   " to enable lmap
 
-autocmd InsertEnter * set number
-autocmd InsertLeave * set relativenumber
-
 augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
@@ -218,7 +215,8 @@ autocmd BufEnter \[BufExplorer\] unmap ds
 autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 
 " don't show quickfix in buffers list
-autocmd BufRead quickfix setlocal nobuflisted
+" set number in quickfix list
+autocmd BufRead quickfix setlocal nobuflisted number
 
 " rails settings
 let g:rubycomplete_rails = 1
