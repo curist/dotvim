@@ -276,6 +276,8 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeQuitOnOpen = 0
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 nn <silent> <leader>nf :NERDTreeFind<cr>
 
 function! Highlighting()
@@ -328,3 +330,8 @@ function! SqlRemarkWrapping()
   endif
   execute "norm GoREMARK END"
 endfunction
+
+" Load project specific configs
+if filereadable(expand("./.local_vimrc"))
+  source ./.local_vimrc
+endif
