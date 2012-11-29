@@ -37,9 +37,10 @@ augroup Bundles
   Bundle 'pangloss/vim-javascript'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
-  Bundle 'wavded/vim-stylus'
   Bundle 'javacomplete'
   Bundle 'walm/jshint.vim'
+  Bundle 'hail2u/vim-css3-syntax'
+  Bundle 'cakebaker/scss-syntax.vim'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -58,6 +59,7 @@ augroup Bundles
   " Bundle 'sjl/splice.vim'
   " Bundle 'gregsexton/gitv'
   " Bundle 'mileszs/ack.vim'
+  " Bundle 'wavded/vim-stylus'
 augroup END
 
 syntax on
