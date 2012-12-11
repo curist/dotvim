@@ -266,6 +266,8 @@ smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
 
+cabbr cw <c-r>=expand('<cword>')<cr>
+
 " moving between windows
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
