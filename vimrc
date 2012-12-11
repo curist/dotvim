@@ -267,6 +267,7 @@ ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
 
 cabbr cw <c-r>=expand('<cword>')<cr>
+cabbr ss syntax sync fromstart
 
 " moving between windows
 nn <c-j> <c-w>j
