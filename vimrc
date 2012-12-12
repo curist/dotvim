@@ -112,7 +112,6 @@ set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
 
 set formatoptions-=o
 
-set sidescrolloff=5
 set sidescroll=1
 
 set ignorecase " ignore case in general
