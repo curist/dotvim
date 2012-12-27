@@ -43,6 +43,7 @@ augroup Bundles
   Bundle 'walm/jshint.vim'
   Bundle 'hail2u/vim-css3-syntax'
   Bundle 'cakebaker/scss-syntax.vim'
+  Bundle 'aaronj1335/underscore-templates.vim'
 
   " other handy plugins
   Bundle 'vimwiki'
