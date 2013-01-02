@@ -86,7 +86,7 @@ set mouse=vn
 set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
 set foldlevelstart=99 " we want all fold to be expand at start
-set foldnestmax=6     " fold levels don't go too deep
+set foldnestmax=15    " max fold nest levels
 set autoindent
 set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
@@ -124,9 +124,9 @@ set noswapfile
 set backupdir=/tmp
 set directory=/tmp
 
-set shortmess+=I " no intro message
-
-set iminsert=1   " to enable lmap
+set shortmess+=I                " no intro message
+set iminsert=1                  " to enable lmap
+set nrformats=octal,hex,alpha   " ctrl-a to increment a-zA-Z
 
 augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
