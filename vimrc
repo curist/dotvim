@@ -124,9 +124,10 @@ set noswapfile
 set backupdir=/tmp
 set directory=/tmp
 
-set shortmess+=I                " no intro message
-set iminsert=1                  " to enable lmap
-set nrformats=octal,hex,alpha   " ctrl-a to increment a-zA-Z
+set shortmess+=I              " no intro message
+set iminsert=1                " to enable lmap
+set nrformats=octal,hex,alpha " ctrl-a to increment a-zA-Z
+set virtualedit=block         " no limit cursor postion when in VISUAL BLOCK mode
 
 augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
@@ -267,7 +268,6 @@ smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
 
-cabbr cw <c-r>=expand('<cword>')<cr>
 cabbr ss syntax sync fromstart
 
 " moving between windows
