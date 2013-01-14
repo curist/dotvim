@@ -202,13 +202,15 @@ nn <silent> <leader>t :CtrlPBufTag<cr>
 nn <silent> <leader>g :CtrlPTag<cr>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules$',
+      \ 'dir':  '\.hg$\|\.svn$\|node_modules$',
       \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pyc$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
       \ }
 
 " supertab
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 set ofu=syntaxcomplete#Complete
 set completeopt=menu,longest
 
