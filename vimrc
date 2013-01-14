@@ -24,7 +24,9 @@ augroup Bundles
   Bundle 'scrooloose/nerdtree'
   Bundle 'Tagbar'
   Bundle 'kien/ctrlp.vim'
+  Bundle 'tacahiroy/ctrlp-funky'
   Bundle 'repmo.vim'
+  Bundle 'mileszs/ack.vim'
 
   " git
   Bundle 'tpope/vim-fugitive'
@@ -58,7 +60,6 @@ augroup Bundles
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'
   " Bundle 'gregsexton/gitv'
-  " Bundle 'mileszs/ack.vim'
   " Bundle 'wavded/vim-stylus'
 augroup END
 
@@ -198,9 +199,10 @@ let g:UltiSnipsSnippetDirectories=["snippets"]
 nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
 
 " ctrlp settings
-nn <silent> <leader>t :CtrlPBufTag<cr>
+nn <silent> <leader>t :CtrlPFunky<cr>
 nn <silent> <leader>g :CtrlPTag<cr>
 let g:ctrlp_map = '<leader>f'
+let g:ctrlp_extensions = ['funky']
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_custom_ignore = {
@@ -269,6 +271,10 @@ lmap <c-c> <esc>
 smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
+nn g0 g^
+vn g0 g^
+
+
 
 cabbr ss syntax sync fromstart
 
