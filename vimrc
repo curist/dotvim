@@ -13,7 +13,7 @@ augroup Bundles
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-endwise'
   Bundle 'tpope/vim-commentary'
-  Bundle 'kurkale6ka/vim-swap'
+  Bundle 'transpose-words'
 
   " moving around:
   "   file/buffer switching
@@ -272,8 +272,9 @@ lmap <c-c> <esc>
 smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
-nn g0 g^
-vn g0 g^
+" binding for transpose words
+nm t <m-t>
+cm t <m-t>
 
 
 
