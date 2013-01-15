@@ -47,7 +47,7 @@ augroup Bundles
 
   " other handy plugins
   Bundle 'vimwiki'
-  Bundle 'SuperTab-continued.'
+  Bundle 'ervandew/supertab'
   Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
   Bundle 'chrisbra/NrrwRgn'
