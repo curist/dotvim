@@ -115,6 +115,7 @@ let g:mapleader = ","
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
+set showbreak=↪
 
 set formatoptions-=o
 
@@ -130,10 +131,11 @@ set noswapfile
 set backupdir=/tmp
 set directory=/tmp
 
-set shortmess+=I              " no intro message
-set iminsert=1                " to enable lmap
-set nrformats=octal,hex,alpha " ctrl-a to increment a-zA-Z
-set virtualedit=block         " no limit cursor postion when in VISUAL BLOCK mode
+set shortmess+=I               " no intro message
+set iminsert=1                 " to enable lmap
+set nrformats=octal,hex,alpha  " ctrl-a to increment a-zA-Z
+set virtualedit=block          " no limit cursor postion when in VISUAL BLOCK mode
+set synmaxcol=500              " Don't try to highlight long lines
 " }}}1
 
 " FileType specific settings/mappings {{{1
@@ -179,7 +181,8 @@ augroup MyFileTypeSettings
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
   "" killing trailing spaces when saving file {{{2
-  autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
+  autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim
+        \ autocmd BufWritePre <buffer> :call KillTrailingSpaces()
 
   " run settings {{{2
   autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
@@ -195,7 +198,9 @@ augroup MyFileTypeSettings
   autocmd FileType coffee nn <buffer> <leader>c :w<cr>:!coffee -p %<cr>
   autocmd FileType coffee vn <buffer> <leader>c :w !coffee -psb<cr>
   autocmd FileType ruby nn <buffer> <leader>r :w<cr>:!ruby %<cr>
-  autocmd FileType markdown nn <buffer> <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
+  autocmd FileType markdown
+        \ nn <buffer> <leader>r
+        \ :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 augroup END
 
 " }}}1
@@ -235,6 +240,12 @@ nn <silent> <F3> <ESC>:TagbarToggle<cr>
 
 " NrrwRgn window maximize as default {{{2
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
+
+" Tabuarize mappings
+vnoremap <silent> <Leader>a=  :Tabularize /=/l1l1<CR>
+vnoremap <silent> <Leader>a,  :Tabularize /,/l0l1<CR>
+vnoremap <silent> <Leader>a:  :Tabularize /:/l0l1<CR>
+vnoremap <silent> <Leader>a"  :Tabularize /"/l2l1<CR>
 
 " ack {{{2
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -296,9 +307,21 @@ lmap <c-c> <esc>
 smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
+
 " binding for transpose words
 nm t <m-t>
 cm t <m-t>
+
+" easier wrapped line navigation
+nn j gj
+nn k gk
+
+" Emacs bindings in command line mode
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
 
 " map <cr> to do Highlighting only in modifiable buffers
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
@@ -308,7 +331,7 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
 cabbr ss syntax sync fromstart
 " }}}1
 
-" Helper functions {{{1
+" Helper functions/autocmds {{{1
 " Highlighting {{{2
 function! Highlighting()
   " just in case..
@@ -342,10 +365,9 @@ augroup END
 
 " remove trailing spaces {{{2
 function! KillTrailingSpaces()
-  let save_cursor = getpos('.')
+  let l:save_cursor = getpos('.')
   :%s/\s\+$//e
-  :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
-  unlet save_cursor
+  :call cursor(l:save_cursor[1], l:save_cursor[2], l:save_cursor[3])
 endfunction
 
 " add REMARK to sql statements {{{2
@@ -357,14 +379,30 @@ function! SqlRemarkWrapping()
   endif
   execute "norm GoREMARK END"
 endfunction
+
+" Make sure Vim returns to the same line when you reopen a file. {{{2
+
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Save when losing focus {{{2
+au FocusLost * :silent! wall
+
+" Resize splits when the window is resized {{{2
+au VimResized * :wincmd =
 " }}}1
 
 " Quirk dirty fixes {{{1
-" deconflicting mappings between bufexplorer and surround
+" deconflicting mappings between bufexplorer and surround {{{2
 autocmd BufEnter \[BufExplorer\] unmap ds
 autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 
-" don't show quickfix in buffers list
+" don't show quickfix in buffers list {{{2
 " set number in quickfix list
 autocmd BufRead quickfix setlocal nobuflisted number
 
@@ -374,6 +412,5 @@ autocmd BufRead quickfix setlocal nobuflisted number
 if filereadable(expand("./.local_vimrc"))
   source ./.local_vimrc
 endif
-
 " Modeline {{{1
-" vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker foldcolumn=4
+" vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
