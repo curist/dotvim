@@ -33,6 +33,7 @@ augroup Bundles
 
   " git {{{2
   Bundle 'tpope/vim-fugitive'
+  Bundle 'gregsexton/gitv'
 
   " language specific {{{2
   Bundle 'vim-ruby/vim-ruby'
@@ -63,7 +64,6 @@ augroup Bundles
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'
-  " Bundle 'gregsexton/gitv'
   " Bundle 'wavded/vim-stylus'
 augroup END
 " }}}1
@@ -101,15 +101,17 @@ set showcmd
 
 set wildmenu
 
-set laststatus=2                          " status bar setting
-set statusline=[%F]                       " file name
-set statusline+=\ [%{&fileencoding},      " encoding
-set statusline+=%{&fileformat}]           " file format
-set statusline+=%{&paste?'\ [PASTE]':''}  " paste mode status
-set statusline+=%m                        " file modified?
-set statusline+=%=%{fugitive#head(6)}     " git branch
-set statusline+=\ %y                      " filetype
-set statusline+=\ %c,\ %l\ \/\ %L         " cursor position, total lines
+set laststatus=2                            " status bar setting
+set statusline=[%F]                         " file name
+set statusline+=\ [%{&fileencoding},        " encoding
+set statusline+=%{&fileformat}]             " file format
+set statusline+=%{&paste?'\ [PASTE]':''}    " paste mode status
+set statusline+=%m                          " file modified?
+set statusline+=%=                          " right align
+set statusline+=%1*%{GitStatusSymbol()}%*   " git status symbol
+set statusline+=\ %{fugitive#head(6)}       " git branch
+set statusline+=\ %y                        " filetype
+set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
 
 let g:mapleader = ","
 
@@ -241,11 +243,14 @@ nn <silent> <F3> :TagbarToggle<cr>
 " NrrwRgn window maximize as default {{{2
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 
-" Tabuarize mappings
+" Tabuarize mappings {{{2
 vnoremap <silent> <Leader>a=  :Tabularize /=/l1l1<CR>
 vnoremap <silent> <Leader>a,  :Tabularize /,/l0l1<CR>
 vnoremap <silent> <Leader>a:  :Tabularize /:/l0l1<CR>
 vnoremap <silent> <Leader>a"  :Tabularize /"/l2l1<CR>
+
+" fugitive {{{2
+nnoremap <Leader>gD :call MyCloseDiff()<cr>
 
 " ack {{{2
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -335,6 +340,28 @@ cabbr ss syntax sync fromstart
 " }}}1
 
 " Helper functions/autocmds {{{1
+" git status symbol {{{2
+function! GitStatusSymbol()
+  if !exists('b:git_dir')
+    return ''
+  endif
+  return '⚡'
+endfunction
+
+" sync git status symbol color {{{2
+hi User1 ctermfg=232 ctermbg=white cterm=reverse
+function! SyncGitStatusSymbolColor()
+  if !exists('b:git_dir')
+    return
+  endif
+  let git_dir_is_dirty = system("git status -s --ignore-submodules=dirty")
+  if git_dir_is_dirty != ''
+    hi User1 ctermfg=232 ctermbg=red cterm=reverse,bold
+  else
+    hi User1 ctermfg=232 ctermbg=white cterm=reverse
+  endif
+endfunction
+
 " Highlighting {{{2
 function! Highlighting()
   " just in case..
@@ -383,8 +410,28 @@ function! SqlRemarkWrapping()
   execute "norm GoREMARK END"
 endfunction
 
-" Make sure Vim returns to the same line when you reopen a file. {{{2
+" git diff close {{{2
+function! MyCloseDiff()
+  if (&diff == 0 || getbufvar('#', '&diff') == 0)
+        \ && (bufname('%') !~ '^fugitive:' && bufname('#') !~ '^fugitive:')
+    echom "Not in diff view."
+    return
+  endif
 
+  " close current buffer if alternate is not fugitive but current one is
+  if bufname('#') !~ '^fugitive:' && bufname('%') =~ '^fugitive:'
+    if bufwinnr("#") == -1
+      b #
+      bd #
+    else
+      bd
+    endif
+  else
+    bd #
+  endif
+endfunction
+
+" Make sure Vim returns to the same line when you reopen a file. {{{2
 augroup line_return
     au!
     au BufReadPost *
@@ -398,6 +445,9 @@ au FocusLost * :silent! wall
 
 " Resize splits when the window is resized {{{2
 au VimResized * :wincmd =
+
+" change git status symbol color {{{2
+au BufEnter,BufWritePost * call SyncGitStatusSymbolColor()
 " }}}1
 
 " Quirk dirty fixes {{{1
