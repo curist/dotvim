@@ -1,3 +1,4 @@
+" Here we go!! {{{1
 set nocompatible
 filetype off
 
@@ -5,9 +6,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+" }}}1
 
+" Plugins {{{1
 augroup Bundles
-  " text manipulating helpers
+  " text manipulating helpers {{{2
   Bundle 'curist/vim-AutoClose'
   Bundle 'godlygeek/tabular'
   Bundle 'tpope/vim-surround'
@@ -15,7 +18,7 @@ augroup Bundles
   Bundle 'tpope/vim-commentary'
   Bundle 'transpose-words'
 
-  " moving around:
+  " moving around: {{{2
   "   file/buffer switching
   "   in file quick jumps
   Bundle 'mru.vim'
@@ -28,10 +31,10 @@ augroup Bundles
   Bundle 'repmo.vim'
   Bundle 'mileszs/ack.vim'
 
-  " git
+  " git {{{2
   Bundle 'tpope/vim-fugitive'
 
-  " language specific
+  " language specific {{{2
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'tpope/vim-rails'
   Bundle 'tpope/vim-markdown'
@@ -45,7 +48,7 @@ augroup Bundles
   Bundle 'cakebaker/scss-syntax.vim'
   Bundle 'aaronj1335/underscore-templates.vim'
 
-  " other handy plugins
+  " other handy plugins {{{2
   Bundle 'vimwiki'
   Bundle 'ervandew/supertab'
   Bundle 'tpope/vim-rake'
@@ -55,7 +58,7 @@ augroup Bundles
   Bundle 'sjl/gundo.vim'
   Bundle 'henrik/vim-indexed-search'
 
-  " good to have
+  " good to have {{{2
   " Bundle 'scrooloose/syntastic'
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
@@ -63,7 +66,9 @@ augroup Bundles
   " Bundle 'gregsexton/gitv'
   " Bundle 'wavded/vim-stylus'
 augroup END
+" }}}1
 
+" General settings {{{1
 syntax on
 filetype plugin indent on
 language messages POSIX
@@ -106,7 +111,6 @@ set statusline+=%=%{fugitive#head(6)}     " git branch
 set statusline+=\ %y                      " filetype
 set statusline+=\ %c,\ %l\ \/\ %L         " cursor position, total lines
 
-let g:bufExplorerFindActive=0
 let g:mapleader = ","
 
 set list
@@ -130,51 +134,54 @@ set shortmess+=I              " no intro message
 set iminsert=1                " to enable lmap
 set nrformats=octal,hex,alpha " ctrl-a to increment a-zA-Z
 set virtualedit=block         " no limit cursor postion when in VISUAL BLOCK mode
+" }}}1
 
+" FileType specific settings/mappings {{{1
 augroup MyFileTypeSettings
+  " general settings {{{2
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
-  " markdown and vimwiki wrap lines
+  " markdown and vimwiki wrap lines {{{2
   autocmd FileType markdown,vimwiki setlocal wrap
   autocmd FileType vimwiki setlocal nohidden
   autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
 
-  " exclusive use cindent for c and cpp
+  " exclusive use cindent for c and cpp {{{2
   autocmd FileType c,h,cpp,hpp setlocal cindent
 
-  " java complete setting
+  " java complete setting {{{2
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
   autocmd FileType java setlocal completefunc=javacomplete#Complete
 
-  " c/c++ compiletion settings"
+  " c/c++ compiletion settings {{{2
   autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
   autocmd FileType cpp setlocal mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
 
-  " lua quickfix settings "
+  " lua quickfix settings {{{2
   autocmd FileType lua setlocal mp=lua\ %
   autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
 
-  " tintin++ setting
+  " tintin++ setting {{{2
   autocmd BufEnter,BufNew *.tt setlocal syntax=tt
 
-  " javascript files run JSHint upon save
+  " javascript files run JSHint upon save {{{2
   autocmd FileType javascript autocmd BufWritePost <buffer> exe ":JSHint"
 
-  " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END
+  " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END {{{2
   autocmd BufNewFile,BufRead afiedt.buf setfiletype sql
   autocmd BufWritePre afiedt.buf call SqlRemarkWrapping()
 
-  " remap sql omni-completion
+  " remap sql omni-completion {{{2
   let g:ftplugin_sql_omni_key = '<c-j>'
 
-  " xml formatting
+  " xml formatting {{{2
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
-  "" killing trailing spaces when saving file
+  "" killing trailing spaces when saving file {{{2
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim autocmd BufWritePre <buffer> :call KillTrailingSpaces()
 
-  " run settings
+  " run settings {{{2
   autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
   autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
   autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
@@ -191,15 +198,10 @@ augroup MyFileTypeSettings
   autocmd FileType markdown nn <buffer> <leader>r :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 augroup END
 
-" git-vim
-let g:git_no_map_default = 1
+" }}}1
 
-" UltiSnips settings
-let g:UltiSnipsSnippetDirectories=["snippets"]
-" snippet editing helper
-nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
-
-" ctrlp settings
+" Plugin specific settings/mappings {{{1
+" ctrlp settings {{{2
 nn <silent> <leader>t :CtrlPFunky<cr>
 nn <silent> <leader>g :CtrlPTag<cr>
 let g:ctrlp_map = '<leader>f'
@@ -210,39 +212,64 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pyc$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
       \ }
 
-" supertab
+" supertab {{{2
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 set ofu=syntaxcomplete#Complete
 set completeopt=menu,longest
 
-" deconflicting mappings between bufexplorer and surround
-autocmd BufEnter \[BufExplorer\] unmap ds
-autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
+" NERDTree options {{{2
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeChDirMode = 2
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeQuitOnOpen = 0
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+nn <silent> <leader>nf :NERDTreeFind<cr>
+nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
 
-" don't show quickfix in buffers list
-" set number in quickfix list
-autocmd BufRead quickfix setlocal nobuflisted number
-
-" rails settings
-let g:rubycomplete_rails = 1
-
-" tagbar
+" tagbar {{{2
 let g:tagbar_sort = 0
+nn <silent> <F3> <ESC>:TagbarToggle<cr>
 
-" NrrwRgn window maximize as default
+" NrrwRgn window maximize as default {{{2
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 
-" vimwiki
+" ack {{{2
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" repmo {{{2
+let g:repmo_mapmotions = "j|k h|l <C-E>|<C-Y> zh|zl gj|gk"
+
+" BufExplorer {{{2
+let g:bufExplorerFindActive=0
+
+" UltiSnips settings {{{2
+let g:UltiSnipsSnippetDirectories=["snippets"]
+
+" vimwiki {{{2
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_ext2syntax = {}
 let g:vimwiki_list = [{'syntax': 'markdown'}]
 
-" ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+" rails settings {{{2
+let g:rubycomplete_rails = 1
+" }}}1
 
-" repmo
-let g:repmo_mapmotions = "j|k h|l <C-E>|<C-Y> zh|zl gj|gk"
+" Mappings {{{1
+
+" snippet editing helper
+nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
+
+" moving between windows
+nn <c-j> <c-w>j
+nn <c-k> <c-w>k
+nn <c-l> <c-w>l
+nn <c-h> <c-w>h
+
+nn <silent> <leader>h :noh<cr>
+nn <silent> <leader>q :QFix<cr>
 
 " mapping to make copy/paste to clipboard easier
 vmap <leader>y "+y
@@ -254,8 +281,6 @@ nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
-nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
-nn <silent> <F3> <ESC>:TagbarToggle<cr>
 nn <silent> <F4> :execute 'noautocmd vimgrep /\v(TODO\|FIXME)/ '.expand('%')<cr>:copen<cr>:cc<cr>
 nn <silent> <F5> <ESC>:set paste!<cr>
 nn <silent> <leader>s :execute 'noautocmd vimgrep /'.expand('<cword>').'/j **/*.'.expand('%:e')<cr>:copen<cr>
@@ -275,26 +300,16 @@ nn <leader><leader> <c-^>
 nm t <m-t>
 cm t <m-t>
 
-
+" map <cr> to do Highlighting only in modifiable buffers
+autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
+      \ nn <buffer> <silent> <expr> <CR> Highlighting() |
+      \ endif
 
 cabbr ss syntax sync fromstart
+" }}}1
 
-" moving between windows
-nn <c-j> <c-w>j
-nn <c-k> <c-w>k
-nn <c-l> <c-w>l
-nn <c-h> <c-w>h
-
-" NERDTree options
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeChDirMode = 2
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeQuitOnOpen = 0
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeAutoDeleteBuffer = 1
-nn <silent> <leader>nf :NERDTreeFind<cr>
-
+" Helper functions {{{1
+" Highlighting {{{2
 function! Highlighting()
   " just in case..
   if &modifiable != 1
@@ -307,12 +322,8 @@ function! Highlighting()
   endif
   return ":silent set hlsearch\<cr>:ShowSearchIndex\<cr>"
 endfunction
-autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
-      \ nn <buffer> <silent> <expr> <CR> Highlighting() |
-      \ endif
-nn <silent> <leader>h :noh<cr>
 
-" toggles the quickfix window.
+" toggles the quickfix window. {{{2
 command -bang -nargs=0 QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
@@ -321,15 +332,15 @@ function! QFixToggle(forced)
     copen 10
   endif
 endfunction
-nn <silent> <leader>q :QFix<cr>
 
-" used to track the quickfix window
+" use to track the quickfix window
 augroup QFixToggle
   autocmd!
   autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
   autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
 augroup END
 
+" remove trailing spaces {{{2
 function! KillTrailingSpaces()
   let save_cursor = getpos('.')
   :%s/\s\+$//e
@@ -337,6 +348,7 @@ function! KillTrailingSpaces()
   unlet save_cursor
 endfunction
 
+" add REMARK to sql statements {{{2
 function! SqlRemarkWrapping()
   execute "norm ggOREMARK BEGIN"
   execute "norm Gk"
@@ -345,8 +357,23 @@ function! SqlRemarkWrapping()
   endif
   execute "norm GoREMARK END"
 endfunction
+" }}}1
 
-" Load project specific configs
+" Quirk dirty fixes {{{1
+" deconflicting mappings between bufexplorer and surround
+autocmd BufEnter \[BufExplorer\] unmap ds
+autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
+
+" don't show quickfix in buffers list
+" set number in quickfix list
+autocmd BufRead quickfix setlocal nobuflisted number
+
+" }}}1
+
+" Load project specific configs {{{1
 if filereadable(expand("./.local_vimrc"))
   source ./.local_vimrc
 endif
+
+" Modeline {{{1
+" vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker foldcolumn=4
