@@ -232,11 +232,11 @@ let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 nn <silent> <leader>nf :NERDTreeFind<cr>
-nn <silent> <F2> <ESC>:NERDTreeToggle<cr>
+nn <silent> <F2> :NERDTreeToggle<cr>
 
 " tagbar {{{2
 let g:tagbar_sort = 0
-nn <silent> <F3> <ESC>:TagbarToggle<cr>
+nn <silent> <F3> :TagbarToggle<cr>
 
 " NrrwRgn window maximize as default {{{2
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
@@ -269,6 +269,9 @@ let g:rubycomplete_rails = 1
 " }}}1
 
 " Mappings {{{1
+
+" vimrc editing helper
+nn <leader>ev :e $MYVIMRC<cr>
 
 " snippet editing helper
 nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
@@ -405,6 +408,9 @@ autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 " don't show quickfix in buffers list {{{2
 " set number in quickfix list
 autocmd BufRead quickfix setlocal nobuflisted number
+
+" unmap NERDTreeMapCWD {{{2
+let g:NERDTreeMapCWD = ''
 
 " }}}1
 
