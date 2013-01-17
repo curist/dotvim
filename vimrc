@@ -244,13 +244,23 @@ nn <silent> <F3> :TagbarToggle<cr>
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 
 " Tabuarize mappings {{{2
-vnoremap <silent> <Leader>a=  :Tabularize /=/l1l1<CR>
-vnoremap <silent> <Leader>a,  :Tabularize /,/l0l1<CR>
-vnoremap <silent> <Leader>a:  :Tabularize /:/l0l1<CR>
-vnoremap <silent> <Leader>a"  :Tabularize /"/l2l1<CR>
+vnoremap <silent> <leader>a=  :Tabularize /=/l1l1<CR>
+vnoremap <silent> <leader>a,  :Tabularize /,/l0l1<CR>
+vnoremap <silent> <leader>a:  :Tabularize /:/l0l1<CR>
+vnoremap <silent> <leader>a"  :Tabularize /"/l2l1<CR>
 
 " fugitive {{{2
-nnoremap <Leader>gD :call MyCloseDiff()<cr>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gc :Gcommit -a<cr>
+nnoremap <silent> <leader>ga :Gcommit -a --amend<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gD :call MyCloseDiff()<cr>
+
+" gitv {{{2
+nnoremap <silent> <leader>gl :Gitv<cr>
+
+" gundo {{{2
+nnoremap <silent> <leader>gu :GundoToggle<cr>
 
 " ack {{{2
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -315,6 +325,7 @@ lmap <c-c> <esc>
 smap <c-c> <esc>
 ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
+nn <silent> <leader>d :bd<cr>
 
 " binding for transpose words
 nm t <m-t>
