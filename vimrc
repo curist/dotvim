@@ -291,12 +291,6 @@ nn <leader>ev :e $MYVIMRC<cr>
 " snippet editing helper
 nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
 
-" moving between windows
-nn <c-j> <c-w>j
-nn <c-k> <c-w>k
-nn <c-l> <c-w>l
-nn <c-h> <c-w>h
-
 nn <silent> <leader>h :noh<cr>
 nn <silent> <leader>q :QFix<cr>
 
@@ -318,8 +312,6 @@ nn <silent> <leader>z :execute 'noautocmd vimgrep /'.expand('<cword>').'/gj '.ex
 vn <silent> <leader>s :<c-w>noautocmd vimgrep /<c-r>*/j **/*.<c-r>=expand('%:e')<cr><cr>:copen<cr>
 vn <silent> <leader>S :<c-w>noautocmd vimgrep /<c-r>*/j **/*<cr>:copen<cr>
 vn <silent> <leader>z :<c-w>noautocmd vimgrep /<c-r>*/gj <c-r>=expand('%')<cr><cr>:copen<cr>
-nn <silent> <c-n> :cn<cr>
-nn <silent> <c-p> :cp<cr>
 vmap <c-c> <esc>
 lmap <c-c> <esc>
 smap <c-c> <esc>
@@ -327,17 +319,38 @@ ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
 
+" Emacs love section {{{2
+
+" some preparations..
+nm j <m-j>
+nm k <m-k>
+nm l <m-l>
+nm h <m-h>
+
+nm p <m-p>
+nm n <m-n>
+
 " binding for transpose words
 nm t <m-t>
 cm t <m-t>
+
+" Emacs bindings in command line mode
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 
 " easier wrapped line navigation
 nn j gj
 nn k gk
 
-" Emacs bindings in command line mode
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
+" moving between windows
+nn <m-j> <c-w>j
+nn <m-k> <c-w>k
+nn <m-l> <c-w>l
+nn <m-h> <c-w>h
+
+nn <silent> <m-n> :cn<cr>
+nn <silent> <m-p> :cp<cr>
+" }}}2
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
