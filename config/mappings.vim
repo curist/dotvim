@@ -31,37 +31,9 @@ ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
 
-" Emacs love section {{{2
-
-" some preparations..
-nm j <m-j>
-nm k <m-k>
-nm l <m-l>
-nm h <m-h>
-
-nm p <m-p>
-nm n <m-n>
-
-" binding for transpose words
-nm t <m-t>
-cm t <m-t>
-
-" Emacs bindings in command line mode
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
-
 " easier wrapped line navigation
 nn j gj
 nn k gk
-
-" moving between windows
-nn <m-j> <c-w>j
-nn <m-k> <c-w>k
-nn <m-l> <c-w>l
-nn <m-h> <c-w>h
-
-nn <silent> <m-n> :cn<cr>
-nn <silent> <m-p> :cp<cr>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -70,6 +42,38 @@ nnoremap J mzJ`z
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
       \ nn <buffer> <silent> <expr> <CR> Highlighting() |
       \ endif
+
+
+" Emacs love section {{{
+  " Emacs bindings..
+  inoremap <c-a> <c-o>^
+  inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
+  cnoremap <c-a> <home>
+
+  " moving between windows
+  nn <m-j> <c-w>j
+  nn <m-k> <c-w>k
+  nn <m-l> <c-w>l
+  nn <m-h> <c-w>h
+
+  " quickfix quick navigation
+  nn <silent> <m-n> :cn<cr>
+  nn <silent> <m-p> :cp<cr>
+
+  if !has("gui_running")
+    nm j <m-j>
+    nm k <m-k>
+    nm l <m-l>
+    nm h <m-h>
+
+    nm n <m-n>
+    nm p <m-p>
+
+    " binding for transpose words
+    nm t <m-t>
+    cm t <m-t>
+  endif
+" }}}
 
 
 " PluginMappings {{{
