@@ -4,8 +4,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-runtime! config/**/*.vim
-
 syntax on
 filetype plugin indent on
 language messages POSIX
@@ -18,8 +16,10 @@ set t_Co=256
 "desert256 herald tir_black lucius inkpot zenburn
 "xoria256 wombat256i vividchalk molokai jellybeans
 colorscheme molokai
-set cursorline
 
+runtime! config/**/*.vim
+
+set cursorline
 set relativenumber
 set tabstop=4
 set shiftwidth=4
@@ -50,7 +50,6 @@ set statusline+=\ %{fugitive#head(6)}       " git branch
 set statusline+=\ %y                        " filetype
 set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
 
-
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
 set showbreak=↪
@@ -72,7 +71,7 @@ set directory=/tmp
 set shortmess+=I               " no intro message
 set iminsert=1                 " to enable lmap
 set nrformats=octal,hex,alpha  " ctrl-a to increment a-zA-Z
-set virtualedit=block          " no limit cursor postion when in VISUAL BLOCK mode
+set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=500              " Don't try to highlight long lines
 
 

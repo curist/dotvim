@@ -1,8 +1,5 @@
 let mapleader = ","
 
-" vimrc editing helper
-nn <leader>ev :e $MYVIMRC<cr>
-
 " snippet editing helper
 nn <leader>es :vne ~/.vim/snippets/<c-r>=&filetype<cr>.snippets<cr>
 
