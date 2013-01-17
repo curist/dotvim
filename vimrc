@@ -463,6 +463,11 @@ au VimResized * :wincmd =
 
 " change git status symbol color {{{2
 au BufEnter,BufWritePost * call SyncGitStatusSymbolColor()
+
+" Highlight problematic whitespace (spaces before tabs) {{{2
+hi ProblematicSpaces ctermfg=214 ctermbg=160 cterm=bold
+
+match ProblematicSpaces / \+\ze\t/
 " }}}1
 
 " Quirk dirty fixes {{{1
