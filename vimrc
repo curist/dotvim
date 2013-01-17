@@ -455,15 +455,6 @@ function! MyCloseDiff()
   endif
 endfunction
 
-" Make sure Vim returns to the same line when you reopen a file. {{{2
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
 " Save when losing focus {{{2
 au FocusLost * :silent! wall
 
