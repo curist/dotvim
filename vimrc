@@ -76,81 +76,8 @@ set virtualedit=block          " no limit cursor postion when in VISUAL BLOCK mo
 set synmaxcol=500              " Don't try to highlight long lines
 
 
-" Plugin specific settings/mappings {{{1
-" ctrlp settings {{{2
-nn <silent> <leader>t :CtrlPFunky<cr>
-nn <silent> <leader>g :CtrlPTag<cr>
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.hg$\|\.svn$\|node_modules$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pyc$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
-      \ }
-
-" supertab {{{2
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-set ofu=syntaxcomplete#Complete
-set completeopt=menu,longest
-
-" NERDTree options {{{2
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeChDirMode = 2
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeQuitOnOpen = 0
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeAutoDeleteBuffer = 1
-nn <silent> <leader>nf :NERDTreeFind<cr>
-nn <silent> <F2> :NERDTreeToggle<cr>
-
-" tagbar {{{2
-let g:tagbar_sort = 0
-nn <silent> <F3> :TagbarToggle<cr>
-
 " NrrwRgn window maximize as default {{{2
 autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
-
-" Tabuarize mappings {{{2
-vnoremap <silent> <leader>a=  :Tabularize /=/l1l1<CR>
-vnoremap <silent> <leader>a,  :Tabularize /,/l0l1<CR>
-vnoremap <silent> <leader>a:  :Tabularize /:/l0l1<CR>
-vnoremap <silent> <leader>a"  :Tabularize /"/l2l1<CR>
-
-" fugitive {{{2
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gc :Gcommit -a<cr>
-nnoremap <silent> <leader>ga :Gcommit -a --amend<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gD :call MyCloseDiff()<cr>
-
-" gitv {{{2
-nnoremap <silent> <leader>gl :Gitv<cr>
-
-" gundo {{{2
-nnoremap <silent> <leader>gu :GundoToggle<cr>
-
-" ack {{{2
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
-" repmo {{{2
-let g:repmo_mapmotions = "j|k h|l <C-E>|<C-Y> zh|zl gj|gk"
-
-" BufExplorer {{{2
-let g:bufExplorerFindActive=0
-
-" UltiSnips settings {{{2
-let g:UltiSnipsSnippetDirectories=["snippets"]
-
-" vimwiki {{{2
-let g:vimwiki_hl_headers = 1
-let g:vimwiki_ext2syntax = {}
-let g:vimwiki_list = [{'syntax': 'markdown'}]
-
-" rails settings {{{2
-let g:rubycomplete_rails = 1
-" }}}1
 
 " Helper functions/autocmds {{{1
 " git status symbol {{{2

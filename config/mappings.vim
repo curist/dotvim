@@ -65,7 +65,6 @@ nn <m-h> <c-w>h
 
 nn <silent> <m-n> :cn<cr>
 nn <silent> <m-p> :cp<cr>
-" }}}2
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -75,4 +74,36 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
       \ nn <buffer> <silent> <expr> <CR> Highlighting() |
       \ endif
 
-cabbr ss syntax sync fromstart
+
+augroup PluginMappings
+  " CtrlP
+  nn <silent> <leader>t :CtrlPFunky<cr>
+  nn <silent> <leader>g :CtrlPTag<cr>
+  let g:ctrlp_map = '<leader>f'
+
+  " NERDTree
+  nn <silent> <leader>nf :NERDTreeFind<cr>
+  nn <silent> <F2> :NERDTreeToggle<cr>
+
+  " Tagbar
+  nn <silent> <F3> :TagbarToggle<cr>
+
+  " Tabuarize mappings
+  vnoremap <silent> <leader>a=  :Tabularize /=/l1l1<CR>
+  vnoremap <silent> <leader>a,  :Tabularize /,/l0l1<CR>
+  vnoremap <silent> <leader>a:  :Tabularize /:/l0l1<CR>
+  vnoremap <silent> <leader>a"  :Tabularize /"/l2l1<CR>
+
+  " fugitive
+  nnoremap <silent> <leader>gs :Gstatus<cr>
+  nnoremap <silent> <leader>gc :Gcommit -a<cr>
+  nnoremap <silent> <leader>ga :Gcommit -a --amend<cr>
+  nnoremap <silent> <leader>gd :Gdiff<cr>
+  nnoremap <silent> <leader>gD :call MyCloseDiff()<cr>
+
+  " gitv
+  nnoremap <silent> <leader>gl :Gitv<cr>
+
+  " gundo
+  nnoremap <silent> <leader>gu :GundoToggle<cr>
+augroup END
