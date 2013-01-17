@@ -75,7 +75,7 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
       \ endif
 
 
-augroup PluginMappings
+" PluginMappings {{{
   " CtrlP
   nn <silent> <leader>t :CtrlPFunky<cr>
   nn <silent> <leader>g :CtrlPTag<cr>
@@ -106,4 +106,4 @@ augroup PluginMappings
 
   " gundo
   nnoremap <silent> <leader>gu :GundoToggle<cr>
-augroup END
+" }}}
