@@ -11,7 +11,8 @@ au VimResized * :wincmd =
 " change git status symbol color
 au BufEnter,BufWritePost * call SyncGitStatusSymbolColor()
 
-
+" CtrlPClearCache
+au ShellCmdPost * :CtrlPClearCache
 
 " behaviour adjustments {{{
   " deconflicting mappings between bufexplorer and surround
