@@ -4,6 +4,9 @@ augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
+  " clojure
+  autocmd BufRead,BufNewFile *.clj setlocal filetype=clojure
+
   " markdown and vimwiki wrap lines
   autocmd FileType markdown,vimwiki setlocal wrap
   autocmd FileType vimwiki setlocal nohidden
