@@ -49,6 +49,7 @@ augroup Bundles
   Bundle 'UltiSnips'
   Bundle 'sjl/gundo.vim'
   Bundle 'henrik/vim-indexed-search'
+  Bundle 'curist/git-symbol.vim'
 
   " good to have
   " Bundle 'scrooloose/syntastic'

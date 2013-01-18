@@ -8,9 +8,6 @@ augroup END
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
-" change git status symbol color
-au BufEnter,BufWritePost * call SyncGitStatusSymbolColor()
-
 " CtrlPClearCache
 au ShellCmdPost * :CtrlPClearCache
 

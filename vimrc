@@ -45,7 +45,7 @@ set statusline+=%{&fileformat}]             " file format
 set statusline+=%{&paste?'\ [PASTE]':''}    " paste mode status
 set statusline+=%m                          " file modified?
 set statusline+=%=                          " right align
-set statusline+=%1*%{GitStatusSymbol()}%*   " git status symbol
+set statusline+=%9*%{GitStatusSymbol()}%*   " git status symbol
 set statusline+=\ %{fugitive#head(6)}       " git branch
 set statusline+=\ %y                        " filetype
 set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
