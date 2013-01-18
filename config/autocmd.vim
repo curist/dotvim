@@ -5,13 +5,17 @@ augroup QFixToggle
   autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
 augroup END
 
-" Resize splits when the window is resized
-au VimResized * :wincmd =
+augroup MyCommonAutoCmds
+  autocmd!
+  " Resize splits when the window is resized
+  autocmd VimResized * :wincmd =
 
-" CtrlPClearCache
-au ShellCmdPost * :CtrlPClearCache
+  " CtrlPClearCache
+  autocmd ShellCmdPost * :CtrlPClearCache
+augroup END
 
-" behaviour adjustments {{{
+augroup BehaviourAdjustment
+  autocmd!
   " deconflicting mappings between bufexplorer and surround
   autocmd BufEnter \[BufExplorer\] unmap ds
   autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
@@ -22,4 +26,4 @@ au ShellCmdPost * :CtrlPClearCache
 
   " NrrwRgn window maximize as default
   autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
-" }}}
+augroup END
