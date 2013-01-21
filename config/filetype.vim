@@ -20,6 +20,9 @@ augroup MyFileTypeSettings
   autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
   autocmd FileType cpp setlocal mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
 
+  " objc
+  autocmd BufEnter,BufNew *.m setlocal filetype=objc
+
   " lua quickfix settings
   autocmd FileType lua setlocal mp=lua\ %
   autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
