@@ -75,7 +75,6 @@ set nrformats=octal,hex,alpha  " ctrl-a to increment a-zA-Z
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=500              " Don't try to highlight long lines
 
-
 " Load project specific configs
 if filereadable(expand("./.local_vimrc"))
   source ./.local_vimrc
