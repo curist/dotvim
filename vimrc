@@ -3,6 +3,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+runtime! bundles.vim
 
 syntax on
 filetype plugin indent on
