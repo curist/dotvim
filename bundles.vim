@@ -39,6 +39,7 @@ augroup Bundles
   Bundle 'hail2u/vim-css3-syntax'
   Bundle 'cakebaker/scss-syntax.vim'
   Bundle 'aaronj1335/underscore-templates.vim'
+  Bundle 'Rip-Rip/clang_complete'
 
   " other handy plugins
   Bundle 'vimwiki'
