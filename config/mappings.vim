@@ -113,8 +113,9 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
 
 augroup MyFileTypeMappings
   " run settings
-  autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
-  autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o ~/bin/%:t:r<cr>:!~/bin/%:t:r<cr>
+  autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
+  autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
+  autocmd FileType objc nn <buffer> <leader>r :w<cr>:!gcc % `gnustep-config --objc-flags` -lgnustep-base -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType java nn <buffer> <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
   autocmd FileType python nn <buffer> <leader>r :w<cr>:!python %<cr>

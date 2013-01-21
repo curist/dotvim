@@ -10,7 +10,7 @@ augroup MyFileTypeSettings
   autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
 
   " exclusive use cindent for c and cpp
-  autocmd FileType c,h,cpp,hpp setlocal cindent
+  autocmd FileType c,objc,h,cpp,hpp setlocal cindent
 
   " java complete setting
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
