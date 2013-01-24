@@ -7,7 +7,7 @@ snippet imp "#import (imp)" b
 endsnippet
 
 snippet Imp "#import <> (Imp)"
-#import <${1:Cocoa/Cocoa.h}>
+#import <${1:Foundation/Foundation.h}>
 endsnippet
 
 snippet cl "020 Class (objc)"
@@ -30,6 +30,14 @@ else:
 	return self;
 }
 @end
+endsnippet
+
+snippet main "main"
+int main (int argc, const char * argv[])
+{
+	$0
+	return 0;
+}
 endsnippet
 
 snippet array "NSArray (array)"

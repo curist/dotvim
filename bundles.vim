@@ -41,6 +41,7 @@ augroup Bundles
   Bundle 'aaronj1335/underscore-templates.vim'
   Bundle 'Rip-Rip/clang_complete'
   Bundle 'VimClojure'
+  Bundle 'b4winckler/vim-objc'
 
   " other handy plugins
   Bundle 'vimwiki'
