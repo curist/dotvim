@@ -40,8 +40,10 @@ augroup Bundles
   Bundle 'cakebaker/scss-syntax.vim'
   Bundle 'aaronj1335/underscore-templates.vim'
   Bundle 'Rip-Rip/clang_complete'
-  Bundle 'VimClojure'
-  Bundle 'b4winckler/vim-objc'
+  Bundle 'threeve/vim-objc'
+  Bundle 'tpope/vim-classpath'
+  Bundle 'guns/vim-clojure-static'
+  Bundle 'tpope/vim-foreplay'
 
   " other handy plugins
   Bundle 'vimwiki'

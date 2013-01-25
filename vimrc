@@ -3,7 +3,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-runtime! bundles.vim
+runtime! config/**/*.vim
 
 syntax on
 filetype plugin indent on
@@ -17,8 +17,6 @@ set t_Co=256
 "desert256 herald tir_black lucius inkpot zenburn
 "xoria256 wombat256i vividchalk molokai jellybeans
 colorscheme molokai
-
-runtime! config/**/*.vim
 
 set cursorline
 set relativenumber
