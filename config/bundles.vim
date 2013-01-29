@@ -55,6 +55,8 @@ augroup Bundles
   Bundle 'sjl/gundo.vim'
   Bundle 'henrik/vim-indexed-search'
   Bundle 'curist/git-symbol.vim'
+  Bundle 'mattn/webapi-vim'
+  Bundle 'mattn/gist-vim'
 
   " good to have
   " Bundle 'scrooloose/syntastic'
