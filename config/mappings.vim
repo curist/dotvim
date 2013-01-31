@@ -78,7 +78,7 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
 
 " PluginMappings {{{
   " CtrlP
-  nn <silent> <leader>t :CtrlPFunky<cr>
+  nn <silent> <leader>t :CtrlPBufTag<cr>
   nn <silent> <leader>g :CtrlPTag<cr>
   let g:ctrlp_map = '<leader>f'
 
@@ -130,4 +130,5 @@ augroup MyFileTypeMappings
   autocmd FileType markdown
         \ nn <buffer> <leader>r
         \ :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
+  autocmd FileType javascript nn <buffer><silent> <leader>t :CtrlPFunky<cr>
 augroup END
