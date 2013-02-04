@@ -37,7 +37,7 @@ augroup Bundles
   Bundle 'javacomplete'
   Bundle 'walm/jshint.vim'
   Bundle 'hail2u/vim-css3-syntax'
-  Bundle 'cakebaker/scss-syntax.vim'
+  Bundle 'curist/scss-syntax.vim'
   Bundle 'aaronj1335/underscore-templates.vim'
   Bundle 'Rip-Rip/clang_complete'
   Bundle 'threeve/vim-objc'
