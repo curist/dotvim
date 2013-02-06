@@ -12,6 +12,11 @@ function! Highlighting()
   return ":silent set hlsearch\<cr>:ShowSearchIndex\<cr>"
 endfunction
 
+function! HighlightingSelected()
+  let @/ = @*
+  return ":\<c-w>silent set hlsearch\<cr>:\<c-w>ShowSearchIndex\<cr>"
+endfunction
+
 " toggles the quickfix window.
 command -bang -nargs=0 QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)

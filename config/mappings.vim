@@ -39,8 +39,9 @@ nn k gk
 nnoremap J mzJ`z
 
 " map <cr> to do Highlighting only in modifiable buffers
-autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == "" |
-      \ nn <buffer> <silent> <expr> <CR> Highlighting() |
+autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
+      \ nn <buffer> <silent> <expr> <CR> Highlighting()|
+      \ xn <buffer> <silent> <expr> <CR> HighlightingSelected()|
       \ endif
 
 
