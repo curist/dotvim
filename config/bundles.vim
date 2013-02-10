@@ -8,6 +8,7 @@ augroup Bundles
   Bundle 'tpope/vim-endwise'
   Bundle 'tpope/vim-commentary'
   Bundle 'transpose-words'
+  Bundle 'vim-indent-object'
 
   " moving around:
   "   file/buffer switching
