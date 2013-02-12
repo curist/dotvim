@@ -21,9 +21,9 @@ nn <silent> <F5> <ESC>:set paste!<cr>
 nn <silent> <leader>s :execute 'noautocmd vimgrep /'.expand('<cword>').'/j **/*.'.expand('%:e')<cr>:copen<cr>
 nn <silent> <leader>S :execute 'noautocmd vimgrep /'.expand('<cword>').'/j **/*'<cr>:copen<cr>
 nn <silent> <leader>z :execute 'noautocmd vimgrep /'.expand('<cword>').'/gj '.expand('%')<cr>:copen<cr>
-vn <silent> <leader>s :<c-w>noautocmd vimgrep /<c-r>*/j **/*.<c-r>=expand('%:e')<cr><cr>:copen<cr>
-vn <silent> <leader>S :<c-w>noautocmd vimgrep /<c-r>*/j **/*<cr>:copen<cr>
-vn <silent> <leader>z :<c-w>noautocmd vimgrep /<c-r>*/gj <c-r>=expand('%')<cr><cr>:copen<cr>
+vn <silent> <leader>s :<c-u>noautocmd vimgrep /<c-r>*/j **/*.<c-r>=expand('%:e')<cr><cr>:copen<cr>
+vn <silent> <leader>S :<c-u>noautocmd vimgrep /<c-r>*/j **/*<cr>:copen<cr>
+vn <silent> <leader>z :<c-u>noautocmd vimgrep /<c-r>*/gj <c-r>=expand('%')<cr><cr>:copen<cr>
 vmap <c-c> <esc>
 lmap <c-c> <esc>
 smap <c-c> <esc>

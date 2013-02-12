@@ -14,7 +14,7 @@ endfunction
 
 function! HighlightingSelected()
   let @/ = @*
-  return ":\<c-w>silent set hlsearch\<cr>:\<c-w>ShowSearchIndex\<cr>"
+  return ":\<c-u>silent set hlsearch\<cr>:\<c-u>ShowSearchIndex\<cr>"
 endfunction
 
 " toggles the quickfix window.
