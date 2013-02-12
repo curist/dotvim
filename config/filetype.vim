@@ -4,9 +4,6 @@ augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
-  " clojure
-  autocmd BufRead,BufNewFile *.clj setlocal filetype=clojure
-
   " markdown and vimwiki wrap lines
   autocmd FileType markdown,vimwiki setlocal wrap
   autocmd FileType vimwiki setlocal nohidden
@@ -24,14 +21,14 @@ augroup MyFileTypeSettings
   autocmd FileType cpp setlocal mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
 
   " objc
-  autocmd BufEnter,BufNew *.m setlocal filetype=objc
+  autocmd BufRead,BufNewFile *.m setlocal filetype=objc
 
   " lua quickfix settings
   autocmd FileType lua setlocal mp=lua\ %
   autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
 
   " tintin++ setting
-  autocmd BufEnter,BufNew *.tt setlocal syntax=tt
+  autocmd BufRead,BufNewFile *.tt setlocal syntax=tt
 
   " javascript files run JSHint upon save
   autocmd FileType javascript autocmd BufWritePost <buffer> exe ":JSHint"
