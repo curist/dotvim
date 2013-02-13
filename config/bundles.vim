@@ -2,7 +2,7 @@ Bundle 'gmarik/vundle'
 
 augroup Bundles
   " text manipulating helpers
-  Bundle 'curist/vim-AutoClose'
+  Bundle 'curist/vim-autoclose'
   Bundle 'godlygeek/tabular'
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-endwise'
@@ -20,7 +20,6 @@ augroup Bundles
   Bundle 'Tagbar'
   Bundle 'kien/ctrlp.vim'
   Bundle 'tacahiroy/ctrlp-funky'
-  Bundle 'repmo.vim'
   Bundle 'mileszs/ack.vim'
 
   " git
@@ -65,4 +64,5 @@ augroup Bundles
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'
   " Bundle 'wavded/vim-stylus'
+  " Bundle 'repmo.vim'
 augroup END
