@@ -43,14 +43,6 @@ augroup MyFileTypeSettings
   " xml formatting
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
-  " BundleInstall after bundles.vim saved
-  autocmd BufWritePost bundles.vim call UpdateBundleInstall()
-  function! UpdateBundleInstall()
-    w
-    so %
-    BundleInstall
-  endfunction
-
   "" killing trailing spaces when saving file
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim
         \ autocmd BufWritePre <buffer> :call KillTrailingSpaces()

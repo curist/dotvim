@@ -14,6 +14,19 @@ augroup MyCommonAutoCmds
   autocmd ShellCmdPost * :CtrlPClearCache
 augroup END
 
+augroup BundleInstallOnBundleFileWritePost
+  " BundleInstall after bundles.vim saved
+  autocmd BufWritePost bundles.vim call UpdateBundleInstall()
+  function! UpdateBundleInstall()
+    let orig_bundles = g:bundles
+    let g:bundles = []
+    so %
+    if g:bundles != orig_bundles
+      BundleInstall
+    endif
+  endfunction
+augroup END
+
 augroup BehaviourAdjustment
   autocmd!
   " deconflicting mappings between bufexplorer and surround
