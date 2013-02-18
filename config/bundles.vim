@@ -34,7 +34,7 @@ augroup Bundles
   Bundle 'pangloss/vim-javascript'
   Bundle 'digitaltoad/vim-jade'
   Bundle 'kchmck/vim-coffee-script'
-  Bundle 'javacomplete'
+  Bundle 'curist/javacomplete'
   Bundle 'walm/jshint.vim'
   Bundle 'hail2u/vim-css3-syntax'
   Bundle 'curist/scss-syntax.vim'
