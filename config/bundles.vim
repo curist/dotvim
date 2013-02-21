@@ -57,8 +57,8 @@ augroup Bundles
   Bundle 'curist/git-symbol.vim'
   Bundle 'mattn/webapi-vim'
   Bundle 'mattn/gist-vim'
-  Bundle 'Shougo/vimproc'
-  Bundle 'Shougo/vimshell'
+  Bundle 'curist/ConqueTerm'
+  Bundle 'Shougo/neocomplcache'
 
   " good to have
   " Bundle 'scrooloose/syntastic'

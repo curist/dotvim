@@ -38,6 +38,8 @@ nn k gk
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
 
+cmap <expr> <c-r><c-l> getline('.')
+
 " map <cr> to do Highlighting only in modifiable buffers
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
       \ nn <buffer> <silent> <expr> <CR> Highlighting()|
