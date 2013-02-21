@@ -59,6 +59,7 @@ augroup Bundles
   Bundle 'mattn/gist-vim'
   Bundle 'curist/ConqueTerm'
   Bundle 'Shougo/neocomplcache'
+  Bundle 'osyo-manga/neocomplcache-clang_complete'
 
   " good to have
   " Bundle 'scrooloose/syntastic'
