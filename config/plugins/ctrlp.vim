@@ -1,4 +1,4 @@
-let g:ctrlp_extensions = ['funky']
+let g:ctrlp_extensions = []
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.hg$\|\.svn$\|node_modules$',
