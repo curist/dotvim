@@ -106,6 +106,7 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   nnoremap <silent> <leader>ga :Gcommit -a --amend<cr>
   nnoremap <silent> <leader>gd :Gdiff<cr>
   nnoremap <silent> <leader>gD :call MyCloseDiff()<cr>
+  nnoremap <silent> <leader>gb :Gblame -w<cr>
 
   " gitv
   nnoremap <silent> <leader>gl :Gitv<cr>
