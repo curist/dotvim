@@ -3,7 +3,7 @@ let g:AutoCloseSelectionWrapPrefix = ""
 let g:AutoCloseProtectedRegions = ["Comment", "Character"]
 
 " FileType whitelist to use AutoCloseExpandEnterOn behaviour
-autocmd FileType javascript
+autocmd FileType javascript,scss.css,css
       \ let b:AutoCloseExpandEnterOn = "{"
 
 autocmd FileType clojure
