@@ -31,7 +31,7 @@ augroup MyFileTypeSettings
   autocmd BufRead,BufNewFile *.tt setlocal syntax=tt
 
   " javascript files run JSHint upon save
-  autocmd FileType javascript autocmd BufWritePost <buffer> exe ":JSHint"
+  autocmd FileType javascript autocmd! BufWritePost <buffer> exe ":JSHint"
 
   " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END
   autocmd BufNewFile,BufRead afiedt.buf setfiletype sql
@@ -45,6 +45,6 @@ augroup MyFileTypeSettings
 
   "" killing trailing spaces when saving file
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim
-        \ autocmd BufWritePre <buffer> :call KillTrailingSpaces()
+        \ autocmd! BufWritePre <buffer> :call KillTrailingSpaces()
 augroup END
 
