@@ -70,7 +70,7 @@ set directory=/tmp
 
 set shortmess+=I               " no intro message
 set iminsert=1                 " to enable lmap
-set nrformats=octal,hex,alpha  " ctrl-a to increment a-zA-Z
+set nrformats=hex,alpha        " ctrl-a to increment a-zA-Z
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=500              " Don't try to highlight long lines
 
