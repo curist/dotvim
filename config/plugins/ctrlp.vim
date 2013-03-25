@@ -4,3 +4,5 @@ let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.hg$\|\.svn$\|node_modules$',
       \ 'file': '\.exe$\|\.so$\|\.dll$\|\.class$\|\.pyc$\|\.png$\|\.jpeg$\|\.jpg$\|\.gif$\|\.bmp$'
       \ }
+
+let g:ctrlp_use_caching = 600
