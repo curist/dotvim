@@ -14,6 +14,12 @@ nmap <leader>P "+P
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
+" translate word under cursor
+nn <silent> <leader>k :echo substitute(system('fy '.expand('<cword>')), '\n*$', '', '')<cr>
+" translate selected word
+vn <silent> <leader>k :<c-u>echo substitute(system('fy <c-r>*'), '\n*$', '', '')<cr>
+
+
 " other sweet mappings
 nn <silent> <SPACE> za
 nn <silent> <F4> :execute 'noautocmd vimgrep /\v(TODO\|FIXME)/ '.expand('%')<cr>:copen<cr>:cc<cr>
