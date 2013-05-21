@@ -44,6 +44,7 @@ augroup Bundles
   Bundle 'tpope/vim-classpath'
   Bundle 'guns/vim-clojure-static'
   Bundle 'tpope/vim-foreplay'
+  Bundle 'marijnh/tern_for_vim'
 
   " other handy plugins
   Bundle 'vimwiki'

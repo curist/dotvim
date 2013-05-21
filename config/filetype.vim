@@ -33,6 +33,9 @@ augroup MyFileTypeSettings
   " javascript files run JSHint upon save
   autocmd FileType javascript autocmd! BufWritePost <buffer> exe ":JSHint"
 
+  " javascript code completion
+  autocmd FileType javascript setlocal completefunc=tern#Complete
+
   " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END
   autocmd BufNewFile,BufRead afiedt.buf setfiletype sql
   autocmd BufWritePre afiedt.buf call SqlRemarkWrapping()
