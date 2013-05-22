@@ -126,6 +126,8 @@ augroup MyFileTypeMappings
   autocmd FileType perl nn <buffer> <leader>r :w<cr>:!perl %<cr>
   autocmd FileType lua nn <buffer> <leader>r :w<cr>:make<cr>
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
+  autocmd FileType javascript nn <buffer> <silent> <c-]> :TernDef<cr>
+  autocmd FileType javascript nn <buffer> <silent> <c-t> <c-o>
   autocmd FileType coffee nn <buffer> <leader>r :w<cr>:!coffee %<cr>
   autocmd FileType coffee vn <buffer> <leader>r :w !coffee -s<cr>
   autocmd FileType coffee nn <buffer> <leader>c :w<cr>:!coffee -p %<cr>
