@@ -27,7 +27,6 @@ vn <silent> <leader>z :<c-u>noautocmd vimgrep /<c-r>*/gj <c-r>=expand('%')<cr><c
 vmap <c-c> <esc>
 lmap <c-c> <esc>
 smap <c-c> <esc>
-ca <silent> w!! silent exe "write !sudo tee % >/dev/null"
 nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
 
