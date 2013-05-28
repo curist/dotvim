@@ -43,7 +43,7 @@ augroup Bundles
   Bundle 'threeve/vim-objc'
   Bundle 'tpope/vim-classpath'
   Bundle 'guns/vim-clojure-static'
-  Bundle 'tpope/vim-foreplay'
+  Bundle 'tpope/vim-fireplace'
   Bundle 'marijnh/tern_for_vim'
 
   " other handy plugins
