@@ -93,4 +93,47 @@ ${1:ClassName} = (function (){
 $0
 endsnippet
 
+snippet gcj "Google Code Jam template" !b
+function GetLine(filename) {
+  var fs = require('fs');
+  filename = filename || '/dev/stdin';
+  if(fs.existsSync(filename, function(exist) {
+    if(!exist) {
+      console.error('Cannot read file: ' + filename);
+      process.exit(1);
+    }
+  }));
+
+  var lines = fs.readFileSync(filename, 'utf8').split('\n');
+  var len = lines.length;
+  var i = 0;
+
+  this.getline = function() {
+    if(i < len) {
+      return lines[i++];
+    } else {
+      return null;
+    }
+  };
+}
+
+var args = process.argv.splice(2);
+var input_file = args[0] || '';
+var getline = (new GetLine(input_file)).getline;
+
+(function main() {
+  var T = getline();
+  var i = 0;
+
+  while(i++ < T) {
+    console.log('Case #' + i + ': ' + answer());
+  }
+})();
+
+function answer() {
+  $0
+  return '';
+}
+endsnippet
+
 # vim:ft=snippets:
