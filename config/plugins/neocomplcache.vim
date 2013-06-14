@@ -20,3 +20,5 @@ let g:neocomplcache_force_omni_patterns.objc =
             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_force_omni_patterns.objcpp =
             \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.go =
+            \ '[^.[:digit:] *\t]\.'

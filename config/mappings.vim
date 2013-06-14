@@ -126,6 +126,7 @@ augroup MyFileTypeMappings
   autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType objc nn <buffer> <leader>r :w<cr>:!gcc % `gnustep-config --objc-flags` -lgnustep-base -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
+  autocmd FileType go nn <buffer> <leader>r :w<cr>:!go run %<cr>
   autocmd FileType java nn <buffer> <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
   autocmd FileType python nn <buffer> <leader>r :w<cr>:!python %<cr>
   autocmd FileType perl nn <buffer> <leader>r :w<cr>:!perl %<cr>
