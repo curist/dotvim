@@ -39,7 +39,6 @@ augroup Bundles
   Bundle 'hail2u/vim-css3-syntax'
   Bundle 'curist/scss-syntax.vim'
   Bundle 'aaronj1335/underscore-templates.vim'
-  Bundle 'Rip-Rip/clang_complete'
   Bundle 'threeve/vim-objc'
   Bundle 'tpope/vim-classpath'
   Bundle 'guns/vim-clojure-static'
@@ -49,7 +48,7 @@ augroup Bundles
 
   " other handy plugins
   Bundle 'vimwiki'
-  Bundle 'ervandew/supertab'
+  " Bundle 'ervandew/supertab'
   Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
   Bundle 'chrisbra/NrrwRgn'
@@ -60,9 +59,8 @@ augroup Bundles
   Bundle 'mattn/webapi-vim'
   Bundle 'mattn/gist-vim'
   Bundle 'curist/ConqueTerm'
-  Bundle 'Shougo/neocomplcache'
-  Bundle 'osyo-manga/neocomplcache-clang_complete'
   Bundle 'tpope/vim-sleuth'
+  Bundle 'Valloric/YouCompleteMe'
 
   " good to have
   " Bundle 'scrooloose/syntastic'

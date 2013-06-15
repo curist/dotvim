@@ -50,4 +50,3 @@ augroup MyFileTypeSettings
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim
         \ autocmd! BufWritePre <buffer> :call KillTrailingSpaces()
 augroup END
-
