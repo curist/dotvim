@@ -52,7 +52,7 @@ augroup Bundles
   Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
   Bundle 'chrisbra/NrrwRgn'
-  Bundle 'UltiSnips'
+  Bundle 'SirVer/ultisnips'
   Bundle 'sjl/gundo.vim'
   Bundle 'henrik/vim-indexed-search'
   Bundle 'curist/git-symbol.vim'

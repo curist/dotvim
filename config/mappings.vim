@@ -1,7 +1,7 @@
 let mapleader = ","
 
 " snippet editing helper
-nn <leader>es :vne ~/.vim/ulti-snippets/<c-r>=&filetype<cr>.snippets<cr>
+nn <leader>es :UltiSnipsEdit<cr>
 
 nn <silent> <leader>h :noh<cr>
 nn <silent> <leader>q :QFix<cr>

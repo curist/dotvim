@@ -49,4 +49,9 @@ augroup MyFileTypeSettings
   "" killing trailing spaces when saving file
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim
         \ autocmd! BufWritePre <buffer> :call KillTrailingSpaces()
+
+  " golang
+  autocmd FileType go setlocal noexpandtab
+  autocmd FileType go autocmd! BufWritePre <buffer> Fmt
+  autocmd FileType go setlocal commentstring=//%s
 augroup END
