@@ -65,8 +65,8 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   nn <m-h> <c-w>h
 
   " quickfix quick navigation
-  nn <silent> <m-n> :cn<cr>
-  nn <silent> <m-p> :cp<cr>
+  nn <silent> <m-n> :cn<cr>zz
+  nn <silent> <m-p> :cp<cr>zz
 
   if !has("gui_running")
     nm j <m-j>

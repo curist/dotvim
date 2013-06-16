@@ -35,7 +35,8 @@ augroup BehaviourAdjustment
 
   " don't show quickfix in buffers list
   " set number in quickfix list
-  autocmd BufRead quickfix setlocal nobuflisted number
+  autocmd BufRead quickfix setlocal nobuflisted number nornu
+  autocmd BufRead location setlocal nobuflisted number nornu
 
   " NrrwRgn window maximize as default
   autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"

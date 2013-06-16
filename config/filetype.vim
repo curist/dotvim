@@ -30,8 +30,6 @@ augroup MyFileTypeSettings
   " tintin++ setting
   autocmd BufRead,BufNewFile *.tt setlocal syntax=tt
 
-  " javascript files run JSHint upon save
-
   " javascript code completion
   autocmd FileType javascript setlocal completefunc=tern#Complete
 
