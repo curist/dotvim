@@ -61,9 +61,9 @@ augroup Bundles
   Bundle 'curist/ConqueTerm'
   Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
+  Bundle 'scrooloose/syntastic'
 
   " good to have
-  " Bundle 'scrooloose/syntastic'
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'

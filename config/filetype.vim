@@ -31,7 +31,6 @@ augroup MyFileTypeSettings
   autocmd BufRead,BufNewFile *.tt setlocal syntax=tt
 
   " javascript files run JSHint upon save
-  autocmd FileType javascript autocmd! BufWritePost <buffer> exe ":JSHint"
 
   " javascript code completion
   autocmd FileType javascript setlocal completefunc=tern#Complete
