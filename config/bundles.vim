@@ -44,7 +44,7 @@ augroup Bundles
   Bundle 'guns/vim-clojure-static'
   Bundle 'tpope/vim-fireplace'
   Bundle 'marijnh/tern_for_vim'
-  Bundle 'Nyasu/vim-gocode'
+  Bundle 'Blackrush/vim-gocode'
 
   " other handy plugins
   Bundle 'vimwiki'
