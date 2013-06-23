@@ -45,6 +45,7 @@ augroup Bundles
   Bundle 'tpope/vim-fireplace'
   Bundle 'marijnh/tern_for_vim'
   Bundle 'Blackrush/vim-gocode'
+  Bundle 'derekwyatt/vim-scala'
 
   " other handy plugins
   Bundle 'vimwiki'
