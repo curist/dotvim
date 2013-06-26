@@ -36,6 +36,10 @@ smap <c-c> <esc>
 nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
 
+" vim-commentary
+xmap <c-\> <Plug>Commentary
+nmap <c-\> <Plug>CommentaryLine
+
 " easier wrapped line navigation
 nn j gj
 nn k gk

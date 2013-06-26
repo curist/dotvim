@@ -36,7 +36,7 @@ set hidden     " it's ok to switch buffer w/o saving
 set showcmd
 
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=list:longest,full
 
 set laststatus=2                            " status bar setting
 set statusline=[%F]                         " file name
