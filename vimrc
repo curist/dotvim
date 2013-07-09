@@ -38,6 +38,8 @@ set showcmd
 set wildmenu
 set wildmode=list:longest,full
 
+set completeopt=menuone
+
 set laststatus=2                            " status bar setting
 set statusline=[%F]                         " file name
 set statusline+=\ [%{&fileencoding},        " encoding
