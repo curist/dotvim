@@ -36,10 +36,6 @@ smap <c-c> <esc>
 nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
 
-" vim-commentary
-xmap <c-\> <Plug>Commentary
-nmap <c-\> <Plug>CommentaryLine
-
 " easier wrapped line navigation
 nn j gj
 nn k gk
@@ -103,7 +99,7 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   " Tagbar
   nn <silent> <F3> :TagbarToggle<cr>
 
-  " Tabuarize mappings
+  " Tabularize mappings
   vnoremap <silent> <leader>a=  :Tabularize /=/l1l1<CR>
   vnoremap <silent> <leader>a,  :Tabularize /,/l0l1<CR>
   vnoremap <silent> <leader>a:  :Tabularize /:/l0l1<CR>
@@ -122,10 +118,16 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
 
   " gundo
   nnoremap <silent> <leader>gu :GundoToggle<cr>
+
+  " vim-commentary
+  xmap <c-\> <Plug>Commentary
+  nmap <c-\> <Plug>CommentaryLine
+
 " }}}
 
 augroup MyFileTypeMappings
   " run settings
+  autocmd!
   autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType objc nn <buffer> <leader>r :w<cr>:!gcc % `gnustep-config --objc-flags` -lgnustep-base -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
@@ -135,6 +137,7 @@ augroup MyFileTypeMappings
   autocmd FileType python nn <buffer> <leader>r :w<cr>:!python %<cr>
   autocmd FileType perl nn <buffer> <leader>r :w<cr>:!perl %<cr>
   autocmd FileType lua nn <buffer> <leader>r :w<cr>:make<cr>
+  autocmd FileType haskell nn <buffer> <leader>r :w<cr>:!runhaskell %<cr>
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType javascript nn <buffer> <silent> <c-]> :TernDef<cr>
   autocmd FileType javascript nn <buffer> <silent> <c-t> <c-o>

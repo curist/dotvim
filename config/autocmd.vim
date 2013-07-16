@@ -15,6 +15,7 @@ augroup MyCommonAutoCmds
 augroup END
 
 augroup BundleInstallOnBundleFileWritePost
+  autocmd!
   " BundleInstall after bundles.vim saved
   autocmd BufWritePost bundles.vim call UpdateBundleInstall()
   function! UpdateBundleInstall()
