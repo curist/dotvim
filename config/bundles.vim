@@ -50,17 +50,12 @@ augroup Bundles
 
   " other handy plugins
   Bundle 'vimwiki'
-  " Bundle 'ervandew/supertab'
-  Bundle 'tpope/vim-rake'
   Bundle 'tpope/vim-repeat'
   Bundle 'chrisbra/NrrwRgn'
   Bundle 'SirVer/ultisnips'
   Bundle 'sjl/gundo.vim'
   Bundle 'henrik/vim-indexed-search'
   Bundle 'curist/git-symbol.vim'
-  Bundle 'mattn/webapi-vim'
-  Bundle 'mattn/gist-vim'
-  Bundle 'curist/ConqueTerm'
   Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'scrooloose/syntastic'
@@ -71,4 +66,8 @@ augroup Bundles
   " Bundle 'sjl/splice.vim'
   " Bundle 'wavded/vim-stylus'
   " Bundle 'repmo.vim'
+  " Bundle 'tpope/vim-rake'
+  " Bundle 'mattn/webapi-vim'
+  " Bundle 'mattn/gist-vim'
+  " Bundle 'curist/ConqueTerm'
 augroup END
