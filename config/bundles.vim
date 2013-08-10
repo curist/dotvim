@@ -47,6 +47,7 @@ augroup Bundles
   Bundle 'Blackrush/vim-gocode'
   Bundle 'derekwyatt/vim-scala'
   Bundle 'curist/vim-angular-template'
+  Bundle 'applescript.vim'
 
   " other handy plugins
   Bundle 'vimwiki'
