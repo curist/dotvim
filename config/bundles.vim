@@ -60,7 +60,6 @@ augroup Bundles
   Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'scrooloose/syntastic'
-  Bundle 'sjl/vitality.vim'
 
   " good to have
   " Bundle 'YankRing.vim'
