@@ -43,7 +43,6 @@ augroup Bundles
   Bundle 'tpope/vim-classpath'
   Bundle 'guns/vim-clojure-static'
   Bundle 'tpope/vim-fireplace'
-  Bundle 'marijnh/tern_for_vim'
   Bundle 'Blackrush/vim-gocode'
   Bundle 'derekwyatt/vim-scala'
   Bundle 'curist/vim-angular-template'
@@ -59,9 +58,8 @@ augroup Bundles
   Bundle 'curist/git-symbol.vim'
   Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
-  Bundle 'scrooloose/syntastic'
 
-  " good to have
+  " nice to have
   " Bundle 'YankRing.vim'
   " Bundle 'wincent/Command-T'
   " Bundle 'sjl/splice.vim'
@@ -71,4 +69,6 @@ augroup Bundles
   " Bundle 'mattn/webapi-vim'
   " Bundle 'mattn/gist-vim'
   " Bundle 'curist/ConqueTerm'
+  " Bundle 'scrooloose/syntastic'
+  " Bundle 'marijnh/tern_for_vim'
 augroup END
