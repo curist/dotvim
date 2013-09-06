@@ -91,7 +91,7 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   let g:ctrlp_map = '<leader>f'
 
   " NERDTree
-  nn <silent> <leader>nf :NERDTreeFind<cr>
+  nn <silent> <leader>nf :NERDTreeFind<cr>zz
   nn <silent> <F2> :NERDTreeToggle<cr>
   " unmap NERDTreeMapCWD
   let g:NERDTreeMapCWD = ''
