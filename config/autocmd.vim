@@ -42,3 +42,8 @@ augroup BehaviourAdjustment
   " NrrwRgn window maximize as default
   autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
 augroup END
+
+augroup AutoClosePreview
+  " autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
+  autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+augroup END
