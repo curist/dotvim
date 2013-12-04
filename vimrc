@@ -41,8 +41,7 @@ set clipboard=autoselect " make macvim can auto copy
 set wildmenu
 set wildmode=list:longest,full
 
-set completeopt=menu,preview " the default
-set previewheight=1
+set completeopt=menuone
 
 set laststatus=2                            " status bar setting
 set statusline=[%F]                         " file name

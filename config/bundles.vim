@@ -58,7 +58,6 @@ augroup Bundles
   Bundle 'curist/git-symbol.vim'
   Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
-  Bundle 'scrooloose/syntastic'
 
   " nice to have
   " Bundle 'YankRing.vim'
@@ -70,5 +69,6 @@ augroup Bundles
   " Bundle 'mattn/webapi-vim'
   " Bundle 'mattn/gist-vim'
   " Bundle 'curist/ConqueTerm'
+  " Bundle 'scrooloose/syntastic'
   " Bundle 'marijnh/tern_for_vim'
 augroup END
