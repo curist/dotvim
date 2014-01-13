@@ -47,6 +47,7 @@ augroup Bundles
   Bundle 'derekwyatt/vim-scala'
   Bundle 'curist/vim-angular-template'
   Bundle 'applescript.vim'
+  Bundle 'mustache/vim-mustache-handlebars'
 
   " other handy plugins
   Bundle 'vimwiki'
