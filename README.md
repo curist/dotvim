@@ -8,4 +8,6 @@ My babe.
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim
 :BundleInstall
+go get -u github.com/jstemmer/gotags
+go get -u github.com/nsf/gocode
 ```
