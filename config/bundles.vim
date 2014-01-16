@@ -60,16 +60,4 @@ augroup Bundles
   Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'scrooloose/syntastic'
-
-  " nice to have
-  " Bundle 'YankRing.vim'
-  " Bundle 'wincent/Command-T'
-  " Bundle 'sjl/splice.vim'
-  " Bundle 'wavded/vim-stylus'
-  " Bundle 'repmo.vim'
-  " Bundle 'tpope/vim-rake'
-  " Bundle 'mattn/webapi-vim'
-  " Bundle 'mattn/gist-vim'
-  " Bundle 'curist/ConqueTerm'
-  " Bundle 'marijnh/tern_for_vim'
 augroup END
