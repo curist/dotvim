@@ -123,6 +123,9 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   xmap <c-\> <Plug>Commentary
   nmap <c-\> <Plug>CommentaryLine
 
+  " syntastic
+  nn <silent> <leader>c :SyntasticCheck<cr>
+
 " }}}
 
 augroup MyFileTypeMappings

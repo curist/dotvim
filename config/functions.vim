@@ -34,6 +34,13 @@ function! KillTrailingSpaces()
   :call cursor(l:save_cursor[1], l:save_cursor[2], l:save_cursor[3])
 endfunction
 
+" go code formating
+function! Fmt_()
+  normal mz
+  :%!gofmt
+  normal `z
+endfunction
+
 " add REMARK to sql statements
 function! SqlRemarkWrapping()
   execute "norm ggOREMARK BEGIN"
