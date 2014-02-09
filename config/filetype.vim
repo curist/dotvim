@@ -51,7 +51,7 @@ augroup MyFileTypeSettings
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go autocmd! BufWritePre <buffer> :call Fmt_()
   autocmd FileType go setlocal commentstring=//%s
-  let g:golang_goos = 'linux'
-  let g:golang_goarch = 'amd64'
+  " let g:golang_goos = 'linux'
+  " let g:golang_goarch = 'amd64'
   let g:gocode_gofmt_tabwidth=""
 augroup END
