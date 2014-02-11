@@ -20,6 +20,7 @@ augroup Bundles
   Bundle 'Tagbar'
   Bundle 'kien/ctrlp.vim'
   Bundle 'tacahiroy/ctrlp-funky'
+  Bundle 'JazzCore/ctrlp-cmatcher'
   Bundle 'mileszs/ack.vim'
 
   " git
