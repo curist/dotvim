@@ -5,9 +5,9 @@ function! Highlighting()
     return "\<cr>"
   endif
 
-  " check if the current word is meaningful
-  if expand('<cword>') =~ '^[a-zA-Z][a-zA-Z#_0-9]*$'
-    let @/ = '\<'.expand('<cword>').'\>'
+  let l:cword = expand('<cword>')
+  if strlen(l:cword) > 0
+    let @/ = '\<'.l:cword.'\>'
   endif
   return ":silent set hlsearch\<cr>:ShowSearchIndex\<cr>"
 endfunction
