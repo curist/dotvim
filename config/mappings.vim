@@ -45,6 +45,8 @@ nnoremap J mzJ`z
 
 cmap <expr> <c-r><c-l> getline('.')
 
+nn <f1> <nop>
+
 " map <cr> to do Highlighting only in modifiable buffers
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
       \ nn <buffer> <silent> <expr> <CR> Highlighting()|
@@ -55,8 +57,8 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
 " Emacs love section {{{
   " Emacs bindings..
   inoremap <c-a> <c-o>^
-  inoremap <expr> <c-e> col('.')>strlen(getline('.'))?"\<lt>c-e>":"\<lt>end>"
   cnoremap <c-a> <home>
+  inoremap <c-e> <end>
 
   " moving between windows
   nn <m-j> <c-w>j
