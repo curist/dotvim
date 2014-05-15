@@ -49,6 +49,7 @@ augroup Bundles
   Bundle 'curist/vim-angular-template'
   Bundle 'applescript.vim'
   Bundle 'mustache/vim-mustache-handlebars'
+  Bundle 'mxw/vim-jsx'
 
   " other handy plugins
   Bundle 'vimwiki'
@@ -58,7 +59,6 @@ augroup Bundles
   Bundle 'sjl/gundo.vim'
   Bundle 'henrik/vim-indexed-search'
   Bundle 'curist/git-symbol.vim'
-  Bundle 'tpope/vim-sleuth'
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'scrooloose/syntastic'
 augroup END

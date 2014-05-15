@@ -18,7 +18,8 @@ augroup MyFileTypeSettings
         \ 'ruby',
         \ 'sass',
         \ 'xml',
-        \ 'python']
+        \ 'python',
+        \ 'go']
 
   " exclusive use cindent for c and cpp
   autocmd FileType c,objc,h,cpp,hpp setlocal cindent

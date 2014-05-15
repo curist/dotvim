@@ -136,4 +136,18 @@ function answer() {
 }
 endsnippet
 
+snippet jsx "jsx header comment" !b
+/** @jsx React.DOM */
+
+var React = require('react');
+
+var ${1:ClassName} = React.createClass({
+	render: function() {
+	}
+});
+
+module.exports = $1;
+
+endsnippet
+
 # vim:ft=snippets:
