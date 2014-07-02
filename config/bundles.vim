@@ -1,3 +1,6 @@
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
 Bundle 'gmarik/vundle'
 
 augroup Bundles
@@ -38,9 +41,7 @@ augroup Bundles
   Bundle 'curist/javacomplete'
   Bundle 'walm/jshint.vim'
   Bundle 'hail2u/vim-css3-syntax'
-  Bundle 'curist/scss-syntax.vim'
   Bundle 'aaronj1335/underscore-templates.vim'
-  Bundle 'threeve/vim-objc'
   Bundle 'tpope/vim-classpath'
   Bundle 'guns/vim-clojure-static'
   Bundle 'tpope/vim-fireplace'
