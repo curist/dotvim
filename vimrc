@@ -33,8 +33,7 @@ set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
 set showcmd
 
-set clipboard=autoselect " make macvim can auto copy
-                         " visual selection to clipboard
+set clipboard=autoselect " auto copy visual selection to clipboard
 
 set wildmenu
 set wildmode=list:longest,full
