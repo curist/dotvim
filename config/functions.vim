@@ -13,7 +13,7 @@ function! Highlighting()
 endfunction
 
 function! HighlightingSelected()
-  let @/ = @*
+  let @/ = substitute(@*, '\n', '\\n', 'g')
   return ":\<c-u>silent set hlsearch\<cr>:\<c-u>ShowSearchIndex\<cr>"
 endfunction
 
