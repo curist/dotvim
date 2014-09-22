@@ -36,6 +36,7 @@ set hidden     " it's ok to switch buffer w/o saving
 set showcmd
 
 set clipboard=autoselect " auto copy visual selection to clipboard
+set guioptions+=a
 
 set wildmenu
 set wildmode=list:longest,full
