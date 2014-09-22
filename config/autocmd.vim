@@ -23,7 +23,7 @@ augroup BundleInstallOnBundleFileWritePost
     let g:bundles = []
     so %
     if g:bundles != orig_bundles
-      BundleInstall
+      PluginInstall
     endif
   endfunction
 augroup END
