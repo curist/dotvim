@@ -29,6 +29,7 @@ augroup Plugins
   " git
   Plugin 'tpope/vim-fugitive'
   Plugin 'gregsexton/gitv'
+  Plugin 'gitignore'
 
   " language specific
   Plugin 'vim-ruby/vim-ruby'

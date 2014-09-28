@@ -81,9 +81,4 @@ set synmaxcol=500              " Don't try to highlight long lines
 
 set updatetime=800
 
-" Load project specific configs
-if filereadable(expand("./.local_vimrc"))
-  source ./.local_vimrc
-endif
-
 " vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
