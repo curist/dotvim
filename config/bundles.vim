@@ -52,6 +52,7 @@ augroup Plugins
   Plugin 'applescript.vim'
   Plugin 'mustache/vim-mustache-handlebars'
   Plugin 'mxw/vim-jsx'
+  Plugin 'wting/rust.vim'
 
   " other handy plugins
   Plugin 'vimwiki'

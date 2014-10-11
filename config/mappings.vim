@@ -140,6 +140,7 @@ augroup MyFileTypeMappings
   autocmd FileType c nn <buffer> <leader>r :w<cr>:!gcc % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType cpp nn <buffer> <leader>r :w<cr>:!g++ % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType objc nn <buffer> <leader>r :w<cr>:!gcc % `gnustep-config --objc-flags` -lgnustep-base -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
+  autocmd FileType rust nn <buffer> <leader>r :w<cr>:!rustc % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType go nn <buffer> <leader>r :w<cr>:!go run %<cr>
   autocmd FileType go nn <buffer><silent> <leader>t :CtrlPFunky<cr>

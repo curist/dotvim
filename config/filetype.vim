@@ -19,7 +19,8 @@ augroup MyFileTypeSettings
         \ 'sass',
         \ 'xml',
         \ 'python',
-        \ 'go']
+        \ 'go',
+        \ 'rust' ]
 
   " exclusive use cindent for c and cpp
   autocmd FileType c,objc,h,cpp,hpp setlocal cindent
