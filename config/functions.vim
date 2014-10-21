@@ -9,12 +9,12 @@ function! Highlighting()
   if strlen(l:cword) > 0
     let @/ = '\<'.l:cword.'\>'
   endif
-  return ":silent set hlsearch\<cr>:ShowSearchIndex\<cr>"
+  return ":silent set hlsearch\<cr>"
 endfunction
 
 function! HighlightingSelected()
   let @/ = substitute(@*, '\n', '\\n', 'g')
-  return ":\<c-u>silent set hlsearch\<cr>:\<c-u>ShowSearchIndex\<cr>"
+  return ":\<c-u>silent set hlsearch\<cr>"
 endfunction
 
 " toggles the quickfix window.

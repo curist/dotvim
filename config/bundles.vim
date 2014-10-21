@@ -60,10 +60,12 @@ augroup Plugins
   Plugin 'chrisbra/NrrwRgn'
   Plugin 'SirVer/ultisnips'
   Plugin 'sjl/gundo.vim'
-  Plugin 'henrik/vim-indexed-search'
+  " Plugin 'henrik/vim-indexed-search'
+  Plugin 'haya14busa/incsearch.vim'
   Plugin 'curist/git-symbol.vim'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'scrooloose/syntastic'
+  Plugin 'tpope/vim-projectionist'
   " Plugin 'jelera/vim-javascript-syntax'
 augroup END
 call vundle#end()
