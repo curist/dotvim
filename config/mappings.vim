@@ -51,10 +51,6 @@ nn <silent> <left> :bp<cr>
 nn <silent> <down> :bn<cr>
 nn <silent> <right> :bn<cr>
 
-" better increase search
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-
 " map <cr> to do Highlighting only in modifiable buffers
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
       \ nn <buffer> <silent> <expr> <CR> Highlighting()|
