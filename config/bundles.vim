@@ -10,6 +10,7 @@ augroup Plugins
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-commentary'
+  Plugin 'tpope/vim-ragtag'
   Plugin 'transpose-words'
   Plugin 'vim-indent-object'
 
