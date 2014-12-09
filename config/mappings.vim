@@ -122,9 +122,6 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   " gitv
   nnoremap <silent> <leader>gl :Gitv<cr>
 
-  " gundo
-  nnoremap <silent> <leader>gu :GundoToggle<cr>
-
   " vim-commentary
   xmap <c-\> <Plug>Commentary
   nmap <c-\> <Plug>CommentaryLine
