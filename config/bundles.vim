@@ -25,7 +25,7 @@ augroup Plugins
   Plugin 'tacahiroy/ctrlp-funky'
   Plugin 'JazzCore/ctrlp-cmatcher'
   Plugin 'mileszs/ack.vim'
-  " Plugin 'Tagbar'
+  Plugin 'Tagbar'
 
   " git
   Plugin 'tpope/vim-fugitive'
@@ -41,15 +41,16 @@ augroup Plugins
   Plugin 'mxw/vim-jsx'
   Plugin 'digitaltoad/vim-jade'
   Plugin 'kchmck/vim-coffee-script'
-  Plugin 'curist/javacomplete'
+  " Plugin 'Shougo/javacomplete'
   Plugin 'walm/jshint.vim'
   Plugin 'hail2u/vim-css3-syntax'
-  Plugin 'tpope/vim-classpath'
   Plugin 'guns/vim-clojure-static'
   Plugin 'tpope/vim-fireplace'
   Plugin 'Blackrush/vim-gocode'
   Plugin 'curist/vim-angular-template'
   Plugin 'wting/rust.vim'
+  " Plugin 'tfnico/vim-gradle'
+  " Plugin 'hsanson/vim-android'
 
   " other handy plugins
   Plugin 'vimwiki'
@@ -64,5 +65,6 @@ augroup Plugins
   " Plugin 'jelera/vim-javascript-syntax'
   " Plugin 'henrik/vim-indexed-search'
   " Plugin 'haya14busa/incsearch.vim'
+  " Plugin 'tpope/vim-classpath'
 augroup END
 call vundle#end()

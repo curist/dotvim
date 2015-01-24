@@ -26,8 +26,8 @@ augroup MyFileTypeSettings
   autocmd FileType c,objc,h,cpp,hpp setlocal cindent
 
   " java complete setting
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  autocmd FileType java setlocal completefunc=javacomplete#Complete
+  " autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  " autocmd FileType java setlocal completefunc=javacomplete#Complete
 
   " c/c++ compiletion settings
   autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
@@ -44,7 +44,7 @@ augroup MyFileTypeSettings
   autocmd BufRead,BufNewFile *.tt setlocal syntax=tt
 
   " javascript code completion
-  autocmd FileType javascript setlocal completefunc=tern#Complete
+  " autocmd FileType javascript setlocal completefunc=tern#Complete
 
   " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END
   autocmd BufNewFile,BufRead afiedt.buf setfiletype sql
