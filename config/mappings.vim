@@ -141,6 +141,8 @@ augroup MyFileTypeMappings
   autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType go nn <buffer> <leader>r :w<cr>:!go run %<cr>
   autocmd FileType go nn <buffer><silent> <leader>t :CtrlPFunky<cr>
+  autocmd FileType go nn <buffer><silent> <c-]> :GoDef<cr>
+  autocmd FileType go nn <buffer><silent> <c-t> <c-o>
   autocmd FileType java nn <buffer> <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
   autocmd FileType python nn <buffer> <leader>r :w<cr>:!python %<cr>
   autocmd FileType perl nn <buffer> <leader>r :w<cr>:!perl %<cr>
