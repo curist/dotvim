@@ -9,7 +9,6 @@ augroup MyFileTypeSettings
   autocmd FileType vimwiki setlocal nohidden
   autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
   let g:markdown_fenced_languages = [
-        \ 'coffee',
         \ 'css',
         \ 'erb=eruby',
         \ 'javascript',
@@ -19,8 +18,7 @@ augroup MyFileTypeSettings
         \ 'sass',
         \ 'xml',
         \ 'python',
-        \ 'go',
-        \ 'rust' ]
+        \ 'go' ]
 
   " exclusive use cindent for c and cpp
   autocmd FileType c,objc,h,cpp,hpp setlocal cindent

@@ -92,8 +92,9 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
 
 " PluginMappings {{{
   " CtrlP
-  nn <silent> <leader>t :CtrlPBufTag<cr>
-  nn <silent> <leader>g :CtrlPTag<cr>
+  " nn <silent> <leader>t :CtrlPBufTag<cr>
+  " nn <silent> <leader>g :CtrlPTag<cr>
+  nn <silent> <leader>t :CtrlPFunky<cr>
   let g:ctrlp_map = '<leader>f'
 
   " NERDTree
@@ -140,7 +141,6 @@ augroup MyFileTypeMappings
   autocmd FileType rust nn <buffer> <leader>r :w<cr>:!rustc % -o /tmp/%:t:r<cr>:!/tmp/%:t:r<cr>
   autocmd FileType cs nn <buffer> <leader>r :w<cr>:!mcs %<cr>:!mono %:r.exe<cr>
   autocmd FileType go nn <buffer> <leader>r :w<cr>:!go run %<cr>
-  autocmd FileType go nn <buffer><silent> <leader>t :CtrlPFunky<cr>
   autocmd FileType go nn <buffer><silent> <c-]> :GoDef<cr>
   autocmd FileType go nn <buffer><silent> <c-t> <c-o>
   autocmd FileType java nn <buffer> <leader>r :w<cr>:!javac %<cr>:!java %:t:r<cr>
@@ -159,7 +159,6 @@ augroup MyFileTypeMappings
   autocmd FileType markdown
         \ nn <buffer> <leader>r
         \ :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
-  autocmd FileType javascript nn <buffer><silent> <leader>t :CtrlPFunky<cr>
 
   autocmd FileType clojure nn <buffer><silent> <leader>et mz0vab:VimShellSendString<cr>`z
 augroup END
