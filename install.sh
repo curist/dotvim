@@ -1,6 +1,8 @@
 #!/bin/sh
 
-git clone https://github.com/curist/dotvim.git ~/.vim
+BASE=`dirname $0`
+cd $BASE
+
 ln -s ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
