@@ -19,12 +19,8 @@ augroup BundleInstallOnBundleFileWritePost
   " BundleInstall after bundles.vim saved
   autocmd BufWritePost bundles.vim call UpdateBundleInstall()
   function! UpdateBundleInstall()
-    let orig_bundles = g:bundles
-    let g:bundles = []
     so %
-    if g:bundles != orig_bundles
-      PluginInstall
-    endif
+    PluginInstall
   endfunction
 augroup END
 

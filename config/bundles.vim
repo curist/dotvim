@@ -23,9 +23,9 @@ augroup Plugins
   Plugin 'scrooloose/nerdtree'
   Plugin 'kien/ctrlp.vim'
   Plugin 'tacahiroy/ctrlp-funky'
-  Plugin 'JazzCore/ctrlp-cmatcher'
   Plugin 'mileszs/ack.vim'
   Plugin 'Tagbar'
+  " Plugin 'JazzCore/ctrlp-cmatcher'
 
   " git
   Plugin 'tpope/vim-fugitive'
@@ -41,14 +41,21 @@ augroup Plugins
   Plugin 'digitaltoad/vim-jade'
   Plugin 'hail2u/vim-css3-syntax'
   Plugin 'fatih/vim-go'
+  Plugin 'kennethzfeng/vim-raml'
+  " Plugin 'tfnico/vim-gradle'
   " Plugin 'walm/jshint.vim'
-  " Plugin 'guns/vim-clojure-static'
-  " Plugin 'tpope/vim-fireplace'
   " Plugin 'curist/vim-angular-template'
   " Plugin 'tpope/vim-rails'
   " Plugin 'Shougo/javacomplete'
-  " Plugin 'tfnico/vim-gradle'
   " Plugin 'hsanson/vim-android'
+
+  " special love for clojure
+  Plugin 'guns/vim-clojure-static'
+  Plugin 'tpope/vim-fireplace'
+  Plugin 'tpope/vim-salve'
+  Plugin 'tpope/vim-dispatch'
+  Plugin 'guns/vim-sexp'
+  Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 
   " other handy plugins
   Plugin 'vimwiki'
@@ -56,8 +63,10 @@ augroup Plugins
   Plugin 'SirVer/ultisnips'
   Plugin 'curist/git-symbol.vim'
   Plugin 'Valloric/YouCompleteMe'
+  Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'sjl/tslime.vim'
+  Plugin 'tpope/vim-projectionist'
   " Plugin 'chrisbra/NrrwRgn'
-  " Plugin 'tpope/vim-projectionist'
   " Plugin 'scrooloose/syntastic'
   " Plugin 'sjl/gundo.vim'
   " Plugin 'jelera/vim-javascript-syntax'
