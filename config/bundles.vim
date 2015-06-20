@@ -63,7 +63,6 @@ augroup Plugins
   Plugin 'SirVer/ultisnips'
   Plugin 'curist/git-symbol.vim'
   Plugin 'Valloric/YouCompleteMe'
-  Plugin 'christoomey/vim-tmux-navigator'
   Plugin 'sjl/tslime.vim'
   Plugin 'tpope/vim-projectionist'
   " Plugin 'chrisbra/NrrwRgn'
