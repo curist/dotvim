@@ -160,5 +160,5 @@ augroup MyFileTypeMappings
         \ nn <buffer> <leader>r
         \ :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 
-  autocmd FileType clojure nn <buffer><silent> <leader>et mz0vab:VimShellSendString<cr>`z
+  autocmd FileType clojure nn <buffer><silent> cpo :Eval<cr>
 augroup END
