@@ -65,7 +65,7 @@ augroup Plugins
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'sjl/tslime.vim'
   Plugin 'tpope/vim-projectionist'
-  Plugin 'wincent/terminus'
+  " Plugin 'wincent/terminus'
   " Plugin 'chrisbra/NrrwRgn'
   " Plugin 'scrooloose/syntastic'
   " Plugin 'sjl/gundo.vim'
