@@ -1,4 +1,4 @@
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -11,6 +11,8 @@ augroup Plugins
   Plugin 'tpope/vim-commentary'
   Plugin 'transpose-words'
   Plugin 'vim-indent-object'
+  Plugin 'kana/vim-textobj-user'
+  Plugin 'kana/vim-textobj-lastpat'
   " Plugin 'tpope/vim-ragtag'
   " Plugin 'godlygeek/tabular'
 

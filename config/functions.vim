@@ -14,7 +14,6 @@ endfunction
 
 function! HighlightingSelected()
   let @/ = substitute(@*, '\n', '\\n', 'g')
-  return ":\<c-u>silent set hlsearch\<cr>"
 endfunction
 
 " toggles the quickfix window.

@@ -54,7 +54,7 @@ nn <silent> <right> :bn<cr>
 " map <cr> to do Highlighting only in modifiable buffers
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
       \ nn <buffer> <silent> <expr> <CR> Highlighting()|
-      \ xn <buffer> <silent> <expr> <CR> HighlightingSelected()|
+      \ xn <buffer> <silent> <expr> <CR> '"*y:call HighlightingSelected()<cr>:set hls<cr>'|
       \ endif
 
 
