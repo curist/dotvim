@@ -42,6 +42,7 @@ augroup Plugins
   Plugin 'hail2u/vim-css3-syntax'
   Plugin 'fatih/vim-go'
   Plugin 'kennethzfeng/vim-raml'
+  Plugin 'wlangstroth/vim-racket'
   " Plugin 'tfnico/vim-gradle'
   " Plugin 'walm/jshint.vim'
   " Plugin 'curist/vim-angular-template'
@@ -52,10 +53,11 @@ augroup Plugins
   " special love for clojure
   Plugin 'guns/vim-clojure-static'
   Plugin 'tpope/vim-fireplace'
-  Plugin 'tpope/vim-salve'
-  Plugin 'tpope/vim-dispatch'
   Plugin 'guns/vim-sexp'
   Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+  Plugin 'tpope/vim-dispatch'
+  Plugin 'radenling/vim-dispatch-neovim'
+  Plugin 'tpope/vim-salve'
 
   " other handy plugins
   Plugin 'vimwiki'

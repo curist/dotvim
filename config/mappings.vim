@@ -69,6 +69,10 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   nn <m-k> <c-w>k
   nn <m-l> <c-w>l
   nn <m-h> <c-w>h
+  tnoremap <m-j> <c-\><c-n><c-w>j
+  tnoremap <m-k> <c-\><c-n><c-w>k
+  tnoremap <m-l> <c-\><c-n><c-w>l
+  tnoremap <m-h> <c-\><c-n><c-w>h
 
   " quickfix quick navigation
   nn <silent> <m-n> :cn<cr>zz
@@ -161,4 +165,5 @@ augroup MyFileTypeMappings
         \ :w<cr>:!markdown % > /tmp/%:t:r.html && firefox -new-tab /tmp/%:t:r.html<cr>
 
   autocmd FileType clojure nn <buffer><silent> cpo :Eval<cr>
+  autocmd FileType racket nn <buffer> <leader>r :w<cr>:!racket %<cr>
 augroup END

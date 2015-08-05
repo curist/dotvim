@@ -4,12 +4,14 @@ augroup MyFileTypeSettings
   autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
-  " markdown and vimwiki wrap lines
+  " markdown and vimwiki settings
   autocmd FileType markdown,vimwiki setlocal wrap
+  autocmd FileType markdown,vimwiki setlocal spell spelllang=en_us
   autocmd FileType vimwiki setlocal nohidden
   autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
   let g:markdown_fenced_languages = [
         \ 'css',
+        \ 'clj=clojure',
         \ 'erb=eruby',
         \ 'javascript',
         \ 'js=javascript',
