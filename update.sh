@@ -1,9 +1,3 @@
 #!/bin/sh
 
-vim +BundleInstall! +qa
-
-cd ~/.vim/bundle/YouCompleteMe/
-./install.sh --clang-completer
-
-cd ~/.vim/bundle/ctrlp-cmatcher/
-./install.sh
+vim +PlugInstall +qa

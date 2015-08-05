@@ -1,81 +1,78 @@
-set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin('~/.nvim/bundle')
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.nvim/plugged')
 
 augroup Plugins
   " text manipulating helpers
-  Plugin 'curist/vim-autoclose'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-endwise'
-  Plugin 'tpope/vim-commentary'
-  Plugin 'transpose-words'
-  Plugin 'vim-indent-object'
-  Plugin 'kana/vim-textobj-user'
-  Plugin 'kana/vim-textobj-lastpat'
-  " Plugin 'tpope/vim-ragtag'
-  " Plugin 'godlygeek/tabular'
+  Plug 'curist/vim-autoclose'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-commentary'
+  Plug 'transpose-words'
+  Plug 'vim-indent-object'
+  Plug 'kana/vim-textobj-user'
+  Plug 'kana/vim-textobj-lastpat'
+  " Plug 'tpope/vim-ragtag'
+  " Plug 'godlygeek/tabular'
 
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
-  Plugin 'mru.vim'
-  Plugin 'matchit.zip'
-  Plugin 'bufexplorer.zip'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'tacahiroy/ctrlp-funky'
-  Plugin 'mileszs/ack.vim'
-  Plugin 'Tagbar'
-  " Plugin 'JazzCore/ctrlp-cmatcher'
+  Plug 'mru.vim'
+  Plug 'matchit.zip'
+  Plug 'bufexplorer.zip'
+  Plug 'scrooloose/nerdtree'
+  Plug 'kien/ctrlp.vim'
+  Plug 'tacahiroy/ctrlp-funky'
+  Plug 'mileszs/ack.vim'
+  Plug 'Tagbar', { 'on': 'TagbarToggle' }
+  " Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 
   " git
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'gitignore'
-  " Plugin 'gregsexton/gitv'
+  Plug 'tpope/vim-fugitive'
+  Plug 'gitignore'
+  " Plug 'gregsexton/gitv'
 
   " language specific
-  Plugin 'vim-ruby/vim-ruby'
-  Plugin 'tpope/vim-markdown'
-  Plugin 'MatchTag'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'mxw/vim-jsx'
-  Plugin 'digitaltoad/vim-jade'
-  Plugin 'hail2u/vim-css3-syntax'
-  Plugin 'fatih/vim-go'
-  Plugin 'kennethzfeng/vim-raml'
-  Plugin 'wlangstroth/vim-racket'
-  " Plugin 'tfnico/vim-gradle'
-  " Plugin 'walm/jshint.vim'
-  " Plugin 'curist/vim-angular-template'
-  " Plugin 'tpope/vim-rails'
-  " Plugin 'Shougo/javacomplete'
-  " Plugin 'hsanson/vim-android'
+  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+  Plug 'tpope/vim-markdown'
+  Plug 'MatchTag'
+  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+  Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+  Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+  Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+  Plug 'fatih/vim-go', { 'for': 'go' }
+  Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
+  Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+  " Plug 'tfnico/vim-gradle'
+  " Plug 'walm/jshint.vim'
+  " Plug 'curist/vim-angular-template'
+  " Plug 'tpope/vim-rails'
+  " Plug 'Shougo/javacomplete'
+  " Plug 'hsanson/vim-android'
 
   " special love for clojure
-  Plugin 'guns/vim-clojure-static'
-  Plugin 'tpope/vim-fireplace'
-  Plugin 'guns/vim-sexp'
-  Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-  Plugin 'tpope/vim-dispatch'
-  Plugin 'radenling/vim-dispatch-neovim'
-  Plugin 'tpope/vim-salve'
+  Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+  Plug 'guns/vim-sexp', { 'for': 'clojure' }
+  Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+  Plug 'tpope/vim-dispatch'
+  Plug 'radenling/vim-dispatch-neovim'
+  Plug 'tpope/vim-salve', { 'for': 'clojure' }
 
   " other handy plugins
-  Plugin 'vimwiki'
-  Plugin 'tpope/vim-repeat'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'curist/git-symbol.vim'
-  Plugin 'Valloric/YouCompleteMe'
-  Plugin 'sjl/tslime.vim'
-  Plugin 'tpope/vim-projectionist'
-  " Plugin 'wincent/terminus'
-  " Plugin 'chrisbra/NrrwRgn'
-  " Plugin 'scrooloose/syntastic'
-  " Plugin 'sjl/gundo.vim'
-  " Plugin 'jelera/vim-javascript-syntax'
-  " Plugin 'henrik/vim-indexed-search'
-  " Plugin 'haya14busa/incsearch.vim'
-  " Plugin 'tpope/vim-classpath'
+  Plug 'vimwiki'
+  Plug 'tpope/vim-repeat'
+  Plug 'SirVer/ultisnips'
+  Plug 'curist/git-symbol.vim'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+  Plug 'sjl/tslime.vim'
+  Plug 'tpope/vim-projectionist'
+  " Plug 'wincent/terminus'
+  " Plug 'chrisbra/NrrwRgn'
+  " Plug 'scrooloose/syntastic'
+  " Plug 'sjl/gundo.vim'
+  " Plug 'jelera/vim-javascript-syntax'
+  " Plug 'henrik/vim-indexed-search'
+  " Plug 'haya14busa/incsearch.vim'
+  " Plug 'tpope/vim-classpath'
 augroup END
-call vundle#end()
+call plug#end()

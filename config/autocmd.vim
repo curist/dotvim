@@ -20,7 +20,8 @@ augroup BundleInstallOnBundleFileWritePost
   autocmd BufWritePost bundles.vim call UpdateBundleInstall()
   function! UpdateBundleInstall()
     so %
-    PluginInstall
+    PlugClean
+    PlugUpdate
   endfunction
 augroup END
 
