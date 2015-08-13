@@ -28,7 +28,7 @@ augroup Plugins
 
   " git
   Plug 'tpope/vim-fugitive'
-  Plug 'gitignore'
+  " Plug 'gitignore'
   " Plug 'gregsexton/gitv'
 
   " language specific
@@ -50,7 +50,7 @@ augroup Plugins
   " Plug 'hsanson/vim-android'
 
   " special love for clojure
-  Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+  Plug 'guns/vim-clojure-static'
   Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
   Plug 'guns/vim-sexp', { 'for': 'clojure' }
   Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }

@@ -6,7 +6,6 @@ augroup MyFileTypeSettings
 
   " markdown and vimwiki settings
   autocmd FileType markdown,vimwiki setlocal wrap
-  autocmd FileType markdown,vimwiki setlocal spell spelllang=en_us
   autocmd FileType vimwiki setlocal nohidden
   autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
   let g:markdown_fenced_languages = [
