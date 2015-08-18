@@ -10,6 +10,7 @@ augroup Plugins
   Plug 'vim-indent-object'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
+  " Plug 'terryma/vim-multiple-cursors'
   " Plug 'tpope/vim-ragtag'
   " Plug 'godlygeek/tabular'
 
@@ -56,7 +57,7 @@ augroup Plugins
   Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
   Plug 'tpope/vim-dispatch'
   Plug 'radenling/vim-dispatch-neovim'
-  Plug 'tpope/vim-salve', { 'for': 'clojure' }
+  Plug 'tpope/vim-salve', { 'on': 'Console' }
 
   " other handy plugins
   Plug 'vimwiki'

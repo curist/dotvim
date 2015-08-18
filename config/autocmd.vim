@@ -21,7 +21,7 @@ augroup BundleInstallOnBundleFileWritePost
   function! UpdateBundleInstall()
     so %
     PlugClean
-    PlugUpdate
+    " PlugUpdate
   endfunction
 augroup END
 
