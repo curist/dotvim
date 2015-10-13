@@ -10,6 +10,7 @@ augroup MyFileTypeSettings
   autocmd FileType vimwiki setlocal filetype=markdown.vimwiki
   let g:markdown_fenced_languages = [
         \ 'css',
+        \ 'clojure',
         \ 'clj=clojure',
         \ 'erb=eruby',
         \ 'javascript',
@@ -17,6 +18,7 @@ augroup MyFileTypeSettings
         \ 'json=javascript',
         \ 'ruby',
         \ 'sass',
+        \ 'html',
         \ 'xml',
         \ 'python',
         \ 'go' ]
@@ -64,4 +66,7 @@ augroup MyFileTypeSettings
   autocmd FileType go setlocal commentstring=//%s
   " let g:golang_goos = 'linux'
   " let g:golang_goarch = 'amd64'
+
+  " clojure
+  autocmd FileType clojure setlocal commentstring=;;%s
 augroup END
