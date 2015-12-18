@@ -10,12 +10,12 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
-set t_Co=256
+" set t_Co=256
 "desert256 herald tir_black lucius inkpot zenburn solarized
 "xoria256 wombat256i vividchalk molokai jellybeans
-let g:solarized_termcolors=16
+" let g:solarized_termcolors=16
 set bg=dark
-colorscheme solarized
+colorscheme gruvbox
 
 set cursorline
 set relativenumber
@@ -34,7 +34,7 @@ set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
 set showcmd
 
-set clipboard=autoselect " auto copy visual selection to clipboard
+set clipboard+=unnamedplus
 set guioptions+=a
 
 set wildmenu
@@ -43,16 +43,16 @@ set wildmode=list:longest,full
 set completeopt=menuone
 
 set laststatus=2                            " status bar setting
-set statusline=[%F]                         " file name
-set statusline+=\ [%{&fileencoding},        " encoding
-set statusline+=%{&fileformat}]             " file format
-set statusline+=%{&paste?'\ [PASTE]':''}    " paste mode status
-set statusline+=%m                          " file modified?
-set statusline+=%=                          " right align
-set statusline+=%9*%{GitStatusSymbol()}%*   " git status symbol
-set statusline+=\ %{fugitive#head(6)}       " git branch
-set statusline+=\ %y                        " filetype
-set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
+" set statusline=[%F]                         " file name
+" set statusline+=\ [%{&fileencoding},        " encoding
+" set statusline+=%{&fileformat}]             " file format
+" set statusline+=%{&paste?'\ [PASTE]':''}    " paste mode status
+" set statusline+=%m                          " file modified?
+" set statusline+=%=                          " right align
+" set statusline+=%9*%{GitStatusSymbol()}%*   " git status symbol
+" set statusline+=\ %{fugitive#head(6)}       " git branch
+" set statusline+=\ %y                        " filetype
+" set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×

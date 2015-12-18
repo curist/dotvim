@@ -98,8 +98,11 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   " CtrlP
   " nn <silent> <leader>t :CtrlPBufTag<cr>
   " nn <silent> <leader>g :CtrlPTag<cr>
-  nn <silent> <leader>t :CtrlPFunky<cr>
-  let g:ctrlp_map = '<leader>f'
+  " nn <silent> <leader>t :CtrlPFunky<cr>
+  " let g:ctrlp_map = '<leader>f'
+
+  " FZF
+  nn <silent> <leader>f :FZF<cr>
 
   " NERDTree
   nn <silent> <leader>nf :NERDTreeFind<cr>zz

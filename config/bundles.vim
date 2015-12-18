@@ -1,4 +1,4 @@
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 augroup Plugins
   " text manipulating helpers
@@ -21,19 +21,24 @@ augroup Plugins
   Plug 'matchit.zip'
   Plug 'bufexplorer.zip'
   Plug 'scrooloose/nerdtree'
-  Plug 'kien/ctrlp.vim'
-  Plug 'tacahiroy/ctrlp-funky'
   Plug 'mileszs/ack.vim'
-  Plug 'Tagbar', { 'on': 'TagbarToggle' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  " Plug 'tacahiroy/ctrlp-funky'
+  " Plug 'kien/ctrlp.vim'
+  " Plug 'Tagbar', { 'on': 'TagbarToggle' }
   " Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 
   " git
-  Plug 'tpope/vim-fugitive'
+  " Plug 'tpope/vim-fugitive'
   " Plug 'gitignore'
   " Plug 'gregsexton/gitv'
 
+  " good looking stuffs
+  Plug 'itchyny/lightline.vim'
+  Plug 'morhetz/gruvbox'
+
+
   " language specific
-  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'tpope/vim-markdown'
   Plug 'MatchTag'
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -41,8 +46,9 @@ augroup Plugins
   Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
   Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
   Plug 'fatih/vim-go', { 'for': 'go' }
-  Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
-  Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+  " Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
+  " Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+  " Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   " Plug 'tfnico/vim-gradle'
   " Plug 'walm/jshint.vim'
   " Plug 'curist/vim-angular-template'
@@ -52,21 +58,21 @@ augroup Plugins
 
   " special love for clojure
   Plug 'guns/vim-clojure-static'
-  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
   Plug 'guns/vim-sexp', { 'for': 'clojure' }
   Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-  Plug 'tpope/vim-dispatch'
-  Plug 'radenling/vim-dispatch-neovim'
-  Plug 'tpope/vim-salve', { 'on': 'Console' }
+  " Plug 'tpope/vim-dispatch'
+  " Plug 'radenling/vim-dispatch-neovim'
+  " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+  " Plug 'tpope/vim-salve', { 'on': 'Console' }
 
   " other handy plugins
   Plug 'vimwiki'
   Plug 'tpope/vim-repeat'
-  Plug 'SirVer/ultisnips'
-  Plug 'curist/git-symbol.vim'
   Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-  Plug 'sjl/tslime.vim'
-  Plug 'tpope/vim-projectionist'
+  " Plug 'SirVer/ultisnips'
+  " Plug 'curist/git-symbol.vim'
+  " Plug 'sjl/tslime.vim'
+  " Plug 'tpope/vim-projectionist'
   " Plug 'wincent/terminus'
   " Plug 'chrisbra/NrrwRgn'
   " Plug 'scrooloose/syntastic'
