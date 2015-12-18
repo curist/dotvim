@@ -5,5 +5,5 @@ My babe.
 # Outro
 
 ```sh
-./install.sh
+git clone https://github.com/curist/dotvim ~/.config/nvim
 ```
