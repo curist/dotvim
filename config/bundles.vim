@@ -6,10 +6,10 @@ augroup Plugins
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-commentary'
-  Plug 'transpose-words'
-  Plug 'vim-indent-object'
+  Plug 'vim-scripts/vim-indent-object'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
+  " Plug 'vim-scripts/transpose-words'
   " Plug 'terryma/vim-multiple-cursors'
   " Plug 'tpope/vim-ragtag'
   " Plug 'godlygeek/tabular'
@@ -17,9 +17,9 @@ augroup Plugins
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
-  Plug 'mru.vim'
-  Plug 'matchit.zip'
-  Plug 'bufexplorer.zip'
+  Plug 'vim-scripts/mru.vim'
+  Plug 'vim-scripts/matchit.zip'
+  Plug 'vim-scripts/bufexplorer.zip'
   Plug 'scrooloose/nerdtree'
   Plug 'mileszs/ack.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -29,18 +29,18 @@ augroup Plugins
   " Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 
   " git
-  " Plug 'tpope/vim-fugitive'
-  " Plug 'gitignore'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vim-scripts/gitignore'
   " Plug 'gregsexton/gitv'
 
   " good looking stuffs
-  Plug 'itchyny/lightline.vim'
-  Plug 'morhetz/gruvbox'
+  " Plug 'itchyny/lightline.vim'
+  " Plug 'morhetz/gruvbox'
 
 
   " language specific
   Plug 'tpope/vim-markdown'
-  Plug 'MatchTag'
+  Plug 'vim-scripts/MatchTag'
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   Plug 'mxw/vim-jsx', { 'for': 'javascript' }
   Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
@@ -57,20 +57,21 @@ augroup Plugins
   " Plug 'hsanson/vim-android'
 
   " special love for clojure
-  Plug 'guns/vim-clojure-static'
-  Plug 'guns/vim-sexp', { 'for': 'clojure' }
-  Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+  Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+  " Plug 'guns/vim-sexp', { 'for': 'clojure' }
+  " Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
   " Plug 'tpope/vim-dispatch'
   " Plug 'radenling/vim-dispatch-neovim'
   " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
   " Plug 'tpope/vim-salve', { 'on': 'Console' }
 
   " other handy plugins
-  Plug 'vimwiki'
+  Plug 'vim-scripts/vimwiki'
   Plug 'tpope/vim-repeat'
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+  Plug 'curist/git-symbol.vim'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
   " Plug 'SirVer/ultisnips'
-  " Plug 'curist/git-symbol.vim'
   " Plug 'sjl/tslime.vim'
   " Plug 'tpope/vim-projectionist'
   " Plug 'wincent/terminus'
