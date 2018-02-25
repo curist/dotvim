@@ -14,8 +14,9 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 "desert256 herald tir_black lucius inkpot zenburn solarized
 "xoria256 wombat256i vividchalk molokai jellybeans
 " let g:solarized_termcolors=16
+set termguicolors
 set bg=dark
-colorscheme gruvbox
+colorscheme gotham
 
 set cursorline
 set relativenumber
