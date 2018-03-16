@@ -131,8 +131,8 @@ autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
   nnoremap <silent> <leader>gl :Gitv<cr>
 
   " vim-commentary
-  xmap <c-\> <Plug>Commentary
-  nmap <c-\> <Plug>CommentaryLine
+  xmap <c-/> <Plug>Commentary
+  nmap <c-/> <Plug>CommentaryLine
 
   " syntastic
   nn <silent> <leader>c :SyntasticCheck<cr>
