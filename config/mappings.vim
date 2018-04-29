@@ -46,10 +46,10 @@ nnoremap J mzJ`z
 cmap <expr> <c-r><c-l> getline('.')
 
 nn <f1> <nop>
-nn <silent> <up> :bp<cr>
-nn <silent> <left> :bp<cr>
-nn <silent> <down> :bn<cr>
-nn <silent> <right> :bn<cr>
+nn <silent> <up> gk<c-y>
+nn <silent> <down> gj<c-e>
+nn <silent> <left> hzh
+nn <silent> <right> lzl
 
 " map <cr> to do Highlighting only in modifiable buffers
 autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
