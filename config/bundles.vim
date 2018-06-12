@@ -41,15 +41,16 @@ augroup Plugins
   " language specific
   Plug 'tpope/vim-markdown'
   Plug 'vim-scripts/MatchTag'
-  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-  Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'jason0x43/vim-js-indent'
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
   Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
   Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
   Plug 'fatih/vim-go', { 'for': 'go' }
   Plug 'cespare/vim-toml'
   Plug 'posva/vim-vue'
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
   " Plug 'Quramy/tsuquyomi'
   " Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
   " Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
