@@ -46,6 +46,11 @@ augroup Plugins
   Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
   Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
   Plug 'fatih/vim-go', { 'for': 'go' }
+  Plug 'cespare/vim-toml'
+  Plug 'posva/vim-vue'
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+  " Plug 'Quramy/tsuquyomi'
   " Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
   " Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
   " Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -70,6 +75,7 @@ augroup Plugins
   Plug 'tpope/vim-repeat'
   Plug 'curist/git-symbol.vim'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'roxma/nvim-completion-manager'
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
   " Plug 'SirVer/ultisnips'
   " Plug 'sjl/tslime.vim'

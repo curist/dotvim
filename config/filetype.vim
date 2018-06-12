@@ -1,7 +1,8 @@
 augroup MyFileTypeSettings
   autocmd!
   " general settings
-  autocmd FileType javascript,ruby,eruby,yaml,vim,coffee,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript,ruby,eruby,yaml,vim,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
+  autocmd FileType typescript setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
   " markdown and vimwiki settings
@@ -55,7 +56,7 @@ augroup MyFileTypeSettings
   let g:ftplugin_sql_omni_key = '<c-j>'
 
   " xml formatting
-  autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
+  " autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
   "" killing trailing spaces when saving file
   autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim

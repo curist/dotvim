@@ -11,7 +11,7 @@ augroup MyCommonAutoCmds
   autocmd VimResized * :wincmd =
 
   " CtrlPClearCache
-  autocmd ShellCmdPost * :CtrlPClearCache
+  " autocmd ShellCmdPost * :CtrlPClearCache
 augroup END
 
 augroup BundleInstallOnBundleFileWritePost
