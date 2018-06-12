@@ -39,53 +39,25 @@ augroup Plugins
 
 
   " language specific
-  Plug 'tpope/vim-markdown'
-  Plug 'vim-scripts/MatchTag'
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
-  Plug 'jason0x43/vim-js-indent'
-  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'sheerun/vim-polyglot'
   Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-  Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
-  Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
   Plug 'fatih/vim-go', { 'for': 'go' }
-  Plug 'cespare/vim-toml'
-  Plug 'posva/vim-vue'
-  " Plug 'Quramy/tsuquyomi'
-  " Plug 'kennethzfeng/vim-raml', { 'for': 'raml' }
-  " Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
-  " Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-  " Plug 'tfnico/vim-gradle'
-  " Plug 'walm/jshint.vim'
-  " Plug 'curist/vim-angular-template'
-  " Plug 'tpope/vim-rails'
-  " Plug 'Shougo/javacomplete'
-  " Plug 'hsanson/vim-android'
-
-  " special love for clojure
-  Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-  " Plug 'guns/vim-sexp', { 'for': 'clojure' }
-  " Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-  " Plug 'tpope/vim-dispatch'
-  " Plug 'radenling/vim-dispatch-neovim'
-  " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-  " Plug 'tpope/vim-salve', { 'on': 'Console' }
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
   Plug 'tpope/vim-repeat'
+  Plug 'vim-scripts/MatchTag'
   Plug 'curist/git-symbol.vim'
+  Plug 'SirVer/ultisnips'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " Plug 'roxma/nvim-completion-manager'
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-  " Plug 'SirVer/ultisnips'
   " Plug 'sjl/tslime.vim'
   " Plug 'tpope/vim-projectionist'
   " Plug 'wincent/terminus'
   " Plug 'chrisbra/NrrwRgn'
   " Plug 'scrooloose/syntastic'
   " Plug 'sjl/gundo.vim'
-  " Plug 'jelera/vim-javascript-syntax'
   " Plug 'henrik/vim-indexed-search'
   " Plug 'haya14busa/incsearch.vim'
   " Plug 'tpope/vim-classpath'
