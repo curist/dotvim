@@ -41,7 +41,7 @@ augroup Plugins
   " language specific
   Plug 'sheerun/vim-polyglot'
   Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-  Plug 'fatih/vim-go', { 'for': 'go' }
+  Plug 'fatih/vim-go', { 'do': 'GoUpdateBinaries' }
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
@@ -49,8 +49,8 @@ augroup Plugins
   Plug 'vim-scripts/MatchTag'
   Plug 'curist/git-symbol.vim'
   Plug 'SirVer/ultisnips'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'roxma/nvim-completion-manager'
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'roxma/nvim-completion-manager'
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
   " Plug 'sjl/tslime.vim'
   " Plug 'tpope/vim-projectionist'
