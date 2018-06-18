@@ -43,6 +43,10 @@ augroup Plugins
   Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
   Plug 'fatih/vim-go', { 'do': 'GoUpdateBinaries' }
 
+  " get fancy
+  Plug 'chriskempson/base16-vim'
+  Plug 'whatyouhide/vim-gotham'
+
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
   Plug 'tpope/vim-repeat'

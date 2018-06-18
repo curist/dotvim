@@ -10,13 +10,9 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
-" set t_Co=256
-"desert256 herald tir_black lucius inkpot zenburn solarized
-"xoria256 wombat256i vividchalk molokai jellybeans
-" let g:solarized_termcolors=16
+" fav colors: gotham gruvbox
 set termguicolors
-set bg=dark
-colorscheme gotham
+colorscheme base16-default-dark
 
 set cursorline
 set relativenumber
