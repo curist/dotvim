@@ -12,7 +12,7 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
 " fav colors: gotham gruvbox
 set termguicolors
-colorscheme base16-default-dark
+colorscheme base16-tomorrow-night
 
 set cursorline
 set relativenumber
