@@ -51,13 +51,6 @@ nn <silent> <down> gj<c-e>
 nn <silent> <left> hzh
 nn <silent> <right> lzl
 
-" map <cr> to do Highlighting only in modifiable buffers
-autocmd BufEnter * if &modifiable == 1 && mapcheck("<cr>") == ""|
-      \ nn <buffer> <silent> <expr> <CR> Highlighting()|
-      \ xn <buffer> <silent> <expr> <CR> '"*y:call HighlightingSelected()<cr>:set hls<cr>'|
-      \ endif
-
-
 " Emacs love section {{{
   " Emacs bindings..
   inoremap <c-a> <c-o>^

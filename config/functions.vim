@@ -1,21 +1,3 @@
-" Highlighting
-function! Highlighting()
-  " just in case..
-  if &modifiable != 1
-    return "\<cr>"
-  endif
-
-  let l:cword = expand('<cword>')
-  if strlen(l:cword) > 0
-    let @/ = '\<'.l:cword.'\>'
-  endif
-  return ":silent set hlsearch\<cr>"
-endfunction
-
-function! HighlightingSelected()
-  let @/ = substitute(@*, '\n', '\\n', 'g')
-endfunction
-
 " toggles the quickfix window.
 command -bang -nargs=0 QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)

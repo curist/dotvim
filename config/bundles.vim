@@ -9,6 +9,7 @@ augroup Plugins
   Plug 'vim-scripts/vim-indent-object'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
+  Plug 'curist/highlight.vim'
   " Plug 'vim-scripts/transpose-words'
   " Plug 'terryma/vim-multiple-cursors'
   " Plug 'tpope/vim-ragtag'
