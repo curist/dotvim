@@ -11,8 +11,13 @@ set fileencoding=utf-8
 set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
 " fav colors: gotham gruvbox
-set termguicolors
-colorscheme base16-tomorrow-night
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+else
+  set termguicolors
+  colorscheme base16-tomorrow-night
+endif
 
 set cursorline
 set relativenumber
