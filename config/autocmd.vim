@@ -38,4 +38,8 @@ augroup BehaviourAdjustment
 
   " NrrwRgn window maximize as default
   autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
+
+  " no line numbers for neovim terminal
+  autocmd BufEnter term://* start!
+  autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
