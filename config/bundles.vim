@@ -54,7 +54,6 @@ augroup Plugins
   Plug 'vim-scripts/MatchTag'
   Plug 'curist/git-symbol.vim'
   Plug 'SirVer/ultisnips'
-  Plug 'mklabs/split-term.vim'
   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'roxma/nvim-completion-manager'
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }

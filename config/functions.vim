@@ -52,3 +52,7 @@ function! MyCloseDiff()
     bd #
   endif
 endfunction
+
+command! -nargs=* T set splitbelow | split | set splitbelow! | terminal <args>
+command! -nargs=* VT set splitright | vsplit | set splitright! | terminal <args>
+

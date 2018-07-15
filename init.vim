@@ -68,9 +68,6 @@ set smartcase  " when we typed something in Capitalized, be case sensitive
 set incsearch
 set hlsearch
 
-set splitright
-set splitbelow
-
 set nobackup
 set noswapfile
 set backupdir=/tmp
