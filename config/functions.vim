@@ -53,6 +53,6 @@ function! MyCloseDiff()
   endif
 endfunction
 
-command! -nargs=* T set splitbelow | split | set splitbelow! | terminal <args>
-command! -nargs=* VT set splitright | vsplit | set splitright! | terminal <args>
+command! -nargs=* T setlocal splitbelow | Term <args>
+command! -nargs=* VT setlocal splitright | VTerm <args>
 
