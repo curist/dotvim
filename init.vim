@@ -70,6 +70,7 @@ set hlsearch
 
 set nobackup
 set noswapfile
+set backupcopy=yes
 set backupdir=/tmp
 set directory=/tmp
 
