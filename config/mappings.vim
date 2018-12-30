@@ -95,7 +95,7 @@ nn <silent> <right> lzl
   " let g:ctrlp_map = '<leader>f'
 
   " FZF
-  nn <silent> <leader>f :FZF<cr>
+  nn <silent> <leader>f :GFiles<cr>
 
   " NERDTree
   nn <silent> <leader>nf :NERDTreeFind<cr>zz
