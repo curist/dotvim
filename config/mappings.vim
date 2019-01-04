@@ -95,22 +95,13 @@ nn <silent> <right> lzl
   " let g:ctrlp_map = '<leader>f'
 
   " FZF
-  nn <silent> <leader>f :GFiles<cr>
+  nn <silent> <leader>f :FZF<cr>
 
   " NERDTree
   nn <silent> <leader>nf :NERDTreeFind<cr>zz
   nn <silent> <leader>nt :NERDTreeToggle<cr>
   " unmap NERDTreeMapCWD
   let g:NERDTreeMapCWD = ''
-
-  " Tagbar
-  nn <silent> <F3> :TagbarToggle<cr>
-
-  " Tabularize mappings
-  vnoremap <silent> <leader>a=  :Tabularize /=/l1l1<CR>
-  vnoremap <silent> <leader>a,  :Tabularize /,/l0l1<CR>
-  vnoremap <silent> <leader>a:  :Tabularize /:/l0l1<CR>
-  vnoremap <silent> <leader>a"  :Tabularize /"/l2l1<CR>
 
   " fugitive
   nnoremap <silent> <leader>gs :Gstatus<cr>
@@ -128,7 +119,7 @@ nn <silent> <right> lzl
   nmap <c-_> <Plug>CommentaryLine
 
   " syntastic
-  nn <silent> <leader>c :SyntasticCheck<cr>
+  " nn <silent> <leader>c :SyntasticCheck<cr>
 
 " }}}
 

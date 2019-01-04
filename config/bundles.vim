@@ -13,7 +13,6 @@ augroup Plugins
   " Plug 'vim-scripts/transpose-words'
   " Plug 'terryma/vim-multiple-cursors'
   " Plug 'tpope/vim-ragtag'
-  " Plug 'godlygeek/tabular'
 
   " moving around:
   "   file/buffer switching
@@ -42,8 +41,10 @@ augroup Plugins
 
   " language specific
   Plug 'sheerun/vim-polyglot'
-  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-  Plug 'fatih/vim-go', { 'do': 'GoUpdateBinaries' }
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
 
   " get fancy
   Plug 'chriskempson/base16-vim'
@@ -56,8 +57,10 @@ augroup Plugins
   Plug 'curist/git-symbol.vim'
   Plug 'SirVer/ultisnips'
   Plug 'mklabs/split-term.vim'
+  Plug 'ncm2/ncm2'
+  Plug 'roxma/nvim-yarp'
   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'roxma/nvim-completion-manager'
+  " Plug 'roxma/nvim-completion-manager'
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
   " Plug 'sjl/tslime.vim'
   " Plug 'tpope/vim-projectionist'

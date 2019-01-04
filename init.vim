@@ -12,11 +12,7 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
 " fav colors: gotham gruvbox
 set termguicolors
-if filereadable(expand("~/.vimrc_background"))
-  source ~/.vimrc_background
-else
-  colorscheme gotham
-endif
+colorscheme gotham
 
 set cursorline
 set relativenumber
@@ -41,7 +37,7 @@ set guioptions+=a
 set wildmenu
 set wildmode=list:longest,full
 
-set completeopt=menuone
+set completeopt=noinsert,menuone,noselect
 
 set laststatus=2                            " status bar setting
 set statusline=[%F]                         " file name
@@ -79,6 +75,7 @@ set iminsert=1                 " to enable lmap
 set nrformats=hex,alpha        " ctrl-a to increment a-zA-Z
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=500              " Don't try to highlight long lines
+set signcolumn=yes
 
 set updatetime=800
 

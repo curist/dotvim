@@ -42,4 +42,7 @@ augroup BehaviourAdjustment
   " no line numbers for neovim terminal
   autocmd BufEnter term://* start!
   autocmd TermOpen * setlocal nonumber norelativenumber
+
+  " ncm2
+  autocmd BufEnter * call ncm2#enable_for_buffer()
 augroup END
