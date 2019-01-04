@@ -45,4 +45,14 @@ augroup BehaviourAdjustment
 
   " ncm2
   autocmd BufEnter * call ncm2#enable_for_buffer()
+
+  function! s:setSignColumn()
+    if &modifiable != 1
+      return
+    endif
+    setlocal signcolumn=yes
+  endfunction
+
+  " signcolumn
+  autocmd VimEnter,BufReadPost * call s:setSignColumn()
 augroup END
