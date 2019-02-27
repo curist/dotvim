@@ -11,8 +11,6 @@ augroup Plugins
   Plug 'kana/vim-textobj-lastpat'
   Plug 'curist/highlight.vim'
   " Plug 'vim-scripts/transpose-words'
-  " Plug 'terryma/vim-multiple-cursors'
-  " Plug 'tpope/vim-ragtag'
 
   " moving around:
   "   file/buffer switching
@@ -27,16 +25,10 @@ augroup Plugins
   " Plug 'tacahiroy/ctrlp-funky'
   " Plug 'kien/ctrlp.vim'
   " Plug 'Tagbar', { 'on': 'TagbarToggle' }
-  " Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 
   " git
   Plug 'tpope/vim-fugitive'
   Plug 'vim-scripts/gitignore'
-  " Plug 'gregsexton/gitv'
-
-  " good looking stuffs
-  " Plug 'itchyny/lightline.vim'
-  " Plug 'morhetz/gruvbox'
 
 
   " language specific
@@ -58,18 +50,11 @@ augroup Plugins
   Plug 'SirVer/ultisnips'
   Plug 'mklabs/split-term.vim'
   Plug 'ncm2/ncm2'
-  Plug 'roxma/nvim-yarp'
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'roxma/nvim-completion-manager'
-  " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-  " Plug 'sjl/tslime.vim'
+  Plug 'roxma/nvim-yarp' " required by ncm2
   " Plug 'tpope/vim-projectionist'
   " Plug 'wincent/terminus'
   " Plug 'chrisbra/NrrwRgn'
   " Plug 'scrooloose/syntastic'
   " Plug 'sjl/gundo.vim'
-  " Plug 'henrik/vim-indexed-search'
-  " Plug 'haya14busa/incsearch.vim'
-  " Plug 'tpope/vim-classpath'
 augroup END
 call plug#end()

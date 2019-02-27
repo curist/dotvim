@@ -1,8 +1,8 @@
 augroup MyFileTypeSettings
   autocmd!
   " general settings
-  autocmd FileType javascript,ruby,eruby,yaml,vim,html,markdown,vimwiki,jade setlocal ai sw=2 sts=2 et
-  autocmd FileType typescript,reason setlocal ai sw=2 sts=2 et
+  autocmd FileType javascript,yaml,html,markdown setlocal ai sw=2 sts=2 et
+  autocmd FileType typescript,reason,vim,vimwiki setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
   autocmd FileType typescript setlocal signcolumn=yes
@@ -18,6 +18,7 @@ augroup MyFileTypeSettings
         \ 'erb=eruby',
         \ 'javascript',
         \ 'js=javascript',
+        \ 'ts=typescript',
         \ 'json=javascript',
         \ 'ruby',
         \ 'sass',
@@ -26,42 +27,9 @@ augroup MyFileTypeSettings
         \ 'python',
         \ 'go' ]
 
-  " exclusive use cindent for c and cpp
-  autocmd FileType c,objc,h,cpp,hpp setlocal cindent
-
-  " java complete setting
-  " autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  " autocmd FileType java setlocal completefunc=javacomplete#Complete
-
-  " c/c++ compiletion settings
-  autocmd FileType c setlocal mp=gcc\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
-  autocmd FileType cpp setlocal mp=g++\ -g\ -Wall\ %\ -o\ ~/bin/%:t:r
-
-  " objc
-  autocmd BufRead,BufNewFile *.m setlocal filetype=objc
-
-  " lua quickfix settings
-  autocmd FileType lua setlocal mp=lua\ %
-  autocmd BufRead *.lua setlocal efm=lua:\ %f:%l:%m
-
-  " tintin++ setting
-  autocmd BufRead,BufNewFile *.tt setlocal syntax=tt
-
-  " javascript code completion
-  " autocmd FileType javascript setlocal completefunc=tern#Complete
-
-  " sqlpython buffer skips parsing by wrap the sql in REMARK BEGIN and REMARK END
-  autocmd BufNewFile,BufRead afiedt.buf setfiletype sql
-  autocmd BufWritePre afiedt.buf call SqlRemarkWrapping()
-
-  " remap sql omni-completion
-  let g:ftplugin_sql_omni_key = '<c-j>'
-
-  " xml formatting
-  " autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ --encode\ utf-8\ -
 
   "" killing trailing spaces when saving file
-  autocmd FileType c,cpp,java,php,python,perl,ruby,javascript,vim
+  autocmd FileType c,cpp,java,python,ruby,javascript,vim,typescript
         \ autocmd! BufWritePre <buffer> :call KillTrailingSpaces()
 
   " golang
