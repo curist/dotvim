@@ -54,5 +54,5 @@ augroup BehaviourAdjustment
   endfunction
 
   " signcolumn
-  autocmd VimEnter,BufReadPost * call s:setSignColumn()
+  " autocmd VimEnter,BufReadPost *.ts,*.tsx call s:setSignColumn()
 augroup END
