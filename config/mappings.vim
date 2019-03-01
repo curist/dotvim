@@ -104,11 +104,10 @@ nn <silent> <right> lzl
   nnoremap <silent> <leader>gc :Gcommit -a<cr>
   nnoremap <silent> <leader>ga :Gcommit -a --amend<cr>
   nnoremap <silent> <leader>gd :Gdiff<cr>
-  nnoremap <silent> <leader>gD :call MyCloseDiff()<cr>
   nnoremap <silent> <leader>gb :Gblame -w<cr>
 
   " gitv
-  nnoremap <silent> <leader>gl :Gitv<cr>
+  nnoremap <silent> <leader>gl :GV<cr>
 
   " vim-commentary
   xmap <c-_> <Plug>Commentary
