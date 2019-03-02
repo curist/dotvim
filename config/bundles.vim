@@ -41,6 +41,7 @@ augroup Plugins
 
   " completion
   Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  Plug 'mbbill/echofunc'
   " Plug 'autozimu/LanguageClient-neovim', {
   "       \ 'branch': 'next',
   "       \ 'do': 'bash install.sh',
