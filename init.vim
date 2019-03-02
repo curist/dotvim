@@ -31,7 +31,7 @@ set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
 set showcmd
 
-set clipboard+=unnamedplus
+set clipboard=
 set guioptions+=a
 
 set wildmenu
@@ -76,6 +76,6 @@ set nrformats=hex,alpha        " ctrl-a to increment a-zA-Z
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=200              " Don't try to highlight long lines
 
-set updatetime=800
+set updatetime=250
 
 " vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
