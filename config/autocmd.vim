@@ -32,8 +32,6 @@ augroup BehaviourAdjustment
   autocmd BufEnter term://* start!
   autocmd TermOpen * setlocal nonumber norelativenumber
 
-  " ncm2
-  autocmd BufEnter * call ncm2#enable_for_buffer()
 
   function! s:setSignColumn()
     if &modifiable != 1

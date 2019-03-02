@@ -34,14 +34,19 @@ augroup Plugins
 
   " language specific
   Plug 'sheerun/vim-polyglot'
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
 
   " get fancy
   Plug 'chriskempson/base16-vim'
   Plug 'whatyouhide/vim-gotham'
+
+  " completion
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  " Plug 'autozimu/LanguageClient-neovim', {
+  "       \ 'branch': 'next',
+  "       \ 'do': 'bash install.sh',
+  "       \ }
+  " Plug 'ncm2/ncm2'
+  " Plug 'roxma/nvim-yarp' " required by ncm2
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
@@ -50,8 +55,6 @@ augroup Plugins
   Plug 'curist/git-symbol.vim'
   Plug 'SirVer/ultisnips'
   Plug 'mklabs/split-term.vim'
-  Plug 'ncm2/ncm2'
-  Plug 'roxma/nvim-yarp' " required by ncm2
   " Plug 'tpope/vim-projectionist'
   " Plug 'wincent/terminus'
   " Plug 'chrisbra/NrrwRgn'
