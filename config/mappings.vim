@@ -38,8 +38,8 @@ nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
 
 " easier wrapped line navigation
-nn j gj
-nn k gk
+" nn j gj
+" nn k gk
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z

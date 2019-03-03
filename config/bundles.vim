@@ -38,7 +38,7 @@ augroup Plugins
   " get fancy
   Plug 'chriskempson/base16-vim'
   Plug 'whatyouhide/vim-gotham'
-  Plug 'itchyny/lightline.vim'
+  " Plug 'curist/git-symbol.vim'
 
   " completion
   Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
@@ -54,7 +54,6 @@ augroup Plugins
   Plug 'vim-scripts/vimwiki'
   Plug 'tpope/vim-repeat'
   Plug 'vim-scripts/MatchTag'
-  Plug 'curist/git-symbol.vim'
   Plug 'SirVer/ultisnips'
   Plug 'mklabs/split-term.vim'
   " Plug 'tpope/vim-projectionist'
