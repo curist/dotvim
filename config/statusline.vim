@@ -35,10 +35,16 @@ augroup StatusLine
     return ''
   endfunction
 
-  function! GitInfo()
-    let git = fugitive#head(6)
-    return git == '' ? '' : ' '.git.' '
+  let g:git_head = ''
+  function! UpdateGitHead()
+    let git = fugitive#Head(6)
+    if git == ''
+      let g:git_head = ''
+    else
+      let g:git_head = ' '.git.' '
+    endif
   endfunction
+  autocmd CursorHold * call UpdateGitHead()
 
   function! Mod()
     if &readonly
@@ -71,7 +77,7 @@ augroup StatusLine
   set statusline+=%{&fileformat}\             " fileformat
   set statusline+=%#Comment#                  " colour
   set statusline+=\ %Y\                       " file type
-  set statusline+=%#CursorIM#%{GitInfo()}     " git branch
+  set statusline+=%#CursorIM#%{g:git_head}     " git branch
   set statusline+=%#DiffChange#               " colour
   set statusline+=\ %3l:%-2c\                 " line + column
   set statusline+=%#Cursor#                   " colour
