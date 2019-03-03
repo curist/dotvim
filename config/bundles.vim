@@ -38,6 +38,7 @@ augroup Plugins
   " get fancy
   Plug 'chriskempson/base16-vim'
   Plug 'whatyouhide/vim-gotham'
+  Plug 'itchyny/lightline.vim'
 
   " completion
   Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}

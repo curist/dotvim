@@ -40,16 +40,16 @@ set wildmode=list:longest,full
 set completeopt=noinsert,menuone,noselect
 
 set laststatus=2                            " status bar setting
-set statusline=[%F]                         " file name
-set statusline+=\ [%{&fileencoding},        " encoding
-set statusline+=%{&fileformat}]             " file format
-set statusline+=%{&paste?'\ [PASTE]':''}    " paste mode status
-set statusline+=%m                          " file modified?
-set statusline+=%=                          " right align
-set statusline+=%9*%{GitStatusSymbol()}%*   " git status symbol
-set statusline+=\ %{fugitive#head(6)}       " git branch
-set statusline+=\ %y                        " filetype
-set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
+" set statusline=[%F]                         " file name
+" set statusline+=\ [%{&fileencoding},        " encoding
+" set statusline+=%{&fileformat}]             " file format
+" set statusline+=%{&paste?'\ [PASTE]':''}    " paste mode status
+" set statusline+=%m                          " file modified?
+" set statusline+=%=                          " right align
+" set statusline+=%9*%{GitStatusSymbol()}%*   " git status symbol
+" set statusline+=\ %{fugitive#head(6)}       " git branch
+" set statusline+=\ %y                        " filetype
+" set statusline+=\ %c,\ %l\ \/\ %L           " cursor position, total lines
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
