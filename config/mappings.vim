@@ -30,6 +30,7 @@ nn <silent> <leader>z :execute 'noautocmd vimgrep /'.expand('<cword>').'/gj '.ex
 vn <silent> <leader>s :<c-u>noautocmd vimgrep /<c-r>*/j **/*.<c-r>=expand('%:e')<cr><cr>:copen<cr>
 vn <silent> <leader>S :<c-u>noautocmd vimgrep /<c-r>*/j **/*<cr>:copen<cr>
 vn <silent> <leader>z :<c-u>noautocmd vimgrep /<c-r>*/gj <c-r>=expand('%')<cr><cr>:copen<cr>
+nmap <c-c> <nop>
 vmap <c-c> <esc>
 lmap <c-c> <esc>
 smap <c-c> <esc>
