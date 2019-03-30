@@ -15,6 +15,7 @@ set termguicolors
 colorscheme gotham
 
 set cursorline
+set colorcolumn=80
 set relativenumber
 set tabstop=4
 set shiftwidth=4

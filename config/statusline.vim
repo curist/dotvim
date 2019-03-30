@@ -71,16 +71,15 @@ augroup StatusLine
   set statusline+=%#Cursor#                   " colour
   set statusline+=%#CursorLine#               " colour
   set statusline+=\ %{expand('%:~:.')}\       " relative file path
-  set statusline+=%#Comment#%{&fileencoding=='utf-8'?'':'\ '.&fileencoding.'\ '}
+  set statusline+=%#Comment#%{&fenc=='utf-8'?'':'\ '.&fenc.'\ '} " file encoding
   set statusline+=%#CursorLine#               " colour
   set statusline+=%=                          " right align
-  set statusline+=%{&fileformat}\             " fileformat
-  set statusline+=%#Comment#                  " colour
+  set statusline+=%#Comment#%{&ff=='unix'?'':'\ '.&ff.'\ '}
+  set statusline+=%#CursorLine#               " colour
   set statusline+=\ %Y\                       " file type
-  set statusline+=%#CursorIM#%{g:git_head}     " git branch
   set statusline+=%#DiffChange#               " colour
-  set statusline+=\ %3l:%-2c\                 " line + column
+  set statusline+=%{g:git_head}               " git branch
   set statusline+=%#Cursor#                   " colour
-  set statusline+=\ %3p%%\                    " percentage
+  set statusline+=\ %P\                       " percentage
 
 augroup END
