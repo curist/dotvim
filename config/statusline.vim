@@ -68,14 +68,12 @@ augroup StatusLine
   set statusline+=%{&paste?'\ \ PASTE\ ':''}
   set statusline+=%#CursorIM#                 " colour
   set statusline+=%{Mod()}                    " readonly/modified flag
-  set statusline+=%#Cursor#                   " colour
-  set statusline+=%#CursorLine#               " colour
+  set statusline+=%#CursorLine#%{&fenc=='utf-8'?'':'\ \ '.&fenc} " file encoding
+  set statusline+=%#Comment#               " colour
   set statusline+=\ %{expand('%:~:.')}\       " relative file path
-  set statusline+=%#Comment#%{&fenc=='utf-8'?'':'\ '.&fenc.'\ '} " file encoding
-  set statusline+=%#CursorLine#               " colour
   set statusline+=%=                          " right align
-  set statusline+=%#Comment#%{&ff=='unix'?'':'\ '.&ff.'\ '}
-  set statusline+=%#CursorLine#               " colour
+  set statusline+=%#CursorLine#%{&ff=='unix'?'':'\ '.&ff}
+  set statusline+=%#Comment#                  " colour
   set statusline+=\ %Y\                       " file type
   set statusline+=%#DiffChange#               " colour
   set statusline+=%{g:git_head}               " git branch
