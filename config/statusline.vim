@@ -48,9 +48,9 @@ augroup StatusLine
 
   function! Mod()
     if &readonly
-      return '  - '
+      return '  -'
     elseif &modified
-      return '  + '
+      return '  +'
     endif
     return ''
   endfunction
@@ -66,18 +66,17 @@ augroup StatusLine
   set statusline+=%#MatchParen#%{ModeText('other')}
   set statusline+=%#Visual#                   " colour
   set statusline+=%{&paste?'\ \ PASTE\ ':''}
-  set statusline+=%#CursorIM#                 " colour
+  set statusline+=%#StatusLine#               " colour
   set statusline+=%{Mod()}                    " readonly/modified flag
-  set statusline+=%#CursorLine#%{&fenc=='utf-8'?'':'\ \ '.&fenc} " file encoding
-  set statusline+=%#Comment#               " colour
-  set statusline+=\ %{expand('%:~:.')}\       " relative file path
-  set statusline+=%=                          " right align
-  set statusline+=%#CursorLine#%{&ff=='unix'?'':'\ '.&ff}
-  set statusline+=%#Comment#                  " colour
+  set statusline+=%#StatusLineNC#%{&fenc=='utf-8'?'':'\ \ '.&fenc} " file encoding
+  set statusline+=%#StatusLine#\ %{expand('%:~:.')}\       " relative file path
+  set statusline+=%=                           " right align
+  set statusline+=%#StatusLineNC#%{&ff=='unix'?'':'\ '.&ff}
+  set statusline+=%#StatusLine#               " colour
   set statusline+=\ %Y\                       " file type
   set statusline+=%#DiffChange#               " colour
   set statusline+=%{g:git_head}               " git branch
   set statusline+=%#Cursor#                   " colour
-  set statusline+=\ %P\                       " percentage
+  set statusline+=\ %3l:%-2c\                 " line & column
 
 augroup END
