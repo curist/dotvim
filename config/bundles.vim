@@ -15,13 +15,13 @@ augroup Plugins
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
-  Plug 'vim-scripts/mru.vim'
   Plug 'vim-scripts/matchit.zip'
-  Plug 'vim-scripts/bufexplorer.zip'
   Plug 'scrooloose/nerdtree'
   Plug 'mileszs/ack.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  " Plug 'vim-scripts/mru.vim'
+  " Plug 'vim-scripts/bufexplorer.zip'
   " Plug 'tacahiroy/ctrlp-funky'
   " Plug 'kien/ctrlp.vim'
   " Plug 'Tagbar', { 'on': 'TagbarToggle' }
