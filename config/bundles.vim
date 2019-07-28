@@ -6,10 +6,10 @@ augroup Plugins
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-commentary'
-  Plug 'vim-scripts/vim-indent-object'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
   Plug 'curist/highlight.vim'
+  " Plug 'vim-scripts/vim-indent-object'
   " Plug 'vim-scripts/transpose-words'
 
   " moving around:
@@ -52,10 +52,10 @@ augroup Plugins
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
-  Plug 'tpope/vim-repeat'
   Plug 'vim-scripts/MatchTag'
-  Plug 'SirVer/ultisnips'
+  Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
+  " Plug 'SirVer/ultisnips'
   " Plug 'tpope/vim-projectionist'
   " Plug 'wincent/terminus'
   " Plug 'chrisbra/NrrwRgn'
