@@ -11,6 +11,5 @@ command! -bang -nargs=? -complete=dir Files
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noruler
-      \| autocmd BufEnter <buffer> set laststatus=0 noruler
       \| autocmd BufLeave <buffer> set laststatus=2 ruler
 
