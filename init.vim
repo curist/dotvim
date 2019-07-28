@@ -14,6 +14,9 @@ set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 set termguicolors
 colorscheme gotham
 
+" no matter what, no cursor underline
+hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
+
 set cursorline
 set colorcolumn=80
 set relativenumber

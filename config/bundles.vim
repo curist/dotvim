@@ -31,14 +31,8 @@ augroup Plugins
   Plug 'vim-scripts/gitignore'
   Plug 'junegunn/gv.vim'
 
-
   " language specific
   Plug 'sheerun/vim-polyglot'
-
-  " get fancy
-  Plug 'chriskempson/base16-vim'
-  Plug 'whatyouhide/vim-gotham'
-  " Plug 'curist/git-symbol.vim'
 
   " completion
   " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
@@ -49,6 +43,12 @@ augroup Plugins
   "       \ }
   " Plug 'ncm2/ncm2'
   " Plug 'roxma/nvim-yarp' " required by ncm2
+
+  " get fancy
+  Plug 'chriskempson/base16-vim'
+  Plug 'whatyouhide/vim-gotham'
+  " Plug 'dylanaraps/wal.vim'
+  " Plug 'curist/git-symbol.vim'
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
