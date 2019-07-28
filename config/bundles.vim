@@ -33,6 +33,7 @@ augroup Plugins
 
   " language specific
   Plug 'sheerun/vim-polyglot'
+  Plug 'janet-lang/janet.vim'
 
   " completion
   " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}

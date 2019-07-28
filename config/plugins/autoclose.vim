@@ -6,5 +6,5 @@ let g:AutoCloseProtectedRegions = ["Comment", "Character"]
 autocmd FileType javascript,scss,css,go,c,cpp,rust
       \ let b:AutoCloseExpandEnterOn = "{"
 
-autocmd FileType clojure,scheme
+autocmd FileType clojure,scheme,janet
       \ let b:AutoClosePairs = AutoClose#ParsePairs("() {} [] \"")
