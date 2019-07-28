@@ -1,1 +1,1 @@
-let g:ackprg="ag --nocolor --nogroup --column"
+let g:ackprg="rg --vimgrep --no-heading"
