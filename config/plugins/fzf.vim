@@ -13,3 +13,5 @@ autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noruler
       \| autocmd BufLeave <buffer> set laststatus=2 ruler
 
+command H History
+nmap <leader>b :Buffers<cr>
