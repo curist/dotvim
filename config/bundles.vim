@@ -20,8 +20,8 @@ augroup Plugins
   Plug 'mileszs/ack.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'vim-scripts/bufexplorer.zip'
   " Plug 'vim-scripts/mru.vim'
-  " Plug 'vim-scripts/bufexplorer.zip'
   " Plug 'tacahiroy/ctrlp-funky'
   " Plug 'kien/ctrlp.vim'
   " Plug 'Tagbar', { 'on': 'TagbarToggle' }
