@@ -7,18 +7,12 @@ nn <silent> <leader>h :noh<cr>
 nn <silent> <leader>q :QFix<cr>
 
 " mapping to make copy/paste to clipboard easier
-vmap <leader>y "+y
-nmap <leader>p "+p
-nmap <leader>P "+P
+vmap <leader>y "*y
+nmap <leader>p "*p
+nmap <leader>P "*P
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
-
-" translate word under cursor
-nn <silent> <leader>k :echo substitute(system('fy '.expand('<cword>')), '\n*$', '', '')<cr>
-" translate selected word
-vn <silent> <leader>k :<c-u>echo substitute(system('fy <c-r>*'), '\n*$', '', '')<cr>
-
 
 " other sweet mappings
 nn <silent> <SPACE> za
@@ -49,8 +43,8 @@ cmap <expr> <c-r><c-l> getline('.')
 nn <f1> <nop>
 nn <silent> <up> gk<c-y>
 nn <silent> <down> gj<c-e>
-nn <silent> <left> hzh
-nn <silent> <right> lzl
+nn <silent> <left> :prev<cr>
+nn <silent> <right> :next<cr>
 
 " Emacs love section {{{
   " Emacs bindings..
@@ -85,12 +79,6 @@ nn <silent> <right> lzl
 
 
 " PluginMappings {{{
-  " CtrlP
-  " nn <silent> <leader>t :CtrlPBufTag<cr>
-  " nn <silent> <leader>g :CtrlPTag<cr>
-  " nn <silent> <leader>t :CtrlPFunky<cr>
-  " let g:ctrlp_map = '<leader>f'
-
   " FZF
   nn <silent> <leader>f :Files<cr>
 
@@ -113,10 +101,6 @@ nn <silent> <right> lzl
   " vim-commentary
   xmap <c-_> <Plug>Commentary
   nmap <c-_> <Plug>CommentaryLine
-
-  " syntastic
-  " nn <silent> <leader>c :SyntasticCheck<cr>
-
 " }}}
 
 augroup MyFileTypeMappings
@@ -129,4 +113,5 @@ augroup MyFileTypeMappings
   autocmd FileType lua nn <buffer> <leader>r :w<cr>:make<cr>
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
+  autocmd FileType janet nn <buffer> <leader>r :w<cr>:VT janet <c-r>%<cr>
 augroup END

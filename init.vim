@@ -8,7 +8,6 @@ language messages POSIX
 
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,utf-16le,iso8859-1
 
 " fav colors: gotham gruvbox
 set termguicolors
@@ -64,9 +63,8 @@ set directory=/tmp
 
 set shortmess+=I               " no intro message
 set iminsert=1                 " to enable lmap
-set nrformats=hex,alpha        " ctrl-a to increment a-zA-Z
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
-set synmaxcol=200              " Don't try to highlight long lines
+set synmaxcol=150              " Don't try to highlight long lines
 
 set updatetime=250
 

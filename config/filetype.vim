@@ -35,8 +35,6 @@ augroup MyFileTypeSettings
   " golang
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go setlocal commentstring=//%s
-  " let g:golang_goos = 'linux'
-  " let g:golang_goarch = 'amd64'
 
   " clojure
   autocmd FileType clojure setlocal commentstring=;;%s

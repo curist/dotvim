@@ -48,6 +48,7 @@ augroup Plugins
   " get fancy
   Plug 'chriskempson/base16-vim'
   Plug 'whatyouhide/vim-gotham'
+  " Plug 'ryanoasis/vim-devicons'
   " Plug 'dylanaraps/wal.vim'
   " Plug 'curist/git-symbol.vim'
 
