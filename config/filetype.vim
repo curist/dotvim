@@ -29,7 +29,7 @@ augroup MyFileTypeSettings
 
 
   "" killing trailing spaces when saving file
-  autocmd FileType c,cpp,java,python,ruby,javascript,vim,typescript
+  autocmd FileType c,cpp,janet,python,ruby,javascript,vim,typescript
         \ autocmd! BufWritePre <buffer> :call KillTrailingSpaces()
 
   " golang
@@ -38,4 +38,7 @@ augroup MyFileTypeSettings
 
   " clojure
   autocmd FileType clojure setlocal commentstring=;;%s
+
+  autocmd FileType janet hi! def link JanetSymbol Normal
+  autocmd FileType janet hi! def link JanetSpecialForm Identifier
 augroup END
