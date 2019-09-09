@@ -6,10 +6,6 @@ nn <leader>es :UltiSnipsEdit<cr>
 nn <silent> <leader>h :noh<cr>
 nn <silent> <leader>q :QFix<cr>
 
-" mapping to make copy/paste to clipboard easier
-vmap <leader>y "*y
-nmap <leader>p "*p
-nmap <leader>P "*P
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]

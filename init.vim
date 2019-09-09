@@ -34,7 +34,7 @@ set backspace=indent,eol,start
 set hidden     " it's ok to switch buffer w/o saving
 set showcmd
 
-set clipboard=
+set clipboard^=unnamed,unnamedplus
 set guioptions+=a
 
 set wildmenu
