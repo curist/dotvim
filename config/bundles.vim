@@ -36,7 +36,7 @@ augroup Plugins
   Plug 'janet-lang/janet.vim'
 
   " completion
-  " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'mbbill/echofunc'
   " Plug 'autozimu/LanguageClient-neovim', {
   "       \ 'branch': 'next',
