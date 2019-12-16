@@ -1,4 +1,5 @@
 let mapleader = ","
+let maplocalleader = ","
 
 " snippet editing helper
 nn <leader>es :UltiSnipsEdit<cr>
@@ -9,6 +10,8 @@ nn <silent> <leader>q :QFix<cr>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
+
+imap <c-d> <c-r>=system("echo -n `date +%Y-%m-%d`")<cr>
 
 " other sweet mappings
 nn <silent> <SPACE> za
