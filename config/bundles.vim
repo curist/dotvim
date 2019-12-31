@@ -30,7 +30,7 @@ augroup Plugins
   " language specific
   Plug 'sheerun/vim-polyglot'
   Plug 'janet-lang/janet.vim'
-  Plug 'jupyter-vim/jupyter-vim', { 'on': 'JupyterConnect' }
+  Plug 'jupyter-vim/jupyter-vim'
 
   " get fancy
   Plug 'chriskempson/base16-vim'
