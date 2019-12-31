@@ -7,7 +7,6 @@ nn <leader>es :UltiSnipsEdit<cr>
 nn <silent> <leader>h :noh<cr>
 nn <silent> <leader>q :QFix<cr>
 
-
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
