@@ -11,10 +11,13 @@ set fileencoding=utf-8
 
 " fav colors: gotham gruvbox
 set termguicolors
-colorscheme gotham
+" colorscheme gotham
+colorscheme base16-horizon-dark
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
+
+set viminfo='500
 
 set cursorline
 set colorcolumn=80
@@ -44,16 +47,18 @@ set completeopt=noinsert,menuone,noselect
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
-set showbreak=↪
+set showbreak=↪\      " redundant comment to retain the extra space
 
 set formatoptions-=o
 
 set sidescroll=1
+" set sidescrolloff=2
 
 set ignorecase " ignore case in general
 set smartcase  " when we typed something in Capitalized, be case sensitive
 set incsearch
 set hlsearch
+set inccommand=nosplit
 
 set nobackup
 set noswapfile
@@ -64,7 +69,7 @@ set directory=/tmp
 set shortmess+=I               " no intro message
 set iminsert=1                 " to enable lmap
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
-set synmaxcol=150              " Don't try to highlight long lines
+set synmaxcol=300              " Don't try to highlight long lines
 
 set updatetime=250
 

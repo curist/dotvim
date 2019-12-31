@@ -2,7 +2,7 @@ augroup MyFileTypeSettings
   autocmd!
   " general settings
   autocmd FileType javascript,yaml,html,markdown setlocal ai sw=2 sts=2 et
-  autocmd FileType typescript,reason,vim,vimwiki setlocal ai sw=2 sts=2 et
+  autocmd FileType typescript,typescript.tsx,reason,vim,vimwiki setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
   autocmd FileType typescript setlocal signcolumn=yes
