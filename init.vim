@@ -43,6 +43,7 @@ set guioptions+=a
 set wildmenu
 set wildmode=list:longest,full
 
+set omnifunc=v:lua.vim.lsp.omnifunc
 set completeopt=noinsert,menuone,noselect
 
 set list
