@@ -28,7 +28,6 @@ augroup Plugins
   Plug 'junegunn/gv.vim'
 
   " language specific
-  Plug 'neovim/nvim-lsp'
   Plug 'sheerun/vim-polyglot'
 
   " get fancy
