@@ -25,19 +25,22 @@ augroup Plugins
   " git
   Plug 'tpope/vim-fugitive'
   Plug 'vim-scripts/gitignore'
-  Plug 'junegunn/gv.vim'
+  " Plug 'junegunn/gv.vim'
 
   " language specific
   Plug 'sheerun/vim-polyglot'
 
+  " lsp
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
   " get fancy
   Plug 'chriskempson/base16-vim'
-  Plug 'whatyouhide/vim-gotham'
+  " Plug 'whatyouhide/vim-gotham'
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'
-  Plug 'vim-scripts/MatchTag'
   Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
+  " Plug 'vim-scripts/MatchTag'
 augroup END
 call plug#end()
