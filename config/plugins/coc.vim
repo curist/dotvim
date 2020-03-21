@@ -1,9 +1,9 @@
 let g:coc_global_extensions = ['coc-lists', 'coc-tsserver', 'coc-css']
 
-autocmd FileType typescript nn <buffer><silent> K :call CocActionAsync('doHover')<cr>
-autocmd FileType typescript nn <silent> gd <Plug>(coc-definition)
-autocmd FileType typescript nn <silent> <c-]> <Plug>(coc-definition)
-autocmd FileType typescript nmap <leader>rn <Plug>(coc-rename)
+nn <buffer><silent> K :call CocActionAsync('doHover')<cr>
+nn <silent> gd <Plug>(coc-definition)
+nn <silent> <c-]> <Plug>(coc-definition)
+nmap <leader>rn <Plug>(coc-rename)
 
 inoremap <silent><expr> <c-x><c-o> coc#refresh()
 nmap <silent> <m-p> <Plug>(coc-diagnostic-prev)

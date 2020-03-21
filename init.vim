@@ -6,6 +6,7 @@ syntax on
 filetype plugin indent on
 language messages POSIX
 
+set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
 
