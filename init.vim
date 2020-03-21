@@ -62,9 +62,6 @@ set inccommand=nosplit
 
 set nobackup
 set noswapfile
-set backupcopy=yes
-set backupdir=/tmp
-set directory=/tmp
 
 set shortmess+=I               " no intro message
 set iminsert=1                 " to enable lmap
