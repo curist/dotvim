@@ -1,6 +1,6 @@
 let g:coc_global_extensions = ['coc-lists', 'coc-tsserver', 'coc-css']
 
-nn <buffer><silent> K :call CocActionAsync('doHover')<cr>
+nn <silent> K :call CocActionAsync('doHover')<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <c-]> <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
