@@ -70,7 +70,9 @@ augroup StatusLine
   set statusline+=%{Mod()}                    " readonly/modified flag
   set statusline+=%#StatusLineNC#%{&fenc=='utf-8'?'':'\ \ '.&fenc} " file encoding
   set statusline+=%#StatusLine#\ %{expand('%:~:.')}\       " relative file path
+
   set statusline+=%=                           " right align
+
   set statusline+=%#StatusLineNC#%{&ff=='unix'?'':'\ '.&ff}
   set statusline+=%#StatusLine#               " colour
   set statusline+=\ %Y\                       " file type

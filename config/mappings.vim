@@ -1,16 +1,10 @@
 let mapleader = ","
 let maplocalleader = ","
 
-" snippet editing helper
-nn <leader>es :UltiSnipsEdit<cr>
-
 nn <silent> <leader>h :noh<cr>
-nn <silent> <leader>q :QFix<cr>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
-
-imap <c-d> <c-r>=system("echo -n `date +%Y-%m-%d`")<cr>
 
 " other sweet mappings
 nn <silent> <SPACE> za
@@ -28,10 +22,6 @@ lmap <c-c> <esc>
 smap <c-c> <esc>
 nn <leader><leader> <c-^>
 nn <silent> <leader>d :bd<cr>
-
-" easier wrapped line navigation
-" nn j gj
-" nn k gk
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -60,10 +50,6 @@ nn <silent> <right> :next<cr>
   tnoremap <m-l> <c-\><c-n><c-w>l
   tnoremap <m-h> <c-\><c-n><c-w>h
 
-  " quickfix quick navigation
-  nn <silent> <m-n> :cn<cr>zz
-  nn <silent> <m-p> :cp<cr>zz
-
   if !has("gui_running")
     nm j <m-j>
     nm k <m-k>
@@ -77,8 +63,6 @@ nn <silent> <right> :next<cr>
 
 
 " PluginMappings {{{
-  " FZF
-  nn <silent> <leader>f :Files<cr>
 
   " NERDTree
   nn <silent> <leader>nf :NERDTreeFind<cr>zz
@@ -93,22 +77,16 @@ nn <silent> <right> :next<cr>
   nnoremap <silent> <leader>gd :Gdiff<cr>
   nnoremap <silent> <leader>gb :Gblame -w<cr>
 
-  " gitv
-  nnoremap <silent> <leader>gl :GV<cr>
-
   " vim-commentary
   xmap <c-_> <Plug>Commentary
+  xmap <c-/> <Plug>Commentary
   nmap <c-_> <Plug>CommentaryLine
+  nmap <c-/> <Plug>CommentaryLine
 " }}}
 
 augroup MyFileTypeMappings
   " run settings
   autocmd!
-  autocmd FileType go nn <buffer> <leader>r :w<cr>:!go run %<cr>
-  autocmd FileType go nn <buffer><silent> <c-]> :GoDef<cr>
-  autocmd FileType go nn <buffer><silent> <c-t> <c-o>
-  autocmd FileType python nn <buffer> <leader>r :w<cr>:!python %<cr>
-  autocmd FileType lua nn <buffer> <leader>r :w<cr>:make<cr>
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
   autocmd FileType janet nn <buffer> <leader>r :w<cr>:VT janet <c-r>%<cr>
