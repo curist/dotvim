@@ -1,7 +1,8 @@
 let g:coc_global_extensions = ['coc-lists', 'coc-tsserver', 'coc-css']
 
 nn <silent> K :call CocActionAsync('doHover')<cr>
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <c-]> <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -12,6 +13,8 @@ nmap <silent> <m-n> <Plug>(coc-diagnostic-next)
 nn <silent> <leader>f :CocList files<cr>
 nn <silent> <leader>b :CocList buffers<cr>
 nn <silent> <leader>m :CocList mru<cr>
+nn <silent> <leader>o :CocList --auto-preview outline<cr>
+nn <silent> <leader>c :CocList commands<cr>
 
 nn <silent> <leader>l :CocListResume<cr>
 nn <silent> <leader>L :CocList lists<cr>

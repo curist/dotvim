@@ -26,6 +26,7 @@ augroup Plugins
 
   " get fancy
   Plug 'chriskempson/base16-vim'
+  Plug 'itchyny/lightline.vim'
 
   " other handy plugins
   Plug 'vim-scripts/vimwiki'

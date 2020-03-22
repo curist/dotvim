@@ -3,6 +3,12 @@
     "session.saveOnVimLeave": false,
     "typescript.preferences.quoteStyle": "single",
     "lists.disabledLists": [
-        "session"
+        "session",
+        "cmdhistory",
+        "filetypes",
+        "maps",
+        "tags",
+        "quickfix",
+        "windows"
     ]
 }
