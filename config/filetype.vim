@@ -5,8 +5,6 @@ augroup MyFileTypeSettings
   autocmd FileType typescript,typescript.tsx,reason,vim,vimwiki setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
-  autocmd FileType typescript setlocal signcolumn=yes
-
   " markdown and vimwiki settings
   autocmd FileType markdown,vimwiki setlocal wrap
   autocmd FileType vimwiki setlocal nohidden
