@@ -5,7 +5,7 @@ augroup Plugins
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " text manipulating helpers
-  Plug 'curist/vim-autoclose'
+  Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'kana/vim-textobj-user'
