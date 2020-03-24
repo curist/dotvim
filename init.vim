@@ -13,8 +13,7 @@ set fileencoding=utf-8
 " fav colors: gotham gruvbox
 set termguicolors
 " colorscheme gotham
-" colorscheme base16-horizon-dark
-colorscheme edge
+colorscheme base16-horizon-dark
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white

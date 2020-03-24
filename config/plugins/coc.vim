@@ -1,4 +1,4 @@
-let g:coc_global_extensions = ['coc-lists', 'coc-tsserver', 'coc-css']
+let g:coc_global_extensions = ['coc-lists', 'coc-tsserver']
 
 nn <silent> K :call CocActionAsync('doHover')<cr>
 nmap <silent> gd <Plug>(coc-type-definition)
