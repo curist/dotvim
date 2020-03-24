@@ -43,5 +43,6 @@ function! s:GrepFromSelected(type)
   let @@ = saved_unnamed_register
   execute 'CocList grep '.word
 endfunction
-vn <leader>s :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
-nn <leader>s :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+vn <silent> <leader>s :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+nn <silent> <leader>s :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+
