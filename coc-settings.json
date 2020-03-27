@@ -2,6 +2,7 @@
     "suggest.autoTrigger": "none",
     "session.saveOnVimLeave": false,
     "typescript.preferences.quoteStyle": "single",
+    "coc.preferences.useQuickfixForLocations": true,
     "diagnostic.enable": false,
     "lists.disabledLists": [
         "session",

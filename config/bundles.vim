@@ -5,17 +5,20 @@ augroup Plugins
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " text manipulating helpers
-  Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
+  Plug 'curist/vim-autoclose'
   Plug 'curist/highlight.vim'
 
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
   Plug 'scrooloose/nerdtree'
+  Plug 'jlanzarotta/bufexplorer'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'mhinz/vim-grepper'
 
   " git
   Plug 'tpope/vim-fugitive'

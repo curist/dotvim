@@ -2,6 +2,7 @@ let mapleader = ","
 let maplocalleader = ","
 
 nn <silent> <leader>h :noh<cr>
+nn <silent> <leader>q :QFix<cr>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
@@ -49,6 +50,10 @@ nn <silent> <right> :next<cr>
   tnoremap <m-k> <c-\><c-n><c-w>k
   tnoremap <m-l> <c-\><c-n><c-w>l
   tnoremap <m-h> <c-\><c-n><c-w>h
+
+  " quickfix quick navigation
+  nn <silent> <m-n> :cn<cr>zz
+  nn <silent> <m-p> :cp<cr>zz
 
   if !has("gui_running")
     nm j <m-j>
