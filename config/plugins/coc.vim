@@ -1,20 +1,20 @@
 let g:coc_global_extensions = ['coc-lists', 'coc-tsserver', 'coc-css']
 
-nn <silent> K :call CocActionAsync('doHover')<cr>
-nmap <silent> gd <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <c-]> <Plug>(coc-definition)
-nmap <leader>rn <Plug>(coc-rename)
+au FileType typescript,typescriptreact nn <silent> K :call CocActionAsync('doHover')<cr>
+au FileType typescript,typescriptreact nmap <silent> gd <Plug>(coc-type-definition)
+au FileType typescript,typescriptreact nmap <silent> gr <Plug>(coc-references)
+au FileType typescript,typescriptreact nmap <silent> <c-]> <Plug>(coc-definition)
+au FileType typescript,typescriptreact nmap <leader>rn <Plug>(coc-rename)
 
-inoremap <silent><expr> <c-x><c-o> coc#refresh()
-nmap <silent> <m-p> <Plug>(coc-diagnostic-prev)
-nmap <silent> <m-n> <Plug>(coc-diagnostic-next)
+au FileType typescript,typescriptreact inoremap <silent><expr> <c-x><c-o> coc#refresh()
+au FileType typescript,typescriptreact nmap <silent> <m-p> <Plug>(coc-diagnostic-prev)
+au FileType typescript,typescriptreact nmap <silent> <m-n> <Plug>(coc-diagnostic-next)
 
 nn <silent> <leader>f :CocList files<cr>
 nn <silent> <leader>b :CocList buffers<cr>
 nn <silent> <leader>m :CocList mru<cr>
-nn <silent> <leader>o :CocList --auto-preview outline<cr>
-nn <silent> <leader>c :CocList commands<cr>
+au FileType typescript,typescriptreact nn <silent> <leader>o :CocList --auto-preview outline<cr>
+au FileType typescript,typescriptreact nn <silent> <leader>c :CocList commands<cr>
 
 nn <silent> <leader>l :CocListResume<cr>
 nn <silent> <leader>L :CocList lists<cr>
