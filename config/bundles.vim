@@ -19,6 +19,7 @@ augroup Plugins
   Plug 'jlanzarotta/bufexplorer'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mhinz/vim-grepper'
+  Plug 'romainl/vim-qf'
 
   " git
   Plug 'tpope/vim-fugitive'
