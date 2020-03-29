@@ -16,9 +16,7 @@ augroup Plugins
   "   file/buffer switching
   "   in file quick jumps
   Plug 'scrooloose/nerdtree'
-  Plug 'jlanzarotta/bufexplorer'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'mhinz/vim-grepper'
+  Plug 'Yggdroot/LeaderF'
   Plug 'romainl/vim-qf'
 
   " git
