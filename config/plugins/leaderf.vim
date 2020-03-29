@@ -12,8 +12,8 @@ let g:Lf_CursorBlink = 0
 let g:Lf_ShortcutB = ''
 
 nn <silent> <leader>b :Leaderf! buffer<cr>
-nn <silent> <leader>s :Leaderf! rg --cword<cr>
-xn <silent> <leader>s :<c-u><c-r>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<cr><cr>
+nn <silent> <leader>s :Leaderf! rg --cword -s -F --regexMode<cr>
+xn <silent> <leader>s :<c-u><c-r>=printf("Leaderf! rg -s -F --regexMode -e %s ", leaderf#Rg#visual())<cr><cr>
 nn <silent> <leader>S :Leaderf rg<cr>
 
 nn <silent> <leader>m :Leaderf! mru --cwd<cr>
