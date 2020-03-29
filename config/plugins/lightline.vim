@@ -31,7 +31,7 @@ let g:lightline = {
       \     'fileformat': "%{&ff=='unix'?'':&ff}",
       \     'filetype': '%{&ft}',
       \     'lineinfo': '%3l:%-2c',
-      \     'inactivefilename': "%{&readonly?'':expand('%:~:.')}"
+      \     'inactivefilename': "%{expand('%:~:.')}",
       \   },
       \   'component_function': {
       \     'mode': 'LightlineMode',
