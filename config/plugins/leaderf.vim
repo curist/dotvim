@@ -7,11 +7,11 @@ let g:Lf_IgnoreCurrentBufferName = 0
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_ShowDevIcons = 0
 let g:Lf_CursorBlink = 0
 
 let g:Lf_ShortcutB = ''
 
-nn <silent> <leader>b :Leaderf! buffer<cr>
 nn <silent> <leader>s :<c-u><c-r>=printf("Leaderf! rg -s -F --regexMode -w %s", expand("<cword>"))<cr><cr>
 xn <silent> <leader>s :<c-u><c-r>=printf("Leaderf! rg -s -F --regexMode %s", leaderf#Rg#visual())<cr><cr>
 nn <silent> <leader>S :Leaderf rg<cr>

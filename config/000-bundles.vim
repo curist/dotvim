@@ -18,6 +18,7 @@ augroup Plugins
   Plug 'preservim/nerdtree'
   Plug 'Yggdroot/LeaderF'
   Plug 'romainl/vim-qf'
+  Plug 'jlanzarotta/bufexplorer'
 
   " git
   Plug 'tpope/vim-fugitive'
