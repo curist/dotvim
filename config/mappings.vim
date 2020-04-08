@@ -56,6 +56,7 @@ nn <silent> <right> :next<cr>
   nn <silent> <c-m-l> :tabn<cr>
   tnoremap <silent> <c-m-h> <c-\><c-n>:tabp<cr>
   tnoremap <silent> <c-m-l> <c-\><c-n>:tabn<cr>
+  tnoremap <silent> <c-tab> <c-\><c-n>:tabn<cr>
 
   " quickfix quick navigation
   nn <silent> <m-n> :cn<cr>zz
