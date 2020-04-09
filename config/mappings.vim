@@ -52,10 +52,10 @@ nn <silent> <right> :next<cr>
   tnoremap <m-h> <c-\><c-n><c-w>h
 
   " moving between tabs
-  nn <silent> <c-m-h> :tabp<cr>
-  nn <silent> <c-m-l> :tabn<cr>
-  tnoremap <silent> <c-m-h> <c-\><c-n>:tabp<cr>
-  tnoremap <silent> <c-m-l> <c-\><c-n>:tabn<cr>
+  nn <silent> <m-H> :tabp<cr>
+  nn <silent> <m-L> :tabn<cr>
+  tnoremap <silent> <m-H> <c-\><c-n>:tabp<cr>
+  tnoremap <silent> <m-L> <c-\><c-n>:tabn<cr>
   tnoremap <silent> <c-tab> <c-\><c-n>:tabn<cr>
 
   " quickfix quick navigation
