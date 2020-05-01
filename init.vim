@@ -72,6 +72,6 @@ set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=300              " Don't try to highlight long lines
 
 set updatetime=250
-set timeoutlen=250
+set timeoutlen=500
 
 " vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
