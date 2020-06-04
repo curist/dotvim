@@ -35,7 +35,7 @@ let g:lightline = {
       \     'mode': 'LightlineMode',
       \     'filename': 'LightlineFilename',
       \     'inactivefilename': 'LightlineInactiveFilename',
-      \     'githead': 'FugitiveHead',
+      \     'githead': 'LightLineGitHead',
       \     'filetype': 'FileType',
       \   },
       \ }
@@ -68,7 +68,7 @@ function! LightlineInactiveFilename()
   return filename
 endfunction
 
-function! FugitiveHead()
+function! LightLineGitHead()
   if has_key(g:pluginFileTypes, &filetype)
     return ''
   endif
