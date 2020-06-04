@@ -76,12 +76,6 @@ nn <silent> <right> :next<cr>
 
 " PluginMappings {{{
 
-  " NERDTree
-  nn <silent> <leader>nf :NERDTreeFind<cr>zz
-  nn <silent> <leader>nt :NERDTreeToggle<cr>
-  " unmap NERDTreeMapCWD
-  let g:NERDTreeMapCWD = ''
-
   " fugitive
   nnoremap <silent> <leader>gs :Gstatus<cr>
   nnoremap <silent> <leader>gc :Gcommit -a<cr>

@@ -15,7 +15,8 @@ augroup Plugins
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
-  Plug 'preservim/nerdtree'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'hrsh7th/fern-mapping-collapse-or-leave.vim'
   Plug 'Yggdroot/LeaderF'
   Plug 'romainl/vim-qf'
 
