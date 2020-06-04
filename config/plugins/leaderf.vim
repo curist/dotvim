@@ -12,7 +12,7 @@ let g:Lf_CursorBlink = 0
 
 let g:Lf_ShortcutB = ''
 
-nn <silent> <leader>b :LeaderfTabBuffer<cr>
+nn <silent> <leader>b :LeaderfBuffer<cr>
 nn <silent> <leader>s :<c-u><c-r>=printf("Leaderf rg -s -F --regexMode -w %s", expand("<cword>"))<cr><cr>
 xn <silent> <leader>s :<c-u><c-r>=printf("Leaderf rg -s -F --regexMode %s", leaderf#Rg#visual())<cr><cr>
 nn <silent> <leader>S :Leaderf rg<cr>
