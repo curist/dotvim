@@ -29,32 +29,49 @@ let g:lightline = {
       \   'component': {
       \     'fileencoding': "%{&fenc=='utf-8'?'':&fenc}",
       \     'fileformat': "%{&ff=='unix'?'':&ff}",
-      \     'filetype': '%{&ft}',
       \     'lineinfo': '%3l:%-2c',
-      \     'inactivefilename': "%{expand('%:~:.')}",
       \   },
       \   'component_function': {
       \     'mode': 'LightlineMode',
       \     'filename': 'LightlineFilename',
+      \     'inactivefilename': 'LightlineInactiveFilename',
       \     'githead': 'FugitiveHead',
+      \     'filetype': 'FileType',
       \   },
       \ }
 
+let g:pluginFileTypes = {
+      \ 'fern': 1,
+      \ }
+
 function! LightlineMode()
-  if &filetype ==# 'list' && exists('b:list_status')
-    let l:mode = get(b:list_status, 'mode')
-    return l:mode ==# 'NORMAL' ? 'N' : 'I'
+  if has_key(g:pluginFileTypes, &filetype)
+    return ''
   endif
   return lightline#mode()
 endfunction
 
 function! LightlineFilename()
+  if has_key(g:pluginFileTypes, &filetype)
+    return toupper(&filetype)
+  endif
   let filename = expand('%:~:.')
   let mod = Mod()
   return mod . filename
 endfunction
 
+function! LightlineInactiveFilename()
+  if has_key(g:pluginFileTypes, &filetype)
+    return toupper(&filetype)
+  endif
+  let filename = expand('%:~:.')
+  return filename
+endfunction
+
 function! FugitiveHead()
+  if has_key(g:pluginFileTypes, &filetype)
+    return ''
+  endif
   return fugitive#Head(6)
 endfunction
 
@@ -65,4 +82,11 @@ function! Mod()
     return '+ '
   endif
   return ''
+endfunction
+
+function! FileType()
+  if has_key(g:pluginFileTypes, &filetype)
+    return ''
+  endif
+  return &filetype
 endfunction
