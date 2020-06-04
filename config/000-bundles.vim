@@ -33,7 +33,7 @@ augroup Plugins
   Plug 'itchyny/lightline.vim'
 
   " other handy plugins
-  Plug 'vim-scripts/vimwiki'
+  Plug 'vimwiki/vimwiki'
   Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
 augroup END
