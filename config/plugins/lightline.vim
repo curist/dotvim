@@ -41,7 +41,7 @@ let g:lightline = {
       \ }
 
 let g:pluginFileTypes = {
-      \ 'fern': 1,
+      \ 'nerdtree': 1,
       \ }
 
 function! LightlineMode()
