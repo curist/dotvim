@@ -1,9 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 augroup Plugins
-  " the plugin
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   " text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
@@ -24,6 +21,7 @@ augroup Plugins
   Plug 'vim-scripts/gitignore'
 
   " programming language
+  Plug 'neovim/nvim-lsp'
   Plug 'sheerun/vim-polyglot'
 
   " get fancy
