@@ -1,5 +1,6 @@
 filetype off
 
+runtime! bundles.vim
 runtime! config/**/*.vim
 
 syntax on
