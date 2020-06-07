@@ -20,6 +20,9 @@ augroup Plugins
   Plug 'tpope/vim-fugitive'
   Plug 'vim-scripts/gitignore'
 
+  " completion
+  Plug 'haorenW1025/completion-nvim'
+
   " programming language
   Plug 'neovim/nvim-lsp'
   Plug 'sheerun/vim-polyglot'
