@@ -13,8 +13,8 @@ augroup Plugins
   "   file/buffer switching
   "   in file quick jumps
   Plug 'preservim/nerdtree'
-  Plug 'Yggdroot/LeaderF'
   Plug 'romainl/vim-qf'
+  Plug 'liuchengxu/vim-clap'
 
   " git
   Plug 'tpope/vim-fugitive'
@@ -26,7 +26,6 @@ augroup Plugins
 
   " get fancy
   Plug 'chriskempson/base16-vim'
-  " Plug 'sainnhe/edge'
   Plug 'itchyny/lightline.vim'
 
   " other handy plugins
