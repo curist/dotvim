@@ -25,8 +25,9 @@ augroup Plugins
   Plug 'sheerun/vim-polyglot'
 
   " get fancy
-  Plug 'chriskempson/base16-vim'
   Plug 'itchyny/lightline.vim'
+  " Plug 'ayu-theme/ayu-vim'
+  Plug 'whatyouhide/vim-gotham'
 
   " other handy plugins
   Plug 'vimwiki/vimwiki'

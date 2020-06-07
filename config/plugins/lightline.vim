@@ -1,5 +1,5 @@
 let g:lightline = {
-      \   'colorscheme': 'Tomorrow_Night_Eighties',
+      \   'colorscheme': 'one',
       \   'mode_map': {
       \     'n' : 'N',
       \     'i' : 'I',
