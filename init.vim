@@ -2,7 +2,6 @@ filetype off
 
 runtime! bundles.vim
 runtime! config/**/*.vim
-lua require('aniseed.dotfiles')
 
 syntax on
 filetype plugin indent on

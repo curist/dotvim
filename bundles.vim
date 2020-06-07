@@ -33,11 +33,5 @@ augroup Plugins
   Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
 
-  " misc
-  " Plug 'haorenW1025/completion-nvim'
-  Plug 'Olical/conjure', {'tag': 'v3.4.0'}
-  Plug 'Olical/aniseed', { 'tag': 'v3.5.0' }
-  Plug 'bakpakin/fennel.vim'
-
 augroup END
 call plug#end()
