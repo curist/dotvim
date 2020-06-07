@@ -26,7 +26,6 @@ augroup Plugins
 
   " get fancy
   Plug 'itchyny/lightline.vim'
-  " Plug 'ayu-theme/ayu-vim'
   Plug 'whatyouhide/vim-gotham'
 
   " other handy plugins

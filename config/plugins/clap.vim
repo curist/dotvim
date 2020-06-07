@@ -3,6 +3,7 @@ let g:clap_provider_grep_opts = "-H --no-heading --vimgrep --smart-case --hidden
 let g:clap_layout = { 'relative': 'editor' }
 
 nn <silent> <leader>s :Clap grep ++query=<cword><cr>
+vn <silent> <leader>s :Clap grep ++query=@visual<cr>
 nn <silent> <leader>S :Clap grep<cr>
 nn <silent> <leader>f :Clap files<cr>
 nn <silent> <leader>b :Clap buffers<cr>
