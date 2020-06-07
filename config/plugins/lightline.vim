@@ -65,6 +65,9 @@ function! LightlineInactiveFilename()
     return toupper(&filetype)
   endif
   let filename = expand('%:~:.')
+  if filename =~ ''
+    return 'NOFILE'
+  endif
   return filename
 endfunction
 
