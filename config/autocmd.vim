@@ -16,31 +16,15 @@ augroup END
 
 augroup BehaviourAdjustment
   autocmd!
-  " deconflicting mappings between bufexplorer and surround
-  autocmd BufEnter \[BufExplorer\] unmap ds
-  autocmd BufLeave \[BufExplorer\] nmap ds <Plug>Dsurround
 
   " don't show quickfix in buffers list
   " set number in quickfix list
   autocmd BufRead quickfix setlocal nobuflisted number nornu
   autocmd BufRead location setlocal nobuflisted number nornu
 
-  " NrrwRgn window maximize as default
-  autocmd BufEnter * let b:nrrw_aucmd_create = "%wincmd _"
-
   " no line numbers for neovim terminal
   autocmd BufEnter term://* start!
   autocmd TermOpen * setlocal nonumber norelativenumber
 
-
-  function! s:setSignColumn()
-    if &modifiable != 1
-      return
-    endif
-    setlocal signcolumn=yes
-  endfunction
-
-  " signcolumn
-  " autocmd VimEnter,BufReadPost *.ts,*.tsx call s:setSignColumn()
 augroup END
 
