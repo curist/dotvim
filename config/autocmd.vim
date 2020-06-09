@@ -9,9 +9,6 @@ augroup MyCommonAutoCmds
   autocmd!
   " Resize splits when the window is resized
   autocmd VimResized * :wincmd =
-
-  " CtrlPClearCache
-  " autocmd ShellCmdPost * :CtrlPClearCache
 augroup END
 
 augroup BehaviourAdjustment
