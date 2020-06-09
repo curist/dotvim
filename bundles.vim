@@ -29,7 +29,7 @@ augroup Plugins
   Plug 'sainnhe/edge'
 
   " other handy plugins
-  Plug 'vimwiki/vimwiki'
+  Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
   Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
 
