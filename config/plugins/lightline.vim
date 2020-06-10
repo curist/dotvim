@@ -64,8 +64,11 @@ function! LightlineInactiveFilename()
   if has_key(g:pluginFileTypes, &filetype)
     return toupper(&filetype)
   endif
+  if &buftype == 'terminal'
+    return 'TERM'
+  endif
   let filename = expand('%:~:.')
-  if filename =~ ''
+  if filename == ''
     return 'NOFILE'
   endif
   return filename
