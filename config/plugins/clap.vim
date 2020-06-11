@@ -1,6 +1,7 @@
 let g:clap_provider_grep_delay = 50
 let g:clap_provider_grep_opts = "-H --no-heading --vimgrep --smart-case --hidden -g !.git/"
 let g:clap_layout = { 'relative': 'editor' }
+let g:clap_insert_mode_only = 1
 
 nn <silent> <leader>s :Clap grep ++query=<cword><cr>
 vn <silent> <leader>s :Clap grep ++query=@visual<cr>
@@ -15,11 +16,6 @@ nn <silent> <leader>/ :Clap search_history<cr>
 augroup clap_
   autocmd!
   au User ClapOnExit call lightline#update()
-  au FileType clap_input call ClapInput()
 augroup END
 
-function! ClapInput()
-  nn <buffer><silent> <esc> <esc>:call clap#handler#exit()<cr>
-  ino <buffer><silent> <esc> <esc>:call clap#handler#exit()<cr>
-endfunction
 
