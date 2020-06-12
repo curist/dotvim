@@ -13,6 +13,7 @@ nn <silent> <leader>b :Clap buffers<cr>
 nn <silent> <leader>m :Clap history<cr>
 nn <silent> <leader>: :Clap command_history<cr>
 nn <silent> <leader>/ :Clap search_history<cr>
+nn <silent> <leader>p :Clap projects<cr>
 
 
 augroup clap_
@@ -20,4 +21,31 @@ augroup clap_
   au User ClapOnExit call lightline#update()
 augroup END
 
+let s:projects = {}
 
+function! s:project_folders() abort
+  let list = filter(
+        \ map(copy(v:oldfiles), 'fnamemodify(v:val, ":h")."/"'),
+        \ "isdirectory(v:val . '.git')")
+  let dict = {}
+  let result = []
+  for l in list
+    if has_key(dict, l) == 0
+      let dict[l] = ''
+      call add(result, l)
+    endif
+  endfor
+  return result
+endfunction
+
+function! s:project_sink(selected) abort
+  execute 'cd' . a:selected
+  execute 'NERDTree'
+endfunction
+
+let s:projects.syntax = 'clap_files'
+let s:projects.sink = function('s:project_sink')
+let s:projects.source = function('s:project_folders')
+let s:projects.support_open_action = v:false
+
+let g:clap_provider_projects = s:projects
