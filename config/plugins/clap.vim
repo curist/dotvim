@@ -3,6 +3,7 @@ let g:clap_provider_grep_opts = "-H --no-heading --vimgrep --smart-case --hidden
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_insert_mode_only = 1
 let g:clap_disable_run_rooter = 1
+let g:clap_provider_buffers_cur_tab_only = 1
 let g:clap_provider_grep_blink = [ 0, 0 ]
 
 nn <silent> <leader>s :Clap grep ++query=<cword><cr>
@@ -39,7 +40,7 @@ function! s:project_folders() abort
 endfunction
 
 function! s:project_sink(selected) abort
-  execute 'cd' . a:selected
+  execute 'cd ' . a:selected
   execute 'NERDTree'
 endfunction
 
