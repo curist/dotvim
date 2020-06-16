@@ -8,6 +8,7 @@ augroup Plugins
   Plug 'kana/vim-textobj-lastpat'
   Plug 'curist/vim-autoclose'
   Plug 'curist/highlight.vim'
+  Plug 'machakann/vim-swap'
 
   " moving around:
   "   file/buffer switching
