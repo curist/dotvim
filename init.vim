@@ -73,4 +73,8 @@ set synmaxcol=300              " Don't try to highlight long lines
 set updatetime=250
 set timeoutlen=500
 
+if exists('+shellslash')
+  set shellslash
+endif
+
 " vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
