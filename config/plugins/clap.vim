@@ -26,8 +26,8 @@ let s:projects = {}
 
 function! s:project_folders() abort
   let list = filter(
-        \ map(copy(v:oldfiles), 'fnamemodify(v:val, ":h")."/"'),
-        \ "isdirectory(v:val . '.git')")
+        \ map(copy(v:oldfiles), 'fnamemodify(v:val, ":h")'),
+        \ "isdirectory(v:val . '/.git')")
   let dict = {}
   let result = []
   for l in list
@@ -40,7 +40,13 @@ function! s:project_folders() abort
 endfunction
 
 function! s:project_sink(selected) abort
+  if exists('+shellslash')
+    set shellslash
+  endif
   execute 'cd ' . a:selected
+  if exists('+shellslash')
+    set shellslash!
+  endif
   execute 'NERDTree'
 endfunction
 
