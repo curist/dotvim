@@ -26,6 +26,7 @@ augroup Plugins
   " get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'mhartington/oceanic-next'
+  Plug 'norcalli/nvim-colorizer.lua'
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }

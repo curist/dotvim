@@ -15,6 +15,7 @@ nn <silent> <leader>m :Clap history<cr>
 nn <silent> <leader>: :Clap command_history<cr>
 nn <silent> <leader>/ :Clap search_history<cr>
 nn <silent> <leader>p :Clap projects<cr>
+nn <silent> <leader>l :Clap providers<cr>
 
 
 augroup clap_
