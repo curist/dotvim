@@ -11,9 +11,8 @@ set fileformat=unix
 set encoding=utf-8
 set fileencoding=utf-8
 
-" fav colors: gotham gruvbox
 set termguicolors
-colorscheme edge
+colorscheme OceanicNext
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white

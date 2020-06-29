@@ -25,7 +25,7 @@ augroup Plugins
 
   " get fancy
   Plug 'itchyny/lightline.vim'
-  Plug 'sainnhe/edge'
+  Plug 'mhartington/oceanic-next'
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
