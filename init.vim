@@ -19,7 +19,7 @@ hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
 set viminfo='500
 
-set colorcolumn=80
+match ErrorMsg '\%>80v.\+'
 set relativenumber
 set tabstop=4
 set shiftwidth=4
