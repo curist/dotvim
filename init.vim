@@ -19,7 +19,6 @@ hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
 set viminfo='500
 
-set cursorline
 set colorcolumn=80
 set relativenumber
 set tabstop=4
