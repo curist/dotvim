@@ -17,6 +17,7 @@ augroup Plugins
 
   " git
   Plug 'tpope/vim-fugitive'
+  Plug 'junegunn/gv.vim', { 'on': 'GV' }
   Plug 'vim-scripts/gitignore'
 
   " programming language
