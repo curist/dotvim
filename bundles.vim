@@ -23,6 +23,7 @@ augroup Plugins
   " programming language
   Plug 'neovim/nvim-lsp'
   Plug 'sheerun/vim-polyglot'
+  Plug 'bfredl/nvim-luadev'
 
   " get fancy
   Plug 'itchyny/lightline.vim'
