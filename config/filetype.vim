@@ -3,6 +3,7 @@ augroup MyFileTypeSettings
   " general settings
   autocmd FileType javascript,yaml,html,markdown,css setlocal ai sw=2 sts=2 et
   autocmd FileType typescript,typescript.tsx,vim,vimwiki setlocal ai sw=2 sts=2 et
+  autocmd FileType lua setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
   " markdown and vimwiki settings
