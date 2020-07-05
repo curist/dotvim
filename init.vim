@@ -12,7 +12,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 set termguicolors
-colorscheme OceanicNext
+colorscheme palenight
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
