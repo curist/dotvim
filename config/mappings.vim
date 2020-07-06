@@ -11,7 +11,6 @@ nmap gV `[v`]
 nn <silent> <SPACE> za
 nmap <c-c> <nop>
 vmap <c-c> <esc>
-lmap <c-c> <esc>
 smap <c-c> <esc>
 nn <leader><leader> <c-^>
 nn <silent> <leader>d <c-w><c-c>
