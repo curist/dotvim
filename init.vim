@@ -15,7 +15,7 @@ hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
 set viminfo='500
 
-match ErrorMsg '\%>80v.\+'
+" match ErrorMsg '\%>80v.\+'
 set relativenumber
 set tabstop=2
 set shiftwidth=2
