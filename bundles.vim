@@ -1,6 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 augroup Plugins
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
   " text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
@@ -13,7 +15,6 @@ augroup Plugins
   "   file/buffer switching
   "   in file quick jumps
   Plug 'preservim/nerdtree'
-  Plug 'liuchengxu/vim-clap'
 
   " git
   Plug 'tpope/vim-fugitive'
@@ -21,9 +22,7 @@ augroup Plugins
   Plug 'vim-scripts/gitignore'
 
   " programming language
-  Plug 'neovim/nvim-lsp'
   Plug 'sheerun/vim-polyglot'
-  Plug 'bfredl/nvim-luadev'
 
   " get fancy
   Plug 'itchyny/lightline.vim'
