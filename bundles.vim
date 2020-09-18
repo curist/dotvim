@@ -27,7 +27,7 @@ augroup Plugins
   " get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'skbolton/embark'
+  Plug 'jan-warchol/selenized', { 'rtp': 'editors/vim' }
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }

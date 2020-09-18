@@ -7,7 +7,8 @@ set fileformat=unix
 set fileencoding=utf-8
 
 set termguicolors
-colorscheme embark
+set background=light
+colorscheme selenized
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
