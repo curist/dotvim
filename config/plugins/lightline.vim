@@ -1,5 +1,5 @@
 let g:lightline = {
-      \   'colorscheme': 'selenized_light',
+      \   'colorscheme': 'solarized',
       \   'mode_map': {
       \     'n' : 'N',
       \     'i' : 'I',

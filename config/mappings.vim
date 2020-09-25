@@ -51,28 +51,6 @@ tnoremap <silent> <m-L> <c-\><c-n>:tabn<cr>
 nn <silent> <m-n> :cn<cr>zz
 nn <silent> <m-p> :cp<cr>zz
 
-" PluginMappings {{{
-
-  " NERDTree
-  nn <silent> <leader>nf :NERDTreeFind<cr>zz
-  nn <silent> <leader>nt :NERDTreeToggle<cr>
-  " unmap NERDTreeMapCWD
-  let g:NERDTreeMapCWD = ''
-
-  " fugitive
-  nnoremap <silent> <leader>gs :Gstatus<cr>
-  nnoremap <silent> <leader>gc :Gcommit -a<cr>
-  nnoremap <silent> <leader>ga :Gcommit -a --amend<cr>
-  nnoremap <silent> <leader>gd :Gdiff<cr>
-  nnoremap <silent> <leader>gb :Gblame -w<cr>
-
-  " vim-commentary
-  xmap <c-_> <Plug>Commentary
-  xmap <c-/> <Plug>Commentary
-  nmap <c-_> <Plug>CommentaryLine
-  nmap <c-/> <Plug>CommentaryLine
-" }}}
-
 augroup MyFileTypeMappings
   " run settings
   autocmd!
