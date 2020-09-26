@@ -14,7 +14,7 @@ augroup Plugins
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
-  Plug 'preservim/nerdtree'
+  Plug 'mcchrish/nnn.vim'
   Plug 'jlanzarotta/bufexplorer'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mhinz/vim-grepper'
