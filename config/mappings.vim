@@ -2,7 +2,6 @@ let mapleader = ","
 let maplocalleader = ","
 
 nn <silent> <leader>h :noh<cr>
-nn <silent> <leader>q :QFix<cr>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
@@ -46,10 +45,6 @@ nn <silent> <m-H> :tabp<cr>
 nn <silent> <m-L> :tabn<cr>
 tnoremap <silent> <m-H> <c-\><c-n>:tabp<cr>
 tnoremap <silent> <m-L> <c-\><c-n>:tabn<cr>
-
-" quickfix quick navigation
-nn <silent> <m-n> :cn<cr>zz
-nn <silent> <m-p> :cp<cr>zz
 
 augroup MyFileTypeMappings
   " run settings

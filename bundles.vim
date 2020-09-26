@@ -15,9 +15,6 @@ augroup Plugins
   "   file/buffer switching
   "   in file quick jumps
   Plug 'mcchrish/nnn.vim'
-  Plug 'jlanzarotta/bufexplorer'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'mhinz/vim-grepper'
 
   " git
   Plug 'tpope/vim-fugitive'
@@ -34,7 +31,6 @@ augroup Plugins
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
-  Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
 
 augroup END
