@@ -7,8 +7,7 @@ set fileformat=unix
 set fileencoding=utf-8
 
 set termguicolors
-set background=light
-colorscheme selenized
+colorscheme OceanicNext
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
