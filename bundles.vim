@@ -5,6 +5,7 @@ augroup Plugins
 
   " text manipulating helpers
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
