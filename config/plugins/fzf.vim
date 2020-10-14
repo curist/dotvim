@@ -1,0 +1,35 @@
+let g:fzf_buffers_jump = 1
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+nn <silent> <leader>f :GFiles<cr>
+nn <silent> <leader>F :Files<cr>
+nn <silent> <leader>m :History<cr>
+nn <silent> <leader>c :Commands<cr>
+nn <silent> <leader>b :Buffers<cr>
+nn <silent> <leader>/ :History/<cr>
+nn <silent> <leader>: :History:<cr>
+nn <silent> <leader>gl :BCommits<cr>
+nn <silent> <leader>gL :Commits<cr>
+
+nn <silent> <leader>S :Rg<cr>
+nn <silent> <leader>s :Rg <c-r>=expand('<cword>')<cr><cr>
+
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+function! s:getVisualSelection()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+
+    if len(lines) == 0
+        return ""
+    endif
+
+    let lines[-1] = lines[-1][:column_end - (&selection == "inclusive" ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+
+    return join(lines, "\n")
+endfunction
+
+xn <silent> <leader>s <Esc>:Rg <c-r>=<SID>getVisualSelection()<cr><cr>

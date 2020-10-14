@@ -1,7 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 augroup Plugins
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
   " text manipulating helpers
   Plug 'tpope/vim-surround'
@@ -20,7 +21,6 @@ augroup Plugins
 
   " git
   Plug 'tpope/vim-fugitive'
-  Plug 'junegunn/gv.vim', { 'on': 'GV' }
   Plug 'vim-scripts/gitignore'
 
   " programming language
@@ -33,6 +33,7 @@ augroup Plugins
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
+  Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
 
 augroup END
