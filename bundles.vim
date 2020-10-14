@@ -35,6 +35,7 @@ augroup Plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
   Plug 'tpope/vim-repeat'
   Plug 'mklabs/split-term.vim'
+  Plug 'vim-test/vim-test'
 
 augroup END
 call plug#end()
