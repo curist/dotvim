@@ -25,6 +25,7 @@ augroup Plugins
 
   " programming language
   Plug 'sheerun/vim-polyglot'
+  Plug 'natebosch/vim-lsc'
 
   " get fancy
   Plug 'itchyny/lightline.vim'
