@@ -16,6 +16,7 @@ augroup Plugins
   "   file/buffer switching
   "   in file quick jumps
   Plug 'mcchrish/nnn.vim'
+  Plug 'hotoo/jsgf.vim'
 
   " git
   Plug 'tpope/vim-fugitive'
