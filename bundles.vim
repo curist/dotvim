@@ -26,6 +26,7 @@ augroup Plugins
   " programming language
   Plug 'sheerun/vim-polyglot'
   Plug 'natebosch/vim-lsc'
+  Plug 'lepture/vim-velocity'
   Plug 'moll/vim-node'
 
   " get fancy

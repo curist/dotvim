@@ -35,4 +35,7 @@ augroup MyFileTypeSettings
 
   " vue
   autocmd FileType vue setlocal includeexpr=substitute(v:fname,'^\\~','src','')
+
+  " vtl
+  au BufNewFile,BufRead *.vtl set ft=velocity
 augroup END
