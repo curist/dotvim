@@ -32,4 +32,7 @@ augroup MyFileTypeSettings
 
   " clojure
   autocmd FileType clojure setlocal commentstring=;;%s
+
+  " vue
+  autocmd FileType vue setlocal includeexpr=substitute(v:fname,'^\\~','src','')
 augroup END
