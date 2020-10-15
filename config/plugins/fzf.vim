@@ -6,6 +6,7 @@ nn <silent> <leader>F :Files<cr>
 nn <silent> <leader>m :History<cr>
 nn <silent> <leader>c :Commands<cr>
 nn <silent> <leader>b :Buffers<cr>
+nn <silent> <leader>k :FzfFunky<cr>
 nn <silent> <leader>/ :History/<cr>
 nn <silent> <leader>: :History:<cr>
 nn <silent> <leader>gl :BCommits<cr>

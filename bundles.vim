@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 augroup Plugins
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
 
   " text manipulating helpers
   Plug 'tpope/vim-surround'
