@@ -34,7 +34,7 @@ augroup MyFileTypeSettings
   autocmd FileType clojure setlocal commentstring=;;%s
 
   " vue
-  autocmd FileType vue setlocal includeexpr=substitute(v:fname,'^\\~','src','')
+  autocmd FileType vue,javascript setlocal includeexpr=substitute(v:fname,'^\\~','src','')
 
   " vtl
   au BufNewFile,BufRead *.vtl set ft=velocity
