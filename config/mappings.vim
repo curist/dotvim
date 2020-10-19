@@ -46,6 +46,10 @@ nn <silent> <m-H> :tabp<cr>
 nn <silent> <m-L> :tabn<cr>
 tnoremap <silent> <m-H> <c-\><c-n>:tabp<cr>
 tnoremap <silent> <m-L> <c-\><c-n>:tabn<cr>
+nn <silent> <c-PageUp> :tabp<cr>
+nn <silent> <c-PageDown> :tabn<cr>
+tnoremap <silent> <c-PageUp> <c-\><c-n>:tabp<cr>
+tnoremap <silent> <c-PageDown> <c-\><c-n>:tabn<cr>
 
 " quickfix quick navigation
 nn <silent> <m-n> :cn<cr>zz
