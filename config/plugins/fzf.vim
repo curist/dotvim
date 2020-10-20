@@ -1,6 +1,8 @@
 let g:fzf_buffers_jump = 1
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
+let $FZF_DEFAULT_COMMAND='rg --no-ignore-vcs --hidden --files'
+
 nn <silent> <leader>f :GFiles<cr>
 nn <silent> <leader>F :Files<cr>
 nn <silent> <leader>m :History<cr>
@@ -35,3 +37,10 @@ function! s:getVisualSelection()
 endfunction
 
 xn <silent> <leader>s <Esc>:Rg <c-r>=<SID>getVisualSelection()<cr><cr>
+
+nn <silent> <leader>z :Rgg <c-r>=expand('<cword>')<cr><cr>
+nn <silent> <leader>Z :Rgg<cr>
+command! -bang -nargs=* Rgg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
