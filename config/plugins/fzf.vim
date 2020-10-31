@@ -18,7 +18,6 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 nn <silent> <leader>S :Rg<cr>
 nn <silent> <leader>s :Rg <c-r>=expand('<cword>')<cr><cr>
 
-imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 function! s:getVisualSelection()
