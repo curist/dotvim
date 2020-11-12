@@ -9,6 +9,7 @@ augroup Plugins
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-abolish'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
   Plug 'curist/vim-autoclose'
