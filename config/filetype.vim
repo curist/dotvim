@@ -35,6 +35,7 @@ augroup MyFileTypeSettings
 
   " vue
   autocmd FileType vue,javascript setlocal includeexpr=substitute(v:fname,'^\\~','src','')
+  let g:vim_vue_plugin_use_sass = 1
 
   " vtl
   au BufNewFile,BufRead *.vtl set ft=velocity

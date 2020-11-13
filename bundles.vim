@@ -8,8 +8,8 @@ augroup Plugins
   " text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-abolish'
+  Plug 'tomtom/tcomment_vim'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
   Plug 'curist/vim-autoclose'
@@ -18,16 +18,17 @@ augroup Plugins
   " moving around:
   "   file/buffer switching
   "   in file quick jumps
-  Plug 'mcchrish/nnn.vim'
+  Plug 'cocopon/vaffle.vim'
 
   " git
   Plug 'tpope/vim-fugitive'
-  Plug 'vim-scripts/gitignore'
 
   " programming language
+  let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
   Plug 'sheerun/vim-polyglot'
   Plug 'natebosch/vim-lsc'
   Plug 'lepture/vim-velocity'
+  Plug 'leafOfTree/vim-vue-plugin'
 
   " get fancy
   Plug 'itchyny/lightline.vim'
