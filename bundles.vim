@@ -34,6 +34,7 @@ augroup Plugins
   Plug 'itchyny/lightline.vim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'rafi/awesome-vim-colorschemes'
+  Plug 'lifepillar/vim-gruvbox8'
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
