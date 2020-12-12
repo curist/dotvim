@@ -34,7 +34,6 @@ augroup MyFileTypeSettings
   autocmd FileType clojure setlocal commentstring=;;%s
 
   " vue
-  autocmd FileType vue,javascript setlocal includeexpr=substitute(v:fname,'^\\~','src','')
   let g:vim_vue_plugin_use_sass = 1
 
   " vtl
