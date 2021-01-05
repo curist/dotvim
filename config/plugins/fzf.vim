@@ -38,6 +38,7 @@ endfunction
 xn <silent> <leader>s <Esc>:Rg <c-r>=<SID>getVisualSelection()<cr><cr>
 
 nn <silent> <leader>z :Rgg <c-r>=expand('<cword>')<cr><cr>
+xn <silent> <leader>z <Esc>:Rgg <c-r>=<SID>getVisualSelection()<cr><cr>
 nn <silent> <leader>Z :Rgg<cr>
 command! -bang -nargs=* Rgg
   \ call fzf#vim#grep(
