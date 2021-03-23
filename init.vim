@@ -7,7 +7,8 @@ set fileformat=unix
 set fileencoding=utf-8
 
 set termguicolors
-colorscheme onedark
+let g:gruvbox_italicize_strings = 0
+colorscheme gruvbox8
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white

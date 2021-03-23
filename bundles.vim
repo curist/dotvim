@@ -24,7 +24,7 @@ augroup Plugins
   Plug 'tpope/vim-fugitive'
 
   " programming language
-  let g:polyglot_disabled = ['autoindent', 'sensible']
+  let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
   Plug 'sheerun/vim-polyglot'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -32,7 +32,7 @@ augroup Plugins
   " get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
+  Plug 'lifepillar/vim-gruvbox8'
 
   " other handy plugins
   Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
