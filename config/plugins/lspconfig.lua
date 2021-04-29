@@ -1,4 +1,3 @@
-lua << EOF
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -41,5 +40,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
    underline = true,
  }
 )
-EOF
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
+vim.cmd('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')

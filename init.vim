@@ -1,5 +1,6 @@
 runtime! bundles.vim
 runtime! config/**/*.vim
+for cfg in split(glob('config/**/*.lua')) | exec 'luafile ' . cfg | endfor
 
 language messages POSIX
 
@@ -20,12 +21,13 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set noshowmode
+set nomodeline
 
 set mouse=vn
 set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
-set foldlevelstart=99 " we want all fold to be expand at start
-set foldnestmax=15    " max fold nest levels
+set foldlevelstart=9  " we want all fold to be expand at start
+set foldnestmax=5     " max fold nest levels
 set hidden     " it's ok to switch buffer w/o saving
 
 set clipboard^=unnamed,unnamedplus
@@ -47,9 +49,9 @@ set noswapfile
 
 set shortmess+=I               " no intro message
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
-set synmaxcol=300              " Don't try to highlight long lines
+set synmaxcol=150              " Don't try to highlight long lines
 
 set updatetime=250
-set timeoutlen=500
+set timeoutlen=250
 
 " vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
