@@ -2,7 +2,7 @@ runtime! bundles.vim
 runtime! config/**/*.vim
 
 for luacfg in split(glob('~/.config/nvim/config/**/*.lua'))
-  exec 'luafile ' . luacfg 
+  exec 'luafile ' . luacfg
 endfor
 
 language messages POSIX
