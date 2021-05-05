@@ -69,9 +69,10 @@ function! LightlineInactiveFilename()
   endif
   let filename = expand('%:~:.')
   if filename == ''
-    return 'NOFILE'
+    return 'NONAME'
   endif
-  return filename
+  let mod = Mod()
+  return mod . filename
 endfunction
 
 function! LightLineGitHead()
