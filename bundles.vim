@@ -38,5 +38,6 @@ Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
 Plug 'tpope/vim-repeat'
 Plug 'mklabs/split-term.vim'
 Plug 'vim-test/vim-test'
+Plug 'folke/which-key.nvim'
 
 call plug#end()
