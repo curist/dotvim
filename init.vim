@@ -37,7 +37,7 @@ set clipboard^=unnamed,unnamedplus
 set guioptions+=a
 
 set wildmode=list:longest,full
-set completeopt=noinsert,menuone,noselect
+set completeopt=menuone,noselect
 set signcolumn=no
 
 set list
@@ -52,6 +52,7 @@ set nobackup
 set noswapfile
 
 set shortmess+=I               " no intro message
+set shortmess+=c               " no more pattern not found
 set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=150              " Don't try to highlight long lines
 
