@@ -7,6 +7,9 @@ require('lspsaga').init_lsp_saga {
     scroll_down = '<C-d>',
     scroll_up = '<C-u>',
   },
+  code_action_keys = {
+    quit = '<c-c>',
+  },
 }
 
 vim.cmd [[
@@ -19,4 +22,5 @@ nnoremap <silent> <C-n> :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> gr :Lspsaga lsp_finder<CR>
 nnoremap <silent><leader>lrn :Lspsaga rename<CR>
 nnoremap <silent><leader>ld :Lspsaga show_line_diagnostics<CR>
+nnoremap <silent><leader>la <cmd>lua require('lspsaga.codeaction').code_action()<CR>
 ]]
