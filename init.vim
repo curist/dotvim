@@ -59,4 +59,6 @@ set synmaxcol=150              " Don't try to highlight long lines
 set updatetime=250
 set timeoutlen=250
 
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+
 " vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
