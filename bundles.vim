@@ -22,11 +22,12 @@ Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
 Plug 'tpope/vim-fugitive'
 
 " programming language
-let g:polyglot_disabled = ['autoindent', 'sensible']
+let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
+Plug 'leafOfTree/vim-vue-plugin'
 
 " get fancy
 Plug 'itchyny/lightline.vim'
