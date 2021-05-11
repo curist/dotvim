@@ -1,6 +1,6 @@
 require'compe'.setup {
   enabled = true;
-  autocomplete = true;
+  autocomplete = false;
   debug = false;
   min_length = 1;
   preselect = 'enable';
@@ -22,5 +22,8 @@ require'compe'.setup {
 }
 
 vim.cmd[[
-  inoremap <silent><expr> <c-x><c-x> compe#complete()
+let g:lexima_no_default_rules = v:true
+call lexima#set_default_rules()
+inoremap <silent><expr> <CR> compe#confirm(lexima#expand('<LT>CR>', 'i'))
+inoremap <silent><expr> <c-x><c-x> compe#complete()
 ]]
