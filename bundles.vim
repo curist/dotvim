@@ -6,7 +6,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
-Plug 'cohama/lexima.vim'
+Plug 'curist/vim-autoclose'
 Plug 'curist/highlight.vim'
 
 " moving around:
@@ -26,7 +26,6 @@ let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'hrsh7th/nvim-compe'
 Plug 'leafOfTree/vim-vue-plugin'
 
 " get fancy
