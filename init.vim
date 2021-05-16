@@ -57,7 +57,7 @@ set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=150              " Don't try to highlight long lines
 
 set updatetime=250
-set timeoutlen=250
+set timeoutlen=400
 
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 

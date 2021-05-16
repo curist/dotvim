@@ -8,6 +8,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'cohama/lexima.vim'
 Plug 'curist/highlight.vim'
+Plug 'guns/vim-sexp'
 
 " moving around:
 "   file/buffer switching
