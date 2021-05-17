@@ -22,6 +22,5 @@ augroup BehaviourAdjustment
   " no line numbers for neovim terminal
   autocmd BufEnter term://* start!
   autocmd TermOpen * setlocal nonumber norelativenumber
-
 augroup END
 

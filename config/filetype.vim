@@ -38,4 +38,7 @@ augroup MyFileTypeSettings
 
   " vtl
   au BufNewFile,BufRead *.vtl set ft=velocity
+
+  " cloudformation
+  autocmd BufRead *cloudformation-template.* set ft+=.cloudformation
 augroup END
