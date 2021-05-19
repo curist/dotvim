@@ -23,7 +23,7 @@ Plug 'tpope/vim-fugitive'
 " programming language
 let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
-Plug 'leafOfTree/vim-vue-plugin'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dense-analysis/ale'
 
 " (love)
