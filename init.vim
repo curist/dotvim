@@ -1,3 +1,8 @@
+language messages POSIX
+set fileformat=unix
+set fileencoding=utf-8
+set termguicolors
+
 runtime! bundles.vim
 runtime! config/**/*.vim
 
@@ -5,12 +10,6 @@ for luacfg in split(glob('~/.config/nvim/config/**/*.lua'))
   exec 'luafile ' . luacfg
 endfor
 
-language messages POSIX
-
-set fileformat=unix
-set fileencoding=utf-8
-
-set termguicolors
 let g:gruvbox_italicize_strings = 0
 colorscheme gruvbox8
 
