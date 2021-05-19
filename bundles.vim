@@ -18,7 +18,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
 
-
 " git
 Plug 'tpope/vim-fugitive'
 
@@ -29,6 +28,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'Olical/conjure'
+Plug 'Olical/aniseed'
 Plug 'dense-analysis/ale'
 
 " get fancy

@@ -28,5 +28,5 @@ endfunction
 
 augroup VIM_SEXP_MAPPING
   autocmd!
-  autocmd FileType clojure,scheme,lisp call s:vim_sexp_mappings()
+  autocmd FileType clojure,scheme,lisp,fennel call s:vim_sexp_mappings()
 augroup END
