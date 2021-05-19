@@ -35,7 +35,6 @@ Plug 'Olical/aniseed'
 Plug 'itchyny/lightline.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'folke/lsp-colors.nvim'
 
 " other handy plugins
 Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
