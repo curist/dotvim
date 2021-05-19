@@ -25,10 +25,8 @@ nn <leader>d <cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>
 " Keep the cursor in place while joining lines
 nn J mzJ`z
 
-nn <leader>f <cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>
 nn <leader>s <cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<cr>
 xn <leader>s <esc>:call VSCodeNotify('workbench.action.findInFiles', { 'query': '<c-r>=<sid>getVisualSelection()<cr>'})<cr>
-nn <leader>S <cmd>call VSCodeNotify('workbench.action.findInFiles')<cr>
 
 function! s:getVisualSelection()
   let [line_start, column_start] = getpos("'<")[1:2]
@@ -48,6 +46,7 @@ endfunction
 nn <leader>gb <cmd>call VSCodeNotify('gitlens.toggleFileBlame')<cr>
 nn <leader>gl <cmd>call VSCodeNotify('gitlens.showQuickFileHistory')<cr>
 nn <leader>gL <cmd>call VSCodeNotify('gitlens.showQuickRepoHistory')<cr>
+nn <leader>m <cmd>call VSCodeNotify('workbench.action.showEditorsInActiveGroup')<cr>
 
 nn <c-w>H <cmd>call VSCodeNotify('workbench.action.moveActiveEditorGroupLeft')<cr>
 nn <c-w>J <cmd>call VSCodeNotify('workbench.action.moveActiveEditorGroupDown')<cr>

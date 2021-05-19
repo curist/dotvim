@@ -23,6 +23,7 @@ Plug 'mhinz/vim-signify', { 'on': 'SignifyToggle' }
 " programming language
 let g:polyglot_disabled = ['autoindent', 'sensible']
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " ( love )
 Plug 'guns/vim-sexp'
