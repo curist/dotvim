@@ -8,7 +8,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'cohama/lexima.vim'
 Plug 'curist/highlight.vim'
-Plug 'guns/vim-sexp'
 
 " moving around:
 "   file/buffer switching
@@ -25,9 +24,12 @@ Plug 'tpope/vim-fugitive'
 let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'dense-analysis/ale'
+
+" (love)
+Plug 'guns/vim-sexp'
 Plug 'Olical/conjure'
 Plug 'Olical/aniseed'
-Plug 'dense-analysis/ale'
 
 " get fancy
 Plug 'itchyny/lightline.vim'
