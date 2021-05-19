@@ -24,8 +24,6 @@ Plug 'tpope/vim-fugitive'
 " programming language
 let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
-Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'Olical/conjure'
 Plug 'Olical/aniseed'
