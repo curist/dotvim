@@ -20,11 +20,12 @@ Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
 Plug 'tpope/vim-fugitive'
 
 " programming language
-let g:polyglot_disabled = ['autoindent', 'sensible']
+let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dense-analysis/ale'
 Plug 'windwp/nvim-ts-autotag'
+Plug 'leafOfTree/vim-vue-plugin'
 
 " (love)
 Plug 'guns/vim-sexp'
