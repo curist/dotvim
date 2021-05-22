@@ -24,6 +24,7 @@ let g:polyglot_disabled = ['autoindent', 'sensible']
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dense-analysis/ale'
+Plug 'windwp/nvim-ts-autotag'
 
 " (love)
 Plug 'guns/vim-sexp'
