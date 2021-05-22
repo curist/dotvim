@@ -2,7 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 " text manipulating helpers
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
 Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
