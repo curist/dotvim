@@ -36,6 +36,7 @@ Plug 'Olical/aniseed'
 Plug 'itchyny/lightline.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'ryanoasis/vim-devicons'
 
 " other handy plugins
 Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
