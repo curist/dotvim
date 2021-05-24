@@ -5,7 +5,7 @@ let $FZF_DEFAULT_COMMAND='rg --no-ignore-vcs --hidden --files'
 
 nn <silent> <leader>f :GFiles<cr>
 nn <silent> <leader>F :Files<cr>
-nn <silent> <leader>m :History<cr>
+nn <silent> <leader>M :History<cr>
 nn <silent> <leader>c :Commands<cr>
 nn <silent> <leader>b :Buffers<cr>
 nn <silent> <leader>k :FzfFunky<cr>
@@ -44,3 +44,17 @@ command! -bang -nargs=* Rgg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
+function! s:fzf_local_history()
+  let local_oldfiles = v:lua._fzf_local_history()
+  let u_old = fzf#vim#_uniq(local_oldfiles)
+  let readble_old = filter(u_old, "filereadable(fnamemodify(v:val, ':p'))")
+  return fzf#run(fzf#wrap({
+  \ 'source': readble_old,
+  \ 'sink': 'e',
+  \ 'options': ['-m', '--prompt', 'LHist> ']
+  \}))
+endfunction
+
+nn <silent> <leader>m :call <sid>fzf_local_history()<cr>
+
