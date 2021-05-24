@@ -18,6 +18,7 @@ Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 
 " programming language
 let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
