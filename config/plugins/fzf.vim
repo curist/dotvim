@@ -52,7 +52,7 @@ function! s:fzf_local_history()
   return fzf#run(fzf#wrap({
   \ 'source': readble_old,
   \ 'sink': 'e',
-  \ 'options': ['-m', '--prompt', 'LHist> ']
+  \ 'options': ['-m', '--no-sort', '--prompt', 'LHist> ']
   \}))
 endfunction
 
