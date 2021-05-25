@@ -14,30 +14,33 @@ function _G._fzf_local_history()
   local pwd = vim.call 'getcwd'
   local local_oldfiles = {}
   for _, v in ipairs(oldfiles) do
-    if starts_with(v, pwd) then
+    repeat
+      if not starts_with(v, pwd) then break end
+
+      local filepath = string.sub(v, #pwd + 2)
+
       local ignored = false
       for _, ig in ipairs(suffix_ignore) do
-        if ends_with(v, ig) then
+        if ends_with(filepath, ig) then
           ignored = true
           break
         end
       end
-      if not ignored then
-      end
-      if not ignored then
-        local filepath = string.sub(v, #pwd + 2)
-        for _, ig in ipairs(prefix_ignore) do
-          if starts_with(filepath, ig) then
-            ignored = true
-            break
-          end
-        end
 
-        if not ignored then
-          table.insert(local_oldfiles, filepath)
+      if ignored then break end
+
+      for _, ig in ipairs(prefix_ignore) do
+        if starts_with(filepath, ig) then
+          ignored = true
+          break
         end
       end
-    end
+
+      if ignored then break end
+
+      table.insert(local_oldfiles, filepath)
+      break
+    until true
   end
   return local_oldfiles
 end
