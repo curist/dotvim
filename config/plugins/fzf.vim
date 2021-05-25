@@ -48,11 +48,11 @@ command! -bang -nargs=* Rgg
 function! s:fzf_local_history()
   let local_oldfiles = v:lua._fzf_local_history()
   let u_old = fzf#vim#_uniq(local_oldfiles)
-  let readble_old = filter(u_old, "filereadable(fnamemodify(v:val, ':p'))")
+  let readable_files = filter(u_old, "filereadable(fnamemodify(v:val, ':p'))")
   return fzf#run(fzf#wrap({
-  \ 'source': readble_old,
+  \ 'source': readable_files,
   \ 'sink': 'e',
-  \ 'options': ['-m', '--no-sort', '--prompt', 'LHist> ']
+  \ 'options': ['-m', '--no-sort', '--header-lines', !empty(expand('%')), '--prompt', 'LHist> ']
   \}))
 endfunction
 
