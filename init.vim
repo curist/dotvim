@@ -6,7 +6,7 @@ set termguicolors
 runtime! bundles.vim
 runtime! config/**/*.vim
 
-for luacfg in split(glob('~/.config/nvim/config/**/*.lua'))
+for luacfg in split(glob('~/.config/nvim/config/plugins/*.lua'))
   exec 'luafile ' . luacfg
 endfor
 

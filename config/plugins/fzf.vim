@@ -46,9 +46,8 @@ command! -bang -nargs=* Rgg
   \   fzf#vim#with_preview(), <bang>0)
 
 function! s:fzf_local_history()
-  let local_oldfiles = v:lua._fzf_local_history()
-  let u_old = fzf#vim#_uniq(local_oldfiles)
-  let readable_files = filter(u_old, "filereadable(fnamemodify(v:val, ':p'))")
+  let oldfiles = luaeval('require("dot.scripts").fzf_local_history()')
+  let readable_files = filter(oldfiles, "filereadable(fnamemodify(v:val, ':p'))")
   return fzf#run(fzf#wrap({
   \ 'source': readable_files,
   \ 'sink': 'e',
