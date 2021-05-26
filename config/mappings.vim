@@ -48,8 +48,12 @@ tnoremap <silent> <m-H> <c-\><c-n>:tabp<cr>
 tnoremap <silent> <m-L> <c-\><c-n>:tabn<cr>
 nn <silent> <c-PageUp> :tabp<cr>
 nn <silent> <c-PageDown> :tabn<cr>
+nn <silent> <c-s-PageUp> :tabm -1<cr>
+nn <silent> <c-s-PageDown> :tabm +1<cr>
 tnoremap <silent> <c-PageUp> <c-\><c-n>:tabp<cr>
 tnoremap <silent> <c-PageDown> <c-\><c-n>:tabn<cr>
+tnoremap <silent> <c-s-PageUp> <c-\><c-n>:tabm -1<cr>
+tnoremap <silent> <c-s-PageDown> <c-\><c-n>:tabm +1<cr>
 
 " quickfix quick navigation
 nn <silent> <m-n> :cn<cr>zz
