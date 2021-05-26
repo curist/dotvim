@@ -12,7 +12,7 @@ nn <silent> <SPACE> za
 nmap <c-c> <nop>
 vmap <c-c> <esc>
 smap <c-c> <esc>
-nn <leader><leader> <c-^>
+nn <silent> <leader><leader> :lua altfile()<cr>
 nn <silent> <leader>d <c-w><c-c>
 
 " Keep the cursor in place while joining lines

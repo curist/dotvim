@@ -56,3 +56,10 @@ function _G._fzf_local_history()
   end
   return local_oldfiles
 end
+
+function _G.altfile()
+  local bufs = vim.call('fzf#vim#_buflisted_sorted')
+  if #bufs > 1 then
+    vim.api.nvim_set_current_buf(bufs[2])
+  end
+end
