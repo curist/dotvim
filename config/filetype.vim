@@ -33,9 +33,6 @@ augroup MyFileTypeSettings
   " clojure
   autocmd FileType clojure setlocal commentstring=;;%s
 
-  " vue
-  let g:vim_vue_plugin_use_sass = 1
-
   " vtl
   au BufNewFile,BufRead *.vtl set ft=velocity
 
