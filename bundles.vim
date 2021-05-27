@@ -29,6 +29,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dense-analysis/ale'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " (love)
 Plug 'guns/vim-sexp'
