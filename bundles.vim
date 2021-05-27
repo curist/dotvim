@@ -17,6 +17,7 @@ Plug 'cocopon/vaffle.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tracyone/fzf-funky', {'on': 'FzfFunky'}
+Plug 'kshenoy/vim-signature'
 
 " git
 Plug 'tpope/vim-fugitive'
