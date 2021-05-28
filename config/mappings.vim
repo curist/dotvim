@@ -65,4 +65,5 @@ augroup MyFileTypeMappings
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
   autocmd FileType janet nn <buffer> <leader>r :w<cr>:VT janet <c-r>%<cr>
+  nn <silent> <leader>ww :e $HOME/notes/index.md<cr>
 augroup END

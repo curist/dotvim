@@ -6,25 +6,8 @@ augroup MyFileTypeSettings
   autocmd FileType lua setlocal ai sw=2 sts=2 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
 
-  " markdown and vimwiki settings
-  autocmd FileType markdown,vimwiki setlocal wrap
-  autocmd FileType vimwiki setlocal nohidden
-  let g:markdown_fenced_languages = [
-        \ 'css',
-        \ 'clojure',
-        \ 'clj=clojure',
-        \ 'erb=eruby',
-        \ 'javascript',
-        \ 'js=javascript',
-        \ 'ts=typescript',
-        \ 'json=javascript',
-        \ 'ruby',
-        \ 'sass',
-        \ 'html',
-        \ 'xml',
-        \ 'python',
-        \ 'go' ]
-
+  " markdown
+  autocmd FileType markdown setlocal suffixesadd=.md
 
   " golang
   autocmd FileType go setlocal noexpandtab

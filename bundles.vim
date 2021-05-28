@@ -44,7 +44,6 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'ryanoasis/vim-devicons'
 
 " other handy plugins
-Plug 'vimwiki/vimwiki', { 'on': 'VimwikiIndex' }
 Plug 'tpope/vim-repeat'
 Plug 'mklabs/split-term.vim'
 Plug 'vim-test/vim-test'
