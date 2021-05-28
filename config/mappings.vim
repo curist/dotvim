@@ -2,7 +2,7 @@ let mapleader = ","
 let maplocalleader = ","
 
 nn <silent> <leader>h :noh<cr>
-nn <silent> <leader>q :QFix<cr>
+nn <silent> <leader>q :lua require('dot.qf').toggle_list()<cr>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]

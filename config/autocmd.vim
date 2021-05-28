@@ -1,8 +1,7 @@
 " use to track the quickfix window
 augroup QFixToggle
   autocmd!
-  autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
-  autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
+  autocmd BufWinEnter quickfix lua require('dot.qf').set_list()
 augroup END
 
 augroup MyCommonAutoCmds
