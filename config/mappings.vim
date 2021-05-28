@@ -56,8 +56,8 @@ tnoremap <silent> <c-s-PageUp> <c-\><c-n>:tabm -1<cr>
 tnoremap <silent> <c-s-PageDown> <c-\><c-n>:tabm +1<cr>
 
 " quickfix quick navigation
-nn <silent> <m-n> :cn<cr>zz
-nn <silent> <m-p> :cp<cr>zz
+nn <silent> <m-n> :lua require('dot.qf').local_list_next()<cr>zz
+nn <silent> <m-p> :lua require('dot.qf').local_list_prev()<cr>zz
 
 augroup MyFileTypeMappings
   " run settings

@@ -43,7 +43,6 @@
     (tset state :active-list :l)
     (close-list)
     (lua :return))
-
   (if (= :q (active-list))
       (if (is-qf-open?)
         (close-list)
@@ -54,5 +53,28 @@
           (set-alter-list)
           (toggle-list)))))
 
+(fn safe-list-move [list-move-cmd]
+  (let [(ok? _) (pcall vim.cmd list-move-cmd)]
+    (when (not ok?)
+      (print "no more list items"))))
+
+(fn local-list-next []
+  (when (= :q (active-list))
+    (safe-list-move :cnext)
+    (lua :return))
+  (if (has-loclist?)
+    (safe-list-move :lnext)
+    (safe-list-move :cnext)))
+
+(fn local-list-prev []
+  (when (= :q (active-list))
+    (safe-list-move :cprev)
+    (lua :return))
+  (if (has-loclist?)
+    (safe-list-move :lprev)
+    (safe-list-move :cprev)))
+
 {:set_list set-active-list
- :toggle_list toggle-list}
+ :toggle_list toggle-list
+ :local_list_next local-list-next
+ :local_list_prev local-list-prev}
