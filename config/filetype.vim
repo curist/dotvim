@@ -13,8 +13,9 @@ augroup MyFileTypeSettings
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go setlocal commentstring=//%s
 
-  " clojure
-  autocmd FileType clojure setlocal commentstring=;;%s
+  " ( love )
+  autocmd FileType clojure,scheme,fennel
+        \ let b:AutoClosePairs = AutoClose#ParsePairs("() {} [] \"")
 
   " vtl
   au BufNewFile,BufRead *.vtl set ft=velocity
