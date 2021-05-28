@@ -14,7 +14,8 @@ nn <silent> <leader>: :History:<cr>
 nn <silent> <leader>gl :BCommits<cr>
 nn <silent> <leader>gL :Commits<cr>
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0) 
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 nn <silent> <leader>S :Rg<cr>
 nn <silent> <leader>s :Rg <c-r>=expand('<cword>')<cr><cr>
 
@@ -40,10 +41,11 @@ xn <silent> <leader>s <Esc>:Rg <c-r>=<SID>getVisualSelection()<cr><cr>
 nn <silent> <leader>z :Rgg <c-r>=expand('<cword>')<cr><cr>
 xn <silent> <leader>z <Esc>:Rgg <c-r>=<SID>getVisualSelection()<cr><cr>
 nn <silent> <leader>Z :Rgg<cr>
+
 command! -bang -nargs=* Rgg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 function! s:fzf_local_history()
   let oldfiles = luaeval('require("dot.scripts").fzf_local_history()')
