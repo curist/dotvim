@@ -1,35 +1,38 @@
-(local a (require :aniseed.core))
+(macros {:def (fn [name value] `(local ,name ,value))
+         :defn (fn [name ...] `(fn ,name ,...))})
 
-(var state {:active-list :q})
+(def a (require :aniseed.core))
 
-(fn active-list [] (. state :active-list))
+(def state {:active-list :q})
 
-(fn is-qf-open? []
+(defn active-list [] (. state :active-list))
+
+(defn is-qf-open? []
   (->> (vim.api.nvim_tabpage_list_wins 0)
        (a.filter #(= :qf (vim.fn.getwinvar $ :&ft)))
        (a.filter #(= 0 (-> (vim.fn.getwininfo $) (. 1) (. :loclist))))
        length (= 1)))
 
-(fn has-loclist? []
+(defn has-loclist? []
   (-> (vim.fn.winnr) vim.fn.getloclist length (> 0)))
 
-(fn is-loclist-open? []
+(defn is-loclist-open? []
   (let [win-loc-info (vim.fn.getloclist 0 {:winid true})]
     (> (. win-loc-info :winid) 0)))
 
-(fn open-list []
+(defn open-list []
   (let [cmd (if (= (active-list) :q) :copen :lopen)]
     (vim.cmd (.. cmd 10))))
 
-(fn close-list []
+(defn close-list []
   (let [cmd (if (= (active-list) :q) :cclose :lclose)]
     (vim.cmd cmd)))
 
-(fn set-alter-list []
+(defn set-alter-list []
   (let [kind (if (= (active-list) :q) :l :q)]
     (tset state :active-list kind)))
 
-(fn set-active-list []
+(defn set-active-list []
   (let [wininfo (-> (vim.fn.win_getid) vim.fn.getwininfo (. 1))
         isloc (= 1 wininfo.loclist)
         kind (if isloc :l :q)]
@@ -38,7 +41,7 @@
 ;; we may want to 
 ;; 1. if active list is qf, just toggle it
 ;; 2. if active list is loc, should check for current window only
-(fn toggle-list []
+(defn toggle-list []
   (when (is-loclist-open?)
     (tset state :active-list :l)
     (close-list)
@@ -53,12 +56,12 @@
           (set-alter-list)
           (toggle-list)))))
 
-(fn safe-list-move [list-move-cmd]
+(defn safe-list-move [list-move-cmd]
   (let [(ok? _) (pcall vim.cmd list-move-cmd)]
     (when (not ok?)
       (print "no more list items"))))
 
-(fn local-list-next []
+(defn local-list-next []
   (when (= :q (active-list))
     (safe-list-move :cnext)
     (lua :return))
@@ -66,7 +69,7 @@
     (safe-list-move :lnext)
     (safe-list-move :cnext)))
 
-(fn local-list-prev []
+(defn local-list-prev []
   (when (= :q (active-list))
     (safe-list-move :cprev)
     (lua :return))
