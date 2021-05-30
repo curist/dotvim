@@ -2,20 +2,13 @@ augroup MyFileTypeSettings
   autocmd!
   " general settings
   autocmd FileType javascript,yaml,html,markdown,css setlocal ai sw=2 sts=2 et
-  autocmd FileType typescript,typescript.tsx,vim,vimwiki setlocal ai sw=2 sts=2 et
-  autocmd FileType lua setlocal ai sw=2 sts=2 et
-  autocmd FileType python setlocal ai sw=4 sts=4 et
+  autocmd FileType typescript,typescript.tsx,vim,lua setlocal ai sw=2 sts=2 et
 
   " markdown
   autocmd FileType markdown setlocal suffixesadd=.md
 
   " golang
   autocmd FileType go setlocal noexpandtab
-  autocmd FileType go setlocal commentstring=//%s
-
-  " ( love )
-  autocmd FileType clojure,scheme,fennel
-        \ let b:AutoClosePairs = AutoClose#ParsePairs("() {} [] \"")
 
   " vtl
   au BufNewFile,BufRead *.vtl set ft=velocity

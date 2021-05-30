@@ -9,7 +9,7 @@ nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
-nmap <c-c> <nop>
+nn <c-c> <c-l>
 vmap <c-c> <esc>
 smap <c-c> <esc>
 nn <silent> <leader><leader> :lua require('dot.scripts').altfile()<cr>
@@ -42,10 +42,6 @@ tnoremap <m-l> <c-\><c-n><c-w>l
 tnoremap <m-h> <c-\><c-n><c-w>h
 
 " moving between tabs
-nn <silent> <m-H> :tabp<cr>
-nn <silent> <m-L> :tabn<cr>
-tnoremap <silent> <m-H> <c-\><c-n>:tabp<cr>
-tnoremap <silent> <m-L> <c-\><c-n>:tabn<cr>
 nn <silent> <c-PageUp> :tabp<cr>
 nn <silent> <c-PageDown> :tabn<cr>
 nn <silent> <c-s-PageUp> :tabm -1<cr>
@@ -64,6 +60,5 @@ augroup MyFileTypeMappings
   autocmd!
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
-  autocmd FileType janet nn <buffer> <leader>r :w<cr>:VT janet <c-r>%<cr>
   nn <silent> <leader>ww :e $HOME/notes/index.md<cr>
 augroup END

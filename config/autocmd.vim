@@ -4,14 +4,10 @@ augroup QFixToggle
   autocmd BufWinEnter quickfix lua require('dot.qf').set_list()
 augroup END
 
-augroup MyCommonAutoCmds
-  autocmd!
-  " Resize splits when the window is resized
-  autocmd VimResized * :wincmd =
-augroup END
-
 augroup BehaviourAdjustment
   autocmd!
+  " Resize splits when the window is resized
+  autocmd VimResized * wincmd =
 
   " don't show quickfix in buffers list
   " set number in quickfix list

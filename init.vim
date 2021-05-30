@@ -61,4 +61,3 @@ set timeoutlen=400
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 
-" vim: ts=4 sw=2 sts=2 et foldenable foldmethod=marker
