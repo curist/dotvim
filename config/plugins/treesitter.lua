@@ -10,6 +10,8 @@ require'nvim-treesitter.configs'.setup {
     "lua",
     "jsdoc",
     "json",
+    "jsonc",
+    "regex",
   },
   highlight = {
     enable = true,
