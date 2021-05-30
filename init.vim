@@ -3,7 +3,7 @@ set fileformat=unix
 set fileencoding=utf-8
 set termguicolors
 
-runtime! bundles.vim
+luafile ~/.config/nvim/plugins.lua
 runtime! config/**/*.vim
 
 for luacfg in split(glob('~/.config/nvim/config/plugins/*.lua'))
@@ -30,7 +30,7 @@ set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
 set foldlevelstart=9  " we want all fold to be expand at start
 set foldnestmax=5     " max fold nest levels
-set hidden     " it's ok to switch buffer w/o saving
+set hidden            " it's ok to switch buffer w/o saving
 
 set clipboard^=unnamed,unnamedplus
 set guioptions+=a
@@ -50,10 +50,10 @@ set inccommand=nosplit
 set nobackup
 set noswapfile
 
-set shortmess+=I               " no intro message
-set shortmess+=c               " no more pattern not found
-set virtualedit=block          " no limit cursor postion in VISUAL BLOCK mode
-set synmaxcol=150              " Don't try to highlight long lines
+set shortmess+=I        " no intro message
+set shortmess+=c        " no more pattern not found
+set virtualedit=block   " no limit cursor postion in VISUAL BLOCK mode
+set synmaxcol=150       " Don't try to highlight long lines
 
 set updatetime=350
 set timeoutlen=400
