@@ -29,7 +29,6 @@ require('packer').startup(function(use)
   use {'junegunn/fzf', run = ':call fzf#install()'}
   use 'junegunn/fzf.vim'
   use {'tracyone/fzf-funky', cmd = {'FzfFunky'}}
-  use 'kshenoy/vim-signature'
 
   -- git
   use 'tpope/vim-fugitive'
