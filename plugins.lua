@@ -38,6 +38,7 @@ require('packer').startup(function(use)
   use {'sheerun/vim-polyglot', config = function()
     vim.g.polyglot_disabled = {'autoindent', 'sensible', 'vue'}
   end}
+  use 'neovim/nvim-lspconfig'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'dense-analysis/ale'
   use 'leafOfTree/vim-vue-plugin'

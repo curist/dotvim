@@ -19,7 +19,7 @@ let g:lightline = {
       \               [ 'filename' ],
       \             ],
       \     'right': [ ['lineinfo' ], [ 'githead' ], ['filetype'],
-      \                ['fileformat'],
+      \                ['fileformat'], [ 'lsp' ],
       \              ],
       \   },
       \   'inactive': {
@@ -37,6 +37,7 @@ let g:lightline = {
       \     'inactivefilename': 'LightlineInactiveFilename',
       \     'githead': 'LightLineGitHead',
       \     'filetype': 'FileType',
+      \     'lsp': 'LspStatus',
       \   },
       \ }
 
@@ -96,4 +97,14 @@ function! FileType()
     return ''
   endif
   return &filetype
+endfunction
+
+function! LspStatus() abort
+  if luaeval('next(vim.lsp.buf_get_clients())')
+    if luaeval('vim.lsp.buf.server_ready()')
+      return '[Ξ]'
+    end
+    return 'Ξ'
+  end
+  return ''
 endfunction

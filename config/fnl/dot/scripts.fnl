@@ -43,5 +43,12 @@
       1 (vim.api.nvim_set_current_buf (. filtered-bufs 1))
       _ (vim.api.nvim_set_current_buf (. filtered-bufs 2)))))
 
+(defn toggle_lsp []
+  (let [has-client? (-> (vim.lsp.buf_get_clients) length (> 0))]
+    (if has-client?
+      (vim.cmd "LspStop")
+      (vim.cmd "LspStart"))))
+
 {: fzf_local_history
- : altfile}
+ : altfile
+ : toggle_lsp}
