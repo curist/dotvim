@@ -1,11 +1,10 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
+  vim.cmd('packadd packer.nvim')
 end
 
 require('packer').startup(function(use)
@@ -25,14 +24,15 @@ require('packer').startup(function(use)
   -- moving around:
   --   file/buffer switching
   --   in file quick jumps
-  use 'cocopon/vaffle.vim'
+  use {'cocopon/vaffle.vim', cmd = 'Vaffle', requires = {
+  }}
   use {'junegunn/fzf', run = ':call fzf#install()'}
   use 'junegunn/fzf.vim'
-  use {'tracyone/fzf-funky', cmd = {'FzfFunky'}}
+  use {'tracyone/fzf-funky', cmd = 'FzfFunky'}
 
   -- git
   use 'tpope/vim-fugitive'
-  use 'mhinz/vim-signify'
+  use {'mhinz/vim-signify', cmd = 'SignifyToggle'}
 
   -- programming language
   use {'sheerun/vim-polyglot', config = function()
@@ -44,8 +44,9 @@ require('packer').startup(function(use)
   use 'leafOfTree/vim-vue-plugin'
 
   -- ( love )
-  use 'guns/vim-sexp'
-  use 'Olical/conjure'
+  local lispy = {'clojure', 'scheme', 'fennel', 'lisp'}
+  use {'guns/vim-sexp', ft = lispy}
+  use {'Olical/conjure', ft = lispy}
   use 'Olical/aniseed'
 
   -- get fancy
@@ -56,6 +57,6 @@ require('packer').startup(function(use)
 
   -- other handy plugins
   use 'tpope/vim-repeat'
-  use 'mklabs/split-term.vim'
+  use {'mklabs/split-term.vim', cmd = {'Term', 'VTerm', 'TTerm'}}
   use 'vim-test/vim-test'
 end)
