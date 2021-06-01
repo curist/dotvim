@@ -47,7 +47,7 @@ require('packer').startup(function(use)
   local lispy = {'clojure', 'scheme', 'fennel', 'lisp'}
   use {'guns/vim-sexp', ft = lispy}
   use {'Olical/conjure', ft = lispy}
-  use 'Olical/aniseed'
+  use {'Olical/aniseed', run = ':lua compileFennelConfig()' }
 
   -- get fancy
   use 'itchyny/lightline.vim'
