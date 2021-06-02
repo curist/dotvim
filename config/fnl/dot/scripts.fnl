@@ -44,7 +44,7 @@
       _ (vim.api.nvim_set_current_buf (. filtered-bufs 2)))))
 
 (defn toggle_lsp []
-  (let [has-client? (-> (vim.lsp.buf_get_clients) length (> 0))]
+  (let [has-client? (-> (vim.lsp.buf_get_clients) next (not= nil))]
     (if has-client?
       (vim.cmd "LspStop")
       (vim.cmd "LspStart"))))
