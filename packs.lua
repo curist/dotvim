@@ -24,8 +24,7 @@ require('packer').startup(function(use)
   -- moving around:
   --   file/buffer switching
   --   in file quick jumps
-  use {'cocopon/vaffle.vim', cmd = 'Vaffle', requires = {
-  }}
+  use {'cocopon/vaffle.vim', cmd = 'Vaffle'}
   use {'junegunn/fzf', run = ':call fzf#install()'}
   use 'junegunn/fzf.vim'
   use {'tracyone/fzf-funky', cmd = 'FzfFunky'}

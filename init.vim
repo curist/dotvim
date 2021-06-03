@@ -3,7 +3,7 @@ set fileformat=unix
 set fileencoding=utf-8
 set termguicolors
 
-luafile ~/.config/nvim/plugins.lua
+luafile ~/.config/nvim/packs.lua
 runtime! config/**/*.vim
 
 for luacfg in split(glob('~/.config/nvim/config/plugins/*.lua'))
