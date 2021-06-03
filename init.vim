@@ -59,5 +59,5 @@ set updatetime=350
 set timeoutlen=400
 
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+autocmd FileType git*,diff set bufhidden=delete
 
