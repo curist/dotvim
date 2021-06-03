@@ -12,13 +12,19 @@ let g:lightline = {
       \     'S' : 'SL',
       \     "\<C-s>": 'SB',
       \     't': 'T',
-      \     },
+      \   },
+      \   'tab': {
+      \      'active': [ 'filename' ],
+      \      'inactive': [ 'filename' ],
+      \    },
       \   'active': {
-      \     'left': [ [ 'mode', 'paste' ],
+      \     'left': [
+      \               [ 'mode' ],
       \               [ 'fileencoding' ],
       \               [ 'filename' ],
       \             ],
-      \     'right': [ ['lineinfo' ], [ 'githead' ], ['filetype'],
+      \     'right': [
+      \                ['lineinfo' ], [ 'githead' ], ['filetype'],
       \                ['fileformat'], [ 'lsp' ],
       \              ],
       \   },
@@ -41,30 +47,17 @@ let g:lightline = {
       \   },
       \ }
 
-let g:pluginFileTypes = {
-      \ 'nerdtree': 1,
-      \ }
-
 function! LightlineMode()
-  if has_key(g:pluginFileTypes, &filetype)
-    return ''
-  endif
   return lightline#mode()
 endfunction
 
 function! LightlineFilename()
-  if has_key(g:pluginFileTypes, &filetype)
-    return toupper(&filetype)
-  endif
   let filename = expand('%:~:.')
   let mod = Mod()
   return mod . filename
 endfunction
 
 function! LightlineInactiveFilename()
-  if has_key(g:pluginFileTypes, &filetype)
-    return toupper(&filetype)
-  endif
   if &buftype == 'terminal'
     return 'TERM'
   endif
@@ -77,9 +70,6 @@ function! LightlineInactiveFilename()
 endfunction
 
 function! LightLineGitHead()
-  if has_key(g:pluginFileTypes, &filetype)
-    return ''
-  endif
   return fugitive#Head(6)
 endfunction
 
@@ -93,9 +83,6 @@ function! Mod()
 endfunction
 
 function! FileType()
-  if has_key(g:pluginFileTypes, &filetype)
-    return ''
-  endif
   return &filetype
 endfunction
 
