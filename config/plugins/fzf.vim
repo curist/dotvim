@@ -1,4 +1,3 @@
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 let g:fzf_preview_window = ''
 
 let $FZF_DEFAULT_COMMAND='rg --no-ignore-vcs --hidden --files'
@@ -22,18 +21,18 @@ nn <silent> <leader>s :Rg <c-r>=expand('<cword>')<cr><cr>
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 function! s:getVisualSelection()
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
+  let [line_start, column_start] = getpos("'<")[1:2]
+  let [line_end, column_end] = getpos("'>")[1:2]
+  let lines = getline(line_start, line_end)
 
-    if len(lines) == 0
-        return ""
-    endif
+  if len(lines) == 0
+    return ""
+  endif
 
-    let lines[-1] = lines[-1][:column_end - (&selection == "inclusive" ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
+  let lines[-1] = lines[-1][:column_end - (&selection == "inclusive" ? 1 : 2)]
+  let lines[0] = lines[0][column_start - 1:]
 
-    return join(lines, "\n")
+  return join(lines, "\n")
 endfunction
 
 xn <silent> <leader>s <Esc>:Rg <c-r>=<SID>getVisualSelection()<cr><cr>
