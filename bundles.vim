@@ -24,8 +24,6 @@ Plug 'mhinz/vim-signify', { 'on': 'SignifyToggle' }
 " programming language
 let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
 Plug 'sheerun/vim-polyglot'
-Plug 'neovim/nvim-lspconfig'
-Plug 'dense-analysis/ale'
 Plug 'leafOfTree/vim-vue-plugin'
 
 " ( love )

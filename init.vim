@@ -1,3 +1,8 @@
+if exists('g:vscode')
+  runtime! code.vim
+  finish
+endif
+
 language messages POSIX
 set fileformat=unix
 set fileencoding=utf-8
