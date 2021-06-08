@@ -5,7 +5,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
-Plug 'curist/vim-autoclose'
+Plug 'cohama/lexima.vim'
 Plug 'curist/highlight.vim'
 Plug 'matze/vim-move'
 
