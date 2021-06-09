@@ -7,6 +7,9 @@ Plug 'curist/highlight.vim'
 Plug 'tpope/vim-repeat'
 call plug#end()
 
+set ignorecase
+set smartcase
+
 let mapleader = ","
 let maplocalleader = ","
 
@@ -41,3 +44,7 @@ function! s:getVisualSelection()
 
   return join(lines, "\n")
 endfunction
+
+nn <leader>gb <cmd>call VSCodeNotify('gitlens.toggleFileBlame')<cr>
+nn <leader>gl <cmd>call VSCodeNotify('gitlens.showQuickFileHistory')<cr>
+nn <leader>gL <cmd>call VSCodeNotify('gitlens.showQuickRepoHistory')<cr>

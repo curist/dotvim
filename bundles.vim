@@ -7,7 +7,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'cohama/lexima.vim'
 Plug 'curist/highlight.vim'
-Plug 'matze/vim-move'
 
 " moving around:
 "   file/buffer switching
@@ -22,9 +21,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify', { 'on': 'SignifyToggle' }
 
 " programming language
-let g:polyglot_disabled = ['autoindent', 'sensible', 'vue']
+let g:polyglot_disabled = ['autoindent', 'sensible']
 Plug 'sheerun/vim-polyglot'
-Plug 'leafOfTree/vim-vue-plugin'
 
 " ( love )
 Plug 'guns/vim-sexp'
