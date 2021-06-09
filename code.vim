@@ -48,3 +48,8 @@ endfunction
 nn <leader>gb <cmd>call VSCodeNotify('gitlens.toggleFileBlame')<cr>
 nn <leader>gl <cmd>call VSCodeNotify('gitlens.showQuickFileHistory')<cr>
 nn <leader>gL <cmd>call VSCodeNotify('gitlens.showQuickRepoHistory')<cr>
+
+nn <c-w>H <cmd>call VSCodeNotify('workbench.action.moveActiveEditorGroupLeft')<cr>
+nn <c-w>J <cmd>call VSCodeNotify('workbench.action.moveActiveEditorGroupDown')<cr>
+nn <c-w>K <cmd>call VSCodeNotify('workbench.action.moveActiveEditorGroupUp')<cr>
+nn <c-w>L <cmd>call VSCodeNotify('workbench.action.moveActiveEditorGroupRight')<cr>
