@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 " text manipulating helpers
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'
 Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
@@ -21,8 +20,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify', { 'on': 'SignifyToggle' }
 
 " programming language
-let g:polyglot_disabled = ['autoindent', 'sensible']
-Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " ( love )
@@ -32,9 +29,7 @@ Plug 'Olical/aniseed', { 'do': ':lua compileFennelConfig()' }
 
 " get fancy
 Plug 'itchyny/lightline.vim'
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'ryanoasis/vim-devicons'
 
 " other handy plugins
 Plug 'tpope/vim-repeat'

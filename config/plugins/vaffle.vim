@@ -12,7 +12,3 @@ function! SmartVaffle()
 endfun
 nnoremap <silent> <leader>V :call SmartVaffle()<cr>
 
-function! VaffleRenderCustomIcon(item)
-  return WebDevIconsGetFileTypeSymbol(a:item.basename, a:item.is_dir)
-endfunction
-let g:vaffle_render_custom_icon = 'VaffleRenderCustomIcon'

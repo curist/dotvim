@@ -19,4 +19,7 @@ augroup MyFileTypeSettings
 
   " fennel
   autocmd FileType fennel iabbr <buffer> lbd λ
+
+  " graphql
+  autocmd BufRead *.graphql set ft=graphql
 augroup END
