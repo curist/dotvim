@@ -56,26 +56,23 @@
           (set-alter-list)
           (toggle-list)))))
 
-(defn safe-list-move [list-move-cmd]
-  (let [(ok? _) (pcall vim.cmd list-move-cmd)]
+(defn safe-list-move [list-type direction]
+  (let [(ok? _) (pcall vim.cmd list-move-cmd)
+        cmd (.. list-type direction)
+        wrap-cmd (.. list-type (if (= direction :next) :first :last))]
     (when (not ok?)
-      (print "no more list items"))))
+      (print "no more list items")
+      (pcall vim.cmd wrap-cmd))))
 
 (defn local-list-next []
-  (when (= :q (active-list))
-    (safe-list-move :cnext)
-    (lua :return))
-  (if (has-loclist?)
-    (safe-list-move :lnext)
-    (safe-list-move :cnext)))
+  (if (or (= :q (active-list)) (not (has-loclist?)))
+    (safe-list-move :c :next)
+    (safe-list-move :l :next)))
 
 (defn local-list-prev []
-  (when (= :q (active-list))
-    (safe-list-move :cprev)
-    (lua :return))
-  (if (has-loclist?)
-    (safe-list-move :lprev)
-    (safe-list-move :cprev)))
+  (if (or (= :q (active-list)) (not (has-loclist?)))
+    (safe-list-move :c :prev)
+    (safe-list-move :l :prev)))
 
 {:set_list set-active-list
  :toggle_list toggle-list
