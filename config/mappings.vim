@@ -36,10 +36,6 @@ nn <m-j> <c-w>j
 nn <m-k> <c-w>k
 nn <m-l> <c-w>l
 nn <m-h> <c-w>h
-tnoremap <m-j> <c-\><c-n><c-w>j
-tnoremap <m-k> <c-\><c-n><c-w>k
-tnoremap <m-l> <c-\><c-n><c-w>l
-tnoremap <m-h> <c-\><c-n><c-w>h
 
 " moving between tabs
 nn <silent> <c-PageUp> :tabp<cr>

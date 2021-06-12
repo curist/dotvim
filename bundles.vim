@@ -33,7 +33,7 @@ Plug 'lifepillar/vim-gruvbox8'
 
 " other handy plugins
 Plug 'tpope/vim-repeat'
-Plug 'mklabs/split-term.vim'
+Plug 'curist/split-term.vim'
 Plug 'vim-test/vim-test'
 
 call plug#end()
