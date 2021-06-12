@@ -10,10 +10,7 @@ set termguicolors
 
 runtime! bundles.vim
 runtime! config/**/*.vim
-
-for luacfg in split(glob('~/.config/nvim/config/plugins/*.lua'))
-  exec 'luafile ' . luacfg
-endfor
+runtime! config/**/*.lua
 
 let g:gruvbox_italicize_strings = 0
 colorscheme gruvbox8
@@ -21,7 +18,7 @@ colorscheme gruvbox8
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
-set viminfo='500
+set viminfo='1000
 
 set relativenumber
 set tabstop=2
