@@ -8,7 +8,7 @@ set fileformat=unix
 set fileencoding=utf-8
 set termguicolors
 
-runtime! bundles.vim
+runtime! bundles.lua
 runtime! config/**/*.vim
 runtime! config/**/*.lua
 
