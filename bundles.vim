@@ -21,6 +21,7 @@ Plug 'mhinz/vim-signify', { 'on': 'SignifyToggle' }
 
 " programming language
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'dense-analysis/ale'
 
 " ( love )
 Plug 'guns/vim-sexp'
