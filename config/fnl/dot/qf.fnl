@@ -3,7 +3,7 @@
 
 (def a (require :aniseed.core))
 
-(def state {:active-list :q})
+(def state {:active-list ""})
 
 (defn active-list [] (. state :active-list))
 

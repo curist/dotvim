@@ -1,7 +1,7 @@
 " use to track the quickfix window
 augroup QFixToggle
   autocmd!
-  autocmd BufWinEnter quickfix lua require('dot.qf').set_list()
+  autocmd BufWinEnter quickfix silent! lua require('dot.qf').set_list()
 augroup END
 
 augroup BehaviourAdjustment
