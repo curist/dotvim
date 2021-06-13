@@ -1,17 +1,17 @@
 (macros {:def (fn [name value] `(local ,name ,value))
          :defn (fn [name ...] `(fn ,name ,...))})
 
-(def a (require :aniseed.core))
+(def dot (require :dot.utils))
 
 (def state {:active-list ""})
 
 (defn active-list [] (. state :active-list))
 
 (defn is-qf-open? []
-  (->> (vim.api.nvim_tabpage_list_wins 0)
-       (a.filter #(= :qf (vim.fn.getwinvar $ :&ft)))
-       (a.filter #(= 0 (-> (vim.fn.getwininfo $) (. 1) (. :loclist))))
-       length (= 1)))
+  (-> (vim.api.nvim_tabpage_list_wins 0)
+      (dot.filter #(= :qf (vim.fn.getwinvar $ :&ft)))
+      (dot.filter #(= 0 (-> (vim.fn.getwininfo $) (. 1) (. :loclist))))
+      length (= 1)))
 
 (defn has-loclist? []
   (-> (vim.fn.winnr) vim.fn.getloclist length (> 0)))

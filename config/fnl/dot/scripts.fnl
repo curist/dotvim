@@ -1,7 +1,7 @@
 (macros {:def (fn [name value] `(local ,name ,value))
          :defn (fn [name ...] `(fn ,name ,...))})
 
-(def a (require :aniseed.core))
+(def dot (require :dot.utils))
 
 (def prefix-ignore [".git"])
 (def suffix-ignore ["COMMIT_EDITMSG"])
@@ -13,27 +13,27 @@
   (or (= end "") (= end (str:sub (- (length end))))))
 
 (defn get-all-files []
-  (a.concat
-    (->> (vim.call "fzf#vim#_buflisted_sorted")
-         (a.map #(vim.api.nvim_buf_get_name $)))
+  (dot.concat
+    (-> (vim.call "fzf#vim#_buflisted_sorted")
+        (dot.map #(vim.api.nvim_buf_get_name $)))
     vim.v.oldfiles))
 
 (defn filter-filepath [pwd orig-filepath]
   (let [filepath (orig-filepath:sub (+ (length pwd) 2))]
     (not (or (not (starts-with orig-filepath pwd))
-             (a.some #(ends-with filepath $) suffix-ignore)
-             (a.some #(starts-with filepath $) prefix-ignore)))))
+             (dot.some suffix-ignore #(ends-with filepath $))
+             (dot.some prefix-ignore #(starts-with filepath $))))))
 
 (defn filter-buffers [bufs]
   (let [pwd (vim.call "getcwd")]
-    (a.filter #(filter-filepath pwd (vim.api.nvim_buf_get_name $)) bufs)))
+    (dot.filter bufs #(filter-filepath pwd (vim.api.nvim_buf_get_name $)))))
 
 (defn fzf_local_history []
-  (let [pwd (vim.call "getcwd")]
-    (->> (get-all-files)
-         (a.filter #(filter-filepath pwd $))
-         (a.map #($:sub (+ 2 (length pwd))))
-         (vim.call "fzf#vim#_uniq"))))
+  (let [pwd (vim.call "getcwd")
+        files (-> (get-all-files)
+                  (dot.filter #(filter-filepath pwd $))
+                  (dot.map #($:sub (+ 2 (length pwd)))))]
+    (vim.call "fzf#vim#_uniq" files)))
 
 (defn altfile []
   (let [bufs (vim.call "fzf#vim#_buflisted_sorted")
