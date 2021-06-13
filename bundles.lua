@@ -1,15 +1,12 @@
 (function(setup_plugins)
-  function plug(...)
-    local args = {...}
-    local plug_name = args[1]
-    local plug_args = args[2] or {x = 1}
-    -- workaround lua `do` & `for` keyword
-    plug_args['do'] = plug_args.run
-    plug_args['for'] = plug_args.ft
-    vim.call('plug#', plug_name, plug_args)
-  end
   vim.call('plug#begin', '~/.config/nvim/plugged')
-  setup_plugins(plug)
+  setup_plugins(function (name, args)
+    args = args or { x = 1 }
+    -- workaround lua `do` & `for` keyword
+    args['do'] = args.run
+    args['for'] = args.ft
+    vim.call('plug#', name, args)
+  end)
   vim.call('plug#end')
 end)(function(Plug)
   -- text manipulating helpers
