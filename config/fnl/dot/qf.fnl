@@ -57,8 +57,8 @@
           (toggle-list)))))
 
 (defn safe-list-move [list-type direction]
-  (let [(ok? _) (pcall vim.cmd list-move-cmd)
-        cmd (.. list-type direction)
+  (let [cmd (.. list-type direction)
+        (ok? _) (pcall vim.cmd cmd)
         wrap-cmd (.. list-type (if (= direction :next) :first :last))]
     (when (not ok?)
       (print "no more list items")
