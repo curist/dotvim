@@ -24,8 +24,8 @@ let g:lightline = {
       \               [ 'filename' ],
       \             ],
       \     'right': [
-      \                ['lineinfo' ], [ 'githead' ], ['filetype'],
-      \                ['fileformat'], [ 'lsp' ],
+      \                ['lineinfo' ], [ 'githead' ],
+      \                ['filetype'], ['fileformat'],
       \              ],
       \   },
       \   'inactive': {
@@ -38,23 +38,16 @@ let g:lightline = {
       \     'lineinfo': '%3l:%-2c',
       \   },
       \   'component_function': {
-      \     'mode': 'LightlineMode',
       \     'filename': 'LightlineFilename',
       \     'inactivefilename': 'LightlineInactiveFilename',
       \     'githead': 'LightLineGitHead',
       \     'filetype': 'FileType',
-      \     'lsp': 'LspStatus',
       \   },
       \ }
 
-function! LightlineMode()
-  return lightline#mode()
-endfunction
-
 function! LightlineFilename()
   let filename = expand('%:~:.')
-  let mod = Mod()
-  return mod . filename
+  return filename . Mod()
 endfunction
 
 function! LightlineInactiveFilename()
@@ -65,8 +58,7 @@ function! LightlineInactiveFilename()
   if filename == ''
     return 'NONAME'
   endif
-  let mod = Mod()
-  return mod . filename
+  return filename . Mod()
 endfunction
 
 function! LightLineGitHead()
@@ -75,9 +67,9 @@ endfunction
 
 function! Mod()
   if &readonly
-    return '- '
+    return ' -'
   elseif &modified
-    return '+ '
+    return ' +'
   endif
   return ''
 endfunction
@@ -86,12 +78,3 @@ function! FileType()
   return &filetype
 endfunction
 
-function! LspStatus() abort
-  if luaeval('next(vim.lsp.buf_get_clients())')
-    if luaeval('vim.lsp.buf.server_ready()')
-      return '[Ξ]'
-    end
-    return 'Ξ'
-  end
-  return ''
-endfunction
