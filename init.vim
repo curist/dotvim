@@ -18,7 +18,7 @@ colorscheme gruvbox8
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
-set viminfo='1000
+set viminfo='900
 
 set relativenumber
 set tabstop=2
