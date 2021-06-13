@@ -31,7 +31,7 @@ set mouse=vn
 set nowrap
 set foldmethod=indent " fold by method (indent & syntax are both good)
 set foldlevelstart=9  " we want all fold to be expand at start
-set foldnestmax=5     " max fold nest levels
+set foldnestmax=9     " max fold nest levels
 set hidden            " it's ok to switch buffer w/o saving
 
 set clipboard^=unnamed,unnamedplus
@@ -59,7 +59,4 @@ set synmaxcol=150       " Don't try to highlight long lines
 
 set updatetime=350
 set timeoutlen=400
-
-let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-autocmd FileType git*,diff set bufhidden=delete
 

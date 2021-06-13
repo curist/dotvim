@@ -20,11 +20,10 @@ nnoremap J mzJ`z
 
 cmap <expr> <c-r><c-l> getline('.')
 
-nn <f1> <nop>
 nn <silent> <up> gk<c-y>
 nn <silent> <down> gj<c-e>
-nn <silent> <left> :prev<cr>
-nn <silent> <right> :next<cr>
+nn <silent> <left> hzh
+nn <silent> <right> lzl
 
 " Emacs bindings..
 inoremap <c-a> <c-o>^
@@ -56,5 +55,6 @@ augroup MyFileTypeMappings
   autocmd!
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
+  autocmd FileType lua nn <buffer> <leader>r :w<cr>:!lua %<cr>
   nn <silent> <leader>ww :e $HOME/notes/index.md<cr>
 augroup END

@@ -1,4 +1,4 @@
-let g:tcomment_maps = 0
+let g:tcomment_maps = v:false
 
 nmap <silent> <c-_> :TComment<cr>
 nmap <silent> <c-/> :TComment<cr>

@@ -7,11 +7,8 @@ vim.g.lightline = {
     v = 'V',
     V = 'VL',
     c = 'C',
-    s = 'S',
-    S = 'SL',
     t = 'T',
-    ['<C-v>'] = 'VB',
-    ['<C-s>'] = 'SB',
+    [''] = 'VB',
   },
   tab = {
     active = { 'filename' },
@@ -33,12 +30,12 @@ vim.g.lightline = {
     fileencoding = "%{&fenc=='utf-8'?'':&fenc}",
     fileformat = "%{&ff=='unix'?'':&ff}",
     lineinfo = '%3l:%-2c',
+    filetype = '%{&filetype}',
+    githead = '%{fugitive#Head(6)}',
   },
   component_function = {
     filename = 'LightlineFilename',
     inactivefilename = 'LightlineInactiveFilename',
-    githead = 'LightLineGitHead',
-    filetype = 'FileType',
   },
 }
 
@@ -68,16 +65,6 @@ function LightlineInactiveFilename()
   return filename .. Mod()
 end
 bridge 'LightlineInactiveFilename'
-
-function LightLineGitHead()
-  return vim.fn['fugitive#Head'](6)
-end
-bridge 'LightLineGitHead'
-
-function FileType()
-  return vim.bo.filetype
-end
-bridge 'FileType'
 
 function Mod()
   if vim.bo.readonly then

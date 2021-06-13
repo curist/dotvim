@@ -1,5 +1,5 @@
-let g:vaffle_show_hidden_files = 1
-let g:vaffle_force_delete = 1
+let g:vaffle_show_hidden_files = v:true
+let g:vaffle_force_delete = v:true
 
 nnoremap <silent> <leader>v :Vaffle<cr>
 

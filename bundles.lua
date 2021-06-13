@@ -3,8 +3,9 @@
     local args = {...}
     local plug_name = args[1]
     local plug_args = args[2] or {x = 1}
-    -- workaround lua `do` keyword
+    -- workaround lua `do` & `for` keyword
     plug_args['do'] = plug_args.run
+    plug_args['for'] = plug_args.ft
     vim.call('plug#', plug_name, plug_args)
   end
   vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -13,7 +14,7 @@
 end)(function(Plug)
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
-  Plug 'tomtom/tcomment_vim'
+  Plug('tomtom/tcomment_vim', { on = 'TComment' })
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
   Plug 'cohama/lexima.vim'
@@ -22,7 +23,7 @@ end)(function(Plug)
   -- moving around:
   --   file/buffer switching
   --   in file quick jumps
-  Plug('cocopon/vaffle.vim', { on = 'Vaffle' })
+  Plug 'cocopon/vaffle.vim'
   Plug('junegunn/fzf', { run = ':call fzf#install()' })
   Plug 'junegunn/fzf.vim'
   Plug('tracyone/fzf-funky', { on = 'FzfFunky' })
@@ -36,8 +37,9 @@ end)(function(Plug)
   Plug 'dense-analysis/ale'
 
   -- ( love )
-  Plug 'guns/vim-sexp'
-  Plug 'Olical/conjure'
+  local lispy = { 'clojure', 'scheme', 'lisp', 'fennel' }
+  Plug('guns/vim-sexp', { ft = lispy })
+  Plug('Olical/conjure', { ft = lispy })
   Plug('Olical/aniseed', { run = ':lua compileFennelConfig()' })
 
   -- get fancy
