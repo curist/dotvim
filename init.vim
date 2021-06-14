@@ -60,3 +60,5 @@ set synmaxcol=150       " Don't try to highlight long lines
 set updatetime=350
 set timeoutlen=400
 
+set splitright
+
