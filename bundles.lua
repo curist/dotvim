@@ -40,7 +40,7 @@ end)(function(Plug)
   local lispy = { 'clojure', 'scheme', 'lisp', 'fennel' }
   Plug('guns/vim-sexp', { ft = lispy })
   Plug('Olical/conjure', { ft = lispy })
-  Plug('Olical/aniseed', { run = ':lua compileFennelConfig()' })
+  Plug('Olical/aniseed', { ft = lispy, run = ':lua compileFennelConfig()' })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
