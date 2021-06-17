@@ -1,12 +1,16 @@
-local _2afile_2a = "config/fnl/dot/utils.fnl"
-local function map(coll, cb)
+local fs = require 'dot.fs'
+
+local M = {}
+
+function M.map(coll, cb)
   local tbl_0_ = {}
   for i, v in ipairs(coll) do
     tbl_0_[(#tbl_0_ + 1)] = cb(v, i)
   end
   return tbl_0_
 end
-local function filter(coll, pred)
+
+function M.filter(coll, pred)
   local tbl_0_ = {}
   for i, v in ipairs(coll) do
     local _1_
@@ -19,7 +23,8 @@ local function filter(coll, pred)
   end
   return tbl_0_
 end
-local function reduce(coll, cb, ...)
+
+function M.reduce(coll, cb, ...)
   local _let_0_ = {...}
   local init_value = _let_0_[1]
   local has_init = not (nil == init_value)
@@ -40,7 +45,8 @@ local function reduce(coll, cb, ...)
   end
   return result
 end
-local function concat(coll1, coll2)
+
+function M.concat(coll1, coll2)
   local result = {}
   for _, v in ipairs(coll1) do
     table.insert(result, v)
@@ -50,7 +56,8 @@ local function concat(coll1, coll2)
   end
   return result
 end
-local function some(coll, pred)
+
+function M.some(coll, pred)
   for i, v in ipairs(coll) do
     if pred(v, i) then
       return true
@@ -58,7 +65,8 @@ local function some(coll, pred)
   end
   return false
 end
-local function async_wrap(fn)
+
+function M.async_wrap(fn)
   return function(...)
     local self = coroutine.running()
     local args = {...}
@@ -74,4 +82,21 @@ local function async_wrap(fn)
     return coroutine.yield()
   end
 end
-return {async_wrap = async_wrap, concat = concat, filter = filter, map = map, reduce = reduce, some = some}
+
+function M.with_file(path, fn)
+  return pcall(function()
+    local fd = fs.open(path)
+    local result = fn(fd)
+    fs.close(fd)
+    return result
+  end)
+end
+
+--[[ usage
+ok, data = with_file('/tmp/fs.lua', function(fd)
+  local content = fs.read(fd)
+  return content
+end)
+--]]
+
+return M

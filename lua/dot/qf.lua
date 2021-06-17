@@ -1,5 +1,7 @@
-local _2afile_2a = "config/fnl/dot/qf.fnl"
 local dot = require("dot.utils")
+
+local M = {}
+
 local state = {["active-list"] = ""}
 local function active_list()
   return state["active-list"]
@@ -48,7 +50,8 @@ local function set_alter_list()
   state["active-list"] = kind
   return nil
 end
-local function set_active_list()
+
+function M.set_list()
   local wininfo = vim.fn.getwininfo(vim.fn.win_getid())[1]
   local isloc = (1 == wininfo.loclist)
   local kind
@@ -60,7 +63,8 @@ local function set_active_list()
   state["active-list"] = kind
   return nil
 end
-local function toggle_list()
+
+function M.toggle_list()
   if is_loclist_open_3f() then
     state["active-list"] = "l"
     close_list()
@@ -77,10 +81,11 @@ local function toggle_list()
       return open_list()
     else
       set_alter_list()
-      return toggle_list()
+      return M.toggle_list()
     end
   end
 end
+
 local function safe_list_move(list_type, direction)
   local cmd = (list_type .. direction)
   local ok_3f, _ = pcall(vim.cmd, cmd)
@@ -98,18 +103,21 @@ local function safe_list_move(list_type, direction)
     return pcall(vim.cmd, wrap_cmd)
   end
 end
-local function local_list_next()
+
+function M.local_list_next()
   if (("q" == active_list()) or not has_loclist_3f()) then
     return safe_list_move("c", "next")
   else
     return safe_list_move("l", "next")
   end
 end
-local function local_list_prev()
+
+function M.local_list_prev()
   if (("q" == active_list()) or not has_loclist_3f()) then
     return safe_list_move("c", "prev")
   else
     return safe_list_move("l", "prev")
   end
 end
-return {local_list_next = local_list_next, local_list_prev = local_list_prev, set_list = set_active_list, toggle_list = toggle_list}
+
+return M
