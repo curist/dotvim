@@ -10,6 +10,14 @@ function M.map(coll, cb)
   return tbl_0_
 end
 
+function M.range(n)
+  local result = {}
+  for i = 1, n do
+    table.insert(result, i)
+  end
+  return result
+end
+
 function M.filter(coll, pred)
   local tbl_0_ = {}
   for i, v in ipairs(coll) do
@@ -66,6 +74,13 @@ function M.some(coll, pred)
   return false
 end
 
+function M.bind(fn, ...)
+  local args = {...}
+  return function()
+    return fn(unpack(args))
+  end
+end
+
 function M.async_wrap(fn)
   return function(...)
     local self = coroutine.running()
@@ -76,6 +91,23 @@ function M.async_wrap(fn)
       coroutine.resume(self, ...)
     end)
     fn(unpack(args))
+    if result then
+      return unpack(result)
+    end
+    return coroutine.yield()
+  end
+end
+
+function M.rasync_wrap(fn)
+  return function(...)
+    local self = coroutine.running()
+    local result = nil
+
+    fn(function(...)
+      result = {...}
+      coroutine.resume(self, ...)
+    end, ...)
+
     if result then
       return unpack(result)
     end
