@@ -5,7 +5,7 @@ function! s:vim_lua_mappings()
   vmap <silent><buffer> <leader>ee <Plug>(Luadev-Run)
   nmap <silent><buffer> <leader>ew <Plug>(Luadev-RunWord)
   imap <silent><buffer> <c-x><c-o> <Plug>(Luadev-Complete)
-  nmap <silent><buffer> <leader>er <cmd>lua require'luadev'.exec(require'dot.utils'.get_top_node_text_at_cursor())<cr>
+  nmap <silent><buffer> <leader>er <cmd>lua require'luadev'.exec(require'dot.ts'.get_top_node_text_at_cursor())<cr>
 endfunction
 
 " autocmd BufEnter * if @% == '[nvim-lua]' | setlocal ft=lua | endif
