@@ -134,16 +134,17 @@ end)
 
 function M.get_top_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
-  local prev_node = node
+  local function is_root(node)
+    return tostring(node) == '<node program>'
+  end
   while node do
     local parent = node:parent()
-    if not parent then
+    if not parent or is_root(parent) then
       break
     end
-    prev_node = node
     node = parent
   end
-  return prev_node
+  return not is_root(node) and node or nil
 end
 
 function M.get_top_node_text_at_cursor()

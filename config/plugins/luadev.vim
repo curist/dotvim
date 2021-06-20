@@ -8,7 +8,7 @@ function! s:vim_lua_mappings()
   nmap <silent><buffer> <leader>er <cmd>lua require'luadev'.exec(require'dot.utils'.get_top_node_text_at_cursor())<cr>
 endfunction
 
-autocmd BufEnter * if @% == '[nvim-lua]' | setlocal ft=lua | endif
+" autocmd BufEnter * if @% == '[nvim-lua]' | setlocal ft=lua | endif
 
 augroup VIM_LUA_MAPPING
   autocmd!
