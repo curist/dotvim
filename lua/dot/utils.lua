@@ -147,7 +147,11 @@ function M.get_top_node_at_cursor()
 end
 
 function M.get_top_node_text_at_cursor()
-  return table.concat(ts_utils.get_node_text(M.get_top_node_at_cursor()), '\n')
+  local node = M.get_top_node_at_cursor()
+  local text = ts_utils.get_node_text(node)
+  local joined_text = table.concat(text, '\n')
+  local globalfied_text = joined_text:gsub('^local ', '')
+  return globalfied_text
 end
 
 return M
