@@ -15,4 +15,10 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+  pairs = {
+    enable = true,
+    keymaps = {
+      goto_partner = "%"
+    }
+  }
 }

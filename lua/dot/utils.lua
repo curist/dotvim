@@ -1,4 +1,5 @@
 local fs = require 'dot.fs'
+local ts_utils = require 'nvim-treesitter.ts_utils'
 
 local M = {}
 
@@ -130,5 +131,23 @@ ok, data = with_file('/tmp/fs.lua', function(fd)
   return content
 end)
 --]]
+
+function M.get_top_node_at_cursor()
+  local node = ts_utils.get_node_at_cursor()
+  local prev_node = node
+  while node do
+    local parent = node:parent()
+    if not parent then
+      break
+    end
+    prev_node = node
+    node = parent
+  end
+  return prev_node
+end
+
+function M.get_top_node_text_at_cursor()
+  return table.concat(ts_utils.get_node_text(M.get_top_node_at_cursor()), '\n')
+end
 
 return M

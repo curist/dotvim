@@ -24,8 +24,7 @@ end)(function(Plug)
   Plug('junegunn/fzf', { run = ':call fzf#install()' })
   Plug 'junegunn/fzf.vim'
   Plug('tracyone/fzf-funky', { on = 'FzfFunky' })
-  vim.g.matchup_matchparen_enabled = 0
-  Plug 'andymass/vim-matchup'
+  Plug 'theHamsta/nvim-treesitter-pairs'
 
   -- git
   Plug 'tpope/vim-fugitive'
@@ -35,6 +34,7 @@ end)(function(Plug)
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
+  Plug 'nvim-treesitter/playground'
 
   -- ( love )
   local lispy = { 'clojure', 'scheme', 'lisp', 'fennel' }
