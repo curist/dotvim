@@ -1,13 +1,5 @@
 let g:sexp_filetypes = ''
 function! s:vim_sexp_mappings()
-  nmap <silent><buffer> <C-m-k>    <Plug>(sexp_swap_list_backward)
-  xmap <silent><buffer> <C-m-k>    <Plug>(sexp_swap_list_backward)
-  nmap <silent><buffer> <C-m-j>    <Plug>(sexp_swap_list_forward)
-  xmap <silent><buffer> <C-m-j>    <Plug>(sexp_swap_list_forward)
-  nmap <silent><buffer> <C-m-h>    <Plug>(sexp_swap_element_backward)
-  xmap <silent><buffer> <C-m-h>    <Plug>(sexp_swap_element_backward)
-  nmap <silent><buffer> <C-m-l>    <Plug>(sexp_swap_element_forward)
-  xmap <silent><buffer> <C-m-l>    <Plug>(sexp_swap_element_forward)
   nmap <silent><buffer> <M-S-j>    <Plug>(sexp_emit_head_element)
   xmap <silent><buffer> <M-S-j>    <Plug>(sexp_emit_head_element)
   nmap <silent><buffer> <M-S-k>    <Plug>(sexp_emit_tail_element)
