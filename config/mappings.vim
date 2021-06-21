@@ -51,10 +51,16 @@ nn <silent> <m-n> :lua require('dot.qf').local_list_next()<cr>zz
 nn <silent> <m-p> :lua require('dot.qf').local_list_prev()<cr>zz
 
 " treesitter fun
+nn <silent> gs :lua require'dot.ts'.print_node_at_cursor()<cr>
+nn <silent> gt :lua require'dot.ts'.goto_top_node_at_cursor()<cr>
 nn <silent> <c-m-j> :lua require'dot.ts'.swap_top_nodes_at_cursor 'next'<cr>
 nn <silent> <c-m-k> :lua require'dot.ts'.swap_top_nodes_at_cursor 'prev'<cr>
 nn <silent> <c-m-l> :lua require'dot.ts'.swap_nodes_at_cursor 'next'<cr>
 nn <silent> <c-m-h> :lua require'dot.ts'.swap_nodes_at_cursor 'prev'<cr>
+nn <silent> <c-j> :lua require'dot.ts'.goto_next_node()<cr>
+nn <silent> <c-k> :lua require'dot.ts'.goto_prev_node()<cr>
+nn <silent> <c-h> :lua require'dot.ts'.goto_parent_node()<cr>
+nn <silent> <c-l> :lua require'dot.ts'.goto_child_node()<cr>
 
 augroup MyFileTypeMappings
   " run settings

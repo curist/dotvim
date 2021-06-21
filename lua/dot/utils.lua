@@ -82,6 +82,14 @@ function M.bind(fn, ...)
   end
 end
 
+function M.rbind(fn, ...)
+  local args = {...}
+  return function(...)
+    local more_args = {...}
+    return fn(unpack(M.concat(more_args, args)))
+  end
+end
+
 function M.async_wrap(fn)
   return function(...)
     local self = coroutine.running()
