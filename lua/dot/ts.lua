@@ -150,7 +150,7 @@ function M.goto_child_node()
   ts_utils.goto_node(node:named_child(0))
 end
 
-local function pos(row, col) return {0, row + 1, col + 1, 0} end
+local function pos(row, col) return {0, row + 1, col, 0} end
 local function get_node_textobj_range(node)
   if not node then return 0 end
   local s_row, s_col, e_row, e_col = ts_utils.get_node_range(node)
@@ -164,7 +164,8 @@ end
 
 function M.textobj.func()
   local function is_function(node)
-    return vim.endswith(tostring(node), 'function>')
+    return vim.endswith(tostring(node), 'function>') or
+      vim.endswith(tostring(node), 'function_declaration>')
   end
 
   local node = ts_utils.get_node_at_cursor()

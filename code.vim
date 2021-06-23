@@ -42,6 +42,8 @@ function! s:getVisualSelection()
   return join(lines, "\n")
 endfunction
 
+nn gr <cmd>call VSCodeNotify('editor.action.goToReferences')<cr>
+
 nn <leader>gb <cmd>call VSCodeNotify('gitlens.toggleFileBlame')<cr>
 nn <leader>gl <cmd>call VSCodeNotify('gitlens.showQuickFileHistory')<cr>
 nn <leader>gL <cmd>call VSCodeNotify('gitlens.showQuickRepoHistory')<cr>
