@@ -17,6 +17,8 @@ augroup BehaviourAdjustment
   " no line numbers for neovim terminal
   autocmd BufEnter term://* start!
   autocmd TermOpen * setlocal nonumber norelativenumber
+
+  autocmd FileType qf 8wincmd_
 augroup END
 
 " highlights yanked text

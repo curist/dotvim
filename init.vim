@@ -26,6 +26,7 @@ set shiftwidth=2
 set expandtab
 set noshowmode
 set nomodeline
+set noruler
 
 set mouse=vn
 set nowrap

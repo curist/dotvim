@@ -1,6 +1,7 @@
 let g:fzf_preview_window = ''
-
+let g:fzf_layout = { 'window': { 'width': 0.75, 'height': 0.5, 'yoffset': 1.0, 'border': 'sharp' } }
 let $FZF_DEFAULT_COMMAND='rg --no-ignore-vcs --hidden --files'
+let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS . ' --bind "alt-a:select-all,alt-d:deselect-all"'
 
 nn <silent> <leader>f :GFiles<cr>
 nn <silent> <leader>F :Files<cr>
@@ -52,9 +53,24 @@ function! s:fzf_local_history()
   return fzf#run(fzf#wrap({
   \ 'source': readable_files,
   \ 'sink': 'e',
-  \ 'options': ['-m', '--no-sort', '--header-lines', !empty(expand('%')), '--prompt', 'LHist> ']
+  \ 'options': ['-m', '--no-sort', '--prompt', 'LHist> ']
   \}))
 endfunction
 
-nn <silent> <leader>m :call <sid>fzf_local_history()<cr>
+command! -nargs=0 LocalHistory call <sid>fzf_local_history()
+nn <silent> <leader>m :LocalHistory<cr>
 
+function! s:fzf_projects(base)
+  let base = substitute(a:base, '\/$', '', '')
+  let projects = luaeval('require("dot.scripts").dirs("'.base.'")')
+  let spec = { 'source': projects, 'options': ['-m', '--prompt', base . '/'], 'base': base }
+  function spec.sink(match)
+    execute 'cd ' . self.base . '/' . a:match
+    " execute 'Vaffle'
+    execute 'LocalHistory'
+  endfunction
+  return fzf#run(fzf#wrap(spec))
+endfunction
+
+command! -nargs=* -complete=dir Project call <sid>fzf_projects(<q-args>)
+nn <silent> <leader>p :Project ~/workspace<cr>

@@ -14,9 +14,6 @@ augroup MyFileTypeSettings
   autocmd BufRead *cloudformation-template.json set ft=json.cloudformation
   autocmd BufRead *cloudformation-template.yaml set ft=yaml.cloudformation
 
-  " fennel
-  autocmd FileType fennel iabbr <buffer> lbd λ
-
   " graphql
   autocmd BufRead *.graphql set ft=graphql
 

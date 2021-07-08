@@ -9,7 +9,7 @@ nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
-nn <c-c> <c-l>
+nn <c-c> <esc>
 vmap <c-c> <esc>
 smap <c-c> <esc>
 nn <silent> <leader><leader> :lua require('dot.scripts').altfile()<cr>
@@ -57,10 +57,8 @@ nn <silent> <c-m-j> :lua require'dot.ts'.swap_top_nodes_at_cursor 'next'<cr>
 nn <silent> <c-m-k> :lua require'dot.ts'.swap_top_nodes_at_cursor 'prev'<cr>
 nn <silent> <c-m-l> :lua require'dot.ts'.swap_nodes_at_cursor 'next'<cr>
 nn <silent> <c-m-h> :lua require'dot.ts'.swap_nodes_at_cursor 'prev'<cr>
-nn <silent> <c-j> :lua require'dot.ts'.goto_next_node()<cr>
-nn <silent> <c-k> :lua require'dot.ts'.goto_prev_node()<cr>
-nn <silent> <c-h> :lua require'dot.ts'.goto_parent_node()<cr>
-nn <silent> <c-l> :lua require'dot.ts'.goto_child_node()<cr>
+nn <silent> <c-j> :lua require'dot.ts'.goto_next_top_node()<cr>
+nn <silent> <c-k> :lua require'dot.ts'.goto_prev_top_node()<cr>
 
 augroup MyFileTypeMappings
   " run settings

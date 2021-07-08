@@ -29,7 +29,7 @@ local function open_list()
   else
     cmd = "lopen"
   end
-  return vim.cmd((cmd .. 10))
+  return vim.cmd(cmd)
 end
 local function close_list()
   local cmd

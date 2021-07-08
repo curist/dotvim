@@ -31,16 +31,11 @@ end)(function(Plug)
   Plug('mhinz/vim-signify', { on = 'SignifyToggle' })
 
   -- programming language
+  Plug 'neovim/nvim-lspconfig'
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
   Plug 'nvim-treesitter/playground'
-
-  -- ( love )
-  local lispy = { 'clojure', 'scheme', 'lisp', 'fennel' }
-  Plug('guns/vim-sexp', { ft = lispy })
-  Plug('Olical/conjure', { ft = lispy })
-  Plug('Olical/aniseed', { ft = lispy, run = ':lua compileFennelConfig()' })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
@@ -50,4 +45,5 @@ end)(function(Plug)
   Plug 'tpope/vim-repeat'
   Plug 'curist/split-term.vim'
   Plug 'vim-test/vim-test'
+  Plug 'kevinhwang91/nvim-bqf'
 end)

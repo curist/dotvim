@@ -1,13 +1,19 @@
-local _2afile_2a = "config/fnl/dot/scripts.fnl"
-local dot = require("dot.utils")
-local prefix_ignore = {".git"}
-local suffix_ignore = {"COMMIT_EDITMSG"}
+local dot = require('dot.utils')
+
+local M = {}
+
+local prefix_ignore = {'.git'}
+local suffix_ignore = {'COMMIT_EDITMSG'}
+
+
 local function starts_with(str, start)
   return (start == str:sub(1, #start))
 end
+
 local function ends_with(str, _end)
   return ((_end == "") or (_end == str:sub(( - #_end))))
 end
+
 local function get_all_files()
   local function _1_(_241)
     return vim.api.nvim_buf_get_name(_241)
@@ -31,7 +37,7 @@ local function filter_buffers(bufs)
   end
   return dot.filter(bufs, _1_)
 end
-local function fzf_local_history()
+function M.fzf_local_history()
   local pwd = vim.call("getcwd")
   local files
   local function _1_(_241)
@@ -43,7 +49,8 @@ local function fzf_local_history()
   files = dot.map(dot.filter(get_all_files(), _1_), _2_)
   return vim.call("fzf#vim#_uniq", files)
 end
-local function altfile()
+
+function M.altfile()
   local bufs = vim.call("fzf#vim#_buflisted_sorted")
   local filtered_bufs = filter_buffers(bufs)
   local _1_ = #filtered_bufs
@@ -56,4 +63,13 @@ local function altfile()
     return vim.api.nvim_set_current_buf(filtered_bufs[2])
   end
 end
-return {altfile = altfile, fzf_local_history = fzf_local_history}
+
+function M.dirs(path)
+  local root = vim.fn.expand(path) 
+  local paths = vim.fn.split(vim.fn.glob(root .. '/*/'))
+  return dot.map(paths, function(p)
+    return p:gsub('^'..root..'/', ''):gsub('/$', '')
+  end)
+end
+
+return M

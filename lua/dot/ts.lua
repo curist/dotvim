@@ -5,7 +5,9 @@ local M = { textobj = {} }
 function M.get_top_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
   local function is_root(node)
-    return tostring(node) == '<node program>'
+    local node_string = tostring(node)
+    return node_string == '<node program>' or
+      node_string == '<node source_file>'
   end
   while node do
     local parent = node:parent()
@@ -150,7 +152,7 @@ function M.goto_child_node()
   ts_utils.goto_node(node:named_child(0))
 end
 
-local function pos(row, col) return {0, row + 1, col, 0} end
+local function pos(row, col) return {0, row + 1, col + 1, 0} end
 local function get_node_textobj_range(node)
   if not node then return 0 end
   local s_row, s_col, e_row, e_col = ts_utils.get_node_range(node)
@@ -164,8 +166,10 @@ end
 
 function M.textobj.func()
   local function is_function(node)
-    return vim.endswith(tostring(node), 'function>') or
-      vim.endswith(tostring(node), 'function_declaration>')
+    return vim.endswith(tostring(node), ' function>') or
+      vim.endswith(tostring(node), ' local_function>') or
+      vim.endswith(tostring(node), ' function_declaration>') or
+      vim.endswith(tostring(node), ' method_declaration>')
   end
 
   local node = ts_utils.get_node_at_cursor()
@@ -175,6 +179,7 @@ function M.textobj.func()
     end
     node = node:parent()
   end
+
   return get_node_textobj_range(node)
 end
 
