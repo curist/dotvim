@@ -66,7 +66,7 @@ local function get_sibling_noncomment_node(node, direction)
   if not parent then return nil end
   local good_node_indexes = {}
   local count = parent:named_child_count()
-  local found_pos = 0
+  local found_pos = -1
   for i = 0, count - 1 do
     local current_node = parent:named_child(i)
     if not is_comment(current_node) then
@@ -76,8 +76,8 @@ local function get_sibling_noncomment_node(node, direction)
       found_pos = #good_node_indexes
     end
   end
-  if found_pos == 0 then return nil end
-  local target_index = good_node_indexes[found_pos + delta]
+  if found_pos < 0 then return nil end
+  local target_index = good_node_indexes[(found_pos + delta + count) % count]
   if not target_index then return nil end
   return parent:named_child(target_index)
 end
