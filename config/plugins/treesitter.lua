@@ -1,7 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "css",
-    "comment",
     "graphql",
     "javascript",
     "typescript",
