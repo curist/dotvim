@@ -32,7 +32,7 @@ end)(function(Plug)
 
   -- programming language
   Plug 'neovim/nvim-lspconfig'
-  Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  Plug('nvim-treesitter/nvim-treesitter', { branch = '0.5-compat', run = ':TSUpdate' })
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
   Plug 'nvim-treesitter/playground'
