@@ -12,8 +12,7 @@ runtime! bundles.lua
 runtime! config/**/*.vim
 runtime! config/**/*.lua
 
-let g:gruvbox_italicize_strings = 0
-colorscheme gruvbox8_hard
+colorscheme gruvbox
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white

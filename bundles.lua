@@ -39,7 +39,8 @@ end)(function(Plug)
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
-  Plug 'lifepillar/vim-gruvbox8'
+  Plug 'rktjmp/lush.nvim'
+  Plug 'npxbr/gruvbox.nvim'
 
   -- other handy plugins
   Plug 'tpope/vim-repeat'
