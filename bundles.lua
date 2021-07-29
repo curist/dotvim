@@ -33,6 +33,7 @@ end)(function(Plug)
   -- programming language
   Plug 'neovim/nvim-lspconfig'
   Plug('nvim-treesitter/nvim-treesitter', { branch = '0.5-compat', run = ':TSUpdate' })
+  Plug 'folke/todo-comments.nvim'
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
   Plug 'nvim-treesitter/playground'
@@ -43,6 +44,7 @@ end)(function(Plug)
   Plug 'npxbr/gruvbox.nvim'
 
   -- other handy plugins
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'tpope/vim-repeat'
   Plug 'curist/split-term.vim'
   Plug 'vim-test/vim-test'
