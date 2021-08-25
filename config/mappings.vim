@@ -30,6 +30,8 @@ inoremap <c-a> <c-o>^
 cnoremap <c-a> <home>
 inoremap <c-e> <end>
 
+inoremap <silent> <m-d> <c-r>=system('date +%Y/%b/%d \| xargs echo -n')<cr>
+
 " moving between windows
 nn <m-j> <c-w>j
 nn <m-k> <c-w>k
