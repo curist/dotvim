@@ -37,6 +37,7 @@ end)(function(Plug)
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
   Plug 'nvim-treesitter/playground'
+  Plug 'SmiteshP/nvim-gps'
 
   -- get fancy
   Plug 'itchyny/lightline.vim'

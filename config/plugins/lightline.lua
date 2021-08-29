@@ -16,7 +16,7 @@ vim.g.lightline = {
   },
   active = {
     left = {
-      { 'mode' }, { 'fileencoding' }, { 'filename' },
+      { 'mode' }, { 'fileencoding' }, { 'filename' }, { 'gps' }
     },
     right = {
       { 'lineinfo' }, { 'githead' }, { 'filetype' }, { 'fileformat' },
@@ -36,6 +36,7 @@ vim.g.lightline = {
   component_function = {
     filename = 'LightlineFilename',
     inactivefilename = 'LightlineInactiveFilename',
+    gps = 'LightlineLspGps',
   },
 }
 
@@ -74,4 +75,17 @@ function Mod()
   end
   return ''
 end
+
+_G.LightlineLspGps = (function()
+  local gps = require('nvim-gps')
+  return function ()
+    if not gps.is_available() then
+      return ''
+    end
+    local location = gps.get_location()
+    print(' ' .. location)
+    return ''
+  end
+end)()
+bridge 'LightlineLspGps'
 
