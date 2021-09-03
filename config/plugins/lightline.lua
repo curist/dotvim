@@ -83,8 +83,7 @@ _G.LightlineLspGps = (function()
       return ''
     end
     local location = gps.get_location()
-    print(' ' .. location)
-    return ''
+    return location
   end
 end)()
 bridge 'LightlineLspGps'

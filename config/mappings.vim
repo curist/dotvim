@@ -9,7 +9,8 @@ nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
-nn <c-c> <esc>
+imap <c-c> <esc>
+nmap <c-c> <esc>
 vmap <c-c> <esc>
 smap <c-c> <esc>
 nn <silent> <leader><leader> :lua require('dot.scripts').altfile()<cr>
