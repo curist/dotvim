@@ -74,6 +74,14 @@ function M.some(coll, pred)
   return false
 end
 
+function M.keys(coll)
+  local keys = {}
+  for k, _ in pairs(coll) do
+    table.insert(keys, k)
+  end
+  return keys
+end
+
 function M.bind(fn, ...)
   local args = {...}
   return function(...)
