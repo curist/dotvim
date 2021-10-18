@@ -2,6 +2,12 @@ local fs = require 'dot.fs'
 
 local M = {}
 
+function M.each(coll, cb)
+  for i, v in ipairs(coll) do
+    cb(v, i)
+  end
+end
+
 function M.map(coll, cb)
   local tbl_0_ = {}
   for i, v in ipairs(coll) do

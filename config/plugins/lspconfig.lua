@@ -1,4 +1,8 @@
+local u = require('dot.utils')
 local nvim_lsp = require('lspconfig')
+local lsp_installer = require('nvim-lsp-installer')
+local lsp_installer_servers = require('nvim-lsp-installer.servers')
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -27,16 +31,16 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'tsserver' }
-for _, lsp in pairs(servers) do
-  nvim_lsp[lsp].setup {
-    autostart = true,
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 500,
-    },
-  }
-end
+local servers = { 'gopls', 'tsserver', 'clojure_lsp' }
+u.each(servers, function(lsp)
+  local ok, server = lsp_installer_servers.get_server(lsp)
+  if not ok then
+    error('bad LSP: ' .. lsp)
+  end
+  if not server:is_installed() then
+    server:install()
+  end
+end)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -47,3 +51,21 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  }
 )
 
+lsp_installer.on_server_ready(function(server)
+  local opts = {
+    autostart = true,
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 500,
+    },
+  }
+
+  -- (optional) Customize the options passed to the server
+  -- if server.name == "tsserver" then
+  --     opts.root_dir = function() ... end
+  -- end
+
+  -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end)
