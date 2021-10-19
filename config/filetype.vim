@@ -6,6 +6,7 @@ augroup MyFileTypeSettings
 
   " markdown
   autocmd FileType markdown setlocal suffixesadd=.md
+  autocmd FileType markdown setlocal wrap
 
   " golang
   autocmd FileType go setlocal noexpandtab
