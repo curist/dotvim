@@ -6,6 +6,7 @@ require'nvim-treesitter.configs'.setup {
     "javascript",
     "typescript",
     "html",
+    "clojure",
     "fennel",
     "vue",
     "lua",

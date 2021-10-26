@@ -40,6 +40,11 @@ end)(function(Plug)
   Plug 'nvim-treesitter/playground'
   Plug 'SmiteshP/nvim-gps'
 
+  -- ( love )
+  local lispy = { 'clojure', 'scheme', 'lisp', 'fennel' }
+  Plug('guns/vim-sexp', { ft = lispy })
+  Plug('Olical/conjure', { ft = lispy })
+
   -- get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'rktjmp/lush.nvim'
