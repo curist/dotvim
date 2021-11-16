@@ -21,4 +21,8 @@ augroup MyFileTypeSettings
   " git
   let $GIT_EDITOR = 'nvr -cc split --remote-wait'
   autocmd FileType git*,diff set bufhidden=delete
+
+  " fossil
+  let $VISUAL = 'nvr -cc split --remote-wait'
+  autocmd BufRead ci-comment-*.txt set ft=gitcommit
 augroup END
