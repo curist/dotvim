@@ -5,6 +5,7 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "javascript",
     "typescript",
+    "hcl",
     "html",
     "clojure",
     "fennel",
