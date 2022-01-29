@@ -11,10 +11,8 @@ fzf.setup {
     row = 0.99,
     preview = {
       hidden = 'hidden',
+      vertical = 'up:45%'
     },
-  },
-  fzf_opts = {
-    ['--ansi'] = '',
   },
 }
 
