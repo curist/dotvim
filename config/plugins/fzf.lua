@@ -14,6 +14,9 @@ fzf.setup {
       vertical = 'up:45%'
     },
   },
+  files = {
+    file_icons = false,
+  },
   fzf_opts = {
     ['--layout'] = 'default',
   },
