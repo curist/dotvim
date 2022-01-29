@@ -15,7 +15,6 @@ end)(function(Plug)
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
   Plug 'cohama/lexima.vim'
-  -- Plug('cohama/lexima.vim', { commit = '769aab' })
   Plug 'curist/highlight.vim'
 
   -- moving around:
@@ -23,8 +22,7 @@ end)(function(Plug)
   --   in file quick jumps
   Plug 'cocopon/vaffle.vim'
   Plug('junegunn/fzf', { run = ':call fzf#install()' })
-  Plug 'junegunn/fzf.vim'
-  Plug('tracyone/fzf-funky', { on = 'FzfFunky' })
+  Plug 'ibhagwan/fzf-lua'
   Plug('phaazon/hop.nvim', { branch = 'v1' })
 
   -- git
@@ -35,7 +33,6 @@ end)(function(Plug)
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  -- Plug 'folke/todo-comments.nvim'
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
 
@@ -52,4 +49,5 @@ end)(function(Plug)
   Plug 'vim-test/vim-test'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'github/copilot.vim'
+  Plug 'b0o/mapx.nvim'
 end)

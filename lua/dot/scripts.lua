@@ -1,4 +1,6 @@
 local dot = require('dot.utils')
+local core = require('fzf-lua.core')
+local config = require('fzf-lua.config')
 
 local M = {}
 
@@ -14,12 +16,6 @@ local function ends_with(str, _end)
   return ((_end == "") or (_end == str:sub(( - #_end))))
 end
 
-local function get_all_files()
-  local function _1_(_241)
-    return vim.api.nvim_buf_get_name(_241)
-  end
-  return dot.concat(dot.map(vim.call("fzf#vim#_buflisted_sorted"), _1_), vim.v.oldfiles)
-end
 local function filter_filepath(pwd, orig_filepath)
   local filepath = orig_filepath:sub((#pwd + 2))
   local function _1_(_241)
@@ -37,21 +33,40 @@ local function filter_buffers(bufs)
   end
   return dot.filter(bufs, _1_)
 end
-function M.fzf_local_history()
-  local pwd = vim.call("getcwd")
-  local files
-  local function _1_(_241)
-    return filter_filepath(pwd, _241)
+
+local function get_buflisted_sorted()
+  local buffers = {}
+  local curbuf = vim.fn.bufnr()
+  local bufnrs = dot.filter(vim.api.nvim_list_bufs(), function(buf)
+    local name = vim.api.nvim_buf_get_name(buf)
+    if name == "" then
+      return false
+    end
+    local loaded = vim.api.nvim_buf_is_loaded(buf)
+    return name and loaded
+  end)
+  for _, bufnr in ipairs(bufnrs) do
+    local flag = bufnr == curbuf and '%' or (bufnr == vim.fn.bufnr('#') and '#' or ' ')
+
+    local element = {
+      bufnr = bufnr,
+      flag = flag,
+      info = vim.fn.getbufinfo(bufnr)[1],
+    }
+
+    table.insert(buffers, element)
   end
-  local function _2_(_241)
-    return _241:sub((2 + #pwd))
-  end
-  files = dot.map(dot.filter(get_all_files(), _1_), _2_)
-  return vim.call("fzf#vim#_uniq", files)
+  table.sort(buffers, function(a, b)
+    return a.info.lastused > b.info.lastused
+  end)
+  local sorted_bufnrs = dot.map(buffers, function(buf)
+    return buf.bufnr
+  end)
+  return sorted_bufnrs
 end
 
 function M.altfile()
-  local bufs = vim.call("fzf#vim#_buflisted_sorted")
+  local bufs = get_buflisted_sorted()
   local filtered_bufs = filter_buffers(bufs)
   local _1_ = #filtered_bufs
   if (_1_ == 0) then
@@ -70,6 +85,59 @@ function M.dirs(path)
   return dot.map(paths, function(p)
     return p:gsub('^'..root..'/', ''):gsub('/$', '')
   end)
+end
+
+function M.cwd_oldfiles(opts)
+  opts = config.normalize_opts(opts, config.globals.oldfiles)
+  if not opts then return end
+
+  local cwd = vim.fn.getcwd()
+  local function underCwd(s)
+    return filter_filepath(cwd, s)
+  end
+  local function trimPath(s)
+    return s:sub((2 + #cwd))
+  end
+
+  local current_buffer = vim.api.nvim_get_current_buf()
+  local current_file = vim.api.nvim_buf_get_name(current_buffer)
+  local results = {}
+
+  for _, buffer in ipairs(vim.split(vim.fn.execute(':buffers! t'), "\n")) do
+    local match = tonumber(string.match(buffer, '%s*(%d+)'))
+    if match then
+      local file = vim.api.nvim_buf_get_name(match)
+      if vim.loop.fs_stat(file) and match ~= current_buffer then
+        table.insert(results, file)
+      end
+    end
+  end
+
+  for _, file in ipairs(vim.v.oldfiles) do
+    if vim.loop.fs_stat(file) and not vim.tbl_contains(results, file) and file ~= current_file then
+      table.insert(results, file)
+    end
+  end
+
+  results = dot.map(dot.filter(results, underCwd), trimPath)
+
+  local contents = function (cb)
+    for _, x in ipairs(results) do
+      x = core.make_entry_file(opts, x)
+      if x then
+        cb(x, function(err)
+          if err then return end
+          -- close the pipe to fzf, this
+          -- removes the loading indicator in fzf
+          cb(nil, function() end)
+        end)
+      end
+    end
+    cb(nil)
+  end
+
+  opts = core.set_header(opts, 2)
+  return core.fzf_files(opts, contents)
 end
 
 return M
