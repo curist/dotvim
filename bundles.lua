@@ -21,9 +21,8 @@ end)(function(Plug)
   --   file/buffer switching
   --   in file quick jumps
   Plug 'cocopon/vaffle.vim'
-  Plug('junegunn/fzf', { run = ':call fzf#install()' })
   Plug 'ibhagwan/fzf-lua'
-  Plug('phaazon/hop.nvim', { branch = 'v1' })
+  Plug 'phaazon/hop.nvim'
 
   -- git
   Plug 'tpope/vim-fugitive'
