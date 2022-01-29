@@ -23,7 +23,7 @@ end)(function(Plug)
   Plug 'cocopon/vaffle.vim'
   Plug('junegunn/fzf', { run = ':call fzf#install()' })
   Plug 'ibhagwan/fzf-lua'
-  Plug 'ggandor/lightspeed.nvim'
+  Plug('phaazon/hop.nvim', { branch = 'v1' })
 
   -- git
   Plug 'tpope/vim-fugitive'
