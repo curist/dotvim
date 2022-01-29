@@ -4,7 +4,7 @@ local BC = hint.HintDirection.BEFORE_CURSOR
 local AC = hint.HintDirection.AFTER_CURSOR
 
 hop.setup {
-  keys = 'fjdkslghwoeirutyvmpqa',
+  keys = 'djkalghwoeirutyvmpsf',
 }
 
 --- simple wrap function, aka bind

@@ -44,14 +44,15 @@ nn('<leader>:', w(fzf.command_history))
 nn('<leader>Q', w(fzf.quickfix))
 nn('<leader>gl', w(fzf.git_bcommits))
 nn('<leader>gL', w(fzf.git_commits))
+nn('<leader>L', w(fzf.builtin))
 
 local rg_grep_all = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs'
 nn('<leader>s', w(fzf.grep_cword))
 vn('<leader>s', w(fzf.grep_visual))
-nn('<leader>S', w(fzf.live_grep))
+nn('<leader>S', w(fzf.grep_project))
 nn('<leader>z', w(fzf.grep_cword, { cmd = rg_grep_all }))
 vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }))
-nn('<leader>Z', w(fzf.live_grep, { cmd = rg_grep_all }))
+nn('<leader>Z', w(fzf.grep_project, { cmd = rg_grep_all }))
 nn('<leader>x', w(fzf.blines))
 
 nn('<leader>p', cw(function ()
