@@ -2,6 +2,8 @@ local fzf = require 'fzf-lua'
 local function nn(...) vim.keymap.set('n', ...) end
 local function vn(...) vim.keymap.set('v', ...) end
 
+fzf.register_ui_select()
+
 fzf.setup {
   winopts = {
     height = 0.45,
