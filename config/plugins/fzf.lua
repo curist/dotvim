@@ -14,6 +14,9 @@ fzf.setup {
       vertical = 'up:45%'
     },
   },
+  fzf_opts = {
+    ['--layout'] = 'default',
+  },
 }
 
 --- simple wrap function, aka bind
