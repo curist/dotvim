@@ -16,7 +16,7 @@ fzf.setup {
   },
 }
 
---- simple wrap function to avoid mapx giving extra opts to fzf functions
+--- simple wrap function, aka bind
 local function w(fn, opts)
   opts = opts or {}
   return function()
