@@ -20,6 +20,9 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 nn <silent> <leader>S :Rg<cr>
 nn <silent> <leader>s :RgExact <c-r>=expand('<cword>')<cr><cr>
 
+nn <silent> <leader>x :BLines <c-r>=expand('<cword>')<cr><cr>
+nn <silent> <leader>X :BLines <cr>
+
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 function! s:getVisualSelection()
@@ -71,8 +74,8 @@ function! s:fzf_projects(base)
   let spec = { 'source': projects, 'options': ['-m', '--prompt', base . '/'], 'base': base }
   function spec.sink(match)
     execute 'cd ' . self.base . '/' . a:match
-    " execute 'Vaffle'
-    execute 'LocalHistory'
+    execute 'Vaffle'
+    " execute 'LocalHistory'
   endfunction
   return fzf#run(fzf#wrap(spec))
 endfunction

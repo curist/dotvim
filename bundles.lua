@@ -15,6 +15,7 @@ end)(function(Plug)
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-lastpat'
   Plug 'cohama/lexima.vim'
+  -- Plug('cohama/lexima.vim', { commit = '769aab' })
   Plug 'curist/highlight.vim'
 
   -- moving around:
@@ -24,7 +25,7 @@ end)(function(Plug)
   Plug('junegunn/fzf', { run = ':call fzf#install()' })
   Plug 'junegunn/fzf.vim'
   Plug('tracyone/fzf-funky', { on = 'FzfFunky' })
-  Plug 'theHamsta/nvim-treesitter-pairs'
+  Plug('phaazon/hop.nvim', { branch = 'v1' })
 
   -- git
   Plug 'tpope/vim-fugitive'
@@ -34,26 +35,21 @@ end)(function(Plug)
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  Plug 'folke/todo-comments.nvim'
+  -- Plug 'folke/todo-comments.nvim'
   Plug 'dense-analysis/ale'
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
-  Plug 'nvim-treesitter/playground'
-  Plug 'SmiteshP/nvim-gps'
 
-  -- ( love )
-  local lispy = { 'clojure', 'scheme', 'lisp', 'fennel' }
-  Plug('guns/vim-sexp', { ft = lispy })
-  Plug('Olical/conjure', { ft = lispy })
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/nvim-cmp'
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
-  Plug 'rktjmp/lush.nvim'
-  Plug 'npxbr/gruvbox.nvim'
+  Plug 'vv9k/bogster'
 
   -- other handy plugins
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'tpope/vim-repeat'
   Plug 'curist/split-term.vim'
   Plug 'vim-test/vim-test'
   Plug 'kevinhwang91/nvim-bqf'
+  Plug 'github/copilot.vim'
 end)

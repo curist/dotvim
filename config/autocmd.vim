@@ -26,3 +26,9 @@ augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
+
+let &titlestring=getcwd()
+augroup dirchange
+  autocmd!
+  autocmd DirChanged * let &titlestring=v:event['cwd']
+augroup END

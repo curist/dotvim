@@ -12,14 +12,15 @@ runtime! bundles.lua
 runtime! config/**/*.vim
 runtime! config/**/*.lua
 
-colorscheme gruvbox
+colorscheme bogster
+" colorscheme gruvbox
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
 set viminfo='900
 
-set relativenumber
+" set relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -34,6 +35,7 @@ set foldlevelstart=9  " we want all fold to be expand at start
 set foldnestmax=9     " max fold nest levels
 set hidden            " it's ok to switch buffer w/o saving
 
+set title
 set clipboard^=unnamed,unnamedplus
 set guioptions+=a
 

@@ -4,7 +4,6 @@ function! s:vim_lua_mappings()
   nmap <silent><buffer> <leader>ee <Plug>(Luadev-RunLine)
   vmap <silent><buffer> <leader>ee <Plug>(Luadev-Run)
   nmap <silent><buffer> <leader>ew <Plug>(Luadev-RunWord)
-  imap <silent><buffer> <c-x><c-o> <Plug>(Luadev-Complete)
   nmap <silent><buffer> <leader>er <cmd>lua require'luadev'.exec(require'dot.ts'.get_top_node_text_at_cursor())<cr>
 endfunction
 

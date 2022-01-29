@@ -17,9 +17,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>lrn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
@@ -31,8 +31,8 @@ end
 
 -- Use a loop to conveniently both setup defined servers 
 -- and map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'tsserver', 'clojure_lsp' }
-u.each(servers, function(lsp)
+local servers = { 'gopls', 'tsserver', 'clojure_lsp', 'vuels', 'sumneko_lua' }
+function installLspServer(lsp)
   local ok, server = lsp_installer_servers.get_server(lsp)
   if not ok then
     error('bad LSP: ' .. lsp)
@@ -40,7 +40,17 @@ u.each(servers, function(lsp)
   if not server:is_installed() then
     server:install()
   end
-end)
+end
+function setupLspServer(lsp)
+  nvim_lsp[lsp].setup {
+    autostart = true,
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 500,
+    },
+  }
+end
+u.each(servers, installLspServer)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {

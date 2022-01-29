@@ -2,7 +2,7 @@ local dot = require('dot.utils')
 
 local M = {}
 
-local prefix_ignore = {'.git'}
+local prefix_ignore = {'.git/'}
 local suffix_ignore = {'COMMIT_EDITMSG'}
 
 
@@ -65,7 +65,7 @@ function M.altfile()
 end
 
 function M.dirs(path)
-  local root = vim.fn.expand(path) 
+  local root = vim.fn.expand(path)
   local paths = vim.fn.split(vim.fn.glob(root .. '/*/'))
   return dot.map(paths, function(p)
     return p:gsub('^'..root..'/', ''):gsub('/$', '')
@@ -73,3 +73,4 @@ function M.dirs(path)
 end
 
 return M
+

@@ -9,7 +9,7 @@ augroup MyFileTypeSettings
   autocmd FileType markdown setlocal wrap
 
   " golang
-  autocmd FileType go setlocal noexpandtab
+  autocmd FileType go setlocal noexpandtab sw=0 tabstop=4 listchars=tab:\ \ 
 
   " cloudformation
   autocmd BufRead *cloudformation-template.json set ft=json.cloudformation
