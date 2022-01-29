@@ -103,13 +103,10 @@ function M.cwd_oldfiles(opts)
   local current_file = vim.api.nvim_buf_get_name(current_buffer)
   local results = {}
 
-  for _, buffer in ipairs(vim.split(vim.fn.execute(':buffers! t'), "\n")) do
-    local match = tonumber(string.match(buffer, '%s*(%d+)'))
-    if match then
-      local file = vim.api.nvim_buf_get_name(match)
-      if vim.loop.fs_stat(file) and match ~= current_buffer then
-        table.insert(results, file)
-      end
+  for _, bufnr in ipairs(get_buflisted_sorted()) do
+    local file = vim.api.nvim_buf_get_name(bufnr)
+    if vim.loop.fs_stat(file) and bufnr ~= current_buffer then
+      table.insert(results, file)
     end
   end
 
