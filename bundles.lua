@@ -49,5 +49,4 @@ end)(function(Plug)
   Plug 'vim-test/vim-test'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'github/copilot.vim'
-  Plug 'b0o/mapx.nvim'
 end)

@@ -1,6 +1,6 @@
 local fzf = require 'fzf-lua'
-local nn = require('mapx').nnoremap
-local vn = require('mapx').vnoremap
+local function nn(...) vim.keymap.set('n', ...) end
+local function vn(...) vim.keymap.set('v', ...) end
 
 fzf.setup {
   winopts = {
