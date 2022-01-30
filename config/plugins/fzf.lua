@@ -9,6 +9,7 @@ fzf.setup {
     height = 0.45,
     width = 0.75,
     row = 0.99,
+    border = 'single',
     preview = {
       hidden = 'hidden',
       vertical = 'up:45%'
@@ -63,13 +64,12 @@ nn('<leader>x', function() fzf.blines({ search = "'"..vim.fn.expand("<cword>")..
 nn('<leader>X', fzf.blines)
 
 nn('<leader>p', cw(function ()
-  local base = '~/workspace'
-  local projects = require('dot.scripts').dirs(base)
+  local dir = '~/workspace'
   local selected = fzf.fzf({
-    prompt = base .. ' ',
-  }, projects)
+    prompt = dir .. ' ',
+  }, ('ls %s'):format(dir))
   if not selected then return end
-  local path = base .. '/' .. selected[1]
+  local path = dir .. '/' .. selected[1]
   vim.api.nvim_set_current_dir(path)
   vim.fn.execute('Vaffle')
 end))
