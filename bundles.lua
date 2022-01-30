@@ -13,7 +13,6 @@ end)(function(Plug)
   Plug 'tpope/vim-surround'
   Plug('tomtom/tcomment_vim', { on = 'TComment' })
   Plug 'kana/vim-textobj-user'
-  Plug 'kana/vim-textobj-lastpat'
   Plug 'cohama/lexima.vim'
   Plug 'curist/highlight.vim'
 
