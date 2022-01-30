@@ -7,7 +7,7 @@ fzf.register_ui_select()
 fzf.setup {
   winopts = {
     height = 0.45,
-    width = 0.8,
+    width = 0.75,
     row = 0.99,
     preview = {
       hidden = 'hidden',

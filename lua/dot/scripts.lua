@@ -96,40 +96,51 @@ function M.cwd_oldfiles(opts)
     return filter_filepath(cwd, s)
   end
   local function trimPath(s)
-    return s:sub((2 + #cwd))
+    return s:sub(2 + #cwd)
   end
 
   local current_buffer = vim.api.nvim_get_current_buf()
   local current_file = vim.api.nvim_buf_get_name(current_buffer)
   local results = {}
 
-  for _, bufnr in ipairs(get_buflisted_sorted()) do
+  dot.each(get_buflisted_sorted(), function(bufnr)
     local file = vim.api.nvim_buf_get_name(bufnr)
-    if vim.loop.fs_stat(file) and bufnr ~= current_buffer then
-      table.insert(results, file)
+    if not vim.loop.fs_stat(file) then
+      return
     end
-  end
+    if bufnr == current_buffer and underCwd(file) then
+      opts.fzf_opts['--header'] = vim.fn.shellescape(trimPath(file))
+      return
+    end
+    table.insert(results, file)
+  end)
 
-  for _, file in ipairs(vim.v.oldfiles) do
-    if vim.loop.fs_stat(file) and not vim.tbl_contains(results, file) and file ~= current_file then
-      table.insert(results, file)
+  dot.each(vim.v.oldfiles, function(file)
+    if not vim.loop.fs_stat(file) then
+      return
     end
-  end
+    if vim.tbl_contains(results, file) then
+      return
+    end
+    if file == current_file then
+      return
+    end
+    table.insert(results, file)
+  end)
 
   results = dot.map(dot.filter(results, underCwd), trimPath)
 
   local contents = function (cb)
-    for _, x in ipairs(results) do
-      x = core.make_entry_file(opts, x)
-      if x then
-        cb(x, function(err)
-          if err then return end
-          -- close the pipe to fzf, this
-          -- removes the loading indicator in fzf
-          cb(nil, function() end)
-        end)
-      end
-    end
+    dot.each(results, function(x)
+      if not x then return end
+
+      cb(x, function(err)
+        if err then return end
+        -- close the pipe to fzf, this
+        -- removes the loading indicator in fzf
+        cb(nil, function() end)
+      end)
+    end)
     cb(nil)
   end
 
