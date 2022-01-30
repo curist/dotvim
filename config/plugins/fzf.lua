@@ -74,3 +74,24 @@ nn('<leader>p', cw(function ()
   vim.fn.execute('Vaffle')
 end))
 
+nn('<leader>H', cw(function()
+  -- hacker news top stories
+  local cmd = vim.fn.join({
+    [[curl -s "https://hacker-news.firebaseio.com/v0/topstories.json"]],
+    [[jq '.[]']],
+    [[head -20]],
+    [[xargs -P 8 -I{} sh -c "curl -s https://hacker-news.firebaseio.com/v0/item/{}.json | jq -r '\"\(.id). \(.score)\t\(.title) (cmts: \(.descendants))\"'"]]
+  }, ' | ')
+
+  local selected = fzf.fzf({
+    prompt = 'Hackernews> ',
+    fzf_opts = {
+      ['--with-nth'] = '2..',
+    },
+  }, cmd)
+  if not selected then return end
+  local id = tonumber(selected[1]:match('%d+'))
+  local url = 'https://news.ycombinator.com/item?id=' .. id
+  vim.api.nvim_exec('!open "' .. url .. '"', {})
+end))
+
