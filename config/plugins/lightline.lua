@@ -39,13 +39,8 @@ vim.g.lightline = {
   },
 }
 
-local function bridge(functionName)
-  local command = table.concat({
-    'function! ' .. functionName .. '()',
-      'return luaeval("' .. functionName .. '()")',
-    'endfunction',
-  }, '\n')
-  vim.cmd(command)
+local function bridge(fnName)
+  vim.cmd(('let %s = luaeval("%s")'):format(fnName, fnName))
 end
 
 --- smartPath shortens the path to the current file, when it's too long
