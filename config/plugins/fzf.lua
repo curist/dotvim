@@ -90,8 +90,10 @@ nn('<leader>H', cw(function()
     },
   }, cmd)
   if not selected then return end
-  local id = tonumber(selected[1]:match('%d+'))
-  local url = 'https://news.ycombinator.com/item?id=' .. id
-  vim.api.nvim_exec('!open "' .. url .. '"', {})
+  require('dot.utils').each(selected, function(item)
+    local id = tonumber(item:match('%d+'))
+    local url = 'https://news.ycombinator.com/item?id=' .. id
+    vim.api.nvim_exec('!open "' .. url .. '"', {})
+  end)
 end))
 
