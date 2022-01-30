@@ -67,6 +67,9 @@ nn('<leader>p', cw(function ()
   local dir = '~/workspace'
   local selected = fzf.fzf({
     prompt = dir .. ' ',
+    fzf_opts = {
+      ['--no-multi'] = '',
+    },
   }, ('ls %s'):format(dir))
   if not selected then return end
   local path = dir .. '/' .. selected[1]
