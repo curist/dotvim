@@ -7,7 +7,6 @@ fzf.register_ui_select()
 fzf.setup {
   winopts = {
     height = 0.45,
-    width = 0.75,
     row = 0.99,
     border = 'single',
     preview = {
@@ -15,11 +14,14 @@ fzf.setup {
       vertical = 'up:45%'
     },
   },
+  winopts_fn = function()
+    return { width = vim.o.columns > 150 and 0.6 or 0.75 }
+  end,
   files = {
     file_icons = false,
   },
   fzf_opts = {
-    ['--layout'] = 'default',
+    ['--layout'] = 'reverse-list',
   },
 }
 
@@ -67,6 +69,7 @@ nn('<leader>p', cw(function ()
   local dir = '~/workspace'
   local selected = fzf.fzf({
     prompt = dir .. ' ',
+    preview = vim.fn.shellescape('cd ~/workspace/{} && git st && echo && git log -1'),
     fzf_opts = {
       ['--no-multi'] = '',
     },
