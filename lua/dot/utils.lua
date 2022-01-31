@@ -80,6 +80,21 @@ function M.some(coll, pred)
   return false
 end
 
+function M.pipe(fns)
+  return function(arg)
+    local result = arg
+    for _, fn in ipairs(fns) do
+      arg = fn(arg)
+    end
+    return arg
+  end
+end
+
+function M.head(coll, n)
+  n = n or 1
+  return {unpack(coll, 1, n)}
+end
+
 function M.keys(coll)
   local keys = {}
   for k, _ in pairs(coll) do

@@ -100,7 +100,7 @@ nn('<leader>H', cw(function()
   require('dot.utils').each(selected, function(item)
     local id = tonumber(item:match('%d+'))
     local url = 'https://news.ycombinator.com/item?id=' .. id
-    vim.api.nvim_exec('!open "' .. url .. '"', {})
+    vim.fn.execute(('!open "%s"'):format(url))
   end)
 end))
 
