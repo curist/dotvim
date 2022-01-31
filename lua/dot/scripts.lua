@@ -107,8 +107,11 @@ function M.cwd_oldfiles(opts)
   local function append_result(file)
     if not file then return end
     if file_set[file] then return end
+
     file_set[file] = true
-    table.insert(results, file)
+
+    local path = underCwd(file) and trimPath(file) or file
+    table.insert(results, path)
   end
 
   dot.each(get_buflisted_sorted(), function(bufnr)
@@ -116,8 +119,9 @@ function M.cwd_oldfiles(opts)
     if not vim.loop.fs_stat(file) then
       return
     end
-    if bufnr == current_buffer and underCwd(file) then
-      opts.fzf_opts['--header'] = vim.fn.shellescape(trimPath(file))
+    if bufnr == current_buffer then
+      local path = underCwd(file) and trimPath(file) or file
+      opts.fzf_opts['--header'] = vim.fn.shellescape(path)
       return
     end
     append_result(file)
@@ -125,6 +129,7 @@ function M.cwd_oldfiles(opts)
 
   dot.each(vim.v.oldfiles, function(file)
     if file_set[file] then return end
+    if not underCwd(file) then return end
     if not vim.loop.fs_stat(file) then
       return
     end
@@ -136,8 +141,6 @@ function M.cwd_oldfiles(opts)
     end
     append_result(file)
   end)
-
-  results = dot.map(dot.filter(results, underCwd), trimPath)
 
   local contents = function (cb)
     dot.each(results, function(x)

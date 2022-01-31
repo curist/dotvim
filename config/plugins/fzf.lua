@@ -1,4 +1,5 @@
 local fzf = require 'fzf-lua'
+
 local function nn(...) vim.keymap.set('n', ...) end
 local function vn(...) vim.keymap.set('v', ...) end
 
@@ -20,9 +21,6 @@ fzf.setup {
   files = {
     file_icons = false,
   },
-  fzf_opts = {
-    ['--layout'] = 'reverse-list',
-  },
 }
 
 --- simple wrap function, aka bind
@@ -40,7 +38,6 @@ local function cw(fn, opts)
     coroutine.wrap(fn)(opts)
   end
 end
-
 
 nn('<leader>f', fzf.files)
 nn('<leader>F', w(fzf.files, {cmd='rg --files --hidden --no-ignore-vcs'}))
