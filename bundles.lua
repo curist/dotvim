@@ -1,5 +1,4 @@
 (function(setup_plugins)
-  local post_configs = {}
   vim.call('plug#begin', '~/.config/nvim/plugged')
   setup_plugins(function (name, args)
     args = args or { x = 1 }
@@ -7,14 +6,11 @@
     args['do'] = args.run
     args['for'] = args.ft
     vim.call('plug#', name, args)
-    if args.config then
-      table.insert(post_configs, args.config)
+    if args.config and type(args.config) == 'function' then
+      vim.schedule(args.config)
     end
   end)
   vim.call('plug#end')
-  for _, config_fn in ipairs(post_configs) do
-    config_fn()
-  end
 end)(function(Plug)
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
@@ -59,11 +55,4 @@ end)(function(Plug)
   Plug 'curist/split-term.vim'
   Plug 'vim-test/vim-test'
   Plug 'github/copilot.vim'
-  Plug('kevinhwang91/nvim-bqf', {
-    config = function()
-      require 'bqf'.setup({
-        preview = { auto_preview = false },
-      })
-    end,
-  })
 end)
