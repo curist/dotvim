@@ -15,7 +15,6 @@ end)(function(Plug)
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug('tomtom/tcomment_vim', { on = 'TComment' })
-  Plug 'kana/vim-textobj-user'
   Plug 'cohama/lexima.vim'
   Plug 'curist/highlight.vim'
 
