@@ -13,7 +13,6 @@ runtime! config/**/*.vim
 runtime! config/**/*.lua
 
 colorscheme bogster
-" colorscheme gruvbox
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
