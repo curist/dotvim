@@ -5,18 +5,12 @@ cmp.setup {
   },
 }
 
-_G.vimrc = _G.vimrc or {}
-_G.vimrc.cmp = _G.vimrc.cmp or {}
-_G.vimrc.cmp.lsp = function()
+vim.keymap.set('i', '<c-x><c-o>', function()
   cmp.complete({
     config = {
       sources = {
         { name = 'nvim_lsp' }
-      }
-    }
+      },
+    },
   })
-end
-
-vim.cmd([[
-  inoremap <C-x><C-o> <Cmd>lua vimrc.cmp.lsp()<CR>
-]])
+end)

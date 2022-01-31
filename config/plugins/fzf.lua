@@ -19,7 +19,11 @@ fzf.setup {
     return { width = vim.o.columns > 150 and 0.6 or 0.75 }
   end,
   files = {
+    multiprocess = false,
     file_icons = false,
+  },
+  grep = {
+    multiprocess = false,
   },
 }
 
