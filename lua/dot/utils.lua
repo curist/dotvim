@@ -1,4 +1,4 @@
-local fs = require 'dot.fs'
+local fs = require 'lib.fs'
 
 local M = {}
 

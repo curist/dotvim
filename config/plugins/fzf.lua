@@ -1,4 +1,7 @@
 local fzf = require 'fzf-lua'
+local json = require 'lib.json'
+local exec = require 'lib.exec'
+local dot = require 'dot.utils'
 
 local function nn(...) vim.keymap.set('n', ...) end
 local function vn(...) vim.keymap.set('v', ...) end
@@ -83,23 +86,31 @@ end))
 
 nn('<leader>H', cw(function()
   -- hacker news top stories
-  local cmd = vim.fn.join({
-    [[curl -s "https://hacker-news.firebaseio.com/v0/topstories.json"]],
-    [[jq '.[]']],
-    [[head -20]],
-    [[xargs -P 8 -I{} sh -c "curl -s https://hacker-news.firebaseio.com/v0/item/{}.json | jq -r '\"\(.id). \(.score)\t\(.title) (cmts: \(.descendants))\"'"]]
-  }, ' | ')
+  local curl = dot.pipe({
+    dot.bind(exec, 'curl'),
+    json.decode,
+  })
 
   local selected = fzf.fzf({
     prompt = 'Hackernews> ',
     fzf_opts = {
       ['--with-nth'] = '2..',
     },
-  }, cmd)
+  }, function(cb, err)
+    local top_story_ids = curl 'https://hacker-news.firebaseio.com/v0/topstories.json'
+    local top_20_ids = dot.head(top_story_ids, 20)
+    for _, id in pairs(top_20_ids) do
+      local info = curl('https://hacker-news.firebaseio.com/v0/item/' .. id .. '.json')
+      local title = ('%d. %d\t%s (cmts: %d)'):format(info.id, info.score, info.title, info.descendants or 0)
+      cb(title)
+    end
+    cb(nil)
+  end)
   if not selected then return end
   require('dot.utils').each(selected, function(item)
     local id = tonumber(item:match('%d+'))
     local url = 'https://news.ycombinator.com/item?id=' .. id
+    print(url)
     vim.fn.execute(('!open "%s"'):format(url))
   end)
 end))
