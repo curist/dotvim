@@ -19,8 +19,7 @@ local function assertResume(thread, ...)
   end
 end
 
-return function (...)
-  local tasks = {...}
+return function (tasks)
   local thread = coroutine.running()
   local left = #tasks
   local results = {}

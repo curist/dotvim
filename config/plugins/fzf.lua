@@ -1,6 +1,7 @@
 local fzf = require 'fzf-lua'
 local json = require 'lib.json'
 local exec = require 'lib.exec'
+local split = require 'lib.coro-split'
 local dot = require 'dot.utils'
 
 local function nn(...) vim.keymap.set('n', ...) end
@@ -99,18 +100,21 @@ nn('<leader>H', cw(function()
   }, function(cb, err)
     local top_story_ids = curl 'https://hacker-news.firebaseio.com/v0/topstories.json'
     local top_20_ids = dot.head(top_story_ids, 20)
-    for _, id in pairs(top_20_ids) do
-      local info = curl('https://hacker-news.firebaseio.com/v0/item/' .. id .. '.json')
-      local title = ('%d. %d\t%s (cmts: %d)'):format(info.id, info.score, info.title, info.descendants or 0)
-      cb(title)
-    end
+    local tasks = dot.map(top_20_ids, function(id)
+      return function()
+        local info = curl('https://hacker-news.firebaseio.com/v0/item/' .. id .. '.json')
+        local title = ('%d. %d\t%s (cmts: %d)'):format(info.id, info.score, info.title, info.descendants or 0)
+        cb(title)
+        return title
+      end
+    end)
+    split(tasks)
     cb(nil)
   end)
   if not selected then return end
   require('dot.utils').each(selected, function(item)
     local id = tonumber(item:match('%d+'))
     local url = 'https://news.ycombinator.com/item?id=' .. id
-    print(url)
     vim.fn.execute(('!open "%s"'):format(url))
   end)
 end))

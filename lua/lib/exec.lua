@@ -26,21 +26,25 @@ return function (command, ...)
   local stdout, stderr, code, signal
 
   -- Split the coroutine into three sub-coroutines and wait for all three.
-  split(function ()
-    local parts = {}
-    for data in child.stdout.read do
-      parts[#parts + 1] = data
-    end
-    stdout = table.concat(parts)
-  end, function ()
-    local parts = {}
-    for data in child.stderr.read do
-      parts[#parts + 1] = data
-    end
-    stderr = table.concat(parts)
-  end, function ()
-    code, signal = child.waitExit()
-  end)
+  split({
+    function ()
+      local parts = {}
+      for data in child.stdout.read do
+        parts[#parts + 1] = data
+      end
+      stdout = table.concat(parts)
+    end,
+    function ()
+      local parts = {}
+      for data in child.stderr.read do
+        parts[#parts + 1] = data
+      end
+      stderr = table.concat(parts)
+    end,
+    function ()
+      code, signal = child.waitExit()
+    end,
+  })
 
 
   return stdout, stderr, code, signal
