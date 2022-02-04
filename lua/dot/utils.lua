@@ -19,7 +19,7 @@ end
 function M.mapf(coll, cb)
   local result = {}
   for i, v in ipairs(coll) do
-    result[i] = function() cb(v, i) end
+    result[i] = function() return cb(v, i) end
   end
   return result
 end

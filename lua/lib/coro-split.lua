@@ -30,7 +30,7 @@ return function (tasks)
   local function check()
     left = left - 1
     if left == 0 and yielded then
-      assertResume(thread, unpack(results))
+      assertResume(thread, results)
     end
   end
   for i = 1, #tasks do
@@ -40,7 +40,7 @@ return function (tasks)
     end)()
   end
   if left <= 0 then
-    return unpack(results)
+    return results
   end
   yielded = true
   return coroutine.yield()
