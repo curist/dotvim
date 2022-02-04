@@ -9,11 +9,19 @@ function M.each(coll, cb)
 end
 
 function M.map(coll, cb)
-  local tbl_0_ = {}
+  local result = {}
   for i, v in ipairs(coll) do
-    tbl_0_[(#tbl_0_ + 1)] = cb(v, i)
+    result[i] = cb(v, i)
   end
-  return tbl_0_
+  return result
+end
+
+function M.mapf(coll, cb)
+  local result = {}
+  for i, v in ipairs(coll) do
+    result[i] = function() cb(v, i) end
+  end
+  return result
 end
 
 function M.range(n)
@@ -25,7 +33,7 @@ function M.range(n)
 end
 
 function M.filter(coll, pred)
-  local tbl_0_ = {}
+  local result = {}
   for i, v in ipairs(coll) do
     local _1_
     if pred(v, i) then
@@ -33,14 +41,14 @@ function M.filter(coll, pred)
     else
     _1_ = nil
     end
-    tbl_0_[(#tbl_0_ + 1)] = _1_
+    result[(#result + 1)] = _1_
   end
-  return tbl_0_
+  return result
 end
 
 function M.reduce(coll, cb, ...)
-  local _let_0_ = {...}
-  local init_value = _let_0_[1]
+  local rest = {...}
+  local init_value = rest[1]
   local has_init = not (nil == init_value)
   local start_index
   if has_init then
@@ -82,7 +90,6 @@ end
 
 function M.pipe(fns)
   return function(arg)
-    local result = arg
     for _, fn in ipairs(fns) do
       arg = fn(arg)
     end
@@ -93,6 +100,14 @@ end
 function M.head(coll, n)
   n = n or 1
   return {unpack(coll, 1, n)}
+end
+
+function M.chunks(coll, n)
+  local result = {}
+  for i = 1, #coll, n do
+    table.insert(result, {unpack(coll, i, (i + n - 1))})
+  end
+  return result
 end
 
 function M.keys(coll)

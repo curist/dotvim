@@ -100,15 +100,15 @@ nn('<leader>H', cw(function()
   }, function(cb, err)
     local top_story_ids = curl 'https://hacker-news.firebaseio.com/v0/topstories.json'
     local top_20_ids = dot.head(top_story_ids, 20)
-    local tasks = dot.map(top_20_ids, function(id)
-      return function()
+    for _, ids in ipairs(dot.chunks(top_20_ids, 10)) do
+      local tasks = dot.mapf(ids, function(id)
         local info = curl('https://hacker-news.firebaseio.com/v0/item/' .. id .. '.json')
         local title = ('%d. %d\t%s (cmts: %d)'):format(info.id, info.score, info.title, info.descendants or 0)
         cb(title)
         return title
-      end
-    end)
-    split(tasks)
+      end)
+      split(tasks)
+    end
     cb(nil)
   end)
   if not selected then return end
