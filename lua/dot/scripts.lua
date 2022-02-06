@@ -177,5 +177,26 @@ M.clear_all = function()
   M.closeAllFloatingWindows()
 end
 
+M.openTerm = function(opts)
+  if not opts then opts = {} end
+
+  local kind = opts.kind or 'tab'
+  local use_cwd = opts.use_cwd or false
+  local current_base_path = vim.fn.expand('%:p:h')
+
+  if kind == 'split' then
+    vim.cmd('vnew')
+  else
+    vim.cmd('tabnew')
+  end
+
+  if use_cwd then
+    vim.cmd('lcd ' .. current_base_path)
+  end
+
+  vim.cmd('term')
+  vim.cmd('startinsert')
+end
+
 return M
 
