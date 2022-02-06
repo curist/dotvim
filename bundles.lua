@@ -48,7 +48,6 @@ end)(function(Plug)
   -- get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'vv9k/bogster'
-  Plug 'sunjon/stylish.nvim'
 
   -- other handy plugins
   Plug 'tpope/vim-repeat'

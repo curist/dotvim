@@ -113,7 +113,7 @@ nn('<leader>H', cw(function()
 
   end)
   if not selected then return end
-  require('dot.utils').each(selected, function(item)
+  dot.each(selected, function(item)
     local id = tonumber(item:match('%d+'))
     local url = 'https://news.ycombinator.com/item?id=' .. id
     vim.fn.execute(('!open "%s"'):format(url))

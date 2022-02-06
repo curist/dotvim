@@ -1,9 +1,7 @@
 let mapleader = ","
-let maplocalleader = ","
 
 nn <silent> <leader>C :cd ~/.config/nvim<cr>:Vaffle<cr>
 
-nn <silent> <leader>h :noh<cr>
 nn <silent> <leader>q :lua require('dot.qf').toggle_list()<cr>
 
 " Visually select the text that was last edited/pasted
@@ -65,11 +63,13 @@ nn <silent> <c-m-h> :lua require'dot.ts'.swap_nodes_at_cursor 'prev'<cr>
 nn <silent> <c-j> :lua require'dot.ts'.goto_next_top_node()<cr>
 nn <silent> <c-k> :lua require'dot.ts'.goto_prev_top_node()<cr>
 
+" quick notes
+nn <silent> <leader>ww :cd $HOME/notes<cr>:e index.md<cr>
+
 augroup MyFileTypeMappings
   " run settings
   autocmd!
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
   autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
   autocmd FileType lua nn <buffer> <leader>r :w<cr>:!lua %<cr>
-  nn <silent> <leader>ww :e $HOME/notes/index.md<cr>
 augroup END
