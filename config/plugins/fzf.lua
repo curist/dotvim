@@ -3,6 +3,7 @@ local json = require 'lib.json'
 local exec = require 'lib.exec'
 local split = require 'lib.coro-split'
 local dot = require 'dot.utils'
+local scripts = require 'dot.scripts'
 
 local function nn(...) vim.keymap.set('n', ...) end
 local function vn(...) vim.keymap.set('v', ...) end
@@ -32,12 +33,7 @@ fzf.setup {
 }
 
 --- simple wrap function, aka bind
-local function w(fn, opts)
-  opts = opts or {}
-  return function()
-    return fn(opts)
-  end
-end
+local w = dot.bind
 
 -- coroutine wrap fn, to get 1 less indent level
 local function cw(fn, opts)
@@ -50,7 +46,7 @@ end
 nn('<leader>f', fzf.files)
 nn('<leader>F', w(fzf.files, {cmd='rg --files --hidden --no-ignore-vcs'}))
 nn('<leader>b', fzf.buffers)
-nn('<leader>m', w(require('dot.scripts').cwd_oldfiles, { prompt = 'LHist> ' }))
+nn('<leader>m', w(scripts.cwd_oldfiles, { prompt = 'LHist> ' }))
 nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ' }))
 nn('<leader>c', fzf.commands)
 nn('<leader>/', fzf.search_history)
@@ -67,8 +63,8 @@ nn('<leader>S', fzf.grep_project)
 nn('<leader>z', w(fzf.grep_cword, { cmd = rg_grep_all }))
 vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }))
 nn('<leader>Z', w(fzf.grep_project, { cmd = rg_grep_all }))
-nn('<leader>x', function() fzf.blines({ search = "'"..vim.fn.expand("<cword>").." " }) end)
-nn('<leader>X', fzf.blines)
+nn('<leader>x', function() scripts.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
+nn('<leader>X', scripts.grep_curbuf)
 
 nn('<leader>p', cw(function ()
   local dir = '~/workspace'

@@ -1,4 +1,5 @@
 local dot = require('dot.utils')
+local fzf = require('fzf-lua')
 local core = require('fzf-lua.core')
 local config = require('fzf-lua.config')
 
@@ -196,6 +197,27 @@ M.openTerm = function(opts)
 
   vim.cmd('term')
   vim.cmd('startinsert')
+end
+
+M.grep_curbuf = function(opts)
+  local config = require 'fzf-lua.config'
+  local path = require 'fzf-lua.path'
+  local utils = require 'fzf-lua.utils'
+
+  if not opts then opts = {} end
+  opts.rg_opts = config.globals.grep.rg_opts .. ' --with-filename'
+  opts.fzf_opts = vim.tbl_extend("keep",
+    opts.fzf_opts or {}, config.globals.blines.fzf_opts)
+
+  local filename = vim.api.nvim_buf_get_name(0)
+  if #filename == 0 or not vim.loop.fs_stat(filename) then
+    utils.info('Rg current buffer requires file on disk')
+    return
+  end
+
+  opts.filename = path.relative(filename, vim.loop.cwd())
+  opts.search = opts.search or ''
+  return fzf.grep(opts)
 end
 
 return M
