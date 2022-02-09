@@ -20,6 +20,9 @@ local on_attach = function(client, bufnr)
   nn('<leader>ld', vim.diagnostic.open_float)
   nn('<leader>lq', vim.diagnostic.setloclist)
   nn('<leader>la', vim.lsp.buf.code_action)
+  vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {
+    buffer = bufnr,
+  })
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
