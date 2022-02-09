@@ -174,7 +174,7 @@ M.closeAllFloatingWindows = function()
 end
 
 M.clear_all = function()
-  vim.cmd('noh')
+  -- vim.cmd('noh')
   M.closeAllFloatingWindows()
 end
 

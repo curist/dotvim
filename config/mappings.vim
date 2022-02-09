@@ -2,6 +2,7 @@ let mapleader = ","
 
 nn <silent> <leader>C :cd ~/.config/nvim<cr>:Vaffle<cr>
 
+nn <silent> <leader>h <cmd>nohls<cr>
 nn <silent> <leader>q :lua require('dot.qf').toggle_list()<cr>
 
 " Visually select the text that was last edited/pasted

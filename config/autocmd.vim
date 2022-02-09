@@ -7,7 +7,7 @@ augroup END
 augroup BehaviourAdjustment
   autocmd!
   " Resize splits when the window is resized
-  autocmd VimResized * wincmd =
+  " autocmd VimResized * wincmd =
 
   " don't show quickfix in buffers list
   " set number in quickfix list
