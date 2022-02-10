@@ -170,6 +170,9 @@ M.closeAllFloatingWindows = function()
       closed_windows = closed_windows + 1
     end
   end
+  if closed_windows == 0 then
+    return
+  end
   print(string.format('Closed %d float windows', closed_windows))
 end
 
