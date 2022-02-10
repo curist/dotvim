@@ -23,7 +23,6 @@ end)(function(Plug)
   --   in file quick jumps
   Plug 'cocopon/vaffle.vim'
   Plug 'ibhagwan/fzf-lua'
-  Plug 'phaazon/hop.nvim'
 
   -- git
   Plug 'tpope/vim-fugitive'
