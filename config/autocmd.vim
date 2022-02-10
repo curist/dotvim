@@ -15,7 +15,8 @@ augroup BehaviourAdjustment
   autocmd BufRead location setlocal nobuflisted number nornu
 
   " no line numbers for neovim terminal
-  " autocmd BufEnter term://* start!
+  autocmd BufEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
   autocmd TermOpen * setlocal nonumber norelativenumber
 
   autocmd FileType qf 8wincmd_
