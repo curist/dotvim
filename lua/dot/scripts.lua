@@ -176,8 +176,14 @@ M.closeAllFloatingWindows = function()
   print(string.format('Closed %d float windows', closed_windows))
 end
 
-M.clear_all = function()
+M.copy_current_file_path = function()
+  local filename = vim.fn.expand('%:~:.')
+  vim.fn.setreg('p', filename)
+end
+
+M.ctrl_c = function()
   -- vim.cmd('noh')
+  M.copy_current_file_path()
   M.closeAllFloatingWindows()
 end
 

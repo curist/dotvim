@@ -13,7 +13,7 @@ nn <silent> <SPACE> za
 imap <c-c> <esc>
 vmap <c-c> <esc>
 smap <c-c> <esc>
-nmap <silent> <c-c> :lua require('dot.scripts').clear_all()<cr>
+nmap <silent> <c-c> :lua require('dot.scripts').ctrl_c()<cr>
 
 nn <silent> <leader><leader> :lua require('dot.scripts').altfile()<cr>
 nn <silent> <leader>d <c-w><c-c>
