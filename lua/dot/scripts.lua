@@ -181,9 +181,9 @@ M.copy_current_file_path = function()
   vim.fn.setreg('p', filename)
 end
 
-M.ctrl_c = function()
-  -- vim.cmd('noh')
-  M.copy_current_file_path()
+
+M.clear_all = function()
+  vim.cmd('noh')
   M.closeAllFloatingWindows()
 end
 

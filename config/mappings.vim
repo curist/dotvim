@@ -2,7 +2,7 @@ let mapleader = ","
 
 nn <silent> <leader>C :cd ~/.config/nvim<cr>:Vaffle<cr>
 
-nn <silent> <leader>h <cmd>nohls<cr>
+nn <silent> <leader>h :lua require('dot.scripts').clear_all()<cr>
 nn <silent> <leader>q :lua require('dot.qf').toggle_list()<cr>
 
 " Visually select the text that was last edited/pasted
@@ -10,10 +10,10 @@ nmap gV `[v`]
 
 " other sweet mappings
 nn <silent> <SPACE> za
+nmap <c-c> <esc>
 imap <c-c> <esc>
 vmap <c-c> <esc>
 smap <c-c> <esc>
-nmap <silent> <c-c> :lua require('dot.scripts').ctrl_c()<cr>
 
 nn <silent> <leader><leader> :lua require('dot.scripts').altfile()<cr>
 nn <silent> <leader>d <c-w><c-c>
