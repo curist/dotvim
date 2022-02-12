@@ -18,13 +18,6 @@ local function filter_filepath(pwd, orig_filepath)
   end
   return not (not dot.starts_with(orig_filepath, pwd) or dot.some(suffix_ignore, _1_) or dot.some(prefix_ignore, _2_))
 end
-local function filter_buffers(bufs)
-  local pwd = vim.call("getcwd")
-  local function _1_(_241)
-    return filter_filepath(pwd, vim.api.nvim_buf_get_name(_241))
-  end
-  return dot.filter(bufs, _1_)
-end
 
 local function get_buflisted_sorted()
   local buffers = {}
@@ -59,16 +52,16 @@ end
 
 function M.altfile()
   local bufs = get_buflisted_sorted()
-  local filtered_bufs = filter_buffers(bufs)
-  local _1_ = #filtered_bufs
-  if (_1_ == 0) then
-    return "no-can-do"
-  elseif (_1_ == 1) then
-    return vim.api.nvim_set_current_buf(filtered_bufs[1])
-  else
-    local _ = _1_
-    return vim.api.nvim_set_current_buf(filtered_bufs[2])
+  local filtered_bufs = dot.filter(bufs, function(bufnr)
+    local filename = vim.api.nvim_buf_get_name(bufnr)
+    -- TODO: maybe should also filter out vaffle in the future?
+    return not dot.starts_with(filename, 'term://')
+  end)
+  local target_buf = filtered_bufs[2]
+  if not target_buf then
+    return
   end
+  vim.api.nvim_set_current_buf(target_buf)
 end
 
 function M.dirs(path)
