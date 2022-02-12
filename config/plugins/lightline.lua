@@ -96,6 +96,9 @@ local function Mod()
 end
 
 function LightlineFilename()
+  if vim.bo.buftype == 'terminal' then
+    return 'TERM'
+  end
   local filename = vim.fn.expand('%:~:.')
   local msg = smartPath(filename, 0.45) .. Mod()
   -- vim.api.nvim_echo({{msg, 'comment'}}, false, {})
