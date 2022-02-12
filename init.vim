@@ -19,7 +19,7 @@ hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
 set viminfo='900
 
-set relativenumber
+" set relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
