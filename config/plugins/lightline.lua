@@ -30,12 +30,12 @@ vim.g.lightline = {
     fileencoding = "%{&fenc=='utf-8'?'':&fenc}",
     fileformat = "%{&ff=='unix'?'':&ff}",
     lineinfo = '%3l:%-2c',
-    filetype = '%{&filetype}',
   },
   component_function = {
     filename = 'LightlineFilename',
     inactivefilename = 'LightlineInactiveFilename',
     githead = 'LightlineGitHead',
+    filetype = 'LightlineFileType',
   },
 }
 
@@ -97,7 +97,8 @@ end
 
 function LightlineFilename()
   if vim.bo.buftype == 'terminal' then
-    return 'TERM'
+    local termname = vim.fn.expand('%')
+    return termname:sub(8):match('^(.*)//')
   end
   local filename = vim.fn.expand('%:~:.')
   local msg = smartPath(filename, 0.45) .. Mod()
@@ -127,3 +128,12 @@ function LightlineGitHead()
   return githead:sub(1, 18) .. '…'
 end
 bridge 'LightlineGitHead'
+
+function LightlineFileType()
+  if vim.bo.buftype == 'terminal' then
+    return 'terminal'
+  end
+  local filetype = vim.bo.filetype
+  return filetype
+end
+bridge 'LightlineFileType'
