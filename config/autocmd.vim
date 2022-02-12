@@ -14,9 +14,6 @@ augroup BehaviourAdjustment
   autocmd BufRead quickfix setlocal nobuflisted number nornu
   autocmd BufRead location setlocal nobuflisted number nornu
 
-  autocmd BufLeave * lua require('dot.scripts').copy_current_file_path()
-
-
   " no line numbers for neovim terminal
   autocmd BufEnter term://* startinsert
   autocmd BufLeave term://* stopinsert
