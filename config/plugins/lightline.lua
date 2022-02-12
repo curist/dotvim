@@ -31,11 +31,11 @@ vim.g.lightline = {
     fileformat = "%{&ff=='unix'?'':&ff}",
     lineinfo = '%3l:%-2c',
     filetype = '%{&filetype}',
-    githead = '%{fugitive#Head(6)}',
   },
   component_function = {
     filename = 'LightlineFilename',
     inactivefilename = 'LightlineInactiveFilename',
+    githead = 'LightlineGitHead',
   },
 }
 
@@ -97,7 +97,7 @@ end
 
 function LightlineFilename()
   local filename = vim.fn.expand('%:~:.')
-  local msg = smartPath(filename) .. Mod()
+  local msg = smartPath(filename, 0.45) .. Mod()
   -- vim.api.nvim_echo({{msg, 'comment'}}, false, {})
   return msg
 end
@@ -115,3 +115,12 @@ function LightlineInactiveFilename()
 end
 bridge 'LightlineInactiveFilename'
 
+function LightlineGitHead()
+  local githead = vim.fn['fugitive#Head'](6)
+  if #githead < 20 then
+    return githead
+  end
+  -- trim githead if it's too long
+  return githead:sub(1, 18) .. '…'
+end
+bridge 'LightlineGitHead'
