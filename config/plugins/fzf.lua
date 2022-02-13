@@ -8,8 +8,6 @@ local scripts = require 'dot.scripts'
 local function nn(...) vim.keymap.set('n', ...) end
 local function vn(...) vim.keymap.set('v', ...) end
 
-fzf.register_ui_select()
-
 fzf.setup {
   winopts = {
     height = 0.45,
@@ -115,4 +113,41 @@ nn('<leader>H', cw(function()
     vim.fn.execute(('!open "%s"'):format(url))
   end)
 end))
+
+vim.ui.select = function(items, opts, on_choice)
+  opts = opts or {}
+  opts.prompt = opts.prompt or 'Select one of:'
+  if opts.format_item then
+    local format_item = opts.format_item
+    opts.format_item = function(item)
+      return tostring(format_item(item))
+    end
+  else
+    opts.format_item = tostring
+  end
+
+  local labels = {}
+  for i, item in ipairs(items) do
+    table.insert(labels, string.format('%d: %s', i, opts.format_item(item)))
+  end
+
+  local fzf_opts = {
+    fzf_opts = {
+      ['--no-multi'] = '',
+      ['--preview-window'] = 'hidden:right:0',
+      ['--header'] = vim.fn.shellescape(opts.prompt),
+    },
+  }
+  fzf.fzf_wrap(fzf_opts, labels, function(selected)
+    if not selected then
+      on_choice(nil, nil)
+    else
+      local label = selected[1]
+      local colon = string.find(label, ':')
+      local lnum = tonumber(string.sub(label, 1, colon - 1))
+      local item = items[lnum]
+      on_choice(item, lnum)
+    end
+  end)()
+end
 
