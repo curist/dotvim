@@ -176,6 +176,14 @@ function M.ends_with(str, _end)
   return ((_end == "") or (_end == str:sub(( - #_end))))
 end
 
+function M.chars(s)
+  local result = {}
+  for i = 1, #s do
+    result[i] = s:sub(i, i)
+  end
+  return result
+end
+
 function M.with_file(path, fn)
   return pcall(function()
     local fd = fs.open(path)

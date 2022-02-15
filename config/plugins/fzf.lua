@@ -27,6 +27,8 @@ fzf.setup {
   },
   grep = {
     multiprocess = false,
+    file_icons = false,
+    git_icons = false,
   },
 }
 
@@ -34,7 +36,7 @@ fzf.setup {
 local w = dot.bind
 
 -- coroutine wrap fn, to get 1 less indent level
-local function cw(fn, opts)
+local function w(fn, opts)
   opts = opts or {}
   return function()
     coroutine.wrap(fn)(opts)
@@ -64,7 +66,7 @@ nn('<leader>Z', w(fzf.grep_project, { cmd = rg_grep_all }))
 nn('<leader>x', function() scripts.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
 nn('<leader>X', scripts.grep_curbuf)
 
-nn('<leader>p', cw(function ()
+nn('<leader>p', w(function ()
   local dir = '~/workspace'
   local selected = fzf.fzf({
     prompt = dir .. ' ',
@@ -79,7 +81,7 @@ nn('<leader>p', cw(function ()
   vim.fn.execute('Vaffle')
 end))
 
-nn('<leader>H', cw(function()
+nn('<leader>H', w(function()
   -- hacker news top stories
   local curl = dot.pipe({
     dot.bind(exec, 'curl'),

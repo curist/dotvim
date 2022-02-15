@@ -5,6 +5,9 @@
     -- workaround lua `do` & `for` keyword
     args['do'] = args.run
     args['for'] = args.ft
+    if args.before and type(args.before) == 'function' then
+      args.before()
+    end
     vim.call('plug#', name, args)
     if args.config and type(args.config) == 'function' then
       vim.schedule(args.config)
@@ -23,7 +26,22 @@ end)(function(Plug)
   --   in file quick jumps
   Plug 'cocopon/vaffle.vim'
   Plug 'ibhagwan/fzf-lua'
-  Plug 'phaazon/hop.nvim'
+  Plug('ggandor/lightspeed.nvim', {
+    before = function()
+      vim.g.lightspeed_no_default_keymaps = true
+    end,
+    config = function()
+      local dot = require 'dot.utils'
+      require'lightspeed'.setup({
+        ignore_case = true,
+        force_beacons_into_match_width = true,
+        jump_to_uniquesafe_labels_chars = false,
+        safe_labels = {},
+        labels = dot.chars('djkalghwoeirutyvmpsf'),
+      })
+      vim.keymap.set('', 's', '<Plug>Lightspeed_omni_s')
+    end,
+  })
 
   -- git
   Plug 'tpope/vim-fugitive'
