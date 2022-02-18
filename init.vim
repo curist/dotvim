@@ -1,10 +1,3 @@
-if exists('g:vscode')
-  runtime! code.vim
-  finish
-endif
-
-language messages POSIX
-set fileformat=unix
 set fileencoding=utf-8
 set termguicolors
 
@@ -17,9 +10,6 @@ colorscheme bogster
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
-set viminfo='900
-
-" set relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -45,6 +35,7 @@ set signcolumn=number
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
+set fillchars=eob:\ 
 set showbreak=↪\      " redundant comment to retain the extra space
 
 set ignorecase " ignore case in general
