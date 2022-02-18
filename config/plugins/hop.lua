@@ -3,6 +3,7 @@ local hop = require('hop')
 
 hop.setup {
   keys = 'djkalghwoeirutyvmpsf',
+  teasing = false,
 }
 
 local w = dot.bind
