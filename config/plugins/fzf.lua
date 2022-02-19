@@ -51,7 +51,7 @@ nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ', fzf_opts = {['--no-sort']='
 nn('<leader>c', fzf.commands)
 nn('<leader>/', fzf.search_history)
 nn('<leader>:', fzf.command_history)
-nn('<leader>Q', fzf.quickfix)
+nn('<leader>Q', w(fzf.quickfix, {}))
 nn('<leader>gl', fzf.git_bcommits)
 nn('<leader>gL', fzf.git_commits)
 nn('<leader>L', fzf.builtin)

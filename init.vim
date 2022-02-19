@@ -10,6 +10,7 @@ colorscheme bogster
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
+set shada='900
 set tabstop=2
 set shiftwidth=2
 set expandtab
