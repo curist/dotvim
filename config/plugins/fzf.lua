@@ -1,7 +1,4 @@
 local fzf = require 'fzf-lua'
-local json = require 'lib.json'
-local exec = require 'lib.exec'
-local split = require 'lib.coro-split'
 local dot = require 'dot.utils'
 local scripts = require 'dot.scripts'
 
@@ -65,6 +62,7 @@ vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }))
 nn('<leader>Z', w(fzf.grep_project, { cmd = rg_grep_all }))
 nn('<leader>x', function() scripts.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
 nn('<leader>X', scripts.grep_curbuf)
+nn('<leader>H', fzf.help_tags)
 
 nn('<leader>p', w(function ()
   local dir = '~/workspace'
@@ -81,41 +79,7 @@ nn('<leader>p', w(function ()
   vim.fn.execute('Vaffle')
 end))
 
-nn('<leader>H', w(function()
-  -- hacker news top stories
-  local curl = dot.pipe({
-    dot.bind(exec, 'curl'),
-    json.decode,
-  })
-
-  local selected = fzf.fzf({
-    prompt = 'Hackernews> ',
-    fzf_opts = {
-      ['--with-nth'] = '2..',
-    },
-  }, function(cb)
-    local top_story_ids = curl 'https://hacker-news.firebaseio.com/v0/topstories.json'
-    local top_20_ids = dot.head(top_story_ids, 20)
-
-    local tasks = dot.mapf(top_20_ids, function(id)
-      local info = curl('https://hacker-news.firebaseio.com/v0/item/' .. id .. '.json')
-      return ('%d. %d\t%s (cmts: %d)'):format(info.id, info.score, info.title, info.descendants or 0)
-    end)
-    local results = split(tasks)
-    for _, result in ipairs(results) do
-      cb(result)
-    end
-    cb(nil)
-
-  end)
-  if not selected then return end
-  dot.each(selected, function(item)
-    local id = tonumber(item:match('%d+'))
-    local url = 'https://news.ycombinator.com/item?id=' .. id
-    vim.fn.execute(('!open "%s"'):format(url))
-  end)
-end))
-
+-- register vim.ui.select using fzf
 vim.ui.select = function(items, opts, on_choice)
   opts = opts or {}
   opts.prompt = opts.prompt or 'Select one of:'

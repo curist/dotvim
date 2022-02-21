@@ -2,6 +2,9 @@ local dot = require('dot.utils')
 local fzf = require('fzf-lua')
 local core = require('fzf-lua.core')
 local config = require('fzf-lua.config')
+local split = require 'lib.coro-split'
+local json = require 'lib.json'
+local exec = require 'lib.exec'
 
 local M = {}
 
@@ -211,6 +214,41 @@ M.grep_curbuf = function(opts)
   opts.filename = path.relative(filename, vim.loop.cwd())
   opts.search = opts.search or ''
   return fzf.grep(opts)
+end
+
+M.hackernews = function()
+  -- hacker news top stories
+  local curl = dot.pipe({
+    dot.bind(exec, 'curl'),
+    json.decode,
+  })
+
+  local selected = fzf.fzf({
+    prompt = 'Hackernews> ',
+    fzf_opts = {
+      ['--with-nth'] = '2..',
+    },
+  }, function(cb)
+    local top_story_ids = curl 'https://hacker-news.firebaseio.com/v0/topstories.json'
+    local top_20_ids = dot.head(top_story_ids, 20)
+
+    local tasks = dot.mapf(top_20_ids, function(id)
+      local info = curl('https://hacker-news.firebaseio.com/v0/item/' .. id .. '.json')
+      return ('%d. %d\t%s (cmts: %d)'):format(info.id, info.score, info.title, info.descendants or 0)
+    end)
+    local results = split(tasks)
+    for _, result in ipairs(results) do
+      cb(result)
+    end
+    cb(nil)
+
+  end)
+  if not selected then return end
+  dot.each(selected, function(item)
+    local id = tonumber(item:match('%d+'))
+    local url = 'https://news.ycombinator.com/item?id=' .. id
+    vim.fn.execute(('!open "%s"'):format(url))
+  end)
 end
 
 return M
