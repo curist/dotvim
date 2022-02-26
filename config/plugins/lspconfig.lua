@@ -1,7 +1,8 @@
 local u = require('dot.utils')
-local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local function nn(...) vim.keymap.set('n', ...) end
 
@@ -34,10 +35,10 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Use a loop to conveniently both setup defined servers 
+-- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'tsserver', 'clojure_lsp', 'vuels', 'sumneko_lua' }
-function installLspServer(lsp)
+local servers = { 'gopls', 'tsserver', 'vuels', 'sumneko_lua' }
+local function setupLspServer(lsp)
   local ok, server = lsp_installer_servers.get_server(lsp)
   if not ok then
     error('bad LSP: ' .. lsp)
@@ -46,34 +47,42 @@ function installLspServer(lsp)
     server:install()
   end
 end
-function setupLspServer(lsp)
-  nvim_lsp[lsp].setup {
-    autostart = true,
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 500,
-    },
-  }
-end
-u.each(servers, installLspServer)
+u.each(servers, setupLspServer)
 
 vim.diagnostic.config({ virtual_text = false })
 
 lsp_installer.on_server_ready(function(server)
   local opts = {
     autostart = true,
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 500,
     },
   }
 
-  -- (optional) Customize the options passed to the server
-  -- if server.name == "tsserver" then
-  --     opts.root_dir = function() ... end
-  -- end
+  if server.name == 'sumneko_lua' then
+    local runtime_path = vim.split(package.path, ';')
+    table.insert(runtime_path, 'lua/?.lua')
+    table.insert(runtime_path, 'lua/?/init.lua')
+    opts.settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+          path = runtime_path,
+        },
+        diagnostics = {
+          globals = { 'vim' },
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file('', true),
+        },
+        telemetry = { enable = false },
+      },
+    }
+  end
 
-  -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
 end)
