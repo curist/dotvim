@@ -41,6 +41,7 @@ end)(function(Plug)
       vim.g.ale_set_quickfix = false
     end,
   })
+  Plug 'nvim-treesitter/playground'
 
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/nvim-cmp'
