@@ -12,6 +12,8 @@
   end)
   vim.call('plug#end')
 end)(function(Plug)
+  Plug 'nvim-lua/plenary.nvim'
+
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug('tomtom/tcomment_vim', { on = 'TComment' })
@@ -29,22 +31,18 @@ end)(function(Plug)
   Plug 'tpope/vim-fugitive'
   Plug('mhinz/vim-signify', { on = 'SignifyToggle' })
 
-  -- programming language
+  -- lsp & tree-sitter & completions etc.
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
-  Plug('dense-analysis/ale', {
-    config = function()
-      vim.g.ale_disable_lsp = true
-      vim.g.ale_set_loclist = true
-      vim.g.ale_set_quickfix = false
-    end,
-  })
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'nvim-treesitter/playground'
-
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/nvim-cmp'
+
+  -- specific programming language
+  Plug('bfredl/nvim-luadev', { ft = 'lua' })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'

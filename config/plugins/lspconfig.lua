@@ -5,6 +5,11 @@ local lsp_installer_servers = require('nvim-lsp-installer.servers')
 
 local function nn(...) vim.keymap.set('n', ...) end
 
+-- Mappings.
+nn('<leader>ld', vim.diagnostic.open_float)
+nn('<leader>lq', vim.diagnostic.setloclist)
+nn('<leader>la', vim.lsp.buf.code_action)
+
 local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -13,13 +18,10 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   nn('gD', vim.lsp.buf.declaration)
   nn('gd', vim.lsp.buf.definition)
-  nn('K', vim.lsp.buf.hover)
   nn('gi', vim.lsp.buf.implementation)
   nn('gr', vim.lsp.buf.references)
+  nn('K', vim.lsp.buf.hover)
   nn('<leader>lrn', vim.lsp.buf.rename)
-  nn('<leader>ld', vim.diagnostic.open_float)
-  nn('<leader>lq', vim.diagnostic.setloclist)
-  nn('<leader>la', vim.lsp.buf.code_action)
   vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {
     buffer = bufnr,
   })
@@ -55,14 +57,7 @@ function setupLspServer(lsp)
 end
 u.each(servers, installLspServer)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
- vim.lsp.diagnostic.on_publish_diagnostics, {
-   signs = false,
-   -- Enable virtual text only on Warning or above, override spacing to 2
-   virtual_text = false,
-   underline = true,
- }
-)
+vim.diagnostic.config({ virtual_text = false })
 
 lsp_installer.on_server_ready(function(server)
   local opts = {

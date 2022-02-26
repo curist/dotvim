@@ -54,6 +54,7 @@ nn('<leader>Q', w(fzf.quickfix, {}))
 nn('<leader>gl', fzf.git_bcommits)
 nn('<leader>gL', fzf.git_commits)
 nn('<leader>L', fzf.builtin)
+nn('<leader>R', fzf.resume)
 
 local rg_grep_all = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs'
 nn('<leader>s', fzf.grep_cword)
