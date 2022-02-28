@@ -36,6 +36,12 @@ end)(function(Plug)
   Plug 'williamboman/nvim-lsp-installer'
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
+  Plug('folke/lua-dev.nvim', {
+    ft = 'lua',
+    config = function()
+      require('lua-dev').setup()
+    end,
+  })
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'nvim-treesitter/playground'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -49,7 +55,7 @@ end)(function(Plug)
   Plug('vv9k/bogster', {
     config = function()
       vim.cmd('hi Search guibg=Orange')
-    end
+    end,
   })
 
   -- other handy plugins
