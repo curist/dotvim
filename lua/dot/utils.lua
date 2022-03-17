@@ -1,4 +1,6 @@
 local fs = require 'lib.fs'
+local exec = require 'lib.exec'
+local json = require 'lib.json'
 
 local M = {}
 
@@ -192,6 +194,8 @@ function M.with_file(path, fn)
     return result
   end)
 end
+
+M.curl = M.bind(exec, 'curl', '-L')
 
 --[[ usage
 ok, data = with_file('/tmp/fs.lua', function(fd)
