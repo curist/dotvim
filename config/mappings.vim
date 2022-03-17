@@ -14,6 +14,7 @@ nmap <c-c> <esc>
 imap <c-c> <esc>
 vmap <c-c> <esc>
 smap <c-c> <esc>
+imap <c-l> λ
 
 nn <silent> <leader><leader> :lua require('dot.scripts').altfile()<cr>
 nn <silent> <leader>d <c-w><c-c>
