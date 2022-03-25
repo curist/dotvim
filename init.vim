@@ -56,3 +56,4 @@ set timeoutlen=400
 
 set splitright
 
+set shell=tmux
