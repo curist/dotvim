@@ -19,10 +19,10 @@ augroup MyFileTypeSettings
   autocmd BufRead *.graphql set ft=graphql
 
   " git
-  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+  let $GIT_EDITOR = 'tcommit'
   autocmd FileType git*,diff set bufhidden=delete
 
   " fossil
-  let $VISUAL = 'nvr -cc split --remote-wait'
+  let $VISUAL = 'tcommit'
   autocmd BufRead ci-comment-*.txt set ft=gitcommit
 augroup END
