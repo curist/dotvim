@@ -9,7 +9,7 @@ vim.keymap.set('i', '<c-x><c-o>', function()
   cmp.complete({
     config = {
       sources = {
-        { name = 'nvim_lsp' }
+        { name = 'nvim_lsp' },
       },
     },
   })

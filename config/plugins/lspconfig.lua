@@ -1,4 +1,5 @@
 local u = require('dot.utils')
+local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -37,7 +38,7 @@ end
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'tsserver', 'vuels', 'sumneko_lua' }
+local servers = { 'gopls', 'tsserver', 'denols', 'vuels', 'sumneko_lua', 'hls' }
 local function setupLspServer(lsp)
   local ok, server = lsp_installer_servers.get_server(lsp)
   if not ok then
@@ -81,6 +82,14 @@ lsp_installer.on_server_ready(function(server)
         telemetry = { enable = false },
       },
     }
+  elseif server.name == 'denols' then
+    opts.root_dir = function(fname)
+      return nvim_lsp.util.root_pattern('deno.json')(fname) or
+        nvim_lsp.util.root_pattern('mod.ts')(fname)
+    end
+    opts.init_options = { lint = true }
+  elseif server.name == 'tsserver' then
+    opts.root_dir = nvim_lsp.util.root_pattern('package.json')
   end
 
   server:setup(opts)
