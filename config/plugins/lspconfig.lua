@@ -85,7 +85,8 @@ lsp_installer.on_server_ready(function(server)
   elseif server.name == 'denols' then
     opts.root_dir = function(fname)
       return nvim_lsp.util.root_pattern('deno.json')(fname) or
-        nvim_lsp.util.root_pattern('mod.ts')(fname)
+        nvim_lsp.util.root_pattern('mod.ts')(fname) or
+        nvim_lsp.util.root_pattern('mod.tsx')(fname)
     end
     opts.init_options = { lint = true }
   elseif server.name == 'tsserver' then
