@@ -18,6 +18,7 @@ augroup BehaviourAdjustment
   autocmd BufEnter term://* startinsert
   autocmd BufLeave term://* stopinsert
   autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd TermClose */tmux call feedkeys("i")
 
   autocmd FileType qf 8wincmd_
 augroup END

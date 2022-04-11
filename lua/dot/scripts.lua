@@ -187,26 +187,11 @@ M.openTerm = function(opts)
     vim.cmd('tabnew')
   end
 
-  local inTmux = (function()
-    if cmd == '' then
-      return true
-    end
-    return dot.starts_with(cmd, 'tmux')
-  end)()
-
   if use_cwd then
     vim.cmd('lcd ' .. current_base_path)
   end
 
   vim.cmd('term ' .. cmd)
-
-  if inTmux then
-    vim.api.nvim_create_autocmd('TermClose', {
-      buffer = 0,
-      command = "call feedkeys('i')",
-    })
-  end
-
   vim.cmd('startinsert')
 end
 
