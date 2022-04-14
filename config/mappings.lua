@@ -1,5 +1,3 @@
-vim.g.mapleader = ','
-
 local function nn(...) vim.keymap.set('n', ...) end
 
 local dot = require 'dot.utils'
