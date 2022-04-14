@@ -27,14 +27,22 @@ end)(function(Plug)
   Plug 'ibhagwan/fzf-lua'
   Plug 'phaazon/hop.nvim'
 
+  -- tree-sitter
+  Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  Plug 'nvim-treesitter/playground'
+
   -- git
   Plug 'tpope/vim-fugitive'
   Plug('mhinz/vim-signify', { on = 'SignifyToggle' })
 
-  -- lsp & tree-sitter & completions etc.
+  -- lsp & completions etc.
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
-  Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/nvim-cmp'
+
+  -- specific programming language
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
   Plug('folke/lua-dev.nvim', {
     ft = 'lua',
@@ -42,13 +50,6 @@ end)(function(Plug)
       require('lua-dev').setup()
     end,
   })
-  Plug 'jose-elias-alvarez/null-ls.nvim'
-  Plug 'nvim-treesitter/playground'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/nvim-cmp'
-
-  -- specific programming language
-  Plug('bfredl/nvim-luadev', { ft = 'lua' })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
