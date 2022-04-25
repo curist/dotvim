@@ -25,6 +25,9 @@ augroup MyFileTypeSettings
   " fossil
   let $VISUAL = 'tcommit'
   autocmd BufRead ci-comment-*.txt set ft=gitcommit
+
+  " hcl
+  autocmd BufNew,BufEnter *.nomad set ft=hcl
 augroup END
 
 augroup MyFileTypeMappings
