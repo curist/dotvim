@@ -75,7 +75,7 @@ nn('<leader>p', w(function ()
     fzf_opts = {
       ['--no-multi'] = '',
     },
-  }, ('ls %s'):format(dir))
+  }, ("ls -F %s | grep '/$'"):format(dir))
   if not selected then return end
   local path = dir .. '/' .. selected[1]
   vim.api.nvim_set_current_dir(path)

@@ -81,7 +81,7 @@ function M.cwd_oldfiles(opts)
 
   local cwd = vim.fn.getcwd()
   local function underCwd(s)
-    return filter_filepath(cwd, s)
+    return filter_filepath(cwd .. '/', s)
   end
   local function trimPath(s)
     return s:sub(2 + #cwd)
