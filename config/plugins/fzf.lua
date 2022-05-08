@@ -1,5 +1,4 @@
 local fzf = require 'fzf-lua'
-local dot = require 'dot.utils'
 local scripts = require 'dot.scripts'
 
 local function nn(...) vim.keymap.set('n', ...) end
@@ -30,9 +29,6 @@ fzf.setup {
 }
 
 fzf.register_ui_select()
-
---- simple wrap function, aka bind
-local w = dot.bind
 
 -- coroutine wrap fn, to get 1 less indent level
 local function w(fn, opts)

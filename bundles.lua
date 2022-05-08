@@ -39,17 +39,9 @@ end)(function(Plug)
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'jose-elias-alvarez/null-ls.nvim'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/nvim-cmp'
 
   -- specific programming language
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
-  Plug('folke/lua-dev.nvim', {
-    ft = 'lua',
-    config = function()
-      require('lua-dev').setup()
-    end,
-  })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
@@ -62,5 +54,5 @@ end)(function(Plug)
   -- other handy plugins
   Plug 'tpope/vim-repeat'
   Plug 'vim-test/vim-test'
-  Plug 'github/copilot.vim'
+  -- Plug 'github/copilot.vim'
 end)

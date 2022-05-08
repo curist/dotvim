@@ -2,8 +2,6 @@ local u = require('dot.utils')
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local function nn(...) vim.keymap.set('n', ...) end
 
@@ -55,7 +53,6 @@ vim.diagnostic.config({ virtual_text = false })
 lsp_installer.on_server_ready(function(server)
   local opts = {
     autostart = true,
-    capabilities = capabilities,
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 500,
