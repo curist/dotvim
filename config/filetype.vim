@@ -28,6 +28,9 @@ augroup MyFileTypeSettings
 
   " hcl
   autocmd BufNew,BufEnter *.nomad set ft=hcl
+
+  " zig
+  autocmd FileType zig setlocal ai sw=4 sts=4 et
 augroup END
 
 augroup MyFileTypeMappings
