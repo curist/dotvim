@@ -1,11 +1,11 @@
-local function nn(...) vim.keymap.set('n', ...) end
-local function tn(...) vim.keymap.set('t', ...) end
-
 local dot = require 'dot.utils'
 local dot_scripts = require 'dot.scripts'
 local dot_qf = require 'dot.qf'
 local dot_ts = require 'dot.ts'
 local w = dot.bind -- wrap aka bind
+
+local function nn(...) vim.keymap.set('n', unpack(dot.concat({...}, {{silent = true}}))) end
+local function tn(...) vim.keymap.set('t', unpack(dot.concat({...}, {{silent = true}}))) end
 
 nn('<leader>C', ':cd ~/.config/nvim<cr>:Vaffle<cr>')
 

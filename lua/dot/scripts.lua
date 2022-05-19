@@ -1,7 +1,6 @@
-local dot = require('dot.utils')
-local fzf = require('fzf-lua')
-local core = require('fzf-lua.core')
-local config = require('fzf-lua.config')
+local dot = require 'dot.utils'
+local fzf = require 'fzf-lua'
+local core = require 'fzf-lua.core'
 local split = require 'lib.coro-split'
 local json = require 'lib.json'
 local exec = require 'lib.exec'
@@ -76,6 +75,7 @@ function M.dirs(path)
 end
 
 function M.cwd_oldfiles(opts)
+  local config = require('fzf-lua.config')
   opts = config.normalize_opts(opts, config.globals.oldfiles)
   if not opts then return end
 
@@ -249,6 +249,10 @@ M.hackernews = function()
     local url = 'https://news.ycombinator.com/item?id=' .. id
     vim.fn.execute(('!open "%s"'):format(url))
   end)
+end
+
+M.kill_tmux_sessions = function()
+  vim.fn.execute[[!cat `dirname $NVIM_LISTEN_ADDRESS`/tmux-sessions | xargs -I{} tmux kill-session -t {}]]
 end
 
 return M
