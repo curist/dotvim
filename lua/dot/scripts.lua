@@ -252,7 +252,13 @@ M.hackernews = function()
 end
 
 M.kill_tmux_sessions = function()
-  vim.fn.execute[[!cat `dirname $NVIM_LISTEN_ADDRESS`/tmux-sessions | xargs -I{} tmux kill-session -t {}]]
+  if type(vim.fn.getenv('TMUX')) == 'string' then
+    return
+  end
+  vim.fn.execute(table.concat({
+    '!cat `dirname $NVIM_LISTEN_ADDRESS`/tmux-sessions',
+    'xargs -I{} tmux kill-session -t {}'
+  }, '|'))
 end
 
 return M

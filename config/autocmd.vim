@@ -18,7 +18,7 @@ augroup BehaviourAdjustment
   autocmd BufEnter term://* startinsert
   autocmd BufLeave term://* stopinsert
   autocmd TermOpen * setlocal nonumber norelativenumber
-  autocmd TermClose */tmux-neovim-wrapper call feedkeys("i")
+  autocmd TermClose */tshell call feedkeys("i")
   autocmd VimLeave * lua require'dot.scripts'.kill_tmux_sessions()
 
   autocmd FileType qf 8wincmd_

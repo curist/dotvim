@@ -57,4 +57,4 @@ set timeoutlen=400
 
 set splitright
 
-set shell=tmux-neovim-wrapper
+set shell=tshell
