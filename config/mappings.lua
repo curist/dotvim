@@ -79,5 +79,9 @@ nn('<c-j>', dot_ts.goto_next_top_node)
 nn('<c-k>', dot_ts.goto_prev_top_node)
 
 -- quick notes
-nn('<leader>ww', ':cd $HOME/notes<cr>:e index.md<cr>')
+nn('<leader>ww', function()
+  local year = vim.fn.strftime'%Y'
+  vim.fn.execute('cd $HOME/notes')
+  vim.fn.execute(('e %s-daylog.md'):format(year))
+end)
 
