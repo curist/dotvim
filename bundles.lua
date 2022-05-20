@@ -27,11 +27,9 @@ end)(function(Plug)
 
   -- tree-sitter
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  Plug('nvim-treesitter/playground', { on = 'TSPlaygroundToggle' })
 
   -- git
   Plug 'tpope/vim-fugitive'
-  Plug('mhinz/vim-signify', { on = 'SignifyToggle' })
 
   -- lsp & completions etc.
   Plug 'neovim/nvim-lspconfig'
