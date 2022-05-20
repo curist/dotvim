@@ -12,8 +12,6 @@
   end)
   vim.call('plug#end')
 end)(function(Plug)
-  Plug 'nvim-lua/plenary.nvim'
-
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug('tomtom/tcomment_vim', { on = 'TComment' })
@@ -38,7 +36,6 @@ end)(function(Plug)
   -- lsp & completions etc.
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
-  Plug 'jose-elias-alvarez/null-ls.nvim'
 
   -- specific programming language
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
