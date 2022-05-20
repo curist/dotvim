@@ -39,6 +39,7 @@ end)(function(Plug)
 
   -- specific programming language
   Plug('bfredl/nvim-luadev', { ft = 'lua' })
+  Plug 'ziglang/zig.vim'
 
   -- get fancy
   Plug 'itchyny/lightline.vim'

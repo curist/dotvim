@@ -1,4 +1,5 @@
 local ts_utils = require 'nvim-treesitter.ts_utils'
+local query = vim.treesitter.query;
 local M = {}
 
 function M.run_nearest_zig_test()
@@ -12,7 +13,7 @@ function M.run_nearest_zig_test()
   if not is_test_node(curr_node) then
     return
   end
-  local test_name = ts_utils.get_node_text(curr_node:named_child(0))[1]
+  local test_name = query.get_node_text(curr_node:named_child(0), 0)
   local filename = vim.fn.expand('%:~:.')
   local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache %s'
   vim.fn.execute((base_test_cmd):format(test_name, filename))
