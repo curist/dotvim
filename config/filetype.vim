@@ -19,6 +19,14 @@ augroup MyFileTypeSettings
   let $VISUAL = '~/.config/nvim/bin/tcommit'
   autocmd BufRead ci-comment-*.txt set ft=gitcommit
 
+  " hcl
+  autocmd BufNew,BufEnter *.nomad set ft=hcl
+
+  " zig
+  autocmd FileType zig setlocal ai sw=4 sts=4 et commentstring=//\ %s
+  autocmd FileType zig nn <silent><buffer> <leader>tf <cmd>lua require('dot.ts').run_zig_test()<cr>
+  autocmd FileType zig nn <silent><buffer> <leader>tn <cmd>lua require('dot.ts').run_nearest_zig_test()<cr>
+
 augroup END
 
 
