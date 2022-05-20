@@ -50,6 +50,5 @@ end)(function(Plug)
 
   -- other handy plugins
   Plug 'tpope/vim-repeat'
-  Plug 'vim-test/vim-test'
   -- Plug 'github/copilot.vim'
 end)
