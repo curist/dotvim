@@ -31,8 +31,8 @@ augroup MyFileTypeSettings
 
   " zig
   autocmd FileType zig setlocal ai sw=4 sts=4 et commentstring=//\ %s
-  autocmd FileType zig nn <silent><buffer> <leader>tf <cmd>lua require('dot.ts').run_zig_test()<cr>
-  autocmd FileType zig nn <silent><buffer> <leader>tn <cmd>lua require('dot.ts').run_nearest_zig_test()<cr>
+  autocmd FileType zig nn <silent><buffer> <leader>tf <cmd>lua require('dot.test').run_zig_test()<cr>
+  autocmd FileType zig nn <silent><buffer> <leader>tn <cmd>lua require('dot.test').run_nearest_zig_test()<cr>
 augroup END
 
 augroup MyFileTypeMappings
