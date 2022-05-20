@@ -67,10 +67,11 @@ nn('<leader>p', w(function ()
   local dir = '~/playground'
   local selected = fzf.fzf({
     prompt = dir .. ' ',
+    cwd = dir,
     fzf_opts = {
       ['--no-multi'] = '',
     },
-  }, ("ls -d %s/*/*/ | awk -F/ '{print $5\"/\"$6}'"):format(dir))
+  }, ("ls -d */*/"):format(dir))
   if not selected then return end
   local path = dir .. '/' .. selected[1]
   vim.api.nvim_set_current_dir(path)
