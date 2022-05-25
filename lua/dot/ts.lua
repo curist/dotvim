@@ -1,13 +1,14 @@
 -- treesitter related stuff
 local ts_utils = require 'nvim-treesitter.ts_utils'
-local M = { textobj = {} }
+local M = {}
 
 function M.get_top_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
   local function is_root(node)
     local node_string = tostring(node)
     return node_string == '<node program>' or
-      node_string == '<node source_file>'
+      node_string == '<node source_file>' or
+      node_string == '<node chunk>'
   end
   while node do
     local parent = node:parent()
@@ -77,7 +78,7 @@ local function get_sibling_noncomment_node(node, direction)
     end
   end
   if found_pos < 0 then return nil end
-  local target_index = good_node_indexes[(found_pos + delta + count) % count]
+  local target_index = good_node_indexes[(found_pos + delta + count - 1) % count + 1]
   if not target_index then return nil end
   return parent:named_child(target_index)
 end
@@ -150,37 +151,6 @@ end
 function M.goto_child_node()
   local node = ts_utils.get_node_at_cursor()
   ts_utils.goto_node(node:named_child(0))
-end
-
-local function pos(row, col) return {0, row + 1, col + 1, 0} end
-local function get_node_textobj_range(node)
-  if not node then return 0 end
-  local s_row, s_col, e_row, e_col = ts_utils.get_node_range(node)
-  return {'v', pos(s_row, s_col), pos(e_row, e_col)}
-end
-
-function M.textobj.root_node()
-  local node = M.get_top_node_at_cursor()
-  return get_node_textobj_range(node)
-end
-
-function M.textobj.func()
-  local function is_function(node)
-    return vim.endswith(tostring(node), ' function>') or
-      vim.endswith(tostring(node), ' local_function>') or
-      vim.endswith(tostring(node), ' function_declaration>') or
-      vim.endswith(tostring(node), ' method_declaration>')
-  end
-
-  local node = ts_utils.get_node_at_cursor()
-  while node do
-    if is_function(node) then
-      break
-    end
-    node = node:parent()
-  end
-
-  return get_node_textobj_range(node)
 end
 
 return M
