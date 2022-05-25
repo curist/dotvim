@@ -36,7 +36,7 @@ end
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'tsserver', 'denols', 'sumneko_lua', 'hls' }
+local servers = { 'gopls', 'tsserver', 'denols', 'sumneko_lua', 'hls', 'rust_analyzer' }
 local function setupLspServer(lsp)
   local ok, server = lsp_installer_servers.get_server(lsp)
   if not ok then
