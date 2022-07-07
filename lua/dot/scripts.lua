@@ -144,8 +144,7 @@ function M.cwd_oldfiles(opts)
     cb(nil)
   end
 
-  opts = core.set_header(opts, 2)
-  return core.fzf_files(opts, contents)
+  return core.fzf_exec(contents, opts)
 end
 
 M.closeAllFloatingWindows = function()

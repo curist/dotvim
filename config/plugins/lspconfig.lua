@@ -27,9 +27,9 @@ local on_attach = function(client, bufnr)
   })
 
   -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     nn('<leader>lf', vim.lsp.buf.formatting)
-  elseif client.resolved_capabilities.document_range_formatting then
+  elseif client.server_capabilities.document_range_formatting then
     nn('<leader>lf', vim.lsp.buf.range_formatting)
   end
 end
