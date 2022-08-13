@@ -39,7 +39,7 @@ vim.keymap.set('c', '<c-a>', '<home>')
 vim.keymap.set('i', '<c-e>', '<end>')
 
 -- current date
-vim.keymap.set('i', '<m-d>', w(vim.fn.system, 'date +%Y/%b/%d | xargs echo -n'), { expr = true })
+vim.keymap.set('i', '<m-d>', w(os.date, '%Y/%b/%d'), { expr = true })
 
 -- moving between windows
 nn('<m-j>', '<c-w>j')
