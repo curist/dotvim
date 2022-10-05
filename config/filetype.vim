@@ -39,6 +39,6 @@ augroup MyFileTypeMappings
   " run settings
   autocmd!
   autocmd FileType javascript nn <buffer> <leader>r :w<cr>:!node %<cr>
-  autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno %<cr>
+  autocmd FileType typescript nn <buffer> <leader>r :w<cr>:!deno run %<cr>
   autocmd FileType lua nn <buffer> <leader>r :w<cr>:!lua %<cr>
 augroup END
