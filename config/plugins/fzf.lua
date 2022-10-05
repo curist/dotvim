@@ -65,13 +65,13 @@ nn('<leader>H', fzf.help_tags)
 
 nn('<leader>p', w(function ()
   local dir = '~/playground'
-  local selected = fzf.fzf({
+  local selected = fzf.fzf(("ls -d */*/"):format(dir), {
     prompt = dir .. ' ',
     cwd = dir,
     fzf_opts = {
       ['--no-multi'] = '',
     },
-  }, ("ls -d */*/"):format(dir))
+  })
   if not selected then return end
   local path = dir .. '/' .. selected[1]
   vim.api.nvim_set_current_dir(path)
