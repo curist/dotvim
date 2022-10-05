@@ -65,7 +65,7 @@ nn('<leader>H', fzf.help_tags)
 
 nn('<leader>p', w(function ()
   local dir = '~/playground'
-  local selected = fzf.fzf(("ls -d */*/"):format(dir), {
+  local selected = fzf.fzf('ls -d */*/', {
     prompt = dir .. ' ',
     cwd = dir,
     fzf_opts = {
