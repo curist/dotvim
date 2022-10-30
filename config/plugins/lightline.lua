@@ -1,5 +1,5 @@
 vim.g.lightline = {
-  colorscheme = 'bogster',
+  colorscheme = 'tokyonight',
   mode_map = {
     n = 'N',
     i = 'I',
