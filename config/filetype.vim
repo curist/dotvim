@@ -33,6 +33,10 @@ augroup MyFileTypeSettings
   autocmd FileType zig setlocal ai sw=4 sts=4 et commentstring=//\ %s
   autocmd FileType zig nn <silent><buffer> <leader>tf <cmd>lua require('dot.test').run_zig_test()<cr>
   autocmd FileType zig nn <silent><buffer> <leader>tn <cmd>lua require('dot.test').run_nearest_zig_test()<cr>
+
+  " lx
+  autocmd BufRead *.lx set ft=lx
+  autocmd FileType lx setlocal cindent sw=2 sts=2 et commentstring=//\ %s
 augroup END
 
 augroup MyFileTypeMappings
