@@ -43,9 +43,12 @@ end)(function(Plug)
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
-  Plug 'folke/tokyonight.nvim'
+  Plug('vv9k/bogster', {
+    config = function()
+      vim.cmd('hi Search guibg=Orange')
+    end,
+  })
 
   -- other handy plugins
   Plug 'tpope/vim-repeat'
-  -- Plug 'github/copilot.vim'
 end)

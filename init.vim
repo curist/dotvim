@@ -7,7 +7,7 @@ runtime! bundles.lua
 runtime! config/**/*.vim
 runtime! config/**/*.lua
 
-colorscheme tokyonight-night
+colorscheme bogster
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
