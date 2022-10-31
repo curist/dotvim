@@ -43,11 +43,7 @@ end)(function(Plug)
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
-  Plug('vv9k/bogster', {
-    config = function()
-      vim.cmd('hi Search guibg=Orange')
-    end,
-  })
+  Plug 'curist/bogster'
 
   -- other handy plugins
   Plug 'tpope/vim-repeat'
