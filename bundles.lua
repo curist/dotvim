@@ -28,7 +28,7 @@ end)(function(Plug)
   -- tree-sitter
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug 'nvim-treesitter/playground'
-  Plug('curist/tree-sitter-lx', { rtp = 'vim' })
+  Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
 
   -- git
   Plug 'tpope/vim-fugitive'
