@@ -19,7 +19,7 @@ set expandtab
 set noshowmode
 set nomodeline
 set noruler
-" set cmdheight=0
+set cmdheight=0
 
 set mouse=vn
 set nowrap
