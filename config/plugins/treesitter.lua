@@ -9,6 +9,7 @@ parser_config.lx = {
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
+    "c",
     "css",
     "go",
     "graphql",
