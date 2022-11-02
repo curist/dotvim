@@ -17,7 +17,6 @@ vim.g.lightline = {
   active = {
     left = {
       { 'mode' }, { 'fileencoding' }, { 'filename' },
-      { 'macro' }
     },
     right = {
       { 'lineinfo' }, { 'githead' }, { 'filetype' }, { 'fileformat' },
@@ -37,7 +36,6 @@ vim.g.lightline = {
     inactivefilename = 'LightlineInactiveFilename',
     githead = 'LightlineGitHead',
     filetype = 'LightlineFileType',
-    macro = 'LightlineMacroRecording',
   },
 }
 
@@ -139,13 +137,3 @@ function LightlineFileType()
   return filetype
 end
 bridge 'LightlineFileType'
-
-function LightlineMacroRecording()
-  local recording_register = vim.fn.reg_recording()
-  if recording_register == "" then
-    return ""
-  else
-    return "recording @" .. recording_register
-  end
-end
-bridge 'LightlineMacroRecording'
