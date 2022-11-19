@@ -30,3 +30,4 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require 'lib.ts-fix'
