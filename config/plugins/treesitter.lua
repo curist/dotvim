@@ -28,6 +28,12 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+  indent = {
+    enable = true,
+  },
+  matchup = {
+    enable = true,
+  },
 }
 
 require 'lib.ts-fix'
