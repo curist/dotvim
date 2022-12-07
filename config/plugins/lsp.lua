@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- denols: root patterns deno.json, mod.ts
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'c',
+  pattern = {'c', 'cpp'},
   callback = function()
     vim.lsp.start {
       name = 'clangd',
