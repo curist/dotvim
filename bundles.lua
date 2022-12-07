@@ -34,9 +34,8 @@ end)(function(Plug)
   -- git
   Plug 'tpope/vim-fugitive'
 
-  -- lsp & completions etc.
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
+  -- mason
+  Plug 'williamboman/mason.nvim'
 
   -- specific programming language
   -- Plug('bfredl/nvim-luadev', { ft = 'lua' })
