@@ -1,3 +1,6 @@
+" disable for now
+finish
+
 function! s:vim_lua_mappings()
   nmap <silent><buffer> <leader>ls :Luadev<cr>
   nmap <silent><buffer> <leader>ef :luafile %<cr>
