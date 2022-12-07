@@ -20,16 +20,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-local function reuse_client(client, conf)
-  return client.name == conf.name and (
-    client.config.root_dir == conf.root_dir
-  )
-end
+-- TOOD: setup gopls, tsserver, denols
+-- tsserver: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+-- denols: root patterns deno.json, mod.ts
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'c',
   callback = function()
-    vim.lsp.start({
+    vim.lsp.start {
       name = 'clangd',
       cmd = {'clangd'},
       single_file_support = true,
@@ -41,12 +39,17 @@ vim.api.nvim_create_autocmd('FileType', {
         'compile_flags.txt',
         '.git'
       }, { upward = true })[1]),
-    }, {
-      reuse_client = reuse_client,
-    })
+    }
   end,
 })
--- TOOD: setup gopls, tsserver, denols
--- tsserver: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
--- denols: root patterns deno.json, mod.ts
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lx',
+  callback = function()
+    vim.lsp.start {
+      name = 'lx',
+      cmd = {'lx', 'run', '/tmp/lsp.lx'},
+      root_dir = vim.fn.getcwd(),
+    }
+  end,
+})
