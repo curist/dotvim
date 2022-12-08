@@ -2,6 +2,8 @@ vim.diagnostic.config({ virtual_text = false })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
+    vim.api.nvim_buf_set_option(args.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
     local opts = { buffer = args.buf, silent = true }
     local function nn(lhs, rhs) vim.keymap.set('n', lhs, rhs, opts) end
 
@@ -20,7 +22,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
--- TOOD: setup gopls, tsserver, denols
+-- TOOD: setup tsserver, denols
 -- tsserver: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 -- denols: root patterns deno.json, mod.ts
 
@@ -37,6 +39,21 @@ vim.api.nvim_create_autocmd('FileType', {
         '.clang-format',
         'compile_commands.json',
         'compile_flags.txt',
+        '.git'
+      }, { upward = true })[1]),
+    }
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "go", "gomod", "gowork", "gotmpl" },
+  callback = function()
+    vim.lsp.start {
+      name = 'gopls',
+      cmd = {'gopls'},
+      single_file_support = true,
+      root_dir = vim.fs.dirname(vim.fs.find({
+        'go.mod',
         '.git'
       }, { upward = true })[1]),
     }
