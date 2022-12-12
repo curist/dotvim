@@ -60,13 +60,3 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lx',
-  callback = function()
-    vim.lsp.start {
-      name = 'lx',
-      cmd = {'lx', 'run', '/tmp/lsp.lx'},
-      root_dir = vim.fn.getcwd(),
-    }
-  end,
-})
