@@ -5,6 +5,7 @@ local dot_ts = require 'dot.ts'
 local w = dot.bind -- wrap aka bind
 
 local function nn(...) vim.keymap.set('n', unpack(dot.concat({...}, {{silent = true}}))) end
+local function vn(...) vim.keymap.set('v', unpack(dot.concat({...}, {{silent = true}}))) end
 local function tn(...) vim.keymap.set('t', unpack(dot.concat({...}, {{silent = true}}))) end
 
 nn('<leader>C', ':cd ~/.config/nvim<cr>:Vaffle<cr>')
@@ -32,6 +33,10 @@ nn('<up>', 'gk<c-y>')
 nn('<down>', 'gj<c-e>')
 nn('<left>', 'hzh')
 nn('<right>', 'lzl')
+nn('<s-up>', ":m .-2<cr>==")
+nn('<s-down>', ":m .+1<cr>==")
+vn('<s-up>', ":m '<-2<cr>gv=gv")
+vn('<s-down>', ":m '>+1<cr>gv=gv")
 
 -- Emacs bindings..
 vim.keymap.set('i', '<c-a>', '<c-o>^')
