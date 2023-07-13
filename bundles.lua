@@ -24,7 +24,7 @@ end)(function(Plug)
   Plug 'cocopon/vaffle.vim'
   Plug 'ibhagwan/fzf-lua'
   Plug 'phaazon/hop.nvim'
-  Plug 'andymass/vim-matchup'
+  -- Plug 'andymass/vim-matchup'
 
   -- tree-sitter
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })

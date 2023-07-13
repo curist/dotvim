@@ -31,9 +31,6 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   },
-  matchup = {
-    enable = true,
-  },
 }
 
 require 'lib.ts-fix'
