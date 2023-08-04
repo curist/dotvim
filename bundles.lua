@@ -24,27 +24,16 @@ end)(function(Plug)
   Plug 'cocopon/vaffle.vim'
   Plug 'ibhagwan/fzf-lua'
   Plug 'phaazon/hop.nvim'
-  -- Plug 'andymass/vim-matchup'
 
   -- tree-sitter
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
-  -- Plug 'nvim-treesitter/playground'
-
-  -- git
-  Plug 'tpope/vim-fugitive'
 
   -- mason
   Plug 'williamboman/mason.nvim'
-
-  -- specific programming language
-  -- Plug('bfredl/nvim-luadev', { ft = 'lua' })
-  -- Plug 'ziglang/zig.vim'
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'curist/bogster'
 
-  -- other handy plugins
-  Plug 'tpope/vim-repeat'
 end)

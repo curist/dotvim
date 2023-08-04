@@ -12,14 +12,9 @@ require'nvim-treesitter.configs'.setup {
     "c",
     "css",
     "go",
-    "graphql",
     "javascript",
     "typescript",
-    "hcl",
     "html",
-    "clojure",
-    "fennel",
-    "vue",
     "lua",
     "jsdoc",
     "json",
@@ -33,4 +28,4 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require 'lib.ts-fix'
+require 'dot.ts'.fix_ts()

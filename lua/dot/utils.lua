@@ -1,7 +1,3 @@
-local fs = require 'lib.fs'
-local exec = require 'lib.exec'
-local json = require 'lib.json'
-
 local M = {}
 
 function M.each(coll, cb)
@@ -185,23 +181,5 @@ function M.chars(s)
   end
   return result
 end
-
-function M.with_file(path, fn)
-  return pcall(function()
-    local fd = fs.open(path)
-    local result = fn(fd)
-    fs.close(fd)
-    return result
-  end)
-end
-
-M.curl = M.bind(exec, 'curl', '-L')
-
---[[ usage
-ok, data = with_file('/tmp/fs.lua', function(fd)
-  local content = fs.read(fd)
-  return content
-end)
---]]
 
 return M
