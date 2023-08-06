@@ -17,6 +17,7 @@ end)(function(Plug)
   Plug('tomtom/tcomment_vim', { on = 'TComment' })
   Plug 'cohama/lexima.vim'
   Plug 'curist/highlight.vim'
+  Plug 'tpope/vim-repeat'
 
   -- moving around:
   --   file/buffer switching
