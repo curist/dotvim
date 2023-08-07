@@ -209,10 +209,13 @@ M.kill_tmux_sessions = function()
     return
   end
   local sessionPath = vim.fn.fnamemodify(vim.fn.serverlist()[1], ':h')
-  vim.fn.execute(table.concat({
-    '!cat "' .. sessionPath .. '/tmux-sessions"',
-    'xargs -I{} tmux kill-session -t {}'
-  }, '|'))
+  local sessionFile = sessionPath .. '/tmux-sessions'
+  if vim.fn.filereadable(sessionFile) == 1 then
+    vim.fn.execute(table.concat({
+      '!cat "' .. sessionFile .. '"',
+      'xargs -I{} tmux kill-session -t {}'
+    }, '|'))
+  end
 end
 
 return M
