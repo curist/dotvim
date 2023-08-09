@@ -30,6 +30,9 @@ end)(function(Plug)
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
 
+  -- git
+  Plug 'tpope/vim-fugitive'
+
   -- mason
   Plug 'williamboman/mason.nvim'
 

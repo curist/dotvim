@@ -19,7 +19,7 @@ vim.g.lightline = {
       { 'mode' }, { 'fileencoding' }, { 'filename' },
     },
     right = {
-      { 'lineinfo' }, { 'filetype' }, { 'fileformat' },
+      { 'lineinfo' }, { 'githead' }, { 'filetype' }, { 'fileformat' },
     },
   },
   inactive = {
@@ -34,6 +34,7 @@ vim.g.lightline = {
   component_function = {
     filename = 'LightlineFilename',
     inactivefilename = 'LightlineInactiveFilename',
+    githead = 'LightlineGitHead',
     filetype = 'LightlineFileType',
   },
 }
@@ -117,6 +118,16 @@ function LightlineInactiveFilename()
   return smartPath(filename, 0.9) .. Mod()
 end
 bridge 'LightlineInactiveFilename'
+
+function LightlineGitHead()
+  local githead = vim.fn['fugitive#Head'](6)
+  if #githead < 20 then
+    return githead
+  end
+  -- trim githead if it's too long
+  return githead:sub(1, 18) .. '…'
+end
+bridge 'LightlineGitHead'
 
 function LightlineFileType()
   if vim.bo.buftype == 'terminal' then
