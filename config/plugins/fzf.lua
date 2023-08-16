@@ -59,8 +59,8 @@ nn('<leader>S', fzf.live_grep)
 nn('<leader>z', w(fzf.grep_cword, { cmd = rg_grep_all }))
 vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }))
 nn('<leader>Z', w(fzf.live_grep, { cmd = rg_grep_all }))
-nn('<leader>x', function() scripts.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
-nn('<leader>X', scripts.grep_curbuf)
+nn('<leader>x', function() fzf.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
+nn('<leader>X', fzf.grep_curbuf)
 nn('<leader>H', fzf.help_tags)
 
 nn('<leader>p', w(function ()
@@ -73,7 +73,7 @@ nn('<leader>p', w(function ()
     },
   })
   if not selected then return end
-  local path = dir .. '/' .. selected[1]
+  local path = dir .. '/' .. selected[2]
   vim.api.nvim_set_current_dir(path)
   vim.fn.execute('Vaffle')
 end))
