@@ -5,10 +5,10 @@ vim.g.lightline = {
     i = 'I',
     R = 'R',
     v = 'V',
-    V = 'VL',
+    V = 'V',
     c = 'C',
     t = 'T',
-    [''] = 'VB',
+    [''] = 'V',
   },
   tab = {
     active = { 'filename' },
