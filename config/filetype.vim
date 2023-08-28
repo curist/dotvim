@@ -12,11 +12,11 @@ augroup MyFileTypeSettings
   autocmd FileType go setlocal noexpandtab sw=0 tabstop=4 listchars=tab:\ \ 
 
   " git
-  let $GIT_EDITOR = 'tcommit'
+  let $GIT_EDITOR = '~/.config/nvim/bin/tcommit'
   autocmd FileType git*,diff set bufhidden=delete
 
   " fossil
-  let $VISUAL = 'tcommit'
+  let $VISUAL = '~/.config/nvim/bin/tcommit'
   autocmd BufRead ci-comment-*.txt set ft=gitcommit
 
 augroup END

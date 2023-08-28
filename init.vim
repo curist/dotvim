@@ -57,4 +57,4 @@ set timeoutlen=400
 
 set splitright
 
-set shell=~/.config/nvim/tshell
+set shell=~/.config/nvim/bin/tshell

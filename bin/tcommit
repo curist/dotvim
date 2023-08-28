@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SESSION=$(echo $RANDOM | md5)
+tmux split-window -b "nvim $1 ; tmux wait -S $SESSION"
+tmux wait $SESSION
