@@ -40,7 +40,7 @@ end
 
 nn('<leader>f', fzf.files)
 nn('<leader>F', w(fzf.files, {cmd='rg --files --hidden --no-ignore-vcs'}))
-nn('<leader>b', fzf.buffers)
+nn('<leader>b', w(fzf.buffers, { no_term_buffers = true }))
 nn('<leader>m', w(scripts.cwd_oldfiles, { prompt = 'LHist> ', fzf_opts = {['--no-sort']=''} }))
 nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ', fzf_opts = {['--no-sort']=''} }))
 nn('<leader>c', fzf.commands)
