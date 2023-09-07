@@ -107,15 +107,10 @@ function M.cwd_oldfiles(opts)
   dot.each(vim.v.oldfiles, function(file)
     if file_set[file] then return end
     if not underCwd(file) then return end
-    if not vim.loop.fs_stat(file) then
-      return
-    end
-    if file == current_file then
-      return
-    end
-    if vim.fn.isdirectory(file) == 1 then
-      return
-    end
+    if not vim.loop.fs_stat(file) then return end
+    if file == current_file then return end
+    if vim.fn.isdirectory(file) == 1 then return end
+
     append_result(file)
   end)
 

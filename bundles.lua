@@ -25,6 +25,11 @@ end)(function(Plug)
   Plug 'cocopon/vaffle.vim'
   Plug 'ibhagwan/fzf-lua'
   Plug 'phaazon/hop.nvim'
+  Plug('andymass/vim-matchup', {
+    config = function()
+      vim.g.matchup_matchparen_offscreen = {}
+    end,
+  })
 
   -- tree-sitter
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })

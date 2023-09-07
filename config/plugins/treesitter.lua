@@ -26,6 +26,10 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   },
+  matchup = {
+    enable = true,
+    disable_virtual_text = true,
+  },
 }
 
 require 'dot.ts'.fix_ts()
