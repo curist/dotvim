@@ -60,3 +60,17 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "zig" },
+  callback = function()
+    vim.lsp.start {
+      name = 'zls',
+      cmd = {'zls'},
+      single_file_support = true,
+      root_dir = vim.fs.dirname(vim.fs.find({
+        'build.zig',
+        '.git'
+      }, { upward = true })[1]),
+    }
+  end,
+})
