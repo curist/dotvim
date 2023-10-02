@@ -56,5 +56,3 @@ set updatetime=350
 set timeoutlen=400
 
 set splitright
-
-set shell=~/.config/nvim/bin/tshell

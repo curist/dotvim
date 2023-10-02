@@ -185,19 +185,5 @@ M.openTerm = function(opts)
   vim.fn.execute(exec_cmd)
 end
 
-M.kill_tmux_sessions = function()
-  if type(vim.fn.getenv('TMUX')) == 'string' then
-    return
-  end
-  local sessionPath = vim.fn.fnamemodify(vim.fn.serverlist()[1], ':h')
-  local sessionFile = sessionPath .. '/tmux-sessions'
-  if vim.fn.filereadable(sessionFile) == 1 then
-    vim.fn.execute(table.concat({
-      '!cat "' .. sessionFile .. '"',
-      'xargs -I{} tmux kill-session -t {}'
-    }, '|'))
-  end
-end
-
 return M
 

@@ -14,14 +14,6 @@ augroup BehaviourAdjustment
   autocmd BufRead quickfix setlocal nobuflisted number nornu
   autocmd BufRead location setlocal nobuflisted number nornu
 
-  " no line numbers for neovim terminal
-  autocmd BufEnter term://* startinsert
-  autocmd BufLeave term://* stopinsert
-  autocmd TermOpen * setlocal nonumber norelativenumber
-  autocmd TermClose */tshell call feedkeys("i")
-  autocmd VimEnter * let $NVIM_=v:servername
-  autocmd VimLeave * lua require'dot.scripts'.kill_tmux_sessions()
-
   autocmd FileType qf 8wincmd_
 augroup END
 
