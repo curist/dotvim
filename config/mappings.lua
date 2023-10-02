@@ -59,16 +59,6 @@ tn('<m-k>', '<c-\\><c-n><c-w>k')
 tn('<m-l>', '<c-\\><c-n><c-w>l')
 tn('<m-h>', '<c-\\><c-n><c-w>h')
 
--- moving between tabs
-nn('<c-pageup>', ':tabp<cr>')
-nn('<c-pagedown>', ':tabn<cr>')
-nn('<c-s-pageup>', ':tabm -1<cr>')
-nn('<c-s-pagedown>', ':tabm +1<cr>')
-tn('<c-pageup>', '<c-\\><c-n>:tabp<cr>')
-tn('<c-pagedown>', '<c-\\><c-n>:tabn<cr>')
-tn('<c-s-pageup>', '<c-\\><c-n>:tabm -1<cr>')
-tn('<c-s-pagedown>', '<c-\\><c-n>:tabm +1<cr>')
-
 -- quickfix quick navigation
 nn('<m-n>', dot_qf.local_list_next)
 nn('<m-p>', dot_qf.local_list_prev)

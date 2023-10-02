@@ -160,22 +160,29 @@ M.openTerm = function(opts)
   if not opts then opts = {} end
 
   local kind = opts.kind or 'tab'
-  local cmd = opts.cmd or ''
+  local cmd = opts.cmd
   local use_cwd = opts.use_cwd or false
   local current_base_path = vim.fn.expand('%:p:h')
 
+  local exec_cmd = '!wezterm cli '
+
   if kind == 'split' then
-    vim.cmd('vnew')
+    exec_cmd = exec_cmd .. 'split-pane --right'
   else
-    vim.cmd('tabnew')
+    exec_cmd = exec_cmd .. 'spawn'
   end
 
-  if use_cwd then
-    vim.cmd('lcd ' .. current_base_path)
+  if use_cwd and not dot.starts_with(current_base_path, 'vaffle') then
+    exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
+  else
+    exec_cmd = exec_cmd .. ' --cwd "' .. vim.fn.getcwd() .. '"'
   end
 
-  vim.cmd('term ' .. cmd)
-  vim.cmd('startinsert')
+  if cmd and cmd ~= '' then
+    exec_cmd = exec_cmd .. ' -- sh -c "' .. cmd .. '; read"'
+  end
+
+  vim.fn.execute(exec_cmd)
 end
 
 M.kill_tmux_sessions = function()
