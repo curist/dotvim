@@ -45,4 +45,7 @@ end)(function(Plug)
   Plug 'itchyny/lightline.vim'
   Plug 'curist/bogster'
 
+  -- wezterm
+  Plug 'mrjones2014/smart-splits.nvim'
+
 end)

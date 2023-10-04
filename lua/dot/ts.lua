@@ -408,13 +408,14 @@ function M.run_nearest_zig_test()
   local buf = vim.api.nvim_get_current_buf()
   local test_name = vim.treesitter.get_node_text(curr_node:named_child(0), buf)
   local filename = vim.fn.expand('%:~:.')
-  local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache %s'
+  local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache "%s"'
+  print((base_test_cmd):format(test_name, filename))
   vim.fn.execute((base_test_cmd):format(test_name, filename))
 end
 
 function M.run_zig_test()
   local filename = vim.fn.expand('%:~:.')
-  local base_test_cmd = 'VT zig test --cache-dir zig-cache %s'
+  local base_test_cmd = 'VT zig test --cache-dir zig-cache "%s"'
   vim.fn.execute((base_test_cmd):format(filename))
 end
 

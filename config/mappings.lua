@@ -47,10 +47,17 @@ vim.keymap.set('i', '<c-e>', '<end>')
 vim.keymap.set('i', '<m-d>', w(os.date, '%Y/%b/%d'), { expr = true })
 
 -- moving between windows
-nn('<m-j>', '<c-w>j')
-nn('<m-k>', '<c-w>k')
-nn('<m-h>', '<c-w>h')
-nn('<m-l>', '<c-w>l')
+do
+  local ss = require 'smart-splits'
+  ss.setup({
+    at_edge = 'stop',
+  })
+
+  nn('<m-j>', ss.move_cursor_down)
+  nn('<m-k>', ss.move_cursor_up)
+  nn('<m-h>', ss.move_cursor_left)
+  nn('<m-l>', ss.move_cursor_right)
+end
 
 -- neovim term bindings
 tn('<esc><esc>', '<c-\\><c-n>')
