@@ -179,7 +179,7 @@ M.openTerm = function(opts)
   end
 
   if cmd and cmd ~= '' then
-    exec_cmd = exec_cmd .. ' -- ' .. cmd
+    exec_cmd = exec_cmd .. ' -- petc ' .. cmd
     -- exec_cmd = exec_cmd .. ' -- sh -c "' .. cmd .. '; read"'
   end
 
