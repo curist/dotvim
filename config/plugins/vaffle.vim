@@ -14,6 +14,7 @@ nnoremap <silent> <leader>V :call SmartVaffle()<cr>
 
 function! s:customize_vaffle_mappings() abort
   nmap <silent> <buffer> C :call vaffle#chdir_here()<cr>:pwd<cr>
+  nmap <buffer> <silent> <c-v> :<c-u>call vaffle#fill_cmdline()<bar>call feedkeys("VT wezterm imgcat\r")<cr>
 endfunction
 
 augroup vimrc_vaffle
