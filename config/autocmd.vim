@@ -26,5 +26,5 @@ augroup END
 let &titlestring=getcwd()
 augroup dirchange
   autocmd!
-  autocmd DirChanged * let &titlestring=v:event['cwd']
+  autocmd DirChanged * let &titlestring=fnamemodify(v:event['cwd'], ':~')
 augroup END
