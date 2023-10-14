@@ -394,24 +394,39 @@ function M.fix_ts()
   set_default_hlgroups()
 end
 
-function M.run_nearest_zig_test()
-  local curr_node = ts_utils.get_node_at_cursor()
-  local function is_test_node(node)
-    return tostring(node) == '<node TestDecl>'
+do
+  local last_test_filename = nil
+  local last_test_filter = nil
+
+  function M.run_last_zig_test()
+    if not last_test_filter or not last_test_filename then
+      return
+    end
+    local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache "%s"'
+    vim.fn.execute((base_test_cmd):format(last_test_filter, last_test_filename ))
   end
-  while curr_node and not is_test_node(curr_node) do
-    curr_node = curr_node:parent()
+
+  function M.run_nearest_zig_test()
+    local curr_node = ts_utils.get_node_at_cursor()
+    local function is_test_node(node)
+      return tostring(node) == '<node TestDecl>'
+    end
+    while curr_node and not is_test_node(curr_node) do
+      curr_node = curr_node:parent()
+    end
+    if not is_test_node(curr_node) then
+      return
+    end
+    local buf = vim.api.nvim_get_current_buf()
+    local test_name = vim.treesitter.get_node_text(curr_node:named_child(0), buf)
+    local filename = vim.fn.expand('%:~:.')
+    local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache "%s"'
+    last_test_filter = test_name
+    last_test_filename = filename
+    vim.fn.execute((base_test_cmd):format(test_name, filename))
   end
-  if not is_test_node(curr_node) then
-    return
-  end
-  local buf = vim.api.nvim_get_current_buf()
-  local test_name = vim.treesitter.get_node_text(curr_node:named_child(0), buf)
-  local filename = vim.fn.expand('%:~:.')
-  local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache "%s"'
-  print((base_test_cmd):format(test_name, filename))
-  vim.fn.execute((base_test_cmd):format(test_name, filename))
 end
+
 
 function M.run_zig_test()
   local filename = vim.fn.expand('%:~:.')
