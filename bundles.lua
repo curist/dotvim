@@ -44,6 +44,7 @@ end)(function(Plug)
   -- get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'curist/bogster'
+  Plug 'nvim-tree/nvim-web-devicons'
 
   -- wezterm
   Plug 'mrjones2014/smart-splits.nvim'
