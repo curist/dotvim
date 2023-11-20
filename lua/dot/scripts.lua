@@ -53,7 +53,7 @@ function M.altfile()
   local bufs = get_buflisted_sorted()
   local filtered_bufs = dot.filter(bufs, function(bufnr)
     local filename = vim.api.nvim_buf_get_name(bufnr)
-    -- TODO: maybe should also filter out vaffle in the future?
+    -- TODO: maybe should also filter out oil in the future?
     return not dot.starts_with(filename, 'term://')
   end)
   local target_buf = filtered_bufs[2]
@@ -167,12 +167,15 @@ M.openTerm = function(opts)
   local exec_cmd = '!wezterm cli '
 
   if kind == 'split' then
-    exec_cmd = exec_cmd .. 'split-pane --right'
+    exec_cmd = exec_cmd .. 'split-pane --cells 15'
+    -- exec_cmd = exec_cmd .. 'split-pane --right'
+  elseif kind == 'window' then
+    exec_cmd = exec_cmd .. 'spawn --new-window'
   else
     exec_cmd = exec_cmd .. 'spawn'
   end
 
-  if use_cwd and not dot.starts_with(current_base_path, 'vaffle') then
+  if use_cwd and not dot.starts_with(current_base_path, 'oil') then
     exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
   else
     exec_cmd = exec_cmd .. ' --cwd "' .. vim.fn.getcwd() .. '"'

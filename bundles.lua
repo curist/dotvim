@@ -22,7 +22,7 @@ end)(function(Plug)
   -- moving around:
   --   file/buffer switching
   --   in file quick jumps
-  Plug 'cocopon/vaffle.vim'
+  Plug('stevearc/oil.nvim', { config = function() require'oil'.setup() end })
   Plug 'ibhagwan/fzf-lua'
   Plug 'phaazon/hop.nvim'
   Plug('andymass/vim-matchup', {
@@ -47,5 +47,4 @@ end)(function(Plug)
 
   -- wezterm
   Plug 'mrjones2014/smart-splits.nvim'
-
 end)

@@ -72,9 +72,9 @@ nn('<leader>p', w(function ()
       ['--no-multi'] = '',
     },
   })
-  if not selected then return end
+  if not selected or selected[1] == 'esc' then return end
   local path = dir .. '/' .. selected[2]
   vim.api.nvim_set_current_dir(path)
-  vim.fn.execute('Vaffle')
+  vim.fn.execute('Oil')
 end))
 
