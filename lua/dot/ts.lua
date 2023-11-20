@@ -402,8 +402,13 @@ do
     if not last_test_filter or not last_test_filename then
       return
     end
-    local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache "%s"'
-    vim.fn.execute((base_test_cmd):format(last_test_filter, last_test_filename ))
+    local test_cmd = 'zig test --main-mod-path . --test-filter %s --cache-dir /tmp/zig-cache "%s"'
+
+    require('dot.scripts').openTerm({
+      kind = 'tab',
+      cmd = test_cmd:format(last_test_filter, last_test_filename ),
+      use_cwd = false,
+    })
   end
 
   function M.run_nearest_zig_test()
@@ -420,18 +425,28 @@ do
     local buf = vim.api.nvim_get_current_buf()
     local test_name = vim.treesitter.get_node_text(curr_node:named_child(0), buf)
     local filename = vim.fn.expand('%:~:.')
-    local base_test_cmd = 'VT zig test --test-filter %s --cache-dir zig-cache "%s"'
+
+    local test_cmd = 'zig test --main-mod-path . --test-filter %s --cache-dir /tmp/zig-cache "%s"'
     last_test_filter = test_name
     last_test_filename = filename
-    vim.fn.execute((base_test_cmd):format(test_name, filename))
+    require('dot.scripts').openTerm({
+      kind = 'tab',
+      cmd = test_cmd:format(test_name, filename),
+      use_cwd = false,
+    })
   end
 end
 
 
 function M.run_zig_test()
   local filename = vim.fn.expand('%:~:.')
-  local base_test_cmd = 'VT zig test --cache-dir zig-cache "%s"'
-  vim.fn.execute((base_test_cmd):format(filename))
+  local test_cmd = 'zig test --main-mod-path . --cache-dir /tmp/zig-cache "%s"'
+
+  require('dot.scripts').openTerm({
+    kind = 'tab',
+    cmd = test_cmd:format(filename),
+    use_cwd = false,
+  })
 end
 
 return M
