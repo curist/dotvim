@@ -53,8 +53,10 @@ function M.altfile()
   local bufs = get_buflisted_sorted()
   local filtered_bufs = dot.filter(bufs, function(bufnr)
     local filename = vim.api.nvim_buf_get_name(bufnr)
-    -- TODO: maybe should also filter out oil in the future?
-    return not dot.starts_with(filename, 'term://')
+    return not (
+      dot.starts_with(filename, 'term://') or
+      dot.starts_with(filename, 'oil://')
+    )
   end)
   local target_buf = filtered_bufs[2]
   if not target_buf then
