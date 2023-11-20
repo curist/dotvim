@@ -13,7 +13,7 @@ colorscheme bogster
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
 set shada='900
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set expandtab
 set noshowmode
