@@ -8,12 +8,12 @@ local function nn(...) vim.keymap.set('n', unpack(dot.concat({...}, {{silent = t
 local function vn(...) vim.keymap.set('v', unpack(dot.concat({...}, {{silent = true}}))) end
 local function tn(...) vim.keymap.set('t', unpack(dot.concat({...}, {{silent = true}}))) end
 
-nn('<leader>C', ':cd ~/.config/nvim<cr>:Oil<cr>')
+nn('<leader>C', ':cd ~/.config/nvim<cr>:Oil .<cr>')
 
 nn('<leader>h', dot_scripts.clear_all)
 nn('<leader>q', dot_qf.toggle_list)
 
-nn('<leader>o', ':Oil<cr>')
+nn('<leader>.', ':Oil<cr>')
 
 -- Visually select the text that was last edited/pasted
 nn('gV', '`[v`]')

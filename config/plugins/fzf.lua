@@ -75,6 +75,6 @@ nn('<leader>p', w(function ()
   if not selected or selected[1] == 'esc' then return end
   local path = dir .. '/' .. selected[2]
   vim.api.nvim_set_current_dir(path)
-  vim.fn.execute('Oil')
+  vim.fn.execute('Oil .')
 end))
 
