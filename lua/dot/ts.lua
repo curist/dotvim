@@ -5,10 +5,7 @@ local M = {}
 function M.get_top_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
   local function is_root(node)
-    local node_string = tostring(node)
-    return node_string == '<node program>' or
-      node_string == '<node source_file>' or
-      node_string == '<node chunk>'
+    return not node:parent()
   end
   while node do
     local parent = node:parent()
