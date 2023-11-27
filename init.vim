@@ -2,6 +2,7 @@ set fileencoding=utf-8
 set termguicolors
 
 let mapleader=','
+let maplocalleader=','
 
 runtime! bundles.lua
 runtime! config/**/*.vim
