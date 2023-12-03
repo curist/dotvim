@@ -169,8 +169,8 @@ M.openTerm = function(opts)
   local exec_cmd = '!wezterm cli '
 
   if kind == 'split' then
-    exec_cmd = exec_cmd .. 'split-pane --cells 15'
-    -- exec_cmd = exec_cmd .. 'split-pane --right'
+    -- exec_cmd = exec_cmd .. 'split-pane --cells 15'
+    exec_cmd = exec_cmd .. 'split-pane --right'
   elseif kind == 'window' then
     exec_cmd = exec_cmd .. 'spawn --new-window'
   else
