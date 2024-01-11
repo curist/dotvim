@@ -23,7 +23,7 @@ nn('<space>', 'za')
 vim.keymap.set({'n', 'i', 'v', 's'}, '<c-c>', '<esc>')
 vim.keymap.set('i', '<c-l>', 'λ')
 
-nn('<leader><leader>', dot_scripts.altfile)
+nn('<leader><leader>', '<c-^>')
 nn('<leader>d', '<c-w><c-c>')
 
 -- Keep the cursor in place while joining lines

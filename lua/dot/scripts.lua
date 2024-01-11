@@ -49,22 +49,6 @@ local function get_buflisted_sorted()
   return sorted_bufnrs
 end
 
-function M.altfile()
-  local bufs = get_buflisted_sorted()
-  local filtered_bufs = dot.filter(bufs, function(bufnr)
-    local filename = vim.api.nvim_buf_get_name(bufnr)
-    return not (
-      dot.starts_with(filename, 'term://') or
-      dot.starts_with(filename, 'oil://')
-    )
-  end)
-  local target_buf = filtered_bufs[2]
-  if not target_buf then
-    return
-  end
-  vim.api.nvim_set_current_buf(target_buf)
-end
-
 function M.cwd_oldfiles(opts)
   local config = require('fzf-lua.config')
   opts = config.normalize_opts(opts, config.globals.oldfiles)
