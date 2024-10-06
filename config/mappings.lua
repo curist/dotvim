@@ -14,6 +14,7 @@ nn('<leader>h', dot_scripts.clear_all)
 nn('<leader>q', dot_qf.toggle_list)
 
 nn('<leader>.', ':Oil<cr>')
+nn('<>', ':Oil .<cr>')
 
 -- Visually select the text that was last edited/pasted
 nn('gV', '`[v`]')

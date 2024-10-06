@@ -161,8 +161,12 @@ M.openTerm = function(opts)
     exec_cmd = exec_cmd .. 'spawn'
   end
 
-  if use_cwd and not dot.starts_with(current_base_path, 'oil') then
-    exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
+  if use_cwd then
+    if dot.starts_with(current_base_path, 'oil') then
+      exec_cmd = exec_cmd .. ' --cwd "' .. require'oil'.get_current_dir() .. '"'
+    else
+      exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
+    end
   else
     exec_cmd = exec_cmd .. ' --cwd "' .. vim.fn.getcwd() .. '"'
   end
