@@ -399,7 +399,7 @@ do
     if not last_test_filter or not last_test_filename then
       return
     end
-    local test_cmd = 'zig build test -Dtest-filter="%s"'
+    local test_cmd = 'zig build test -Dtest-filter=%s'
 
     require('dot.scripts').openTerm({
       kind = 'tab',
@@ -423,7 +423,7 @@ do
     local test_name = vim.treesitter.get_node_text(curr_node:named_child(0), buf)
     local filename = vim.fn.expand('%:~:.')
 
-    local test_cmd = 'zig build test -Dtest-filter="%s"'
+    local test_cmd = 'zig build test -Dtest-filter=%s'
     last_test_filter = test_name
     last_test_filename = filename
     require('dot.scripts').openTerm({
