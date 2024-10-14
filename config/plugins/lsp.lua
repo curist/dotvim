@@ -22,9 +22,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
--- TOOD: setup tsserver, denols
--- tsserver: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
--- denols: root patterns deno.json, mod.ts
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {'typescript'},
+  callback = function()
+    vim.lsp.start {
+      name = 'denols',
+      cmd = {'deno', 'lsp'},
+      single_file_support = true,
+      root_dir = vim.fs.dirname(vim.fs.find({
+        'deno.json',
+        '.git'
+      }, { upward = true })[1]),
+    }
+  end,
+})
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {'c', 'cpp'},
