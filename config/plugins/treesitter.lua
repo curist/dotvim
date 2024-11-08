@@ -7,6 +7,14 @@ parser_config.lx = {
   },
 }
 
+-- parser_config.moonbit = {
+--   install_info = {
+--     url = "~/git/tree-sitter-moonbit",
+--     files = {"src/parser.c"},
+--     branch = "main",
+--   },
+-- }
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "c",
@@ -19,6 +27,7 @@ require'nvim-treesitter.configs'.setup {
     "jsdoc",
     "json",
     "lx",
+    "moonbit"
   },
   highlight = {
     enable = true,

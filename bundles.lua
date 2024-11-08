@@ -35,15 +35,38 @@ end)(function(Plug)
   Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
 
+  -- neotest
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'antoinemadec/FixCursorHold.nvim'
+  Plug 'nvim-neotest/nvim-nio'
+  Plug('nvim-neotest/neotest', {
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-moonbit"),
+        },
+      })
+    end
+  })
+
   -- git
   Plug 'tpope/vim-fugitive'
 
   -- mason
   Plug 'williamboman/mason.nvim'
+  Plug('moonbit-community/moonbit.nvim', {
+    config = function()
+      require'moonbit'.setup({
+        treesitter = { enabled = true },
+      })
+    end
+  })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
   Plug 'curist/bogster'
+  -- Plug("catppuccin/vim", { as= 'catppuccin' })
+
   Plug 'nvim-tree/nvim-web-devicons'
 
   -- wezterm

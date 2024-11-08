@@ -6,7 +6,7 @@ local function vn(...) vim.keymap.set('v', ...) end
 
 fzf.setup {
   winopts = {
-    height = 0.45,
+    height = 0.60,
     row = 0.99,
     border = 'single',
     preview = {
@@ -65,16 +65,18 @@ nn('<leader>H', fzf.help_tags)
 
 nn('<leader>p', w(function ()
   local dir = '~/playground'
-  local selected = fzf.fzf('ls -d */*/', {
+  local selected = fzf.fzf_exec('ls -d */*/', {
     prompt = dir .. ' ',
     cwd = dir,
     fzf_opts = {
       ['--no-multi'] = '',
     },
+    complete = function(selected)
+      if not selected or selected[1] == 'esc' then return end
+      local path = dir .. '/' .. selected[1]
+      vim.api.nvim_set_current_dir(path)
+      vim.fn.execute('Oil .')
+    end
   })
-  if not selected or selected[1] == 'esc' then return end
-  local path = dir .. '/' .. selected[2]
-  vim.api.nvim_set_current_dir(path)
-  vim.fn.execute('Oil .')
 end))
 

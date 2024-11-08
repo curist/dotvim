@@ -84,7 +84,7 @@ function M.cwd_oldfiles(opts)
     end
     if bufnr == current_buffer then
       local path = underCwd(file) and trimPath(file) or file
-      opts.fzf_opts['--header'] = vim.fn.shellescape(path)
+      opts.fzf_opts['--header'] = path
       return
     end
     append_result(file)

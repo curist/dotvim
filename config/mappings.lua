@@ -10,7 +10,7 @@ local function tn(...) vim.keymap.set('t', unpack(dot.concat({...}, {{silent = t
 
 nn('<leader>C', ':cd ~/.config/nvim<cr>:Oil .<cr>')
 
-nn('<leader>h', dot_scripts.clear_all)
+nn('<c-c>', dot_scripts.clear_all)
 nn('<leader>q', dot_qf.toggle_list)
 
 nn('<leader>.', ':Oil<cr>')
@@ -21,7 +21,7 @@ nn('gV', '`[v`]')
 
 -- other sweet mappings
 nn('<space>', 'za')
-vim.keymap.set({'n', 'i', 'v', 's'}, '<c-c>', '<esc>')
+vim.keymap.set({'i', 'v', 's'}, '<c-c>', '<esc>')
 vim.keymap.set('i', '<c-l>', 'λ')
 
 nn('<leader><leader>', '<c-^>')

@@ -19,7 +19,8 @@ set shiftwidth=2
 set expandtab
 set noshowmode
 set noruler
-" set cmdheight=0
+set cmdheight=0
+set laststatus=3
 
 set mouse=vn
 set nowrap
