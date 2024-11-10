@@ -1,8 +1,8 @@
 set fileencoding=utf-8
 set termguicolors
 
-let mapleader=','
-let maplocalleader=','
+let mapleader=' '
+let maplocalleader=' '
 
 runtime! bundles.lua
 runtime! config/**/*.vim
@@ -19,7 +19,7 @@ set shiftwidth=2
 set expandtab
 set noshowmode
 set noruler
-set cmdheight=0
+set cmdheight=1
 set laststatus=3
 
 set mouse=vn

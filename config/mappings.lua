@@ -13,18 +13,17 @@ nn('<leader>C', ':cd ~/.config/nvim<cr>:Oil .<cr>')
 nn('<c-c>', dot_scripts.clear_all)
 nn('<leader>q', dot_qf.toggle_list)
 
-nn('<leader>.', ':Oil<cr>')
-nn('<>', ':Oil .<cr>')
+nn('<leader>e', ':Oil<cr>')
+nn('<leader>E', ':Oil .<cr>')
 
 -- Visually select the text that was last edited/pasted
 nn('gV', '`[v`]')
 
 -- other sweet mappings
-nn('<space>', 'za')
 vim.keymap.set({'i', 'v', 's'}, '<c-c>', '<esc>')
 vim.keymap.set('i', '<c-l>', 'λ')
 
-nn('<leader><leader>', '<c-^>')
+nn('<leader>`', '<c-^>')
 nn('<leader>d', '<c-w><c-c>')
 
 -- Keep the cursor in place while joining lines
@@ -45,6 +44,8 @@ vn('<s-down>', ":m '>+1<cr>gv=gv")
 vim.keymap.set('i', '<c-a>', '<c-o>^')
 vim.keymap.set('c', '<c-a>', '<home>')
 vim.keymap.set('i', '<c-e>', '<end>')
+
+nn('<leader>I', '<cmd>InspectTree<cr>')
 
 -- current date
 vim.keymap.set('i', '<m-d>', w(os.date, '%Y/%b/%d'), { expr = true })

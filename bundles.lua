@@ -51,8 +51,17 @@ end)(function(Plug)
 
   -- git
   Plug 'tpope/vim-fugitive'
+  Plug 'kdheepak/lazygit.nvim'
 
-  -- mason
+  -- get fancy
+  Plug 'itchyny/lightline.vim'
+  Plug 'curist/bogster'
+  Plug 'nvim-tree/nvim-web-devicons'
+
+  -- wezterm
+  Plug 'mrjones2014/smart-splits.nvim'
+
+  -- things
   Plug 'williamboman/mason.nvim'
   Plug('moonbit-community/moonbit.nvim', {
     config = function()
@@ -62,13 +71,4 @@ end)(function(Plug)
     end
   })
 
-  -- get fancy
-  Plug 'itchyny/lightline.vim'
-  Plug 'curist/bogster'
-  -- Plug("catppuccin/vim", { as= 'catppuccin' })
-
-  Plug 'nvim-tree/nvim-web-devicons'
-
-  -- wezterm
-  Plug 'mrjones2014/smart-splits.nvim'
 end)

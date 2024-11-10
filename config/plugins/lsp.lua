@@ -1,10 +1,10 @@
 vim.diagnostic.config({ virtual_text = false })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    vim.api.nvim_buf_set_option(args.buf, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  callback = function(event)
+    vim.api.nvim_buf_set_option(event.buf, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    local opts = { buffer = args.buf, silent = true }
+    local opts = { buffer = event.buf, silent = true }
     local function nn(lhs, rhs)
       vim.keymap.set("n", lhs, rhs, opts)
     end
@@ -21,6 +21,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nn("K", vim.lsp.buf.hover)
     nn("<leader>lrn", vim.lsp.buf.rename)
     vim.keymap.set("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+      nn('<leader>lh', function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+      end, 'Toggle inlay hints')
+    end
   end,
 })
 

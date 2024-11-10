@@ -1,8 +1,14 @@
 local fzf = require 'fzf-lua'
+local config = require("fzf-lua.config")
+local actions = require("fzf-lua.actions")
 local scripts = require 'dot.scripts'
 
 local function nn(...) vim.keymap.set('n', ...) end
 local function vn(...) vim.keymap.set('v', ...) end
+
+config.defaults.keymap.fzf["ctrl-u"] = "half-page-up"
+config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
+config.defaults.keymap.fzf["ctrl-x"] = "jump"
 
 fzf.setup {
   winopts = {
@@ -38,12 +44,20 @@ local function w(fn, opts)
   end
 end
 
-nn('<leader>f', fzf.files)
-nn('<leader>F', w(fzf.files, {cmd='rg --files --hidden --no-ignore-vcs'}))
-nn('<leader>b', w(fzf.buffers, { no_term_buffers = true }))
+nn('<leader> ', fzf.files)
+nn('<leader>,', w(fzf.buffers, { no_term_buffers = true }))
 nn('<leader>m', w(scripts.cwd_oldfiles, { prompt = 'LHist> ', fzf_opts = {['--no-sort']=''} }))
 nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ', fzf_opts = {['--no-sort']=''} }))
-nn('<leader>c', fzf.commands)
+nn('<leader>c', function()
+  require("fzf-lua").commands({
+    include_builtin = false,
+    actions = {
+      ["default"] = function(selected)
+        vim.cmd(selected[1])
+      end,
+    },
+  })
+end)
 nn('<leader>/', fzf.search_history)
 nn('<leader>:', fzf.command_history)
 nn('<leader>Q', w(fzf.quickfix, {}))
