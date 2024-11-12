@@ -32,7 +32,22 @@ end)(function(Plug)
   })
 
   -- tree-sitter
-  Plug('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  Plug('nvim-treesitter/nvim-treesitter', {
+    run = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<s-cr>",
+            node_incremental = "+",
+            node_decremental = "-",
+            scope_incremental = false,
+          },
+        },
+      })
+    end,
+  })
   Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
 
   -- neotest
@@ -55,7 +70,22 @@ end)(function(Plug)
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
-  Plug 'curist/bogster'
+  Plug('catppuccin/nvim', {
+    as = 'catppuccin',
+    config = function()
+      require('catppuccin').setup({
+        flavour = 'mocha',
+        no_italic = true,
+        no_bold = true,
+        custom_highlights = function(colors)
+          return {
+            WinSeparator = { fg = colors.overlay0 },
+          }
+        end
+      })
+      vim.cmd.colorscheme 'catppuccin'
+    end
+  })
   Plug 'nvim-tree/nvim-web-devicons'
 
   -- wezterm
@@ -68,7 +98,7 @@ end)(function(Plug)
       require'moonbit'.setup({
         treesitter = { enabled = true },
       })
-    end
+    end,
   })
 
 end)
