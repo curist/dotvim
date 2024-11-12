@@ -24,7 +24,9 @@ vim.keymap.set({'i', 'v', 's'}, '<c-c>', '<esc>')
 vim.keymap.set('i', '<c-l>', 'λ')
 
 nn('<leader>`', '<c-^>')
-nn('<leader>d', '<c-w><c-c>')
+nn('<leader>wd', '<c-w><c-c>')
+nn('<leader>ws', '<c-w>s')
+nn('<leader>wv', '<c-w>v')
 
 -- Keep the cursor in place while joining lines
 nn('J', 'mzJ`z')
