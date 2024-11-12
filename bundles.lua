@@ -39,7 +39,7 @@ end)(function(Plug)
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "<s-cr>",
+            init_selection = "+",
             node_incremental = "+",
             node_decremental = "-",
             scope_incremental = false,
