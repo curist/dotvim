@@ -46,8 +46,9 @@ end)(function(Plug)
       })
     end,
   })
-  Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
+  Plug('curist/tree-sitter-lx', { ft = 'lx', rtp = 'vim', run = ':TSInstall! lx' })
   Plug('moonbit-community/moonbit.nvim', {
+    ft = 'moonbit',
     config = function()
       require'moonbit'.setup({
         treesitter = { enabled = true },
@@ -58,7 +59,6 @@ end)(function(Plug)
 
   -- neotest
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'nvim-neotest/nvim-nio'
   Plug('nvim-neotest/neotest', {
     config = function()
