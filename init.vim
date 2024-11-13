@@ -33,7 +33,7 @@ set guioptions+=a
 
 set wildmode=list:longest,full
 set completeopt=menuone,noselect
-set signcolumn=number
+set signcolumn=yes:1
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×

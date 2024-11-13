@@ -120,7 +120,7 @@ end
 bridge 'LightlineInactiveFilename'
 
 function LightlineGitHead()
-  local githead = vim.fn['fugitive#Head'](6)
+  local githead = vim.g.gitsigns_head or ''
   if #githead < 20 then
     return githead
   end

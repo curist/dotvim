@@ -65,8 +65,11 @@ end)(function(Plug)
   })
 
   -- git
-  Plug 'tpope/vim-fugitive'
-  Plug 'kdheepak/lazygit.nvim'
+  Plug('lewis6991/gitsigns.nvim', {
+    config = function()
+      require('gitsigns').setup({})
+    end,
+  })
 
   -- get fancy
   Plug 'itchyny/lightline.vim'

@@ -147,7 +147,7 @@ M.openTerm = function(opts)
 
   local kind = opts.kind or 'tab'
   local cmd = opts.cmd
-  local use_cwd = opts.use_cwd or false
+  local use_cwd = opts.use_cwd
   local current_base_path = vim.fn.expand('%:p:h')
 
   local exec_cmd = '!wezterm cli '
@@ -172,8 +172,11 @@ M.openTerm = function(opts)
   end
 
   if cmd and cmd ~= '' then
-    exec_cmd = exec_cmd .. ' -- petc ' .. cmd
-    -- exec_cmd = exec_cmd .. ' -- sh -c "' .. cmd .. '; read"'
+    if opts.nowait then
+      exec_cmd = exec_cmd .. ' -- ' .. cmd
+    else
+      exec_cmd = exec_cmd .. ' -- petc ' .. cmd
+    end
   end
 
   vim.fn.execute(exec_cmd)
