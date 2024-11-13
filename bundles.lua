@@ -56,7 +56,6 @@ end)(function(Plug)
     end,
   })
 
-
   -- neotest
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-neotest/nvim-nio'
@@ -95,7 +94,6 @@ end)(function(Plug)
 
   -- things
   Plug 'mrjones2014/smart-splits.nvim' -- wezterm integration
-  Plug 'williamboman/mason.nvim' -- LSP & stuff installer
 
   -- cmp
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -105,6 +103,9 @@ end)(function(Plug)
     config = function()
       local cmp = require'cmp'
       cmp.setup({
+        completion = {
+          -- autocomplete = false,
+        },
         mapping = cmp.mapping.preset.insert({
           ['<c-u>'] = cmp.mapping.scroll_docs(-4),
           ['<c-d>'] = cmp.mapping.scroll_docs(4),
@@ -116,6 +117,17 @@ end)(function(Plug)
           { name = 'nvim_lsp_signature_help' },
           { name = 'buffer' },
         })
+      })
+    end,
+  })
+
+  Plug 'Bilal2453/luvit-meta'
+  Plug('folke/lazydev.nvim', {
+    config = function()
+      require('lazydev').setup({
+        library = {
+          { path = "luvit-meta/library", words = { "vim%.uv" } },
+        },
       })
     end,
   })

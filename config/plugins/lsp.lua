@@ -94,3 +94,24 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua" },
+  callback = function()
+    vim.lsp.start({
+      name = "lua_ls",
+      cmd = { "lua-language-server" },
+      single_file_support = true,
+      root_dir = vim.fs.dirname(vim.fs.find({
+        '.luarc.json',
+        '.luarc.jsonc',
+        '.luacheckrc',
+        '.stylua.toml',
+        'stylua.toml',
+        'selene.toml',
+        'selene.yml',
+        ".git",
+      }, { upward = true })[1]),
+    })
+  end,
+})

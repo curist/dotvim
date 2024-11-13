@@ -1,5 +1,4 @@
 local dot = require 'dot.utils'
-local fzf = require 'fzf-lua'
 local core = require 'fzf-lua.core'
 
 local M = {}
@@ -79,7 +78,7 @@ function M.cwd_oldfiles(opts)
 
   dot.each(get_buflisted_sorted(), function(bufnr)
     local file = vim.api.nvim_buf_get_name(bufnr)
-    if not vim.loop.fs_stat(file) then
+    if not vim.uv.fs_stat(file) then
       return
     end
     if bufnr == current_buffer then
@@ -93,7 +92,7 @@ function M.cwd_oldfiles(opts)
   dot.each(vim.v.oldfiles, function(file)
     if file_set[file] then return end
     if not underCwd(file) then return end
-    if not vim.loop.fs_stat(file) then return end
+    if not vim.uv.fs_stat(file) then return end
     if file == current_file then return end
     if vim.fn.isdirectory(file) == 1 then return end
 

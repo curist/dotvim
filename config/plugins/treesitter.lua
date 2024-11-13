@@ -41,4 +41,3 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require 'dot.ts'.fix_ts()
