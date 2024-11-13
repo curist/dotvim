@@ -63,6 +63,11 @@ do
   nn('<m-k>', ss.move_cursor_up)
   nn('<m-h>', ss.move_cursor_left)
   nn('<m-l>', ss.move_cursor_right)
+
+  nn('<m-H>', ss.resize_left)
+  nn('<m-J>', ss.resize_down)
+  nn('<m-K>', ss.resize_up)
+  nn('<m-L>', ss.resize_right)
 end
 
 -- neovim term bindings
