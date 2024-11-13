@@ -15,7 +15,6 @@ end)(function(Plug)
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
   Plug 'cohama/lexima.vim'
-  Plug 'curist/highlight.vim'
   Plug 'tpope/vim-repeat'
 
   -- moving around:
