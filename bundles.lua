@@ -97,4 +97,26 @@ end)(function(Plug)
   Plug 'mrjones2014/smart-splits.nvim' -- wezterm integration
   Plug 'williamboman/mason.nvim' -- LSP & stuff installer
 
+  -- cmp
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+  Plug('hrsh7th/nvim-cmp', {
+    config = function()
+      local cmp = require'cmp'
+      cmp.setup({
+        mapping = cmp.mapping.preset.insert({
+          ['<c-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<c-d>'] = cmp.mapping.scroll_docs(4),
+          ['<c-e>'] = cmp.mapping.abort(),
+          ['<cr>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
+          { name = 'buffer' },
+        })
+      })
+    end,
+  })
 end)
