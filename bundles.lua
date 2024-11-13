@@ -14,7 +14,6 @@
 end)(function(Plug)
   -- text manipulating helpers
   Plug 'tpope/vim-surround'
-  Plug('tomtom/tcomment_vim', { on = 'TComment' })
   Plug 'cohama/lexima.vim'
   Plug 'curist/highlight.vim'
   Plug 'tpope/vim-repeat'
@@ -31,7 +30,7 @@ end)(function(Plug)
     end,
   })
 
-  -- tree-sitter
+  -- tree-sitter & programming languages
   Plug('nvim-treesitter/nvim-treesitter', {
     run = ':TSUpdate',
     config = function()
@@ -49,6 +48,14 @@ end)(function(Plug)
     end,
   })
   Plug('curist/tree-sitter-lx', { rtp = 'vim', run = ':TSInstall! lx' })
+  Plug('moonbit-community/moonbit.nvim', {
+    config = function()
+      require'moonbit'.setup({
+        treesitter = { enabled = true },
+      })
+    end,
+  })
+
 
   -- neotest
   Plug 'nvim-lua/plenary.nvim'
@@ -65,11 +72,7 @@ end)(function(Plug)
   })
 
   -- git
-  Plug('lewis6991/gitsigns.nvim', {
-    config = function()
-      require('gitsigns').setup({})
-    end,
-  })
+  Plug('lewis6991/gitsigns.nvim')
 
   -- get fancy
   Plug 'itchyny/lightline.vim'
@@ -91,17 +94,8 @@ end)(function(Plug)
   })
   Plug 'nvim-tree/nvim-web-devicons'
 
-  -- wezterm
-  Plug 'mrjones2014/smart-splits.nvim'
-
   -- things
-  Plug 'williamboman/mason.nvim'
-  Plug('moonbit-community/moonbit.nvim', {
-    config = function()
-      require'moonbit'.setup({
-        treesitter = { enabled = true },
-      })
-    end,
-  })
+  Plug 'mrjones2014/smart-splits.nvim' -- wezterm integration
+  Plug 'williamboman/mason.nvim' -- LSP & stuff installer
 
 end)

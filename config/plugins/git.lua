@@ -1,6 +1,8 @@
 local scripts = require('dot.scripts')
 local gitsigns = require('gitsigns')
 
+gitsigns.setup({})
+
 vim.keymap.set('n', '<leader>gg', function()
   scripts.openTerm({ cmd = 'lazygit', nowait = true })
 end, { desc = 'Lazygit' })
