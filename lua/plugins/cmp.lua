@@ -1,9 +1,15 @@
 return {
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
+  { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+  { 'hrsh7th/cmp-buffer', lazy = true },
+  { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = true },
   {
     'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+    },
     opts = function(_, opts)
       local cmp = require'cmp'
       opts.mapping = cmp.mapping.preset.insert({
