@@ -94,7 +94,7 @@ return {
       return ''
     end
 
-    local function LightlineFilename()
+    function LightlineFilename()
       if vim.bo.buftype == 'terminal' then
         local termname = vim.fn.expand('%')
         return termname:sub(8):match('^(.*)//')
@@ -105,7 +105,7 @@ return {
       return msg
     end
 
-    local function LightlineInactiveFilename()
+    function LightlineInactiveFilename()
       if vim.bo.buftype == 'terminal' then
         return 'TERM'
       end
@@ -116,7 +116,7 @@ return {
       return smartPath(filename, 0.9) .. Mod()
     end
 
-    local function LightlineGitHead()
+    function LightlineGitHead()
       local githead = vim.g.gitsigns_head or ''
       if #githead < 20 then
         return githead
@@ -125,7 +125,7 @@ return {
       return githead:sub(1, 18) .. '…'
     end
 
-    local function LightlineFileType()
+    function LightlineFileType()
       if vim.bo.buftype == 'terminal' then
         return 'terminal'
       end
