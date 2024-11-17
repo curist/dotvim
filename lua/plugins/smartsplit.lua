@@ -1,8 +1,6 @@
 return {
   'mrjones2014/smart-splits.nvim',
-  opts = {
-    at_edge = 'stop',
-  },
+  opts = { at_edge = 'stop' },
   keys = function()
     local ss = require('smart-splits')
     local si = function(f)

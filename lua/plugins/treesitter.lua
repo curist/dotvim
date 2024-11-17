@@ -4,6 +4,7 @@ return {
     "moonbit-community/moonbit.nvim",
     "curist/tree-sitter-lx",
   },
+  build = ":TSUpdate",
   opts = {
     ensure_installed = {
       "c",
