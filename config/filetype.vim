@@ -20,6 +20,9 @@ augroup MyFileTypeSettings
   " hcl
   autocmd BufNew,BufEnter *.nomad set ft=hcl
 
+  " lx
+  autocmd BufNew,BufEnter *.lx set ft=lx
+
   " zig
   autocmd FileType zig setlocal ai sw=4 sts=4 et commentstring=//\ %s
   autocmd FileType zig nn <silent><buffer> <leader>tf <cmd>lua require('dot.ts').run_zig_test()<cr>
