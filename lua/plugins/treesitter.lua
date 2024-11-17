@@ -15,15 +15,9 @@ return {
       "lua",
       "jsdoc",
       "json",
-      "lx",
-      "moonbit"
     },
-    highlight = {
-      enable = true,
-    },
-    indent = {
-      enable = true,
-    },
+    highlight = { enable = true },
+    indent = { enable = true },
     matchup = {
       enable = true,
       disable_virtual_text = true,
@@ -38,4 +32,7 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end,
 }

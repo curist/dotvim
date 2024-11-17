@@ -2,13 +2,20 @@ return {
   {
     "moonbit-community/moonbit.nvim",
     ft = "moonbit",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
     opts = {
       treesitter = { enabled = true },
     },
+    build = ":TSInstall! moonbit",
   },
   {
     "curist/tree-sitter-lx",
     build = ":TSInstall! lx",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
     config = function(plugin)
       local plug_dir = plugin.dir .. "/vim"
       vim.opt.rtp:append(plug_dir)

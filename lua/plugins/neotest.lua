@@ -1,5 +1,4 @@
 return {
-  -- XXX: what's the correct way to do this depedencies thing
   'nvim-neotest/nvim-nio',
   'nvim-lua/plenary.nvim',
   {
