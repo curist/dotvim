@@ -1,12 +1,7 @@
 set fileencoding=utf-8
-set termguicolors
 
 let mapleader=' '
 let maplocalleader=' '
-
-runtime! bundles.lua
-runtime! config/**/*.vim
-runtime! config/**/*.lua
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
@@ -56,3 +51,7 @@ set updatetime=350
 set timeoutlen=400
 
 set splitright
+
+runtime lazy.lua
+runtime config/mappings.lua
+runtime! config/**/*.vim

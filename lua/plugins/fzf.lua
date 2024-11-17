@@ -1,0 +1,91 @@
+local scripts = require 'dot.scripts'
+local w = require('dot.utils').bind
+
+local function nn(...) vim.keymap.set('n', ...) end
+local function vn(...) vim.keymap.set('v', ...) end
+
+return {
+  'ibhagwan/fzf-lua',
+  config = function()
+    local fzf = require("fzf-lua")
+    local config = require("fzf-lua.config")
+    config.defaults.keymap.fzf["ctrl-u"] = "half-page-up"
+    config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
+    config.defaults.keymap.fzf["ctrl-x"] = "jump"
+
+    fzf.setup {
+      winopts = {
+        height = 0.60,
+        row = 0.99,
+        border = 'single',
+        preview = {
+          hidden = 'hidden',
+          vertical = 'up:45%'
+        },
+      },
+      winopts_fn = function()
+        return { width = vim.o.columns > 150 and 0.6 or 0.75 }
+      end,
+      files = {
+        multiprocess = false,
+        file_icons = false,
+      },
+      grep = {
+        multiprocess = false,
+        file_icons = false,
+        git_icons = false,
+      },
+    }
+
+    nn('<leader> ', fzf.files)
+    nn('<leader>,', w(fzf.buffers, { no_term_buffers = true }))
+    nn('<leader>m', w(scripts.cwd_oldfiles, { prompt = 'LHist> ', fzf_opts = {['--no-sort']=''} }))
+    nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ', fzf_opts = {['--no-sort']=''} }))
+    nn('<leader>c', function()
+      require("fzf-lua").commands({
+        include_builtin = false,
+        actions = {
+          ["default"] = function(selected)
+            vim.cmd(selected[1])
+          end,
+        },
+      })
+    end)
+    nn('<leader>/', fzf.search_history)
+    nn('<leader>:', fzf.command_history)
+    nn('<leader>Q', w(fzf.quickfix, {}))
+    nn('<leader>gl', fzf.git_bcommits)
+    nn('<leader>gL', fzf.git_commits)
+    nn('<leader>L', fzf.builtin)
+    nn('<leader>R', fzf.resume)
+
+    local rg_grep_all = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs'
+    nn('<leader>s', fzf.grep_cword)
+    vn('<leader>s', fzf.grep_visual)
+    nn('<leader>S', fzf.live_grep)
+    nn('<leader>z', w(fzf.grep_cword, { cmd = rg_grep_all }))
+    vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }))
+    nn('<leader>Z', w(fzf.live_grep, { cmd = rg_grep_all }))
+    nn('<leader>x', function() fzf.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
+    nn('<leader>X', fzf.grep_curbuf)
+    nn('<leader>H', fzf.help_tags)
+
+    nn('<leader>p', w(function ()
+      local dir = '~/playground'
+      fzf.fzf_exec('ls -d */*/', {
+        prompt = dir .. ' ',
+        cwd = dir,
+        fzf_opts = {
+          ['--no-multi'] = '',
+        },
+        complete = function(selected)
+          if not selected or selected[1] == 'esc' then return end
+          local path = dir .. '/' .. selected[1]
+          vim.api.nvim_set_current_dir(path)
+          vim.fn.execute('Oil .')
+        end
+      })
+    end))
+  end,
+}
+

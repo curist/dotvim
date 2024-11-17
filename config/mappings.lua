@@ -6,15 +6,9 @@ local w = dot.bind -- wrap aka bind
 
 local function nn(...) vim.keymap.set('n', unpack(dot.concat({...}, {{silent = true}}))) end
 local function vn(...) vim.keymap.set('v', unpack(dot.concat({...}, {{silent = true}}))) end
-local function tn(...) vim.keymap.set('t', unpack(dot.concat({...}, {{silent = true}}))) end
-
-nn('<leader>C', ':cd ~/.config/nvim<cr>:Oil .<cr>')
 
 nn('<c-c>', dot_scripts.clear_all)
 nn('<leader>q', dot_qf.toggle_list)
-
-nn('<leader>e', ':Oil<cr>')
-nn('<leader>E', ':Oil .<cr>')
 
 -- Visually select the text that was last edited/pasted
 nn('gV', '`[v`]')
@@ -51,31 +45,6 @@ nn('<leader>I', '<cmd>InspectTree<cr>')
 
 -- current date
 vim.keymap.set('i', '<m-d>', w(os.date, '%Y/%b/%d'), { expr = true })
-
--- moving between windows
-do
-  local ss = require 'smart-splits'
-  ss.setup({
-    at_edge = 'stop',
-  })
-
-  nn('<m-j>', ss.move_cursor_down)
-  nn('<m-k>', ss.move_cursor_up)
-  nn('<m-h>', ss.move_cursor_left)
-  nn('<m-l>', ss.move_cursor_right)
-
-  nn('<m-H>', ss.resize_left)
-  nn('<m-J>', ss.resize_down)
-  nn('<m-K>', ss.resize_up)
-  nn('<m-L>', ss.resize_right)
-end
-
--- neovim term bindings
-tn('<esc><esc>', '<c-\\><c-n>')
-tn('<m-j>', '<c-\\><c-n><c-w>j')
-tn('<m-k>', '<c-\\><c-n><c-w>k')
-tn('<m-l>', '<c-\\><c-n><c-w>l')
-tn('<m-h>', '<c-\\><c-n><c-w>h')
 
 -- quickfix quick navigation
 nn('<m-n>', dot_qf.local_list_next)

@@ -15,3 +15,5 @@ end, {
   nargs = '?',
   bang = true,
 })
+
+return {}

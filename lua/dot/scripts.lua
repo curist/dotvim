@@ -1,5 +1,4 @@
 local dot = require 'dot.utils'
-local core = require 'fzf-lua.core'
 
 local M = {}
 
@@ -49,6 +48,7 @@ local function get_buflisted_sorted()
 end
 
 function M.cwd_oldfiles(opts)
+  local core = require 'fzf-lua.core'
   local config = require('fzf-lua.config')
   opts = config.normalize_opts(opts, config.globals.oldfiles)
   if not opts then return end
