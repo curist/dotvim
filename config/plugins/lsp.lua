@@ -115,3 +115,30 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'dart' },
+  callback = function()
+    vim.lsp.start({
+      name = 'dartls',
+      cmd = { 'dart', 'language-server', '--protocol=lsp' },
+      root_dir = vim.fs.dirname(vim.fs.find({
+        'pubspec.yaml',
+        '.git',
+      }, { upward = true })[1]),
+      init_options = {
+        onlyAnalyzeProjectsWithOpenFiles = true,
+        suggestFromUnimportedLibraries = true,
+        closingLabels = true,
+        outline = true,
+        flutterOutline = true,
+      },
+      settings = {
+        dart = {
+          completeFunctionCalls = true,
+          showTodos = true,
+        },
+      },
+    })
+  end,
+})
