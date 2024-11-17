@@ -4,13 +4,30 @@ return {
     keys = 'djkalghwoeirutyvmpsf',
     teasing = false,
   },
-  keys = function()
-    local w = require('dot.utils').bind
-    local hop = require'hop'
-    return {
-      {'s', mode = {'n', 'v'}, w(hop.hint_char2)},
-      {'s<cr>', mode = {'n', 'v'}, w(hop.hint_lines)},
-      {'S', mode = {'n', 'v'}, w(hop.hint_vertical)},
-    }
-  end,
+  keys = {
+    {
+      "s",
+      mode = { "n", "v" },
+      function()
+        local hop = require("hop")
+        hop.hint_char2()
+      end,
+    },
+    {
+      "s<cr>",
+      mode = { "n", "v" },
+      function()
+        local hop = require("hop")
+        hop.hint_lines()
+      end,
+    },
+    {
+      "S",
+      mode = { "n", "v" },
+      function()
+        local hop = require("hop")
+        hop.hint_vertical()
+      end,
+    },
+  },
 }

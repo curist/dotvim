@@ -1,7 +1,6 @@
 local dot = require 'dot.utils'
 local dot_scripts = require 'dot.scripts'
 local dot_qf = require 'dot.qf'
-local dot_ts = require 'dot.ts'
 local w = dot.bind -- wrap aka bind
 
 local function nn(...) vim.keymap.set('n', unpack(dot.concat({...}, {{silent = true}}))) end
@@ -49,16 +48,6 @@ vim.keymap.set('i', '<m-d>', w(os.date, '%Y/%b/%d'), { expr = true })
 -- quickfix quick navigation
 nn('<m-n>', dot_qf.local_list_next)
 nn('<m-p>', dot_qf.local_list_prev)
-
--- treesitter fun
-nn('gs', dot_ts.print_node_at_cursor)
-nn('gt', dot_ts.goto_top_node_at_cursor)
-nn('<c-m-j>', w(dot_ts.swap_top_nodes_at_cursor, 'next'))
-nn('<c-m-k>', w(dot_ts.swap_top_nodes_at_cursor, 'prev'))
-nn('<c-m-l>', w(dot_ts.swap_nodes_at_cursor, 'next'))
-nn('<c-m-h>', w(dot_ts.swap_nodes_at_cursor, 'prev'))
-nn('<c-j>', dot_ts.goto_next_top_node)
-nn('<c-k>', dot_ts.goto_prev_top_node)
 
 -- quick notes
 nn('<leader>ww', function()

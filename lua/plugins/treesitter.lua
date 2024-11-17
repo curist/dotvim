@@ -5,6 +5,7 @@ return {
     "curist/tree-sitter-lx",
   },
   build = ":TSUpdate",
+  event = "BufRead",
   opts = {
     ensure_installed = {
       "c",
@@ -36,4 +37,10 @@ return {
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
   end,
+  keys = {
+    { 'gs', function() require 'dot.ts'.print_node_at_cursor() end },
+    { 'gt', function() require'dot.ts'.goto_top_node_at_cursor() end },
+    { '<c-j>', function() require'dot.ts'.goto_next_top_node() end },
+    { '<c-k>', function() require'dot.ts'.goto_prev_top_node() end },
+  },
 }
