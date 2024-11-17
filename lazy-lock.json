@@ -22,6 +22,7 @@
   "oil.nvim": { "branch": "master", "commit": "8ea40b5506115b6d355e304dd9ee5089f7d78601" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "smart-splits.nvim": { "branch": "master", "commit": "ea4702652cb1d18811d60f2e206787602a2e946c" },
+  "snacks.nvim": { "branch": "main", "commit": "3f24e0a477c98b319f3d59051c12cc38c1dae21f" },
   "tree-sitter-lx": { "branch": "main", "commit": "5f193934c4ea325ad870d77ba1b56ee041fc3198" },
   "vim-matchup": { "branch": "master", "commit": "5fb083de1e06fdd134c6ad8d007d4b5576b25ba7" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },

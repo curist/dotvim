@@ -12,6 +12,7 @@ set shiftwidth=2
 set expandtab
 set noshowmode
 set noruler
+set cmdheight=0
 set laststatus=3
 
 set mouse=vn
@@ -27,7 +28,6 @@ set guioptions+=a
 
 set wildmode=list:longest,full
 set completeopt=menuone,noselect
-set signcolumn=yes:1
 
 set list
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:×
