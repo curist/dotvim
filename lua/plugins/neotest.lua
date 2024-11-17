@@ -3,6 +3,7 @@ return {
   'nvim-lua/plenary.nvim',
   {
     "nvim-neotest/neotest",
+    ft = { "moonbit" },
     depedencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
