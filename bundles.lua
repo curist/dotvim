@@ -91,6 +91,7 @@ end)(function(Plug)
     end
   })
   Plug 'nvim-tree/nvim-web-devicons'
+  Plug('j-hui/fidget.nvim', { config = function() require('fidget').setup({}) end })
 
   -- things
   Plug 'mrjones2014/smart-splits.nvim' -- wezterm integration
