@@ -19,6 +19,7 @@ return {
         },
         right = {
           { 'lineinfo' }, { 'githead' }, { 'filetype' }, { 'fileformat' },
+          { 'macro' },
         },
       },
       inactive = {
@@ -34,6 +35,7 @@ return {
         filename = 'v:lua.LightlineFilename',
         githead = 'v:lua.LightlineGitHead',
         filetype = 'v:lua.LightlineFileType',
+        macro = 'v:lua.LightlineMacro',
       },
     }
 
@@ -110,6 +112,14 @@ return {
       end
       local filetype = vim.bo.filetype
       return filetype
+    end
+
+    function LightlineMacro()
+      local reg = vim.fn.reg_recording()
+      if reg ~= "" then
+        return "@" .. reg
+      end
+      return ""
     end
   end,
 }
