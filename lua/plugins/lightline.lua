@@ -1,6 +1,6 @@
 return {
   'itchyny/lightline.vim',
-  config = function()
+  init = function()
     vim.g.lightline = {
       colorscheme = 'one',
       mode_map = {
@@ -100,9 +100,9 @@ return {
         return termname:sub(8):match('^(.*)//')
       end
       local filename = vim.fn.expand('%:~:.')
-      local msg = smartPath(filename, 0.45) .. Mod()
+      local name = smartPath(filename, 0.45) .. Mod()
       -- vim.api.nvim_echo({{msg, 'comment'}}, false, {})
-      return msg
+      return name
     end
 
     function LightlineInactiveFilename()
