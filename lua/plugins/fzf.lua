@@ -39,10 +39,10 @@ return {
       },
     }
 
-    nn('<leader> ', fzf.files)
-    nn('<leader>,', w(fzf.buffers, { no_term_buffers = true }))
-    nn('<leader>m', w(scripts.cwd_oldfiles, { prompt = 'LHist> ', fzf_opts = {['--no-sort']=''} }))
-    nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ', fzf_opts = {['--no-sort']=''} }))
+    nn('<leader> ', fzf.files, { desc = "Find file" })
+    nn('<leader>,', w(fzf.buffers, { no_term_buffers = true }), { desc = "Buffer list" })
+    nn('<leader>m', w(scripts.cwd_oldfiles, { prompt = 'LHist> ', fzf_opts = {['--no-sort']=''} }), { desc = "Most recent files (cwd)" })
+    nn('<leader>M', w(fzf.oldfiles, { prompt = 'Hist> ', fzf_opts = {['--no-sort']=''} }), { desc = "Most recent files (global)" })
     nn('<leader>c', function()
       require("fzf-lua").commands({
         include_builtin = false,
@@ -52,25 +52,25 @@ return {
           end,
         },
       })
-    end)
-    nn('<leader>/', fzf.search_history)
-    nn('<leader>:', fzf.command_history)
-    nn('<leader>Q', w(fzf.quickfix, {}))
-    nn('<leader>gl', fzf.git_bcommits)
-    nn('<leader>gL', fzf.git_commits)
-    nn('<leader>L', fzf.builtin)
-    nn('<leader>R', fzf.resume)
+    end, { desc = "Commands" })
+    nn('<leader>/', fzf.search_history, { desc = "Search history" })
+    nn('<leader>:', fzf.command_history, { desc = "Command history" })
+    nn('<leader>Q', w(fzf.quickfix, {}), { desc = "Quickfix picker" })
+    nn('<leader>gl', fzf.git_bcommits, { desc = "Buffer git commits" })
+    nn('<leader>gL', fzf.git_commits, { desc = "Git commits" })
+    nn('<leader>L', fzf.builtin, { desc = "Fzf pickers" })
+    nn('<leader>R', fzf.resume, { desc = "Resume fzf picker" })
 
     local rg_grep_all = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --no-ignore-vcs'
-    nn('<leader>s', fzf.grep_cword)
-    vn('<leader>s', fzf.grep_visual)
-    nn('<leader>S', fzf.live_grep)
-    nn('<leader>z', w(fzf.grep_cword, { cmd = rg_grep_all }))
-    vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }))
-    nn('<leader>Z', w(fzf.live_grep, { cmd = rg_grep_all }))
-    nn('<leader>x', function() fzf.grep_curbuf({ search = vim.fn.expand("<cword>") }) end)
-    nn('<leader>X', fzf.grep_curbuf)
-    nn('<leader>H', fzf.help_tags)
+    nn('<leader>s', fzf.grep_cword, { desc = "Search word under cursor" })
+    vn('<leader>s', fzf.grep_visual, { desc = "Search selected word" })
+    nn('<leader>S', fzf.live_grep, { desc = "Live grep search" })
+    nn('<leader>z', w(fzf.grep_cword, { cmd = rg_grep_all }), { desc = "Search word under cursor (all files)" })
+    vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }), { desc = "Search selected word (all files)" })
+    nn('<leader>Z', w(fzf.live_grep, { cmd = rg_grep_all }), { desc = "Live grep search (all files)" })
+    nn('<leader>x', function() fzf.grep_curbuf({ search = vim.fn.expand("<cword>") }) end, { desc = "Search word in buffer" })
+    nn('<leader>X', fzf.grep_curbuf, { desc = "Live grep buffer" })
+    nn('<leader>H', fzf.help_tags, { desc = "Help pages" })
 
     nn('<leader>p', w(function ()
       local dir = '~/playground'
@@ -87,7 +87,7 @@ return {
           vim.fn.execute('Oil .')
         end
       })
-    end))
+    end), { desc = "Projects" })
   end,
 }
 

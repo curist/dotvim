@@ -7,19 +7,18 @@ local function nn(...) vim.keymap.set('n', unpack(dot.concat({...}, {{silent = t
 local function vn(...) vim.keymap.set('v', unpack(dot.concat({...}, {{silent = true}}))) end
 
 nn('<c-c>', dot_scripts.clear_all)
-nn('<leader>q', dot_qf.toggle_list)
+nn('<leader>q', dot_qf.toggle_list, { desc = 'Toggle quickfix' })
 
--- Visually select the text that was last edited/pasted
-nn('gV', '`[v`]')
+nn('gV', '`[v`]', { desc = 'Select last edited/pasted text' })
 
 -- other sweet mappings
 vim.keymap.set({'i', 'v', 's'}, '<c-c>', '<esc>')
 vim.keymap.set('i', '<c-l>', 'λ')
 
-nn('<leader>`', '<c-^>')
-nn('<leader>wd', '<c-w><c-c>')
-nn('<leader>ws', '<c-w>s')
-nn('<leader>wv', '<c-w>v')
+nn('<leader>`', '<c-^>', { desc = 'Previous buffer' })
+nn('<leader>wd', '<c-w><c-c>', { desc = 'Delete window' })
+nn('<leader>ws', '<c-w>s', { desc = 'Split window' })
+nn('<leader>wv', '<c-w>v', { desc = 'Vertical split window' })
 
 -- Keep the cursor in place while joining lines
 nn('J', 'mzJ`z')
@@ -30,10 +29,10 @@ nn('<up>', 'gk<c-y>')
 nn('<down>', 'gj<c-e>')
 nn('<left>', 'hzh')
 nn('<right>', 'lzl')
-nn('<s-up>', ":m .-2<cr>==")
-nn('<s-down>', ":m .+1<cr>==")
-vn('<s-up>', ":m '<-2<cr>gv=gv")
-vn('<s-down>', ":m '>+1<cr>gv=gv")
+nn('<s-up>', ":m .-2<cr>==", { desc = 'Move line up' })
+nn('<s-down>', ":m .+1<cr>==", { desc = 'Move line down' })
+vn('<s-up>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
+vn('<s-down>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 
 -- Emacs bindings..
 vim.keymap.set('i', '<c-a>', '<c-o>^')
@@ -54,5 +53,5 @@ nn('<leader>ww', function()
   local year = vim.fn.strftime'%Y'
   vim.fn.execute('cd $HOME/notes')
   vim.fn.execute(('e %s-daylog.md'):format(year))
-end)
+end, { desc = "We got wiki at home" })
 
