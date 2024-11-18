@@ -35,7 +35,12 @@ return {
         filename = 'v:lua.LightlineFilename',
         githead = 'v:lua.LightlineGitHead',
         filetype = 'v:lua.LightlineFileType',
+      },
+      component_expand = {
         macro = 'v:lua.LightlineMacro',
+      },
+      component_type = {
+        macro = 'warning',
       },
     }
 
@@ -114,12 +119,28 @@ return {
       return filetype
     end
 
+    local is_macro_recording = false
     function LightlineMacro()
+      if not is_macro_recording then
+        return ""
+      end
       local reg = vim.fn.reg_recording()
       if reg ~= "" then
         return "@" .. reg
       end
       return ""
     end
+    vim.api.nvim_create_autocmd({ "RecordingEnter" }, {
+      callback = function()
+        is_macro_recording = true
+        vim.api.nvim_call_function('lightline#update', {})
+      end,
+    })
+    vim.api.nvim_create_autocmd({ "RecordingLeave" }, {
+      callback = function()
+        is_macro_recording = false
+        vim.api.nvim_call_function('lightline#update', {})
+      end,
+    })
   end,
 }
