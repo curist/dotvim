@@ -13,6 +13,8 @@ return {
     config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
     config.defaults.keymap.fzf["ctrl-x"] = "jump"
 
+    fzf.register_ui_select()
+
     fzf.setup {
       winopts = {
         height = 0.60,
