@@ -13,10 +13,6 @@ return {
         t = 'T',
         [''] = 'V',
       },
-      tab = {
-        active = { 'filename' },
-        inactive = { 'filename' },
-      },
       active = {
         left = {
           { 'mode' }, { 'fileencoding' }, { 'filename' },
@@ -26,7 +22,7 @@ return {
         },
       },
       inactive = {
-        left = { { 'inactivefilename' } },
+        left = { { 'filename' } },
         right = {},
       },
       component = {
@@ -36,7 +32,6 @@ return {
       },
       component_function = {
         filename = 'v:lua.LightlineFilename',
-        inactivefilename = 'v:lua.LightlineInactiveFilename',
         githead = 'v:lua.LightlineGitHead',
         filetype = 'v:lua.LightlineFileType',
       },
@@ -95,25 +90,9 @@ return {
     end
 
     function LightlineFilename()
-      if vim.bo.buftype == 'terminal' then
-        local termname = vim.fn.expand('%')
-        return termname:sub(8):match('^(.*)//')
-      end
-      local filename = vim.fn.expand('%:~:.')
+      local filename = vim.fn.expand('%:~:.'):gsub("^oil://", "")
       local name = smartPath(filename, 0.45) .. Mod()
-      -- vim.api.nvim_echo({{msg, 'comment'}}, false, {})
       return name
-    end
-
-    function LightlineInactiveFilename()
-      if vim.bo.buftype == 'terminal' then
-        return 'TERM'
-      end
-      local filename = vim.fn.expand('%:~:.')
-      if filename == '' then
-        return 'NONAME'
-      end
-      return smartPath(filename, 0.9) .. Mod()
     end
 
     function LightlineGitHead()
