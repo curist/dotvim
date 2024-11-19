@@ -37,6 +37,10 @@ return {
         file_icons = false,
         git_icons = false,
       },
+      colorschemes = {
+        winopts = { height = 20, row = 0, col = 0.99 },
+        winopts_fn = function() return { width = 32 } end
+      },
     }
 
     nn('<leader> ', fzf.files, { desc = "Find file" })
