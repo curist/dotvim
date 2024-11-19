@@ -50,6 +50,9 @@ return {
           ["default"] = function(selected)
             vim.cmd(selected[1])
           end,
+          ["ctrl-e"] = function(selected)
+            vim.api.nvim_input(":" .. selected[1] .. " ")
+          end,
         },
       })
     end, { desc = "Commands" })
@@ -69,6 +72,10 @@ return {
     vn('<leader>z', w(fzf.grep_visual, { cmd = rg_grep_all }), { desc = "Search selected word (all files)" })
     nn('<leader>Z', w(fzf.live_grep, { cmd = rg_grep_all }), { desc = "Live grep search (all files)" })
     nn('<leader>x', function() fzf.grep_curbuf({ search = vim.fn.expand("<cword>") }) end, { desc = "Search word in buffer" })
+    vn('<leader>x', function()
+      local utils = require "fzf-lua.utils"
+      fzf.grep_curbuf({ search = utils.get_visual_selection() })
+    end, { desc = "Search selected word in buffer" })
     nn('<leader>X', fzf.grep_curbuf, { desc = "Live grep buffer" })
     nn('<leader>H', fzf.help_tags, { desc = "Help pages" })
 
