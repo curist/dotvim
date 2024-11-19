@@ -2,7 +2,7 @@ vim.diagnostic.config({ virtual_text = false })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
-    vim.api.nvim_buf_set_option(event.buf, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = event.buf })
 
     local function nn(lhs, rhs, desc)
       desc = desc or ''
