@@ -83,22 +83,7 @@ return {
     nn('<leader>X', fzf.grep_curbuf, { desc = "Live grep buffer" })
     nn('<leader>H', fzf.help_tags, { desc = "Help pages" })
 
-    nn('<leader>p', w(function ()
-      local dir = '~/playground'
-      fzf.fzf_exec('ls -d */*/', {
-        prompt = dir .. ' ',
-        cwd = dir,
-        fzf_opts = {
-          ['--no-multi'] = '',
-        },
-        complete = function(selected)
-          if not selected or selected[1] == 'esc' then return end
-          local path = dir .. '/' .. selected[1]
-          vim.api.nvim_set_current_dir(path)
-          vim.fn.execute('Oil .')
-        end
-      })
-    end), { desc = "Projects" })
+    nn('<leader>p', scripts.recent_projects, { desc = "Projects" })
   end,
 }
 

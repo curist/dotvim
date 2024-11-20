@@ -116,6 +116,79 @@ function M.cwd_oldfiles(opts)
   return core.fzf_exec(contents, opts)
 end
 
+function M.recent_projects()
+  local core = require 'fzf-lua.core'
+  local base = '/Users/curist/playground/'
+  local opts = {
+    prompt = '~/playground/ ',
+    fzf_opts = { ['--no-multi'] = '' },
+    complete = function(selected)
+      if not selected or selected[1] == 'esc' then return end
+      local path = base .. '/' .. selected[1]
+      vim.api.nvim_set_current_dir(path)
+      vim.fn.execute('Oil .')
+    end
+  }
+
+  local function matched_project_path(filepath)
+    local matched = filepath:match(base)
+    if not matched then return nil end
+    -- let's check if filepath match a language folder
+    local languages = vim.fn.glob(base .. '*/', nil, true)
+    local matched_lang = nil
+    for _, path in pairs(languages) do
+      if filepath:match(path) then
+        matched_lang = path
+        break
+      end
+    end
+    if not matched_lang then return nil end
+
+    -- let's check if filepath match a project
+    local projects = vim.fn.glob(matched_lang .. '*/', nil, true)
+    for _, path in pairs(projects) do
+      if filepath:match(path) then
+        return path
+      end
+    end
+    return nil
+  end
+
+  local projects = vim.fn.glob(base .. '*/*/', nil, true)
+  local projects_score = {}
+  -- init projects_score to 0
+  for _, path in pairs(projects) do
+    projects_score[path] = 0
+  end
+
+  local oldfiles = vim.v.oldfiles
+  for i = #oldfiles, 1, -1 do
+    local oldfile = oldfiles[i]
+    local score = #oldfiles - i
+    local path = matched_project_path(oldfile)
+    if path then
+      -- don't accumulate score, but just count recency
+      projects_score[path] = score
+    end
+  end
+
+  table.sort(projects, function(a, b)
+    local score_a = projects_score[a]
+    local score_b = projects_score[b]
+    if score_a == score_b then
+      return a < b
+    end
+    return score_a > score_b
+  end)
+
+  for i, path in ipairs(projects) do
+    projects[i] = path:gsub("^"..base, "")
+  end
+
+  return core.fzf_exec(projects, opts)
+end
+
+
 M.closeAllFloatingWindows = function()
   local closed_windows = 0
   for _, win in ipairs(vim.api.nvim_list_wins()) do
