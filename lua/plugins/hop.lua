@@ -21,13 +21,5 @@ return {
         hop.hint_lines()
       end,
     },
-    {
-      "S",
-      mode = { "n", "v" },
-      function()
-        local hop = require("hop")
-        hop.hint_vertical()
-      end,
-    },
   },
 }
