@@ -1,5 +1,6 @@
 return {
   'hadronized/hop.nvim',
+  pin = true,
   opts = {
     keys = 'djkalghwoeirutyvmpsf',
     teasing = false,

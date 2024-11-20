@@ -6,6 +6,7 @@ local function vn(...) vim.keymap.set('v', ...) end
 
 return {
   'ibhagwan/fzf-lua',
+  pin = true,
   config = function()
     local fzf = require("fzf-lua")
     local config = require("fzf-lua.config")
