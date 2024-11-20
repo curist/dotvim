@@ -1,6 +1,5 @@
 return {
-  'hadronized/hop.nvim',
-  pin = true,
+  'smoka7/hop.nvim',
   opts = {
     keys = 'djkalghwoeirutyvmpsf',
     teasing = false,
