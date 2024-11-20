@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Mappings.
     nn("<leader>ld", vim.diagnostic.open_float, 'Diagnostic')
-    nn("<leader>lq", vim.diagnostic.setloclist, 'Send diagnostic to quickfix')
+    nn("<leader>lq", vim.diagnostic.setqflist, 'Send diagnostic to quickfix')
     nn("<leader>la", vim.lsp.buf.code_action, 'Code action')
     nn("<leader>lr", vim.lsp.buf.rename, "Rename")
     nn("<leader>ls", require('fzf-lua').lsp_document_symbols, 'Document symbols')
