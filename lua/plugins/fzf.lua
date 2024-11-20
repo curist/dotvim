@@ -6,7 +6,6 @@ local function vn(...) vim.keymap.set('v', ...) end
 
 return {
   'ibhagwan/fzf-lua',
-  pin = true,
   config = function()
     local fzf = require("fzf-lua")
     local config = require("fzf-lua.config")
@@ -23,7 +22,7 @@ return {
         border = 'single',
         preview = {
           hidden = 'hidden',
-          vertical = 'up:45%'
+          vertical = 'up:0%'
         },
       },
       winopts_fn = function()
