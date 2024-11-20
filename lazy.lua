@@ -20,7 +20,6 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
-    { import = "inlined" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

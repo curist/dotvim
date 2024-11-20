@@ -52,5 +52,5 @@ set timeoutlen=400
 set splitright
 
 runtime lazy.lua
-runtime config/mappings.lua
-runtime! config/**/*.vim
+runtime! config/*.{vim,lua}
+runtime! plugins/*.{vim,lua}

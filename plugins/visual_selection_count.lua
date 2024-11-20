@@ -56,4 +56,3 @@ vim.api.nvim_create_autocmd({ 'ModeChanged', 'TextChanged', 'CursorMoved', 'Curs
   end,
 })
 
-return {}
