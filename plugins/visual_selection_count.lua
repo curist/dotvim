@@ -18,13 +18,10 @@ local function show_visual_count()
   -- Create the message to show
   local message = ""
   local mode = vim.fn.mode()
+
   if mode == 'v' then
-    if pos[1].row ~= pos[2].row then
-      -- multiple lines selection, we don't count chars
-      -- too expensive, and that's not our use case anyway
-      return nil
-    end
-    message = string.format(" %d", vim.fn.abs(pos[1].col - pos[2].col) + 1)
+    local count = vim.fn.wordcount().visual_chars
+    message = string.format(" %d", count)
   elseif mode == 'V' then
     message = string.format(" %d", vim.fn.abs(pos[1].row - pos[2].row) + 1)
   elseif mode == '' then
