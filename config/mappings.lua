@@ -39,8 +39,6 @@ vim.keymap.set('i', '<c-a>', '<c-o>^')
 vim.keymap.set('c', '<c-a>', '<home>')
 vim.keymap.set('i', '<c-e>', '<end>')
 
-nn('<leader>I', '<cmd>InspectTree<cr>')
-
 -- current date
 vim.keymap.set('i', '<m-d>', w(os.date, '%Y/%b/%d'), { expr = true })
 
