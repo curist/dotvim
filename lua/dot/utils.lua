@@ -166,14 +166,6 @@ function M.rasync_wrap(fn)
   end
 end
 
-function M.starts_with(str, start)
-  return (start == str:sub(1, #start))
-end
-
-function M.ends_with(str, _end)
-  return ((_end == "") or (_end == str:sub(( - #_end))))
-end
-
 function M.chars(s)
   local result = {}
   for i = 1, #s do

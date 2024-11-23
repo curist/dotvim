@@ -8,12 +8,12 @@ local suffix_ignore = {'COMMIT_EDITMSG'}
 local function filter_filepath(pwd, orig_filepath)
   local filepath = orig_filepath:sub((#pwd + 2))
   local function _1_(_241)
-    return dot.ends_with(filepath, _241)
+    return vim.endswith(filepath, _241)
   end
   local function _2_(_241)
-    return dot.starts_with(filepath, _241)
+    return vim.startswith(filepath, _241)
   end
-  return not (not dot.starts_with(orig_filepath, pwd) or dot.some(suffix_ignore, _1_) or dot.some(prefix_ignore, _2_))
+  return not (not vim.startswith(orig_filepath, pwd) or dot.some(suffix_ignore, _1_) or dot.some(prefix_ignore, _2_))
 end
 
 local function get_buflisted_sorted()
@@ -234,7 +234,7 @@ M.openTerm = function(opts)
   end
 
   if use_cwd then
-    if dot.starts_with(current_base_path, 'oil') then
+    if vim.startswith(current_base_path, 'oil') then
       exec_cmd = exec_cmd .. ' --cwd "' .. require'oil'.get_current_dir() .. '"'
     else
       exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
