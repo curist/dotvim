@@ -210,7 +210,7 @@ M.copy_current_file_path = function()
 end
 
 M.clear_all = function()
-  vim.cmd('noh')
+  vim.cmd.noh()
   M.closeAllFloatingWindows()
 end
 

@@ -5,7 +5,7 @@ return {
     local ss = require('smart-splits')
     local si = function(f)
       return function()
-        vim.cmd 'stopinsert'
+        vim.cmd.stopinsert()
         f()
       end
     end
