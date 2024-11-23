@@ -6,7 +6,6 @@ let maplocalleader=' '
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
 
-set shada='900
 set tabstop=4
 set shiftwidth=2
 set expandtab
@@ -14,6 +13,10 @@ set noshowmode
 set noruler
 set cmdheight=0
 set laststatus=3
+set shada='900
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 set mouse=vn
 set nowrap
