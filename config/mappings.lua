@@ -35,8 +35,7 @@ vn('<s-up>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
 vn('<s-down>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 
 -- Emacs bindings..
-vim.keymap.set('i', '<c-a>', '<c-o>^')
-vim.keymap.set('c', '<c-a>', '<home>')
+vim.keymap.set({'i', 'c'}, '<c-a>', '<home>')
 vim.keymap.set('i', '<c-e>', '<end>')
 
 -- current date
@@ -51,5 +50,5 @@ nn('<leader>ww', function()
   local year = vim.fn.strftime'%Y'
   vim.fn.execute('cd $HOME/notes')
   vim.fn.execute(('e %s-daylog.md'):format(year))
-end, { desc = "We got wiki at home" })
+end, { desc = "We have wiki at home" })
 
