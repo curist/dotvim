@@ -12,15 +12,10 @@ return {
   {
     'Olical/conjure',
     dependencies = { 'PaterJason/cmp-conjure' },
-    ft = { 'fennel', 'lua' }, -- etc
-    lazy = true,
+    ft = { 'fennel', 'lua' },
     init = function()
-      -- Set configuration options here
-      -- Uncomment this to get verbose logging to help diagnose internal Conjure issues
-      -- This is VERY helpful when reporting an issue with the project
-      -- vim.g['conjure#debug'] = true
+      vim.g['conjure#extract#tree_sitter#enabled'] = true
+      vim.g['conjure#mapping#doc_word'] = 'gk'
     end,
-
-    -- Optional cmp-conjure integration
   },
 }
