@@ -16,6 +16,8 @@ return {
     init = function()
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#doc_word'] = 'gk'
+      vim.g['conjure#highlight#enabled'] = true
+      vim.g['conjure#highlight#timeout'] = 250
     end,
   },
 }

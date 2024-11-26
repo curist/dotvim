@@ -26,6 +26,8 @@ augroup MyFileTypeSettings
   " zig
   autocmd FileType zig setlocal ai sw=4 sts=4 et commentstring=//\ %s
 
+  " noice
+  autocmd FileType noice setlocal wrap
 augroup END
 
 
