@@ -9,12 +9,12 @@ return {
       desc = 'Edit neovim config files',
     },
     {
-      '<leader>o', ':Oil<cr>',
+      '<leader>e', ':Oil<cr>',
       silent = true,
       desc = 'Oil at current file',
     },
     {
-      '<leader>O', ':Oil .<cr>',
+      '<leader>E', ':Oil .<cr>',
       silent = true,
       desc = 'Oil at current cwd',
     },

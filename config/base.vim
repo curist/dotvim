@@ -1,7 +1,7 @@
 set fileencoding=utf-8
 
 let mapleader=' '
-let maplocalleader=' '
+let maplocalleader=','
 
 " no matter what, no cursor underline
 hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white

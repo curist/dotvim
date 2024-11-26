@@ -1,4 +1,6 @@
 vim.diagnostic.config({ virtual_text = false })
+vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = 'Diagnostic' })
+vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, { desc = 'Send diagnostic to quickfix' })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup('lsp-attach', {}),
@@ -11,8 +13,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- Mappings.
-    nn("<leader>ld", vim.diagnostic.open_float, 'Diagnostic')
-    nn("<leader>lq", vim.diagnostic.setqflist, 'Send diagnostic to quickfix')
     nn("<leader>la", vim.lsp.buf.code_action, 'Code action')
     nn("<leader>lr", vim.lsp.buf.rename, "Rename")
     nn("<leader>ls", require('fzf-lua').lsp_document_symbols, 'Document symbols')
