@@ -20,4 +20,9 @@ return {
       vim.g['conjure#highlight#timeout'] = 250
     end,
   },
+  {
+    'julienvincent/nvim-paredit',
+    ft = { "clojure", "fennel", "scheme", "lisp" },
+    config = true,
+  },
 }

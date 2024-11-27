@@ -28,6 +28,9 @@ augroup MyFileTypeSettings
 
   " noice
   autocmd FileType noice setlocal wrap
+
+  " help
+  autocmd FileType help nn <buffer> gd <c-]>
 augroup END
 
 

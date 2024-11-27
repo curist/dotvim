@@ -18,7 +18,7 @@ require("lazy").setup({
     lazy = false,
     version = false, -- always use the latest git commit
   },
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "catppuccin", "sorbet" } },
   checker = {
     enabled = true,
     notify = false,
