@@ -88,7 +88,7 @@ return {
         desc = 'Swap current node with next node',
       },
       {
-        '<c-p>',
+        '-',
         function() require'dot.ts'.goto_parent_node() end,
         desc = 'Goto parent node',
       },

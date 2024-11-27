@@ -40,7 +40,7 @@ local function show_visual_count()
 end
 
 -- Set up an autocmd to call the function when the selection changes
-vim.api.nvim_create_autocmd({ 'ModeChanged', 'TextChanged', 'CursorMoved', 'CursorMovedI' }, {
+vim.api.nvim_create_autocmd({ 'ModeChanged', 'CursorMoved'  }, {
   pattern = '*',
   callback = function()
     -- Only update the virtual text in visual mode
