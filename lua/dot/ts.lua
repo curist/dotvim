@@ -26,19 +26,32 @@ function M.get_top_node_text_at_cursor()
   return globalfied_text
 end
 
-function M.swap_nodes(node, direction)
+local function find_sibling_node(node, direction)
   direction = direction or 'next'
+  while node ~= nil do
+    local sibling
+    if direction == 'next' then
+      sibling = node:next_named_sibling()
+    else
+      sibling = node:prev_named_sibling()
+    end
+    if sibling and node:type() == sibling:type() then
+      return node, sibling
+    end
+    node = node:parent()
+  end
+end
+
+local function swap_nodes(node1, node2)
+  if not node1 or not node2 then return end
   local ts = ts_utils
-  if not node then return end
-  local fn = direction == 'next' and ts.get_next_node or ts.get_previous_node
-  local sibling_node = fn(node)
-  if not sibling_node then return end
-  ts.swap_nodes(node, sibling_node, 0, true)
+  ts.swap_nodes(node1, node2, 0, true)
 end
 
 function M.swap_nodes_at_cursor(direction)
   local node = ts_utils.get_node_at_cursor()
-  M.swap_nodes(node, direction)
+  local node1, node2 = find_sibling_node(node, direction)
+  swap_nodes(node1, node2)
 end
 
 function M.swap_top_nodes_at_cursor(direction)
@@ -87,6 +100,11 @@ end
 
 local function get_prev_noncomment_node(node)
   return get_sibling_noncomment_node(node, 'prev')
+end
+
+function M.goto_parent_node()
+  local node = ts_utils.get_node_at_cursor()
+  ts_utils.goto_node(node:parent())
 end
 
 function M.goto_top_node_at_cursor()

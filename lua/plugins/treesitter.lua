@@ -77,6 +77,21 @@ return {
         function() require'dot.ts'.goto_prev_top_node() end,
         desc = 'Goto previous top node',
       },
+      {
+        '<c-h>',
+        function() require'dot.ts'.swap_nodes_at_cursor('prev') end,
+        desc = 'Swap current node with previous node',
+      },
+      {
+        '<c-l>',
+        function() require'dot.ts'.swap_nodes_at_cursor('next') end,
+        desc = 'Swap current node with next node',
+      },
+      {
+        '<c-p>',
+        function() require'dot.ts'.goto_parent_node() end,
+        desc = 'Goto parent node',
+      },
     },
   }
 }
