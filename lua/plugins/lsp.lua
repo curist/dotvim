@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+--[[ leave this here for example for future manual setup
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typescript" },
   callback = function()
@@ -52,119 +53,6 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
+]]--
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp" },
-  callback = function()
-    vim.lsp.start({
-      name = "clangd",
-      cmd = { "clangd" },
-      single_file_support = true,
-      root_dir = vim.fs.dirname(vim.fs.find({
-        ".clangd",
-        ".clang-tidy",
-        ".clang-format",
-        "compile_commands.json",
-        "compile_flags.txt",
-        ".git",
-      }, { upward = true })[1]),
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go", "gomod", "gowork", "gotmpl" },
-  callback = function()
-    vim.lsp.start({
-      name = "gopls",
-      cmd = { "gopls" },
-      single_file_support = true,
-      root_dir = vim.fs.dirname(vim.fs.find({
-        "go.mod",
-        ".git",
-      }, { upward = true })[1]),
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "zig" },
-  callback = function()
-    vim.lsp.start({
-      name = "zls",
-      cmd = { "zls" },
-      single_file_support = true,
-      root_dir = vim.fs.dirname(vim.fs.find({
-        "build.zig",
-        ".git",
-      }, { upward = true })[1]),
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua" },
-  callback = function()
-    vim.lsp.start({
-      name = "lua_ls",
-      cmd = { "lua-language-server" },
-      single_file_support = true,
-      root_dir = vim.fs.dirname(vim.fs.find({
-        '.luarc.json',
-        '.luarc.jsonc',
-        '.luacheckrc',
-        '.stylua.toml',
-        'stylua.toml',
-        'selene.toml',
-        'selene.yml',
-        ".git",
-      }, { upward = true })[1]),
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'dart' },
-  callback = function()
-    vim.lsp.start({
-      name = 'dartls',
-      cmd = { 'dart', 'language-server', '--protocol=lsp' },
-      root_dir = vim.fs.dirname(vim.fs.find({
-        'pubspec.yaml',
-        '.git',
-      }, { upward = true })[1]),
-      init_options = {
-        onlyAnalyzeProjectsWithOpenFiles = true,
-        suggestFromUnimportedLibraries = true,
-        closingLabels = true,
-        outline = true,
-        flutterOutline = true,
-      },
-      settings = {
-        dart = {
-          completeFunctionCalls = true,
-          showTodos = true,
-        },
-      },
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'fennel' },
-  callback = function()
-    vim.lsp.start({
-      cmd = { 'fennel-ls' },
-      filetypes = { 'fennel' },
-      root_dir = vim.fs.dirname(vim.fs.find({
-        '.git',
-      }, { upward = true })[1]),
-      settings = {},
-      capabilities = {
-        offsetEncoding = { 'utf-8', 'utf-16' },
-      },
-    })
-  end,
-})
-
-return {}
+return { 'neovim/nvim-lspconfig' }
