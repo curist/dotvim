@@ -78,12 +78,12 @@ return {
         desc = 'Goto previous top node',
       },
       {
-        '<c-h>',
+        'gh',
         function() require'dot.ts'.swap_nodes_at_cursor('prev') end,
         desc = 'Swap current node with previous node',
       },
       {
-        '<c-l>',
+        'gl',
         function() require'dot.ts'.swap_nodes_at_cursor('next') end,
         desc = 'Swap current node with next node',
       },

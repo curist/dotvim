@@ -150,4 +150,21 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'fennel' },
+  callback = function()
+    vim.lsp.start({
+      cmd = { 'fennel-ls' },
+      filetypes = { 'fennel' },
+      root_dir = vim.fs.dirname(vim.fs.find({
+        '.git',
+      }, { upward = true })[1]),
+      settings = {},
+      capabilities = {
+        offsetEncoding = { 'utf-8', 'utf-16' },
+      },
+    })
+  end,
+})
+
 return {}

@@ -12,7 +12,7 @@ return {
   {
     'Olical/conjure',
     dependencies = { 'PaterJason/cmp-conjure' },
-    ft = { 'fennel', 'lua' },
+    ft = { 'fennel', 'lua', 'janet' },
     init = function()
       vim.g['conjure#extract#tree_sitter#enabled'] = true
       vim.g['conjure#mapping#doc_word'] = 'gk'
@@ -22,7 +22,7 @@ return {
   },
   {
     'julienvincent/nvim-paredit',
-    ft = { "clojure", "fennel", "scheme", "lisp" },
+    ft = { 'clojure', 'fennel', 'scheme', 'lisp', 'janet' },
     config = true,
   },
 }
