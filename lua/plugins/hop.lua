@@ -6,18 +6,18 @@ return {
   },
   keys = {
     {
-      "s",
-      mode = { "n", "v" },
+      's',
+      mode = { 'n', 'v' },
       function()
-        local hop = require("hop")
+        local hop = require('hop')
         hop.hint_char2()
       end,
     },
     {
-      "s<cr>",
-      mode = { "n", "v" },
+      's<cr>',
+      mode = { 'n', 'v' },
       function()
-        local hop = require("hop")
+        local hop = require('hop')
         hop.hint_lines()
       end,
     },

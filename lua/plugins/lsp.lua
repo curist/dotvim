@@ -1,29 +1,29 @@
 vim.diagnostic.config({ virtual_text = false })
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = 'Diagnostic' })
-vim.keymap.set("n", "<leader>lq", vim.diagnostic.setqflist, { desc = 'Send diagnostic to quickfix' })
+vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = 'Diagnostic' })
+vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, { desc = 'Send diagnostic to quickfix' })
 
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', {}),
   callback = function(event)
     vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = event.buf })
 
     local function nn(lhs, rhs, desc)
       desc = desc or ''
-      vim.keymap.set("n", lhs, rhs, { buffer = event.buf, silent = true, desc = desc })
+      vim.keymap.set('n', lhs, rhs, { buffer = event.buf, silent = true, desc = desc })
     end
 
     -- Mappings.
-    nn("<leader>la", vim.lsp.buf.code_action, 'Code action')
-    nn("<leader>lr", vim.lsp.buf.rename, "Rename")
-    nn("<leader>ls", require('fzf-lua').lsp_document_symbols, 'Document symbols')
-    nn("<leader>lS", require('fzf-lua').lsp_workspace_symbols, 'Workspace symbols')
+    nn('<leader>la', vim.lsp.buf.code_action, 'Code action')
+    nn('<leader>lr', vim.lsp.buf.rename, 'Rename')
+    nn('<leader>ls', require('fzf-lua').lsp_document_symbols, 'Document symbols')
+    nn('<leader>lS', require('fzf-lua').lsp_workspace_symbols, 'Workspace symbols')
 
-    nn("gD", vim.lsp.buf.declaration, 'Goto declaration')
-    nn("gd", vim.lsp.buf.definition, 'Goto definition')
-    nn("gi", vim.lsp.buf.implementation, 'Implementations')
-    nn("gr", vim.lsp.buf.references, 'References')
-    nn("K", vim.lsp.buf.hover, 'Hover doc')
-    vim.keymap.set("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {
+    nn('gD', vim.lsp.buf.declaration, 'Goto declaration')
+    nn('gd', vim.lsp.buf.definition, 'Goto definition')
+    nn('gi', vim.lsp.buf.implementation, 'Implementations')
+    nn('gr', vim.lsp.buf.references, 'References')
+    nn('K', vim.lsp.buf.hover, 'Hover doc')
+    vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {
       buffer = event.buf,
       silent = true,
       desc = 'Show signature help',
@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
-]]--
+]]
+--
 
 return { 'neovim/nvim-lspconfig' }

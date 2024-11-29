@@ -1,22 +1,21 @@
 return {
   'folke/which-key.nvim',
-  event = "VeryLazy",
+  event = 'VeryLazy',
   opts = {
     spec = {
-      { "<leader>t", group = "test", icon = { icon = "󱖫 ", color = "green" } },
-      { "<leader>l", group = "lsp", icon = { icon = "", color = "cyan" } },
-      { "<leader>w", group = "windows" },
-      { "<leader>g", group = "git" },
+      { '<leader>t', group = 'test', icon = { icon = '󱖫 ', color = 'green' } },
+      { '<leader>l', group = 'lsp', icon = { icon = '', color = 'cyan' } },
+      { '<leader>w', group = 'windows' },
+      { '<leader>g', group = 'git' },
     },
   },
   keys = {
     {
-      "<leader>?",
+      '<leader>?',
       function()
-        require("which-key").show({ global = false })
+        require('which-key').show({ global = false })
       end,
-      desc = "Buffer Local Keymaps (which-key)",
+      desc = 'Buffer Local Keymaps (which-key)',
     },
   },
-
 }

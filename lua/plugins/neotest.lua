@@ -2,24 +2,68 @@ return {
   { 'nvim-neotest/nvim-nio', lazy = true },
   { 'nvim-lua/plenary.nvim', lazy = true },
   {
-    "nvim-neotest/neotest",
+    'nvim-neotest/neotest',
     depedencies = {
       'nvim-neotest/nvim-nio',
       'nvim-lua/plenary.nvim',
       'moonbit-community/moonbit.nvim',
     },
     keys = {
-      { "<leader>tt", function() require'neotest'.run.run(vim.fn.expand("%")) end, desc = "Run File" },
-      { "<leader>tT", function() require'neotest'.run.run(vim.uv.cwd()) end, desc = "Run All Test Files" },
-      { "<leader>tr", function() require'neotest'.run.run() end, desc = "Run Nearest" },
-      { "<leader>tl", function() require'neotest'.run.run_last() end, desc = "Run Last" },
-      { "<leader>ts", function() require'neotest'.summary.toggle() end, desc = "Toggle Summary" },
-      { "<leader>to", function() require'neotest'.output.open({ enter = true, last_run = true }) end, desc = "Show last test output" },
-      { "<leader>tO", function() require'neotest'.output_panel.toggle() end, desc = "Toggle output panel" },
+      {
+        '<leader>tt',
+        function()
+          require 'neotest'.run.run(vim.fn.expand('%'))
+        end,
+        desc = 'Run File',
+      },
+      {
+        '<leader>tT',
+        function()
+          require 'neotest'.run.run(vim.uv.cwd())
+        end,
+        desc = 'Run All Test Files',
+      },
+      {
+        '<leader>tr',
+        function()
+          require 'neotest'.run.run()
+        end,
+        desc = 'Run Nearest',
+      },
+      {
+        '<leader>tl',
+        function()
+          require 'neotest'.run.run_last()
+        end,
+        desc = 'Run Last',
+      },
+      {
+        '<leader>ts',
+        function()
+          require 'neotest'.summary.toggle()
+        end,
+        desc = 'Toggle Summary',
+      },
+      {
+        '<leader>to',
+        function()
+          require 'neotest'.output.open({ enter = true, last_run = true })
+        end,
+        desc = 'Show last test output',
+      },
+      {
+        '<leader>tO',
+        function()
+          require 'neotest'.output_panel.toggle()
+        end,
+        desc = 'Toggle output panel',
+      },
     },
     opts = function(_, opts)
-      if not opts.adapters then opts.adapters = {} end
-      table.insert(opts.adapters, require("neotest-moonbit"))
+      if not opts.adapters then
+        opts.adapters = {}
+      end
+      table.insert(opts.adapters, require('neotest-moonbit'))
     end,
-  }
+  },
 }

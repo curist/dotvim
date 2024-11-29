@@ -16,9 +16,9 @@ return {
   },
   {
     'andymass/vim-matchup',
-    event = "BufRead",
+    event = 'BufRead',
     config = function()
       vim.g.matchup_matchparen_offscreen = {}
     end,
-  }
+  },
 }

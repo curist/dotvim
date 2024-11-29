@@ -11,7 +11,7 @@ return {
       'hrsh7th/cmp-nvim-lsp-signature-help',
     },
     opts = function(_, opts)
-      local cmp = require'cmp'
+      local cmp = require('cmp')
       opts.mapping = cmp.mapping.preset.insert({
         ['<c-u>'] = cmp.mapping.scroll_docs(-4),
         ['<c-d>'] = cmp.mapping.scroll_docs(4),

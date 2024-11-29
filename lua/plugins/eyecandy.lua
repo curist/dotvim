@@ -11,13 +11,13 @@ return {
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+          ['vim.lsp.util.stylize_markdown'] = true,
+          ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
         },
       },
       cmdline = {
-        view = "cmdline",
+        view = 'cmdline',
       },
       views = {
         split = { scrollbar = false },
@@ -26,11 +26,11 @@ return {
       routes = {
         {
           filter = {
-            event = "msg_show",
+            event = 'msg_show',
             any = {
-              { find = "%d+L, %d+B" },
-              { find = "; after #%d+" },
-              { find = "; before #%d+" },
+              { find = '%d+L, %d+B' },
+              { find = '; after #%d+' },
+              { find = '; before #%d+' },
             },
           },
           view = nil,
@@ -39,50 +39,50 @@ return {
       health = { checker = false },
     },
     keys = {
-      { "<leader>n", "", desc = "+noice" },
+      { '<leader>n', '', desc = '+noice' },
       {
-        "<leader>nl",
+        '<leader>nl',
         function()
-          require("noice").cmd("last")
+          require('noice').cmd('last')
         end,
-        desc = "Noice Last Message",
+        desc = 'Noice Last Message',
       },
       {
-        "<leader>nh",
+        '<leader>nh',
         function()
-          require("noice").cmd("history")
+          require('noice').cmd('history')
         end,
-        desc = "Noice History",
+        desc = 'Noice History',
       },
       {
-        "<leader>na",
+        '<leader>na',
         function()
-          require("noice").cmd("all")
+          require('noice').cmd('all')
         end,
-        desc = "Noice All",
+        desc = 'Noice All',
       },
       {
-        "<leader>nd",
+        '<leader>nd',
         function()
-          require("noice").cmd("dismiss")
+          require('noice').cmd('dismiss')
         end,
-        desc = "Dismiss All",
+        desc = 'Dismiss All',
       },
       {
-        "<leader>nt",
+        '<leader>nt',
         function()
-          require("noice").cmd("pick")
+          require('noice').cmd('pick')
         end,
-        desc = "Noice Picker",
+        desc = 'Noice Picker',
       },
     },
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
     config = function()
-      require'catppuccin'.setup {
+      require 'catppuccin'.setup {
         flavour = 'mocha',
         no_italic = true,
         no_bold = true,
