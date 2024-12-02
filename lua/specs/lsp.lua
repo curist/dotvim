@@ -14,7 +14,8 @@ vim.diagnostic.config({
     border = 'rounded',
     source = 'if_many',
     prefix = ' ',
-    scope = 'cursor',
+    -- scope = 'cursor',
+    scope = 'line',
   },
 })
 
@@ -82,4 +83,9 @@ vim.api.nvim_create_autocmd("FileType", {
 ]]
 --
 
-return { 'neovim/nvim-lspconfig' }
+return {
+  'neovim/nvim-lspconfig',
+  config = function()
+    require('lspconfig').roc_ls.setup({})
+  end,
+}
