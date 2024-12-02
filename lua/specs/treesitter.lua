@@ -11,7 +11,8 @@ return {
       'curist/tree-sitter-lx',
     },
     build = ':TSUpdate',
-    event = 'BufRead',
+    event = { 'BufRead' },
+    cmd = { 'TSInstall' },
     opts = {
       ensure_installed = {
         'c',
@@ -60,49 +61,49 @@ return {
       {
         'gs',
         function()
-          require 'dot.ts'.print_node_at_cursor()
+          require('dot.ts').print_node_at_cursor()
         end,
         desc = 'Print treesitter node under cursor',
       },
       {
         'gt',
         function()
-          require 'dot.ts'.goto_top_node_at_cursor()
+          require('dot.ts').goto_top_node_at_cursor()
         end,
         desc = 'Goto top node',
       },
       {
         '<c-j>',
         function()
-          require 'dot.ts'.goto_next_top_node()
+          require('dot.ts').goto_next_top_node()
         end,
         desc = 'Goto next top node',
       },
       {
         '<c-k>',
         function()
-          require 'dot.ts'.goto_prev_top_node()
+          require('dot.ts').goto_prev_top_node()
         end,
         desc = 'Goto previous top node',
       },
       {
         'gh',
         function()
-          require 'dot.ts'.swap_nodes_at_cursor('prev')
+          require('dot.ts').swap_nodes_at_cursor('prev')
         end,
         desc = 'Swap current node with previous node',
       },
       {
         'gl',
         function()
-          require 'dot.ts'.swap_nodes_at_cursor('next')
+          require('dot.ts').swap_nodes_at_cursor('next')
         end,
         desc = 'Swap current node with next node',
       },
       {
         '-',
         function()
-          require 'dot.ts'.goto_parent_node()
+          require('dot.ts').goto_parent_node()
         end,
         desc = 'Goto parent node',
       },

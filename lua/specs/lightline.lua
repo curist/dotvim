@@ -15,10 +15,15 @@ return {
       },
       active = {
         left = {
-          { 'mode' }, { 'fileencoding' }, { 'filename' },
+          { 'mode' },
+          { 'fileencoding' },
+          { 'filename' },
         },
         right = {
-          { 'lineinfo' }, { 'githead' }, { 'filetype' }, { 'fileformat' },
+          { 'lineinfo' },
+          { 'githead' },
+          { 'filetype' },
+          { 'fileformat' },
           { 'macro' },
         },
       },
@@ -63,7 +68,7 @@ return {
       -- we always want last part to be not shortened
       local base = parts[#parts]
       local current_len = #base
-      local result = {base}
+      local result = { base }
       local busted = false
 
       for i = #parts - 1, 1, -1 do
@@ -97,7 +102,7 @@ return {
     end
 
     function LightlineFilename()
-      local filename = vim.fn.expand('%:~:.'):gsub("^oil://", "")
+      local filename = vim.fn.expand('%:~:.'):gsub('^oil://', '')
       local name = smartPath(filename, 0.45) .. Mod()
       return name
     end
@@ -122,21 +127,21 @@ return {
     local is_macro_recording = false
     function LightlineMacro()
       if not is_macro_recording then
-        return ""
+        return ''
       end
       local reg = vim.fn.reg_recording()
-      if reg ~= "" then
-        return "@" .. reg
+      if reg ~= '' then
+        return '@' .. reg
       end
-      return ""
+      return ''
     end
-    vim.api.nvim_create_autocmd({ "RecordingEnter" }, {
+    vim.api.nvim_create_autocmd({ 'RecordingEnter' }, {
       callback = function()
         is_macro_recording = true
         vim.api.nvim_call_function('lightline#update', {})
       end,
     })
-    vim.api.nvim_create_autocmd({ "RecordingLeave" }, {
+    vim.api.nvim_create_autocmd({ 'RecordingLeave' }, {
       callback = function()
         is_macro_recording = false
         vim.api.nvim_call_function('lightline#update', {})
