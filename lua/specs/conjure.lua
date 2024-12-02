@@ -1,3 +1,15 @@
+local function setup_conjure(opts, config_path)
+  config_path = config_path or 'conjure'
+  if type(opts) ~= 'table' then
+    vim.g[config_path] = opts
+    return
+  end
+
+  for k, v in pairs(opts) do
+    setup_conjure(v, config_path .. '#' .. k)
+  end
+end
+
 return {
   {
     'PaterJason/cmp-conjure',
@@ -14,10 +26,14 @@ return {
     dependencies = { 'PaterJason/cmp-conjure' },
     ft = { 'fennel', 'lua', 'janet' },
     init = function()
-      vim.g['conjure#extract#tree_sitter#enabled'] = true
-      vim.g['conjure#mapping#doc_word'] = 'gk'
-      vim.g['conjure#highlight#enabled'] = true
-      vim.g['conjure#highlight#timeout'] = 250
+      setup_conjure({
+        extract = { tree_sitter = { enabled = true } },
+        mapping = { doc_word = 'gk' },
+        highlight = {
+          enabled = true,
+          timeout = 250,
+        },
+      })
     end,
   },
 }
