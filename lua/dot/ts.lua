@@ -1,5 +1,5 @@
 -- treesitter related stuff
-local ts_utils = require 'nvim-treesitter.ts_utils'
+local ts_utils = require('nvim-treesitter.ts_utils')
 local M = {}
 
 function M.get_top_node_at_cursor()
@@ -43,7 +43,9 @@ local function find_sibling_node(node, direction)
 end
 
 local function swap_nodes(node1, node2)
-  if not node1 or not node2 then return end
+  if not node1 or not node2 then
+    return
+  end
   local ts = ts_utils
   ts.swap_nodes(node1, node2, 0, true)
 end
@@ -73,9 +75,13 @@ local function get_sibling_noncomment_node(node, direction)
   local function is_comment(node)
     return vim.fn.stridx(tostring(node), 'comment') >= 0
   end
-  if not node then return nil end
+  if not node then
+    return nil
+  end
   local parent = node:parent()
-  if not parent then return nil end
+  if not parent then
+    return nil
+  end
   local good_node_indexes = {}
   local count = parent:named_child_count()
   local found_pos = -1
@@ -88,9 +94,13 @@ local function get_sibling_noncomment_node(node, direction)
       found_pos = #good_node_indexes
     end
   end
-  if found_pos < 0 then return nil end
+  if found_pos < 0 then
+    return nil
+  end
   local target_index = good_node_indexes[(found_pos + delta + count - 1) % count + 1]
-  if not target_index then return nil end
+  if not target_index then
+    return nil
+  end
   return parent:named_child(target_index)
 end
 
@@ -140,15 +150,14 @@ local function find_first_parent_with_different_range(node)
   local function has_same_range(node1, node2)
     local range1 = ts_utils.node_to_lsp_range(node1)
     local range2 = ts_utils.node_to_lsp_range(node2)
-    return ((
-      range1.start.line == range2.start.line and
-      range1.start.character == range2.start.character
-    ) or (
-      range1['end'].line == range2['end'].line and
-      range1['end'].character == range2['end'].character
-    ))
+    return (
+      (range1.start.line == range2.start.line and range1.start.character == range2.start.character)
+      or (range1['end'].line == range2['end'].line and range1['end'].character == range2['end'].character)
+    )
   end
-  if not node then return nil end
+  if not node then
+    return nil
+  end
   local parent = node:parent()
   while parent do
     if not has_same_range(parent, node) then

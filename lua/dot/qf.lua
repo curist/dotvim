@@ -1,14 +1,14 @@
-local dot = require("dot.utils")
+local dot = require('dot.utils')
 
 local M = {}
 
-local state = {["active-list"] = ""}
+local state = { ['active-list'] = '' }
 local function active_list()
-  return state["active-list"]
+  return state['active-list']
 end
 local function is_qf_open()
   local function _1_(_241)
-    return ("qf" == vim.fn.getwinvar(_241, "&ft"))
+    return ('qf' == vim.fn.getwinvar(_241, '&ft'))
   end
   local function _2_(_241)
     return (0 == ((vim.fn.getwininfo(_241))[1]).loclist)
@@ -19,35 +19,35 @@ local function has_loclist()
   return (#vim.fn.getloclist(vim.fn.winnr()) > 0)
 end
 local function is_loclist_open()
-  local win_loc_info = vim.fn.getloclist(0, {winid = true})
+  local win_loc_info = vim.fn.getloclist(0, { winid = true })
   return (win_loc_info.winid > 0)
 end
 local function open_list()
   local cmd
-  if (active_list() == "q") then
-    cmd = "copen"
+  if active_list() == 'q' then
+    cmd = 'copen'
   else
-    cmd = "lopen"
+    cmd = 'lopen'
   end
   return vim.cmd(cmd)
 end
 local function close_list()
   local cmd
-  if (active_list() == "q") then
-    cmd = "cclose"
+  if active_list() == 'q' then
+    cmd = 'cclose'
   else
-    cmd = "lclose"
+    cmd = 'lclose'
   end
   return vim.cmd(cmd)
 end
 local function set_alter_list()
   local kind
-  if (active_list() == "q") then
-    kind = "l"
+  if active_list() == 'q' then
+    kind = 'l'
   else
-    kind = "q"
+    kind = 'q'
   end
-  state["active-list"] = kind
+  state['active-list'] = kind
   return nil
 end
 
@@ -56,21 +56,21 @@ function M.set_list()
   local isloc = (1 == wininfo.loclist)
   local kind
   if isloc then
-    kind = "l"
+    kind = 'l'
   else
-    kind = "q"
+    kind = 'q'
   end
-  state["active-list"] = kind
+  state['active-list'] = kind
   return nil
 end
 
 function M.toggle_list()
   if is_loclist_open() then
-    state["active-list"] = "l"
+    state['active-list'] = 'l'
     close_list()
     return
   end
-  if ("q" == active_list()) then
+  if 'q' == active_list() then
     if is_qf_open() then
       return close_list()
     else
@@ -90,32 +90,32 @@ local function safe_list_move(list_type, direction)
   local cmd = (list_type .. direction)
   local ok, _ = pcall(vim.cmd, cmd)
   local function wrap()
-    if (direction == "next") then
-      return "first"
+    if direction == 'next' then
+      return 'first'
     else
-      return "last"
+      return 'last'
     end
   end
   if not ok then
-    print("no more list items")
+    print('no more list items')
     -- local wrap_cmd = (list_type .. wrap())
     -- return pcall(vim.cmd, wrap_cmd)
   end
 end
 
 function M.local_list_next()
-  if (("q" == active_list()) or not has_loclist()) then
-    return safe_list_move("c", "next")
+  if ('q' == active_list()) or not has_loclist() then
+    return safe_list_move('c', 'next')
   else
-    return safe_list_move("l", "next")
+    return safe_list_move('l', 'next')
   end
 end
 
 function M.local_list_prev()
-  if (("q" == active_list()) or not has_loclist()) then
-    return safe_list_move("c", "prev")
+  if ('q' == active_list()) or not has_loclist() then
+    return safe_list_move('c', 'prev')
   else
-    return safe_list_move("l", "prev")
+    return safe_list_move('l', 'prev')
   end
 end
 

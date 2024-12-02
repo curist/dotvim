@@ -17,7 +17,9 @@ end
 function M.mapf(coll, cb)
   local result = {}
   for i, v in ipairs(coll) do
-    result[i] = function() return cb(v, i) end
+    result[i] = function()
+      return cb(v, i)
+    end
   end
   return result
 end
@@ -37,7 +39,7 @@ function M.filter(coll, pred)
     if pred(v, i) then
       _1_ = v
     else
-    _1_ = nil
+      _1_ = nil
     end
     result[(#result + 1)] = _1_
   end
@@ -45,7 +47,7 @@ function M.filter(coll, pred)
 end
 
 function M.reduce(coll, cb, ...)
-  local rest = {...}
+  local rest = { ... }
   local init_value = rest[1]
   local has_init = not (nil == init_value)
   local start_index
@@ -97,13 +99,13 @@ end
 
 function M.head(coll, n)
   n = n or 1
-  return {unpack(coll, 1, n)}
+  return { unpack(coll, 1, n) }
 end
 
 function M.chunks(coll, n)
   local result = {}
   for i = 1, #coll, n do
-    table.insert(result, {unpack(coll, i, (i + n - 1))})
+    table.insert(result, { unpack(coll, i, (i + n - 1)) })
   end
   return result
 end
@@ -117,17 +119,17 @@ function M.keys(coll)
 end
 
 function M.bind(fn, ...)
-  local args = {...}
+  local args = { ... }
   return function(...)
-    local more_args = {...}
+    local more_args = { ... }
     return fn(unpack(M.concat(args, more_args)))
   end
 end
 
 function M.rbind(fn, ...)
-  local args = {...}
+  local args = { ... }
   return function(...)
-    local more_args = {...}
+    local more_args = { ... }
     return fn(unpack(M.concat(more_args, args)))
   end
 end
@@ -135,10 +137,10 @@ end
 function M.async_wrap(fn)
   return function(...)
     local self = coroutine.running()
-    local args = {...}
+    local args = { ... }
     local result = nil
     table.insert(args, function(...)
-      result = {...}
+      result = { ... }
       coroutine.resume(self, ...)
     end)
     fn(unpack(args))
@@ -155,7 +157,7 @@ function M.rasync_wrap(fn)
     local result = nil
 
     fn(function(...)
-      result = {...}
+      result = { ... }
       coroutine.resume(self, ...)
     end, ...)
 

@@ -1,9 +1,9 @@
-local dot = require 'dot.utils'
+local dot = require('dot.utils')
 
 local M = {}
 
-local prefix_ignore = {'.git/'}
-local suffix_ignore = {'COMMIT_EDITMSG'}
+local prefix_ignore = { '.git/' }
+local suffix_ignore = { 'COMMIT_EDITMSG' }
 
 local function filter_filepath(pwd, orig_filepath)
   local filepath = orig_filepath:sub((#pwd + 2))
@@ -21,7 +21,7 @@ local function get_buflisted_sorted()
   local curbuf = vim.fn.bufnr()
   local bufnrs = dot.filter(vim.api.nvim_list_bufs(), function(buf)
     local name = vim.api.nvim_buf_get_name(buf)
-    if name == "" then
+    if name == '' then
       return false
     end
     local loaded = vim.api.nvim_buf_is_loaded(buf)
@@ -48,10 +48,12 @@ local function get_buflisted_sorted()
 end
 
 function M.cwd_oldfiles(opts)
-  local core = require 'fzf-lua.core'
+  local core = require('fzf-lua.core')
   local config = require('fzf-lua.config')
   opts = config.normalize_opts(opts, config.globals.oldfiles)
-  if not opts then return end
+  if not opts then
+    return
+  end
 
   local cwd = vim.fn.getcwd()
   local function underCwd(s)
@@ -67,8 +69,12 @@ function M.cwd_oldfiles(opts)
   local results = {}
 
   local function append_result(file)
-    if not file then return end
-    if file_set[file] then return end
+    if not file then
+      return
+    end
+    if file_set[file] then
+      return
+    end
 
     file_set[file] = true
 
@@ -90,21 +96,35 @@ function M.cwd_oldfiles(opts)
   end)
 
   dot.each(vim.v.oldfiles, function(file)
-    if file_set[file] then return end
-    if not underCwd(file) then return end
-    if not vim.uv.fs_stat(file) then return end
-    if file == current_file then return end
-    if vim.fn.isdirectory(file) == 1 then return end
+    if file_set[file] then
+      return
+    end
+    if not underCwd(file) then
+      return
+    end
+    if not vim.uv.fs_stat(file) then
+      return
+    end
+    if file == current_file then
+      return
+    end
+    if vim.fn.isdirectory(file) == 1 then
+      return
+    end
 
     append_result(file)
   end)
 
-  local contents = function (cb)
+  local contents = function(cb)
     dot.each(results, function(x)
-      if not x then return end
+      if not x then
+        return
+      end
 
       cb(x, function(err)
-        if err then return end
+        if err then
+          return
+        end
         -- close the pipe to fzf, this
         -- removes the loading indicator in fzf
         cb(nil, function() end)
@@ -117,22 +137,26 @@ function M.cwd_oldfiles(opts)
 end
 
 function M.recent_projects()
-  local core = require 'fzf-lua.core'
+  local core = require('fzf-lua.core')
   local base = '/Users/curist/playground/'
   local opts = {
     prompt = '~/playground/ ',
     fzf_opts = { ['--no-multi'] = '' },
     complete = function(selected)
-      if not selected or selected[1] == 'esc' then return end
+      if not selected or selected[1] == 'esc' then
+        return
+      end
       local path = base .. '/' .. selected[1]
       vim.api.nvim_set_current_dir(path)
       vim.fn.execute('Oil .')
-    end
+    end,
   }
 
   local function matched_project_path(filepath)
     local matched = filepath:match(base)
-    if not matched then return nil end
+    if not matched then
+      return nil
+    end
     -- let's check if filepath match a language folder
     local languages = vim.fn.glob(base .. '*/', nil, true)
     local matched_lang = nil
@@ -142,7 +166,9 @@ function M.recent_projects()
         break
       end
     end
-    if not matched_lang then return nil end
+    if not matched_lang then
+      return nil
+    end
 
     -- let's check if filepath match a project
     local projects = vim.fn.glob(matched_lang .. '*/', nil, true)
@@ -182,19 +208,18 @@ function M.recent_projects()
   end)
 
   for i, path in ipairs(projects) do
-    projects[i] = path:gsub("^"..base, "")
+    projects[i] = path:gsub('^' .. base, '')
   end
 
   return core.fzf_exec(projects, opts)
 end
 
-
 M.closeAllFloatingWindows = function()
   local closed_windows = 0
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     local config = vim.api.nvim_win_get_config(win)
-    if config.relative ~= "" then  -- is_floating_window?
-      vim.api.nvim_win_close(win, false)  -- do not force
+    if config.relative ~= '' then -- is_floating_window?
+      vim.api.nvim_win_close(win, false) -- do not force
       closed_windows = closed_windows + 1
     end
   end
@@ -215,7 +240,9 @@ M.clear_all = function()
 end
 
 M.openTerm = function(opts)
-  if not opts then opts = {} end
+  if not opts then
+    opts = {}
+  end
 
   local kind = opts.kind or 'tab'
   local cmd = opts.cmd
@@ -235,7 +262,7 @@ M.openTerm = function(opts)
 
   if use_cwd then
     if vim.startswith(current_base_path, 'oil') then
-      exec_cmd = exec_cmd .. ' --cwd "' .. require'oil'.get_current_dir() .. '"'
+      exec_cmd = exec_cmd .. ' --cwd "' .. require('oil').get_current_dir() .. '"'
     else
       exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
     end
@@ -255,4 +282,3 @@ M.openTerm = function(opts)
 end
 
 return M
-
