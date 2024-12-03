@@ -19,7 +19,7 @@ vim.diagnostic.config({
   },
 })
 
--- vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = 'Diagnostic' })
+vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = 'Diagnostic' })
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, { desc = 'Send diagnostic to quickfix' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -56,14 +56,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end, 'Toggle inlay hints')
     end
 
-    vim.api.nvim_create_autocmd('CursorHold', {
-      buffer = event.buf,
-      callback = function()
-        if vim.diagnostic.is_enabled({ bufnr = event.buf }) then
-          vim.diagnostic.open_float()
-        end
-      end,
-    })
+    -- vim.api.nvim_create_autocmd('CursorHold', {
+    --   buffer = event.buf,
+    --   callback = function()
+    --     if vim.diagnostic.is_enabled({ bufnr = event.buf }) then
+    --       vim.diagnostic.open_float()
+    --     end
+    --   end,
+    -- })
+    if require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
+      if client and client.name == 'tsserver' then
+        client.stop()
+        return
+      end
+    end
   end,
 })
 
