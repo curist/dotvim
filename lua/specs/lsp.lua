@@ -59,7 +59,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.api.nvim_create_autocmd('CursorHold', {
       buffer = event.buf,
       callback = function()
-        vim.diagnostic.open_float()
+        if vim.diagnostic.is_enabled({ bufnr = event.buf }) then
+          vim.diagnostic.open_float()
+        end
       end,
     })
   end,
