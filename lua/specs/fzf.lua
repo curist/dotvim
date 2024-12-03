@@ -66,10 +66,10 @@ return {
         include_builtin = false,
         actions = {
           ['default'] = function(selected)
-            vim.cmd(selected[1])
-          end,
-          ['ctrl-e'] = function(selected)
-            vim.api.nvim_input(':' .. selected[1] .. ' ')
+            ---@diagnostic disable-next-line
+            if not pcall(vim.cmd, selected[1]) then
+              vim.api.nvim_input(':' .. selected[1] .. ' ')
+            end
           end,
         },
       })
