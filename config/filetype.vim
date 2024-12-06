@@ -14,15 +14,6 @@ augroup MyFileTypeSettings
   " git
   autocmd FileType git*,diff set bufhidden=delete
 
-  " fossil
-  autocmd BufRead ci-comment-*.txt set ft=gitcommit
-
-  " hcl
-  autocmd BufNew,BufEnter *.nomad set ft=hcl
-
-  " lx
-  autocmd BufNew,BufEnter *.lx set ft=lx
-
   " zig
   autocmd FileType zig setlocal ai sw=4 sts=4 et commentstring=//\ %s
 
@@ -31,6 +22,19 @@ augroup MyFileTypeSettings
 
   " help
   autocmd FileType help nn <buffer> gd <c-]>
+
+lua << EOF
+vim.filetype.add({
+  extension = {
+    nomad = "hcl",
+    lx = "lx",
+  },
+  pattern = {
+    ["ci-comment-*.txt"] = "gitcommit",
+  }
+})
+EOF
+
 augroup END
 
 
