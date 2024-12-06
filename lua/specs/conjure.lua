@@ -29,6 +29,16 @@ return {
       setup_conjure({
         extract = { tree_sitter = { enabled = true } },
         mapping = { doc_word = 'gk' },
+        client = {
+          lua = {
+            neovim = {
+              mapping = {
+                reset_env = false,
+                reset_all_envs = false,
+              },
+            },
+          },
+        },
         highlight = {
           enabled = true,
           timeout = 250,
