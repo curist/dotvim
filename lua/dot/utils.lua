@@ -97,9 +97,12 @@ function M.pipe(fns)
   end
 end
 
-function M.head(coll, n)
-  n = n or 1
+function M.take(coll, n)
   return { unpack(coll, 1, n) }
+end
+
+function M.drop(coll, n)
+  return { unpack(coll, n + 1) }
 end
 
 function M.chunks(coll, n)
@@ -174,6 +177,14 @@ function M.chars(s)
     result[i] = s:sub(i, i)
   end
   return result
+end
+
+function M.getlines(filename)
+  local lines = {}
+  for line in io.lines(filename) do
+    table.insert(lines, line)
+  end
+  return lines
 end
 
 return M
