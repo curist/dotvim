@@ -82,7 +82,7 @@ return {
     name = 'catppuccin',
     priority = 1000,
     config = function()
-      require 'catppuccin'.setup {
+      require('catppuccin').setup({
         flavour = 'mocha',
         no_italic = true,
         no_bold = true,
@@ -91,8 +91,17 @@ return {
             WinSeparator = { fg = colors.overlay0 },
           }
         end,
-      }
-      vim.cmd.colorscheme 'catppuccin'
+      })
+      vim.cmd.colorscheme('catppuccin')
     end,
+  },
+  {
+    'sphamba/smear-cursor.nvim',
+    opts = {
+      stiffness = 0.8,
+      trailing_stiffness = 0.5,
+      distance_stop_animating = 0.5,
+      hide_target_hack = false,
+    },
   },
 }
