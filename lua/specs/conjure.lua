@@ -24,9 +24,10 @@ return {
   {
     'Olical/conjure',
     dependencies = { 'PaterJason/cmp-conjure' },
-    ft = { 'fennel', 'lua', 'janet' },
+    ft = { 'fennel', 'lua' },
     init = function()
       setup_conjure({
+        filetype = { fennel = 'conjure.client.fennel.stdio' },
         extract = { tree_sitter = { enabled = true } },
         mapping = { doc_word = 'gk' },
         client = {
