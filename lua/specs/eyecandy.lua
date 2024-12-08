@@ -16,9 +16,6 @@ return {
           ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
         },
       },
-      cmdline = {
-        view = 'cmdline',
-      },
       views = {
         split = { scrollbar = false },
         popup = { scrollbar = false },
