@@ -24,24 +24,47 @@ function M.mapf(coll, cb)
   return result
 end
 
-function M.range(n)
-  local result = {}
-  for i = 1, n do
-    table.insert(result, i)
+function M.range(...)
+  local args = { ... }
+  if #args == 0 then
+    error('range requires at least one argument')
   end
-  return result
+  if #args == 1 then
+    args[2] = args[1]
+    args[1] = 1
+    args[3] = 1
+  elseif #args == 2 then
+    args[3] = 1
+  end
+
+  local start, stop, step = unpack(args)
+  local value = start
+  local i = 0
+
+  return function()
+    if value <= stop then
+      local result = value
+      value = value + step
+      i = i + 1
+      return result, i
+    end
+  end
+end
+
+function M.toarray(iter, ...)
+  local arr = {}
+  for x in iter(...) do
+    table.insert(arr, x)
+  end
+  return arr
 end
 
 function M.filter(coll, pred)
   local result = {}
   for i, v in ipairs(coll) do
-    local _1_
     if pred(v, i) then
-      _1_ = v
-    else
-      _1_ = nil
+      table.insert(result, v)
     end
-    result[(#result + 1)] = _1_
   end
   return result
 end
@@ -180,11 +203,7 @@ function M.chars(s)
 end
 
 function M.getlines(filename)
-  local lines = {}
-  for line in io.lines(filename) do
-    table.insert(lines, line)
-  end
-  return lines
+  return M.toarray(io.lines, filename)
 end
 
 return M
