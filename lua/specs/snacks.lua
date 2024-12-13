@@ -6,5 +6,10 @@ return {
     bigfile = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
+    indent = { enabled = true },
+    scroll = {
+      enabled = true,
+      animate = { duration = { step = 5, total = 80 } },
+    },
   },
 }
