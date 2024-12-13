@@ -7,7 +7,8 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     indent = {
-      enabled = true,
+      indent = { enabled = false },
+      scope = { enabled = true },
       chunk = { enabled = true },
     },
     scope = { enabled = true },
