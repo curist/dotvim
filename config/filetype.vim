@@ -43,7 +43,8 @@ augroup MyFileTypeMappings
   autocmd!
   autocmd FileType javascript nn <buffer> <localleader>r :w<cr>:!deno run --allow-all %<cr>
   autocmd FileType typescript nn <buffer> <localleader>r :w<cr>:!deno run --allow-all %<cr>
-  autocmd FileType lua nn <buffer> <localleader>r :w<cr>:!lua %<cr>
+  autocmd FileType lua nn <buffer> <localleader>r :w<cr>:!nlua %<cr>
   autocmd FileType lx nn <buffer> <localleader>r :w<cr>:!lx run %<cr>
   autocmd FileType fennel nn <buffer> <localleader>r :w<cr>:!fennel %<cr>
+  autocmd FileType python nn <buffer> <localleader>r :w<cr>:!python3 %<cr>
 augroup END
