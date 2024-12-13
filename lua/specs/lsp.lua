@@ -91,4 +91,9 @@ vim.api.nvim_create_autocmd("FileType", {
 ]]
 --
 
-return { 'neovim/nvim-lspconfig' }
+return {
+  'neovim/nvim-lspconfig',
+  config = function()
+    require('lspconfig').gleam.setup({})
+  end,
+}
