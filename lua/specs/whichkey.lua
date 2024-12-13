@@ -5,7 +5,7 @@ return {
     spec = {
       { '<leader>t', group = 'test', icon = { icon = '󱖫 ', color = 'green' } },
       { '<leader>l', group = 'lsp', icon = { icon = '', color = 'cyan' } },
-      { '<leader>w', group = 'windows' },
+      { '<leader>w', group = 'windows', proxy = '<c-w>' },
       { '<leader>g', group = 'git' },
     },
   },

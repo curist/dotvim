@@ -10,19 +10,18 @@ local function vn(...)
   vim.keymap.set('v', unpack(dot.concat({ ... }, { { silent = true } })))
 end
 
-nn('<c-c>', dot_scripts.clear_all)
+nn('<c-c>', ':nohls<cr>')
 nn('<leader>q', dot_qf.toggle_list, { desc = 'Toggle quickfix' })
 
 nn('gV', '`[v`]', { desc = 'Select last edited/pasted text' })
 
 -- other sweet mappings
 vim.keymap.set({ 'i', 'v', 's' }, '<c-c>', '<esc>')
-vim.keymap.set('i', '<c-l>', 'λ')
+-- vim.keymap.set('i', '<c-l>', 'λ')
+vim.keymap.set('i', '<c-l>', 'Λ')
 
 nn('<leader>`', '<c-^>', { desc = 'Previous buffer' })
 nn('<leader>wd', '<c-w><c-c>', { desc = 'Delete window' })
-nn('<leader>ws', '<c-w>s', { desc = 'Split window' })
-nn('<leader>wv', '<c-w>v', { desc = 'Vertical split window' })
 
 -- Keep the cursor in place while joining lines
 nn('J', ":let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>")
