@@ -73,20 +73,6 @@ return {
         desc = 'Goto top node',
       },
       {
-        '<c-j>',
-        function()
-          require('dot.ts').goto_next_top_node()
-        end,
-        desc = 'Goto next top node',
-      },
-      {
-        '<c-k>',
-        function()
-          require('dot.ts').goto_prev_top_node()
-        end,
-        desc = 'Goto previous top node',
-      },
-      {
         'gh',
         function()
           require('dot.ts').swap_nodes_at_cursor('prev')

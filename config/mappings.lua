@@ -1,5 +1,4 @@
 local dot = require('dot.utils')
-local dot_scripts = require('dot.scripts')
 local dot_qf = require('dot.qf')
 local w = dot.bind -- wrap aka bind
 

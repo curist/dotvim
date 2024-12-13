@@ -21,4 +21,33 @@ return {
       vim.g.matchup_matchparen_offscreen = {}
     end,
   },
+  {
+    'aaronik/treewalker.nvim',
+    keys = {
+      {
+        '<c-j>',
+        ':Treewalker Down<cr>',
+        desc = 'Treewalker Down',
+        silent = true,
+      },
+      {
+        '<c-k>',
+        ':Treewalker Up<cr>',
+        desc = 'Treewalker Up',
+        silent = true,
+      },
+      {
+        '<c-h>',
+        ':Treewalker Left<cr>',
+        desc = 'Treewalker Left',
+        silent = true,
+      },
+      {
+        '<c-l>',
+        ':Treewalker Right<cr>',
+        desc = 'Treewalker Right',
+        silent = true,
+      },
+    },
+  },
 }
