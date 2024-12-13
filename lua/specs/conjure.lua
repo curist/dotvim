@@ -55,5 +55,13 @@ return {
         },
       })
     end,
+    config = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'fennel' },
+        callback = function()
+          require('fennel').install()
+        end,
+      })
+    end,
   },
 }
