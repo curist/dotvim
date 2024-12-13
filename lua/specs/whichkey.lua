@@ -7,6 +7,7 @@ return {
       { '<leader>l', group = 'lsp', icon = { icon = '', color = 'cyan' } },
       { '<leader>w', group = 'windows', proxy = '<c-w>' },
       { '<leader>g', group = 'git' },
+      { '<leader>h', group = 'git hunks' },
     },
   },
   keys = {
