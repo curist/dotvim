@@ -15,6 +15,19 @@ nn('<leader>q', dot_qf.toggle_list, { desc = 'Toggle quickfix' })
 
 nn('gV', '`[v`]', { desc = 'Select last edited/pasted text' })
 
+nn('](', "<cmd>call search('(', 'sWz')<cr>")
+nn('])', "<cmd>call search(')', 'sWz')<cr>")
+nn('[(', "<cmd>call search('(', 'bsW')<cr>")
+nn('[)', "<cmd>call search(')', 'bsW')<cr>")
+nn(']{', "<cmd>call search('{', 'sWz')<cr>")
+nn(']}', "<cmd>call search('}', 'sWz')<cr>")
+nn('[{', "<cmd>call search('{', 'bsW')<cr>")
+nn('[}', "<cmd>call search('}', 'bsW')<cr>")
+nn('][', "<cmd>call search('[', 'sWz')<cr>")
+nn(']]', "<cmd>call search(']', 'sWz')<cr>")
+nn('[[', "<cmd>call search('[', 'bsW')<cr>")
+nn('[]', "<cmd>call search(']', 'bsW')<cr>")
+
 -- other sweet mappings
 vim.keymap.set({ 'i', 'v', 's' }, '<c-c>', '<esc>')
 -- vim.keymap.set('i', '<c-l>', 'λ')
