@@ -25,7 +25,10 @@ return {
         'jsdoc',
         'json',
       },
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { 'fennel' },
+      },
       indent = { enable = true },
       matchup = {
         enable = true,
