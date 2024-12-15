@@ -5,7 +5,11 @@ return {
   opts = {
     bigfile = { enabled = true },
     quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = {
+      enabled = true,
+      left = { 'sign', 'mark' },
+      right = { 'git' },
+    },
     scroll = {
       enabled = true,
       animate = { duration = { step = 5, total = 80 } },
