@@ -43,11 +43,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     nn('gi', vim.lsp.buf.implementation, 'Implementations')
     nn('gr', vim.lsp.buf.references, 'References')
     nn('K', vim.lsp.buf.hover, 'Hover doc')
-    vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {
-      buffer = event.buf,
-      silent = true,
-      desc = 'Show signature help',
-    })
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
@@ -99,10 +94,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 return {
   'neovim/nvim-lspconfig',
-  dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
-    -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local self_managed_lsp = {
       'gleam',
       { 'racket_langserver', { filetypes = { 'racket' } } },
@@ -113,7 +105,6 @@ return {
       if type(lsp) == 'table' then
         lsp_name, opts = lsp[1], lsp[2]
       end
-      opts.capabilities = capabilities
       require('lspconfig')[lsp_name].setup(opts)
     end
   end,

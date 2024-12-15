@@ -22,6 +22,7 @@ return {
     fzf.setup({
       winopts = {
         height = 0.60,
+        width = 0.75,
         row = 0.99,
         border = 'single',
         preview = {
@@ -29,9 +30,6 @@ return {
           vertical = 'up:0%',
         },
       },
-      winopts_fn = function()
-        return { width = vim.o.columns > 150 and 0.6 or 0.75 }
-      end,
       files = {
         multiprocess = false,
         file_icons = false,
@@ -42,10 +40,12 @@ return {
         git_icons = false,
       },
       colorschemes = {
-        winopts = { height = 20, row = 0, col = 0.99 },
-        winopts_fn = function()
-          return { width = 32 }
-        end,
+        winopts = {
+          height = 20,
+          width = 32,
+          row = 0,
+          col = 0.99,
+        },
       },
     })
 
