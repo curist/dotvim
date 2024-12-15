@@ -16,7 +16,7 @@ return {
     ft = { 'fennel', 'lua', 'python' },
     init = function()
       setup_conjure({
-        -- filetype = { fennel = 'conjure.client.fennel.stdio' },
+        filetype = { fennel = 'conjure.client.fennel.nfnl' },
         extract = { tree_sitter = { enabled = true } },
         mapping = { doc_word = 'gk' },
         client = {
@@ -25,15 +25,6 @@ return {
               mapping = {
                 reset_env = false,
                 reset_all_envs = false,
-              },
-            },
-          },
-          fennel = {
-            aniseed = {
-              use_metadata = false,
-              mapping = {
-                reset_repl = false,
-                reset_all_repls = false,
               },
             },
           },
