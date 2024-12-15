@@ -12,6 +12,8 @@ vim.cmd('runtime! config/*.{vim,lua}')
 local home = vim.uv.os_homedir()
 package.path = package.path .. ';' .. home .. '/.luarocks/share/lua/5.1/?/init.lua;'
 package.path = package.path .. ';' .. home .. '/.luarocks/share/lua/5.1/?.lua;'
+package.cpath = package.cpath .. ';' .. home .. '/.luarocks/lib/lua/5.1/?.so'
+
 -- Setup lazy.nvim
 require('lazy').setup({
   spec = {
