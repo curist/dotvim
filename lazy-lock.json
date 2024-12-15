@@ -36,7 +36,6 @@
   "tangerine.nvim": { "branch": "master", "commit": "885788fd96a2ac34e78dc4a58c1597494096f69c" },
   "tree-sitter-lx": { "branch": "main", "commit": "5f193934c4ea325ad870d77ba1b56ee041fc3198" },
   "treesj": { "branch": "main", "commit": "94f6df623f2d15630b1b617abff39962024cb501" },
-  "treewalker.nvim": { "branch": "main", "commit": "ff488544f8c937b89f6a5b19a99fe2992a533a30" },
   "vim-matchup": { "branch": "master", "commit": "5fb083de1e06fdd134c6ad8d007d4b5576b25ba7" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-sexp": { "branch": "master", "commit": "14464d4580af43424ed8f2614d94e62bfa40bb4d" },
