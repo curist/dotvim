@@ -15,6 +15,7 @@ return {
       vim.g.sexp_enable_insert_mode_mappings = false
       vim.g.sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
       vim.g.sexp_mappings = {
+        sexp_insert_at_list_tail = '<localleader>t',
         sexp_move_to_prev_top_element = '',
         sexp_move_to_next_top_element = '',
         sexp_swap_list_backward = '',
