@@ -17,6 +17,38 @@ function M.get_top_node_at_cursor()
   return not is_root(node) and node or nil
 end
 
+local function bsearch_prev_node(current_line)
+  local root = ts_utils.get_root_for_position(0, 0)
+  local min, max = 1, root:named_child_count()
+  while min < max do
+    local mid = math.floor((min + max) / 2)
+    local node = root:named_child(mid)
+    local start_line = vim.treesitter.get_node_range(node)
+    if current_line < start_line then
+      max = mid
+    else
+      min = mid + 1
+    end
+  end
+  return root:named_child(min - 1)
+end
+
+local function bsearch_next_node(current_line)
+  local root = ts_utils.get_root_for_position(0, 0)
+  local min, max = 1, root:named_child_count()
+  while min < max do
+    local mid = math.floor((min + max) / 2)
+    local node = root:named_child(mid)
+    local start_line = vim.treesitter.get_node_range(node)
+    if current_line > start_line then
+      min = mid + 1
+    else
+      max = mid
+    end
+  end
+  return root:named_child(min - 1)
+end
+
 function M.get_top_node_text_at_cursor()
   local node = M.get_top_node_at_cursor()
   local buf = vim.api.nvim_get_current_buf()
@@ -124,12 +156,18 @@ end
 
 function M.goto_next_top_node()
   local node = M.get_top_node_at_cursor()
+  if node == nil then
+    node = bsearch_next_node(vim.fn.line('.'))
+  end
   local target = get_next_noncomment_node(node)
   ts_utils.goto_node(target)
 end
 
 function M.goto_prev_top_node()
   local node = M.get_top_node_at_cursor()
+  if node == nil then
+    node = bsearch_prev_node(vim.fn.line('.'))
+  end
   local target = get_prev_noncomment_node(node)
   ts_utils.goto_node(target)
 end
