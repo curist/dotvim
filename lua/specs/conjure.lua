@@ -13,6 +13,7 @@ end
 return {
   {
     'Olical/conjure',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = { 'fennel', 'lua', 'python' },
     init = function()
       setup_conjure({
