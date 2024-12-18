@@ -95,7 +95,9 @@ end
 
 function M.print_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
-  print(node, vim.treesitter.get_node_range(node))
+  local parent = node:parent()
+  print(parent:type() .. ' > ' .. node:type())
+
   ts_utils.update_selection(0, node)
   vim.schedule(function()
     vim.cmd('silent normal! "py')
