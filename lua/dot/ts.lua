@@ -78,8 +78,7 @@ local function swap_nodes(node1, node2)
   if not node1 or not node2 then
     return
   end
-  local ts = ts_utils
-  ts.swap_nodes(node1, node2, 0, true)
+  ts_utils.swap_nodes(node1, node2, 0, true)
 end
 
 function M.swap_nodes_at_cursor(direction)
@@ -95,13 +94,18 @@ end
 
 function M.print_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
-  local parent = node:parent()
-  print(parent:type() .. ' > ' .. node:type())
 
   ts_utils.update_selection(0, node)
   vim.schedule(function()
     vim.cmd('silent normal! "py')
   end)
+
+  local message = node:type()
+  while node:parent() ~= nil do
+    message = node:parent():type() .. ' > ' .. message
+    node = node:parent()
+  end
+  print(message)
 end
 
 local function get_sibling_noncomment_node(node, direction)
