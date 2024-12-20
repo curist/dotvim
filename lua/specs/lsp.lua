@@ -101,10 +101,12 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
+    -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local self_managed_lsp = {
       'gleam',
       'racket_langserver',
+      'koka',
     }
     for _, lsp in ipairs(self_managed_lsp) do
       require('lspconfig')[lsp].setup({
