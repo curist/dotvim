@@ -15,8 +15,26 @@ return {
       opts.mapping = cmp.mapping.preset.insert({
         ['<c-u>'] = cmp.mapping.scroll_docs(-4),
         ['<c-d>'] = cmp.mapping.scroll_docs(4),
-        ['<c-e>'] = cmp.mapping.abort(),
-        ['<cr>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<c-e>'] = cmp.mapping({
+          i = function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.abort()
+            else
+              fallback()
+            end
+          end,
+        }),
+        ['<cr>'] = cmp.mapping({
+          i = function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+            else
+              fallback()
+            end
+          end,
+          s = cmp.mapping.confirm({ select = true }),
+          c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        }),
       })
       opts.sources = cmp.config.sources({
         { name = 'nvim_lsp' },
