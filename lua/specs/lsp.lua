@@ -43,6 +43,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     nn('gi', vim.lsp.buf.implementation, 'Implementations')
     nn('gr', vim.lsp.buf.references, 'References')
     nn('K', vim.lsp.buf.hover, 'Hover doc')
+    vim.keymap.set('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {
+      buffer = event.buf,
+      silent = true,
+      desc = 'Show signature help',
+    })
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
