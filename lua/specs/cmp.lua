@@ -3,7 +3,6 @@ return {
   { 'hrsh7th/cmp-path', lazy = true },
   { 'hrsh7th/cmp-buffer', lazy = true },
   { 'hrsh7th/cmp-cmdline', lazy = true },
-  { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = true },
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -12,7 +11,6 @@ return {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
     },
     opts = function(_, opts)
       local cmp = require('cmp')
@@ -47,7 +45,6 @@ return {
       })
       opts.sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'nvim_lsp_signature_help' },
         { name = 'buffer' },
       })
 
