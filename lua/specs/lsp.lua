@@ -65,6 +65,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
         return
       end
     end
+    if require('lspconfig').util.root_pattern('tsconfig.json')(vim.fn.getcwd()) then
+      if client and client.name == 'denols' then
+        client.stop()
+        return
+      end
+    end
   end,
 })
 
@@ -90,5 +96,6 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     require('lspconfig').gleam.setup({})
+    require('lspconfig').racket_langserver.setup({})
   end,
 }
