@@ -99,8 +99,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 return {
   'neovim/nvim-lspconfig',
+  dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
-    require('lspconfig').gleam.setup({})
-    require('lspconfig').racket_langserver.setup({})
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    require('lspconfig').gleam.setup({
+      capabilities = capabilities,
+    })
+    require('lspconfig').racket_langserver.setup({
+      capabilities = capabilities,
+    })
   end,
 }
