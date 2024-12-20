@@ -26,12 +26,13 @@ augroup MyFileTypeSettings
 lua << EOF
 vim.filetype.add({
   extension = {
-    nomad = "hcl",
-    lx = "lx",
+    hcl = 'nomad',
+    lx = 'lx',
+    kk = 'koka',
   },
   pattern = {
-    ["ci-comment-*.txt"] = "gitcommit",
-  }
+    ['ci-comment-*.txt'] = 'gitcommit',
+  },
 })
 EOF
 
