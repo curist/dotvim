@@ -102,11 +102,14 @@ return {
   dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    require('lspconfig').gleam.setup({
-      capabilities = capabilities,
-    })
-    require('lspconfig').racket_langserver.setup({
-      capabilities = capabilities,
-    })
+    local self_managed_lsp = {
+      'gleam',
+      'racket_langserver',
+    }
+    for _, lsp in ipairs(self_managed_lsp) do
+      require('lspconfig')[lsp].setup({
+        capabilities = capabilities,
+      })
+    end
   end,
 }
