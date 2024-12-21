@@ -49,49 +49,6 @@ local function bsearch_next_node(current_line)
   return root:named_child(min - 1)
 end
 
-function M.get_top_node_text_at_cursor()
-  local node = M.get_top_node_at_cursor()
-  local buf = vim.api.nvim_get_current_buf()
-  local text = vim.treesitter.get_node_text(node, buf)
-  local joined_text = table.concat(text, '\n')
-  local globalfied_text = joined_text:gsub('^local ', '')
-  return globalfied_text
-end
-
-local function find_sibling_node(node, direction)
-  direction = direction or 'next'
-  while node ~= nil do
-    local sibling
-    if direction == 'next' then
-      sibling = node:next_named_sibling()
-    else
-      sibling = node:prev_named_sibling()
-    end
-    if sibling and node:type() == sibling:type() then
-      return node, sibling
-    end
-    node = node:parent()
-  end
-end
-
-local function swap_nodes(node1, node2)
-  if not node1 or not node2 then
-    return
-  end
-  ts_utils.swap_nodes(node1, node2, 0, true)
-end
-
-function M.swap_nodes_at_cursor(direction)
-  local node = ts_utils.get_node_at_cursor()
-  local node1, node2 = find_sibling_node(node, direction)
-  swap_nodes(node1, node2)
-end
-
-function M.swap_top_nodes_at_cursor(direction)
-  local node = M.get_top_node_at_cursor()
-  M.swap_nodes(node, direction)
-end
-
 function M.print_node_at_cursor()
   local node = ts_utils.get_node_at_cursor()
 
@@ -99,6 +56,19 @@ function M.print_node_at_cursor()
   vim.schedule(function()
     vim.cmd('silent normal! "py')
   end)
+
+  print('name:')
+  for _, item in ipairs(node:field('name')) do
+    print(item)
+  end
+  print('call:')
+  for _, item in ipairs(node:field('call')) do
+    print(item:type())
+  end
+  print('item:')
+  for _, item in ipairs(node:field('item')) do
+    print(item:type())
+  end
 
   local message = node:type()
   while node:parent() ~= nil do
@@ -148,11 +118,6 @@ end
 
 local function get_prev_noncomment_node(node)
   return get_sibling_noncomment_node(node, 'prev')
-end
-
-function M.goto_parent_node()
-  local node = ts_utils.get_node_at_cursor()
-  ts_utils.goto_node(node:parent())
 end
 
 function M.goto_top_node_at_cursor()
