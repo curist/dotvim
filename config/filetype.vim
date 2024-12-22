@@ -28,7 +28,6 @@ vim.filetype.add({
   extension = {
     hcl = 'nomad',
     lx = 'lx',
-    kk = 'koka',
   },
   pattern = {
     ['ci-comment-*.txt'] = 'gitcommit',

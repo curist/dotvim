@@ -41,7 +41,6 @@ return {
         'jsdoc',
         'json',
         'lx',
-        'koka',
       },
       highlight = {
         enable = true,
@@ -81,15 +80,6 @@ return {
         install_info = {
           url = 'https://github.com/curist/tree-sitter-lx',
           files = { 'src/parser.c' },
-          branch = 'main',
-        },
-      }
-
-      require('nvim-treesitter.parsers').get_parser_configs()['koka'] = {
-        filetype = 'koka',
-        install_info = {
-          url = 'https://github.com/mtoohey31/tree-sitter-koka',
-          files = { 'src/parser.c', 'src/scanner.c' },
           branch = 'main',
         },
       }
