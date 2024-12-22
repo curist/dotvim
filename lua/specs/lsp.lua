@@ -106,7 +106,7 @@ return {
     local self_managed_lsp = {
       'gleam',
       'koka',
-      { 'racket_langserver', { filetypes = 'racket' } },
+      { 'racket_langserver', { filetypes = { 'racket' } } },
     }
     for _, lsp in ipairs(self_managed_lsp) do
       local lsp_name = lsp
