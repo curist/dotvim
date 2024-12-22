@@ -27,7 +27,7 @@ return {
       'PaterJason/cmp-conjure',
       'nvim-treesitter/nvim-treesitter',
     },
-    ft = { 'fennel', 'lua', 'python', 'racket' },
+    ft = { 'fennel', 'lua', 'python', 'racket', 'scheme' },
     init = function()
       setup_conjure({
         filetype = { fennel = 'conjure.client.fennel.nfnl' },
@@ -40,6 +40,13 @@ return {
                 reset_env = false,
                 reset_all_envs = false,
               },
+            },
+          },
+          scheme = {
+            stdio = {
+              command = 'chez',
+              prompt_pattern = '> $',
+              value_prefix_pattern = false,
             },
           },
         },

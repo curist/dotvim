@@ -105,13 +105,17 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local self_managed_lsp = {
       'gleam',
-      'racket_langserver',
       'koka',
+      { 'racket_langserver', { filetypes = 'racket' } },
     }
     for _, lsp in ipairs(self_managed_lsp) do
-      require('lspconfig')[lsp].setup({
-        capabilities = capabilities,
-      })
+      local lsp_name = lsp
+      local opts = {}
+      if type(lsp) == 'table' then
+        lsp_name, opts = lsp[1], lsp[2]
+      end
+      opts.capabilities = capabilities
+      require('lspconfig')[lsp_name].setup(opts)
     end
   end,
 }
