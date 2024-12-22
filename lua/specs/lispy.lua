@@ -10,6 +10,6 @@ return {
   },
   {
     'PaterJason/nvim-treesitter-sexp',
-    event = 'VeryLazy',
+    ft = { 'fennel', 'racket', 'query' },
   },
 }
