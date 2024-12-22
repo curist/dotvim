@@ -1,16 +1,5 @@
 return {
   {
-    'moonbit-community/moonbit.nvim',
-    build = ':TSInstall! moonbit',
-    ft = 'moonbit',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
-    opts = {
-      treesitter = { enabled = true },
-    },
-  },
-  {
     'curist/tree-sitter-lx',
     ft = 'lx',
     dependencies = {

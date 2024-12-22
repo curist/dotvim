@@ -25,11 +25,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    depedencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'moonbit-community/moonbit.nvim',
-      'curist/tree-sitter-lx',
-    },
+    depedencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
     build = ':TSUpdate',
     event = { 'BufRead' },
     cmd = { 'TSInstall' },

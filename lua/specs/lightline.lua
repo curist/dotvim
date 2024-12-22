@@ -37,12 +37,12 @@ return {
         lineinfo = '%3l:%-2c',
       },
       component_function = {
-        filename = 'v:lua.LightlineFilename',
-        githead = 'v:lua.LightlineGitHead',
-        filetype = 'v:lua.LightlineFileType',
+        filename = 'v:lua.Lightline.Filename',
+        githead = 'v:lua.Lightline.GitHead',
+        filetype = 'v:lua.Lightline.FileType',
       },
       component_expand = {
-        macro = 'v:lua.LightlineMacro',
+        macro = 'v:lua.Lightline.Macro',
       },
       component_type = {
         macro = 'warning',
@@ -101,13 +101,15 @@ return {
       return ''
     end
 
-    function LightlineFilename()
+    Lightline = {}
+
+    function Lightline.Filename()
       local filename = vim.fn.expand('%:~:.'):gsub('^oil://', '')
       local name = smartPath(filename, 0.45) .. Mod()
       return name
     end
 
-    function LightlineGitHead()
+    function Lightline.GitHead()
       local githead = vim.g.gitsigns_head or ''
       if #githead < 20 then
         return githead
@@ -116,7 +118,7 @@ return {
       return githead:sub(1, 18) .. '…'
     end
 
-    function LightlineFileType()
+    function Lightline.FileType()
       if vim.bo.buftype == 'terminal' then
         return 'terminal'
       end
@@ -125,7 +127,7 @@ return {
     end
 
     local is_macro_recording = false
-    function LightlineMacro()
+    function Lightline.Macro()
       if not is_macro_recording then
         return ''
       end
