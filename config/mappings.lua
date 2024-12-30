@@ -9,7 +9,7 @@ local function vn(...)
   vim.keymap.set('v', unpack(dot.concat({ ... }, { { silent = true } })))
 end
 
-nn('<c-c>', ':nohls<cr>')
+nn('<c-c>', '<cmd>nohls<cr>')
 nn('<leader>q', dot_qf.toggle_list, { desc = 'Toggle quickfix' })
 
 nn('gV', '`[v`]', { desc = 'Select last edited/pasted text' })
@@ -36,7 +36,7 @@ nn('<leader>`', '<c-^>', { desc = 'Previous buffer' })
 nn('<leader>wd', '<c-w><c-c>', { desc = 'Delete window' })
 
 -- Keep the cursor in place while joining lines
-nn('J', ":let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>")
+nn('J', "<cmd>let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>")
 
 vim.keymap.set('c', '<c-r><c-l>', w(vim.fn.getline, '.'), { expr = true })
 
@@ -44,8 +44,8 @@ nn('<up>', 'gk<c-y>')
 nn('<down>', 'gj<c-e>')
 nn('<left>', 'hzh')
 nn('<right>', 'lzl')
-nn('<s-up>', ':m .-2<cr>==', { desc = 'Move line up' })
-nn('<s-down>', ':m .+1<cr>==', { desc = 'Move line down' })
+nn('<s-up>', '<cmd>m .-2<cr>==', { desc = 'Move line up' })
+nn('<s-down>', '<cmd>m .+1<cr>==', { desc = 'Move line down' })
 vn('<s-up>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
 vn('<s-down>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 

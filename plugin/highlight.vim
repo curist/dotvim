@@ -10,7 +10,7 @@ function! s:highlighting()
   if strlen(l:cword) > 0
     let @/ = '\<'.l:cword.'\>'
   endif
-  return ":silent set hlsearch\<cr>"
+  return "\<cmd>silent set hlsearch\<cr>"
 endfunction
 
 function! s:highlighting_selected()
@@ -20,5 +20,5 @@ endfunction
 " map <cr> to do Highlighting only when <cr> is not mapped
 autocmd BufEnter * if mapcheck("<cr>") == ""|
       \ nn <buffer> <silent> <expr> <CR> <SID>highlighting()|
-      \ xn <buffer> <silent> <expr> <CR> '"cy:call <SID>highlighting_selected()<cr>:set hls<cr>'|
+      \ xn <buffer> <silent> <expr> <CR> '"cy<cmd>call <SID>highlighting_selected()<cr><cmd>set hls<cr>'|
       \ endif
