@@ -8,11 +8,8 @@ return {
     ft = 'fennel',
     opts = {},
   },
-  'gpanders/nvim-parinfer',
-  'julienvincent/nvim-paredit',
   {
-    'dundalek/parpar.nvim',
-    dependencies = { 'gpanders/nvim-parinfer', 'julienvincent/nvim-paredit' },
-    opts = {},
+    'PaterJason/nvim-treesitter-sexp',
+    ft = { 'fennel', 'racket', 'query', 'clojure' },
   },
 }
