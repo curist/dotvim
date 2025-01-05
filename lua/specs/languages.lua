@@ -2,9 +2,6 @@ return {
   {
     'curist/tree-sitter-lx',
     ft = 'lx',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
     config = function(plugin)
       local plug_dir = plugin.dir .. '/vim'
       vim.opt.rtp:append(plug_dir)
