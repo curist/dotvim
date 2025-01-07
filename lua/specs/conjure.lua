@@ -33,6 +33,7 @@ return {
         filetype = { fennel = 'conjure.client.fennel.nfnl' },
         extract = { tree_sitter = { enabled = true } },
         mapping = { doc_word = 'gk' },
+        log = { hud = { ignore_low_priority = true } },
         client = {
           lua = {
             neovim = {
