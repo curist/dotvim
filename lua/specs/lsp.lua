@@ -19,6 +19,10 @@ vim.diagnostic.config({
   },
 })
 
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'single',
+})
+
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = 'Diagnostic' })
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, { desc = 'Send diagnostic to quickfix' })
 
@@ -42,7 +46,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     nn('gd', vim.lsp.buf.definition, 'Goto definition')
     nn('gi', vim.lsp.buf.implementation, 'Implementations')
     nn('gr', vim.lsp.buf.references, 'References')
-    nn('K', vim.lsp.buf.hover, 'Hover doc')
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
@@ -51,14 +54,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end, 'Toggle inlay hints')
     end
 
-    -- vim.api.nvim_create_autocmd('CursorHold', {
-    --   buffer = event.buf,
-    --   callback = function()
-    --     if vim.diagnostic.is_enabled({ bufnr = event.buf }) then
-    --       vim.diagnostic.open_float()
-    --     end
-    --   end,
-    -- })
     if require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
       if client and client.name == 'tsserver' then
         client.stop()

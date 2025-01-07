@@ -20,16 +20,18 @@ return {
     fzf.register_ui_select()
 
     fzf.setup({
-      winopts = {
-        height = 0.60,
-        width = 0.75,
-        row = 0.99,
-        border = 'single',
-        preview = {
-          hidden = 'hidden',
-          vertical = 'up:0%',
-        },
-      },
+      winopts = function()
+        return {
+          height = 0.60,
+          width = vim.o.columns > 150 and 0.6 or 0.75,
+          row = 0.99,
+          border = 'single',
+          preview = {
+            hidden = 'hidden',
+            vertical = 'up:0%',
+          },
+        }
+      end,
       files = {
         multiprocess = false,
         file_icons = false,
