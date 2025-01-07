@@ -89,7 +89,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 return {
   'neovim/nvim-lspconfig',
+  dependencies = { 'hrsh7th/nvim-cmp' },
   config = function()
+    -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local self_managed_lsp = {
       'gleam',
       { 'racket_langserver', { filetypes = { 'racket' } } },
@@ -100,6 +103,7 @@ return {
       if type(lsp) == 'table' then
         lsp_name, opts = lsp[1], lsp[2]
       end
+      opts.capabilities = capabilities
       require('lspconfig')[lsp_name].setup(opts)
     end
   end,
