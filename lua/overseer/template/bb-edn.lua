@@ -53,7 +53,7 @@ return {
         for _, task in ipairs(result) do
           table.insert(ret, {
             priority = 60,
-            name = task.name,
+            name = string.format('bb %s', task.name),
             desc = task.doc,
             params = {
               args = {
