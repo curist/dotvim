@@ -15,6 +15,7 @@ return {
     opts = function(_, opts)
       local cmp = require('cmp')
       opts.experimental = { ghost_text = true }
+      opts.completion = { keyword_pattern = [[\k\+]] }
 
       opts.mapping = cmp.mapping.preset.insert({
         ['<c-u>'] = cmp.mapping.scroll_docs(-4),

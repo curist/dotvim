@@ -10,10 +10,9 @@ return {
   },
   {
     'guns/vim-sexp',
-    ft = { 'fennel' },
     init = function()
       vim.g.sexp_enable_insert_mode_mappings = false
-      vim.g.sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
+      vim.g.sexp_filetypes = 'clojure,scheme,lisp,timl,fennel,racket'
       vim.g.sexp_mappings = {
         sexp_swap_list_backward = '',
         sexp_swap_list_forward = '',
@@ -29,6 +28,6 @@ return {
   {
     'tpope/vim-sexp-mappings-for-regular-people',
     dependencies = { 'guns/vim-sexp' },
-    ft = { 'fennel', 'query', 'clojure' },
+    ft = { 'fennel', 'query', 'clojure', 'racket' },
   },
 }

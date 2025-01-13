@@ -46,7 +46,6 @@ set noswapfile
 
 set shortmess+=I        " no intro message
 set shortmess+=c        " no more pattern not found
-set virtualedit=block   " no limit cursor postion in VISUAL BLOCK mode
 set synmaxcol=150       " Don't try to highlight long lines
 
 set updatetime=350
