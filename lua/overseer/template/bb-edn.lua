@@ -20,7 +20,6 @@ local bbscript = [[
 
 local bb_script_path = vim.fn.tempname()
 vim.fn.writefile({ bbscript:gsub('\n', '') }, bb_script_path)
-vim.print(bb_script_path)
 
 local function get_bb_edn(opts)
   return vim.fs.find('bb.edn', { upward = true, type = 'file', path = opts.dir })[1]

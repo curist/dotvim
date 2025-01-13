@@ -8,6 +8,7 @@ return {
       { '<leader>w', group = 'windows', proxy = '<c-w>' },
       { '<leader>g', group = 'git' },
       { '<leader>h', group = 'git hunks' },
+      { '<leader>o', group = 'overseer' },
     },
   },
   keys = {
