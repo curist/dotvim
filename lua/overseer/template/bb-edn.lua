@@ -8,12 +8,13 @@ local bbscript = [[
 (def tasks (->> (keys (:tasks template))
                 (filter symbol?)
                 (map #(let [n (name %)
-                            t (get-in template [:tasks %])]
+                            t (get-in template [:tasks %])
+                            task (if (map? t) t {:task t})]
                         {:name n
-                         :doc (:doc t)
+                         :doc (:doc task)
                          :args (not= nil
                                      (re-find #"\*command-line-args\*"
-                                              (pr-str (:task t))))}))))
+                                              (pr-str (:task task))))}))))
 
 (print (json/encode tasks))
 ]]
