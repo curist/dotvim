@@ -63,9 +63,11 @@ return {
               },
             },
             builder = function(params)
+              local args = params.args or {}
+              table.insert(args, vim.fn.expand('%:p'))
               return {
                 cmd = { 'bb', task.name },
-                args = params.args,
+                args = args,
                 cwd = params.cwd,
               }
             end,
