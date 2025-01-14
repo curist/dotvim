@@ -11,11 +11,12 @@ end, {})
 return {
   'stevearc/overseer.nvim',
   opts = {
-    templates = { 'builtin', 'bb-edn' },
+    templates = { 'builtin', 'user.bb-edn' },
   },
   keys = {
     { '<leader>or', '<cmd>OverseerRun<cr>', desc = 'OverseerRun' },
     { '<leader>ot', '<cmd>OverseerToggle<cr>', desc = 'OverseerToggle' },
+    { '<leader>oa', '<cmd>OverseerQuickAction<cr>', desc = 'OverseerQuickAction' },
     { '<leader>ol', '<cmd>OverseerRestartLast<cr>', desc = 'OverseerRestartLast' },
   },
 }
