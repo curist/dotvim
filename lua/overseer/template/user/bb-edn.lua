@@ -12,9 +12,10 @@ local bbscript = [[
                             task (if (map? t) t {:task t})]
                         {:name n
                          :doc (:doc task)
-                         :args (not= nil
+                         :args (or (:params task)
+                                   (not= nil
                                      (re-find #"\*command-line-args\*"
-                                              (pr-str (:task task))))}))))
+                                              (pr-str (:task task)))))}))))
 
 (print (json/encode tasks))
 ]]
@@ -24,6 +25,35 @@ vim.fn.writefile({ bbscript:gsub('\n', '') }, bb_script_path)
 
 local function get_bb_edn(opts)
   return vim.fs.find('bb.edn', { upward = true, type = 'file', path = opts.dir })[1]
+end
+
+local function build_task_params(task)
+  local params = {}
+  if type(task.args) == 'table' then
+    for i, k in ipairs(task.args) do
+      params[k] = {
+        type = 'string',
+        optional = false,
+        order = i,
+      }
+    end
+  elseif task.args then
+    params.args = {
+      optional = false,
+      type = 'list',
+      delimiter = ' ',
+    }
+  end
+  return params
+end
+
+local function build_task_args(task_params, params)
+  local args = {}
+  for k, param in pairs(task_params) do
+    args[param.order] = params[k]
+  end
+  table.insert(args, vim.fn.expand('%:p'))
+  return args
 end
 
 return {
@@ -52,23 +82,15 @@ return {
       on_stdout = vim.schedule_wrap(function(_, output)
         local result = json.decode(output[1])
         for _, task in ipairs(result) do
+          local task_params = build_task_params(task)
           table.insert(ret, {
-            priority = 60,
             name = string.format('bb %s', task.name),
             desc = task.doc,
-            params = {
-              args = {
-                optional = not task.args,
-                type = 'list',
-                delimiter = ' ',
-              },
-            },
+            params = task_params,
             builder = function(params)
-              local args = params.args or {}
-              table.insert(args, vim.fn.expand('%:p'))
               return {
                 cmd = { 'bb', task.name },
-                args = args,
+                args = build_task_args(task_params, params),
                 cwd = params.cwd,
               }
             end,
