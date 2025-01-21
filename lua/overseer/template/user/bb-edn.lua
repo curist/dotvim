@@ -12,7 +12,7 @@ local bbscript = [[
                             task (if (map? t) t {:task t})]
                         {:name n
                          :doc (:doc task)
-                         :args (or (:params task)
+                         :args (or (:spec task)
                                    (not= nil
                                      (re-find #"\*command-line-args\*"
                                               (pr-str (:task task)))))}))))
@@ -30,11 +30,10 @@ end
 local function build_task_params(task)
   local params = {}
   if type(task.args) == 'table' then
-    for i, k in ipairs(task.args) do
+    for k, arg in pairs(task.args) do
       params[k] = {
         type = 'string',
-        optional = false,
-        order = i,
+        optional = not arg.require,
       }
     end
   elseif task.args then
@@ -49,10 +48,14 @@ end
 
 local function build_task_args(task_params, params)
   local args = {}
-  for k, param in pairs(task_params) do
-    args[param.order] = params[k]
+  for k, v in pairs(params) do
+    if task_params[k].type == 'list' then
+      table.insert(args, v)
+    else
+      table.insert(args, ':' .. k)
+      table.insert(args, v)
+    end
   end
-  table.insert(args, vim.fn.expand('%:p'))
   return args
 end
 
