@@ -47,7 +47,7 @@ return {
       },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = { 'fennel' },
+        additional_vim_regex_highlighting = { 'fennel', 'clojure' },
       },
       indent = { enable = true },
       matchup = {
