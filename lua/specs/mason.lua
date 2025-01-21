@@ -13,6 +13,8 @@ return {
           'lua_ls',
           'denols',
           'gopls',
+          'pyright',
+          'ruff',
         },
         automatic_installation = true,
       })

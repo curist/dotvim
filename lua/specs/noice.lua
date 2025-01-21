@@ -36,6 +36,15 @@ return {
           },
           view = nil,
         },
+        {
+          filter = {
+            event = 'notify',
+            any = {
+              { find = 'No information available' },
+            },
+          },
+          view = nil,
+        },
       },
       health = { checker = false },
     },
