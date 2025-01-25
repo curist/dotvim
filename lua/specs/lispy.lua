@@ -28,6 +28,6 @@ return {
   {
     'tpope/vim-sexp-mappings-for-regular-people',
     dependencies = { 'guns/vim-sexp' },
-    ft = { 'fennel', 'query', 'clojure', 'racket' },
+    ft = { 'fennel', 'query', 'clojure', 'racket', 'lisp' },
   },
 }
