@@ -30,9 +30,6 @@ vim.filetype.add({
     lx = 'lx',
     bb = 'clojure',
   },
-  pattern = {
-    ['ci-comment-*.txt'] = 'gitcommit',
-  },
 })
 EOF
 
