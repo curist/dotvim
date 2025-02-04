@@ -149,7 +149,6 @@ function M.recent_projects()
       local path = base .. '/' .. selected[1]
       vim.api.nvim_set_current_dir(path)
       vim.fn.execute('Oil .')
-      require('dot.pyvenv').activate(path)
     end,
   }
 

@@ -28,3 +28,9 @@ augroup dirchange
   autocmd!
   autocmd DirChanged * let &titlestring=fnamemodify(v:event['cwd'], ':~')
 augroup END
+
+augroup python_venv
+  autocmd!
+  autocmd VimEnter * lua vim.defer_fn(require('dot.pyvenv').activate, 10)
+  autocmd DirChanged * lua require('dot.pyvenv').activate()
+augroup END
