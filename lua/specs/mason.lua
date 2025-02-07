@@ -11,7 +11,6 @@ return {
       require('mason-lspconfig').setup({
         ensure_installed = {
           'lua_ls',
-          'fennel_ls',
           'denols',
           'gopls',
           'pyright',
