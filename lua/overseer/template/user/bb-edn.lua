@@ -27,6 +27,19 @@ local function get_bb_edn(opts)
   return vim.fs.find('bb.edn', { upward = true, type = 'file', path = opts.dir })[1]
 end
 
+local function get_env_vars()
+  return {
+    BBT_CWD = vim.fn.getcwd(),
+    BBT_FILE = vim.fn.expand('%:p'),
+    BBT_RELATIVE_FILE = vim.fn.expand('%:.'),
+    BBT_RELATIVE_DIR = vim.fn.expand('%:.:h'),
+    BBT_BASENAME = vim.fn.expand('%:t'),
+    BBT_BASENAME_WO_EXT = vim.fn.expand('%:t:r'),
+    BBT_FILE_ABS = vim.fn.expand('%:p:h'),
+    BBT_FILE_EXT = vim.fn.expand('%:e'),
+  }
+end
+
 local function build_task_params(task)
   local params = {}
   if type(task.args) == 'table' then
@@ -95,6 +108,7 @@ return {
                 cmd = { 'bb', task.name },
                 args = build_task_args(task_params, params),
                 cwd = params.cwd,
+                env = get_env_vars(),
               }
             end,
           })
