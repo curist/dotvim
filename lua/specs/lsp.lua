@@ -96,7 +96,6 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local self_managed_lsp = {
       'gleam',
-      'fennel_ls',
       { 'racket_langserver', { filetypes = { 'racket' } } },
     }
     for _, lsp in ipairs(self_managed_lsp) do

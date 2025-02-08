@@ -30,7 +30,10 @@ return {
     ft = { 'fennel', 'lua', 'python', 'racket', 'scheme', 'clojure' },
     init = function()
       setup_conjure({
-        filetype = { fennel = 'conjure.client.fennel.nfnl' },
+        filetype = {
+          fennel = 'conjure.client.fennel.stdio',
+          -- fennel = 'conjure.client.fennel.nfnl',
+        },
         extract = { tree_sitter = { enabled = true } },
         mapping = { doc_word = 'gk' },
         log = { hud = { ignore_low_priority = true } },
@@ -55,14 +58,6 @@ return {
           enabled = true,
           timeout = 250,
         },
-      })
-    end,
-    config = function()
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'fennel' },
-        callback = function()
-          require('fennel').install()
-        end,
       })
     end,
   },
