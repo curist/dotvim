@@ -70,6 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
 --[[ leave this here for example for future manual setup
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typescript" },
@@ -86,26 +87,3 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 ]]
---
-
-return {
-  'neovim/nvim-lspconfig',
-  dependencies = { 'hrsh7th/nvim-cmp' },
-  config = function()
-    -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    local self_managed_lsp = {
-      'gleam',
-      { 'racket_langserver', { filetypes = { 'racket' } } },
-    }
-    for _, lsp in ipairs(self_managed_lsp) do
-      local lsp_name = lsp
-      local opts = {}
-      if type(lsp) == 'table' then
-        lsp_name, opts = lsp[1], lsp[2]
-      end
-      opts.capabilities = capabilities
-      require('lspconfig')[lsp_name].setup(opts)
-    end
-  end,
-}

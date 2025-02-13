@@ -5,6 +5,7 @@ return {
   {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = { use_default_keymaps = false },
     keys = {
       {
         '<leader>j',
@@ -12,7 +13,6 @@ return {
         desc = 'Toggle Split Join',
       },
     },
-    opts = { use_default_keymaps = false },
   },
   {
     'andymass/vim-matchup',

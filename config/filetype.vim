@@ -26,7 +26,6 @@ augroup MyFileTypeSettings
 lua << EOF
 vim.filetype.add({
   extension = {
-    hcl = 'nomad',
     lx = 'lx',
     bb = 'clojure',
   },
