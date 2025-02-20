@@ -52,6 +52,7 @@ return {
     })
 
     nn('<leader> ', fzf.files, { desc = 'Find file' })
+    nn('<leader>F', w(fzf.files, { cmd = 'rg --files --hidden --no-ignore-vcs' }), { desc = 'Find file' })
     nn('<leader>,', w(fzf.buffers, { no_term_buffers = true }), { desc = 'Buffer list' })
     nn(
       '<leader>m',
