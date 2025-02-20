@@ -46,6 +46,7 @@ return {
         'lua',
         'jsdoc',
         'json',
+        'python',
         'lx',
       },
       highlight = {
