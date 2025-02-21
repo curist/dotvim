@@ -153,31 +153,7 @@ function M.recent_projects()
   }
 
   local function matched_project_path(filepath)
-    local matched = filepath:match(base)
-    if not matched then
-      return nil
-    end
-    -- let's check if filepath match a language folder
-    local languages = vim.fn.glob(base .. '*/', nil, true)
-    local matched_lang = nil
-    for _, path in pairs(languages) do
-      if filepath:match(path) then
-        matched_lang = path
-        break
-      end
-    end
-    if not matched_lang then
-      return nil
-    end
-
-    -- let's check if filepath match a project
-    local projects = vim.fn.glob(matched_lang .. '*/', nil, true)
-    for _, path in pairs(projects) do
-      if filepath:match(path) then
-        return path
-      end
-    end
-    return nil
+    return filepath:match('^' .. base .. '[^/]+/[^/]+/')
   end
 
   local projects = vim.fn.glob(base .. '*/*/', nil, true)
@@ -192,7 +168,7 @@ function M.recent_projects()
     local oldfile = oldfiles[i]
     local score = #oldfiles - i
     local path = matched_project_path(oldfile)
-    if path then
+    if path and projects_score[path] then
       -- don't accumulate score, but just count recency
       projects_score[path] = score
     end
@@ -218,7 +194,7 @@ M.closeAllFloatingWindows = function()
   local closed_windows = 0
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     local config = vim.api.nvim_win_get_config(win)
-    if config.relative ~= '' then -- is_floating_window?
+    if config.relative ~= '' then        -- is_floating_window?
       vim.api.nvim_win_close(win, false) -- do not force
       closed_windows = closed_windows + 1
     end
