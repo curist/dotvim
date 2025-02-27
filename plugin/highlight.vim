@@ -5,6 +5,9 @@ let g:loaded_highlight = 1
 
 " Highlighting
 function! s:highlighting()
+  if &modifiable != 1
+    return "\<cr>"
+  endif
 
   let l:cword = expand('<cword>')
   if strlen(l:cword) > 0
