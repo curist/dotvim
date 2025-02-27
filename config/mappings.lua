@@ -31,6 +31,7 @@ nn('[]', "<cmd>call search(']', 'bsW')<cr>")
 vim.keymap.set({ 'i', 'v', 's' }, '<c-c>', '<esc>')
 -- vim.keymap.set('i', '<c-l>', 'λ')
 vim.keymap.set('i', '<c-l>', 'Λ')
+vn('<leader>e', ":!fennel-eval --stdin<cr>", { desc = 'Fennel evaluate selection' })
 
 nn('<leader>`', '<c-^>', { desc = 'Previous buffer' })
 nn('<leader>wd', '<c-w><c-c>', { desc = 'Delete window' })
