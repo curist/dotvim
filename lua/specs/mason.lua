@@ -15,6 +15,7 @@ return {
           'gopls',
           'pyright',
           'ruff',
+          'clojure_lsp',
         },
         automatic_installation = true,
       })
