@@ -27,7 +27,6 @@ set hidden            " it's ok to switch buffer w/o saving
 
 set title
 set clipboard^=unnamed,unnamedplus
-set guioptions+=a
 
 set wildmode=list:longest,full
 set completeopt=menuone,noselect

@@ -50,6 +50,9 @@ nn('<s-down>', '<cmd>m .+1<cr>==', { desc = 'Move line down' })
 vn('<s-up>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
 vn('<s-down>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 
+-- terminal mappings
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
+
 -- Emacs bindings..
 vim.keymap.set({ 'i', 'c' }, '<c-a>', '<home>')
 vim.keymap.set('i', '<c-e>', '<end>')
