@@ -1,8 +1,8 @@
 return {
   { 'hrsh7th/cmp-nvim-lsp', lazy = true },
-  { 'hrsh7th/cmp-path', lazy = true },
-  { 'hrsh7th/cmp-buffer', lazy = true },
-  { 'hrsh7th/cmp-cmdline', lazy = true },
+  { 'hrsh7th/cmp-path',     lazy = true },
+  { 'hrsh7th/cmp-buffer',   lazy = true },
+  { 'hrsh7th/cmp-cmdline',  lazy = true },
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -16,6 +16,11 @@ return {
       local cmp = require('cmp')
       opts.experimental = { ghost_text = true }
       opts.completion = { keyword_pattern = [[\k\+]] }
+
+      opts.window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      }
 
       opts.mapping = cmp.mapping.preset.insert({
         ['<c-u>'] = cmp.mapping.scroll_docs(-4),
