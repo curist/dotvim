@@ -17,6 +17,7 @@ return {
           'pyright',
           'ruff',
           'clojure_lsp',
+          'fennel_ls',
         },
         automatic_installation = true,
       })
