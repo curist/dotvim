@@ -1,9 +1,9 @@
 return {
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
       'neovim/nvim-lspconfig',
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -19,15 +19,6 @@ return {
           'clojure_lsp',
           'fennel_ls',
         },
-        automatic_installation = true,
-      })
-      require('mason-lspconfig').setup_handlers({
-        function(server_name)
-          local capabilities = require('cmp_nvim_lsp').default_capabilities()
-          require('lspconfig')[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
       })
     end,
   },
