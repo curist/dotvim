@@ -52,3 +52,5 @@ set timeoutlen=400
 
 set splitright
 
+" disable sql completion on i<c-c>
+let g:omni_sql_no_default_maps = 1
