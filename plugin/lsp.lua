@@ -19,10 +19,6 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'single',
-})
-
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = 'Diagnostic' })
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, { desc = 'Send diagnostic to quickfix' })
 
@@ -69,21 +65,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
-
--- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
---[[ leave this here for example for future manual setup
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "typescript" },
-  callback = function()
-    vim.lsp.start({
-      name = "denols",
-      cmd = { "deno", "lsp" },
-      single_file_support = true,
-      root_dir = vim.fs.dirname(vim.fs.find({
-        "deno.json",
-        ".git",
-      }, { upward = true })[1]),
-    })
-  end,
-})
-]]
