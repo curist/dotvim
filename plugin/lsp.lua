@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     if require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
-      if client and client.name == 'tsserver' then
+      if client and client.name == 'ts_ls' then
         client.stop()
         return
       end
