@@ -1,5 +1,6 @@
 local dot = require('dot.utils')
 local dot_qf = require('dot.qf')
+local scripts = require('dot.scripts')
 local w = dot.bind -- wrap aka bind
 
 local function nn(...)
@@ -32,6 +33,7 @@ vim.keymap.set({ 'i', 'v', 's' }, '<c-c>', '<esc>')
 -- vim.keymap.set('i', '<c-l>', 'λ')
 vim.keymap.set('i', '<c-l>', 'Λ')
 vn('<leader>e', ":!fennel-eval --stdin<cr>", { desc = 'Fennel evaluate selection' })
+nn('<leader>jj', w(scripts.openTerm, { cmd = 'jjui', nowait = true }), { desc = 'jjui' })
 
 nn('<leader>`', '<c-^>', { desc = 'Previous buffer' })
 nn('<leader>wd', '<c-w><c-c>', { desc = 'Delete window' })

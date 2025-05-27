@@ -8,7 +8,7 @@ return {
     opts = { use_default_keymaps = false },
     keys = {
       {
-        '<leader>j',
+        '<leader>J',
         ':TSJToggle<cr>',
         desc = 'Toggle Split Join',
       },
