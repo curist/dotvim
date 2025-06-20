@@ -14,7 +14,7 @@ augroup BehaviourAdjustment
   autocmd BufRead quickfix setlocal nobuflisted number nornu
   autocmd BufRead location setlocal nobuflisted number nornu
 
-  autocmd FileType qf 8wincmd_
+  autocmd FileType qf 10wincmd_
 augroup END
 
 " highlights yanked text

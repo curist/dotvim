@@ -50,18 +50,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
       end, 'Toggle inlay hints')
     end
-
-    if require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc')(vim.fn.getcwd()) then
-      if client and client.name == 'ts_ls' then
-        client.stop()
-        return
-      end
-    end
-    if require('lspconfig').util.root_pattern('tsconfig.json')(vim.fn.getcwd()) then
-      if client and client.name == 'denols' then
-        client.stop()
-        return
-      end
-    end
   end,
 })

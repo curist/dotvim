@@ -8,10 +8,19 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+      require("lspconfig").pyright.setup({
+        on_attach = function(client, bufnr)
+          -- Disable diagnostics entirely
+          client.handlers["textDocument/publishDiagnostics"] = function() end
+
+          local caps = client.server_capabilities
+          caps.hoverProvider = true
+        end,
+      })
+
       require('mason-lspconfig').setup({
         ensure_installed = {
           'lua_ls',
-          'denols',
           'ts_ls',
           'gopls',
           'pyright',
