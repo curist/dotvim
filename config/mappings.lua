@@ -38,6 +38,11 @@ nn('<leader>jj', w(scripts.openTerm, { cmd = 'jjui', nowait = true }), { desc = 
 nn('<leader>`', '<c-^>', { desc = 'Previous buffer' })
 nn('<leader>wd', '<c-w><c-c>', { desc = 'Delete window' })
 
+nn('<leader>.', function()
+  vim.fn.setreg('+', vim.fn.expand('%:.'))
+  vim.notify('Copied file path: ' .. vim.fn.expand('%:.'))
+end, { desc = 'Copy file path' })
+
 -- Keep the cursor in place while joining lines
 nn('J', "<cmd>let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>")
 
