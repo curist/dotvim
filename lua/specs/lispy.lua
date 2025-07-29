@@ -1,5 +1,9 @@
 return {
   {
+    'jaawerth/fennel.vim',
+    ft = 'fennel',
+  },
+  {
     'guns/vim-sexp',
     init = function()
       vim.g.sexp_enable_insert_mode_mappings = false

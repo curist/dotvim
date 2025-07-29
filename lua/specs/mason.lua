@@ -18,6 +18,9 @@ return {
         end,
       })
 
+      -- manually install fennel-ls, the one on luarocks is outdated
+      require("lspconfig").fennel_ls.setup({})
+
       require('mason-lspconfig').setup({
         ensure_installed = {
           'lua_ls',
@@ -26,7 +29,6 @@ return {
           'pyright',
           'ruff',
           'clojure_lsp',
-          'fennel_ls',
         },
       })
     end,
