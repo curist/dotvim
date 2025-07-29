@@ -5,7 +5,6 @@ return {
     dependencies = {
       'mason-org/mason.nvim',
       'neovim/nvim-lspconfig',
-      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       require("lspconfig").pyright.setup({
