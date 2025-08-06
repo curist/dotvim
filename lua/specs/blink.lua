@@ -5,16 +5,18 @@ return {
   event = "InsertEnter",
   opts = {
     sources = {
-      default = { 'lsp', 'buffer', 'snippets', 'path' },
+      default = { 'lsp', 'buffer', 'path' },
     },
     completion = {
-      ghost_text = { enabled = true },
-      documentation = { auto_show = true },
-      menu = {
-        draw = { treesitter = { "lsp" } },
+      ghost_text = { enabled = false },
+      documentation = { auto_show = false },
+    },
+    signature = {
+      enabled = true,
+      window = {
+        show_documentation = true,
       },
     },
-    signature = { enabled = true },
     cmdline = { enabled = true },
     keymap = {
       ["<C-j>"] = { "select_and_accept", "fallback" },
