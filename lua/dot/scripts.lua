@@ -225,36 +225,47 @@ M.openTerm = function(opts)
   local use_cwd = opts.use_cwd
   local current_base_path = vim.fn.expand('%:p:h')
 
-  local exec_cmd = '!wezterm cli '
+  local exec_cmd = { 'zellij' }
+
+  local function appendArgs(...)
+    for _, v in ipairs({ ... }) do
+      table.insert(exec_cmd, v)
+    end
+  end
 
   if kind == 'split' then
-    -- exec_cmd = exec_cmd .. 'split-pane --cells 15'
-    exec_cmd = exec_cmd .. 'split-pane --right'
-  elseif kind == 'window' then
-    exec_cmd = exec_cmd .. 'spawn --new-window'
+    appendArgs('run', '-d', 'right')
   else
-    exec_cmd = exec_cmd .. 'spawn'
+    appendArgs('action', 'new-tab', '-l', 'dynamic')
   end
 
+  local cwd = vim.fn.getcwd()
   if use_cwd then
     if vim.startswith(current_base_path, 'oil') then
-      exec_cmd = exec_cmd .. ' --cwd "' .. require('oil').get_current_dir() .. '"'
+      cwd = require('oil').get_current_dir() or current_base_path
     else
-      exec_cmd = exec_cmd .. ' --cwd "' .. current_base_path .. '"'
+      cwd = current_base_path
     end
+  end
+
+  if not cmd or cmd == '' then
+    cmd = 'fish'
+  end
+
+  if kind == 'split' then
+    appendArgs('--cwd', cwd)
+
+    if opts.nowait or cmd == 'fish' then
+      appendArgs('--close-on-exit')
+    end
+
+    appendArgs('--', cmd)
   else
-    exec_cmd = exec_cmd .. ' --cwd "' .. vim.fn.getcwd() .. '"'
+    -- new tab, should generate dynamic layout
+    vim.system { "render-dynamic-layout.sh", cmd, cwd }
   end
 
-  if cmd and cmd ~= '' then
-    if opts.nowait then
-      exec_cmd = exec_cmd .. ' -- ' .. cmd
-    else
-      exec_cmd = exec_cmd .. ' -- petc ' .. cmd
-    end
-  end
-
-  vim.fn.execute(exec_cmd)
+  vim.system(exec_cmd)
 end
 
 return M
