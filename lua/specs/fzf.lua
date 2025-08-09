@@ -40,6 +40,7 @@ return {
         multiprocess = false,
         file_icons = false,
         git_icons = false,
+        hidden = true,
       },
       colorschemes = {
         winopts = {
