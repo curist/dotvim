@@ -53,7 +53,10 @@ return {
         enable = true,
         additional_vim_regex_highlighting = { 'clojure' },
       },
-      indent = { enable = true },
+      indent = {
+        enable = true,
+        disable = { 'fennel' },
+      },
       matchup = {
         enable = true,
         disable_virtual_text = true,
