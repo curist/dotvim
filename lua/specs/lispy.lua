@@ -1,5 +1,9 @@
 return {
   {
+    'curist/fennel-indent.nvim',
+    ft = 'fennel',
+  },
+  {
     'guns/vim-sexp',
     init = function()
       vim.g.sexp_enable_insert_mode_mappings = false
@@ -13,6 +17,8 @@ return {
         sexp_emit_tail_element = '',
         sexp_capture_prev_element = '',
         sexp_capture_next_element = '',
+        sexp_indent = '',
+        sexp_indent_top = '',
       }
     end,
   },

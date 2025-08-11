@@ -34,6 +34,12 @@ EOF
 
 augroup END
 
+augroup fennel_format_map
+  autocmd!
+  autocmd FileType fennel nnoremap <buffer> = gq
+  autocmd FileType fennel xnoremap <buffer> = gq
+  autocmd FileType fennel nnoremap <buffer> == gqq
+augroup END
 
 augroup MyFileTypeMappings
   " run settings
