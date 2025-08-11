@@ -57,10 +57,6 @@ return {
         enable = true,
         disable = { 'fennel' },
       },
-      matchup = {
-        enable = true,
-        disable_virtual_text = true,
-      },
       incremental_selection = {
         enable = true,
         keymaps = {

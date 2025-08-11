@@ -15,10 +15,7 @@ return {
     },
   },
   {
-    'andymass/vim-matchup',
+    'yorickpeterse/nvim-tree-pairs',
     event = 'BufRead',
-    config = function()
-      vim.g.matchup_matchparen_offscreen = {}
-    end,
   },
 }
