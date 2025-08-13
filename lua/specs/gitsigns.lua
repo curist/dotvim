@@ -8,7 +8,7 @@ return {
     return {
       {
         '<leader>gg',
-        w(scripts.openTerm, { cmd = 'lazygit' }),
+        w(scripts.openTerm, { cmd = 'lazygit', nowait = true }),
         desc = 'Lazygit',
       },
       {

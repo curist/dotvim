@@ -225,20 +225,6 @@ M.openTerm = function(opts)
   local use_cwd = opts.use_cwd
   local current_base_path = vim.fn.expand('%:p:h')
 
-  local exec_cmd = { 'zellij' }
-
-  local function appendArgs(...)
-    for _, v in ipairs({ ... }) do
-      table.insert(exec_cmd, v)
-    end
-  end
-
-  if kind == 'split' then
-    appendArgs('run', '-d', 'right')
-  else
-    appendArgs('action', 'new-tab', '-l', 'dynamic')
-  end
-
   local cwd = vim.fn.getcwd()
   if use_cwd then
     if vim.startswith(current_base_path, 'oil') then
@@ -252,20 +238,20 @@ M.openTerm = function(opts)
     cmd = 'fish'
   end
 
-  if kind == 'split' then
-    appendArgs('--cwd', cwd)
-
-    if opts.nowait or cmd == 'fish' then
-      appendArgs('--close-on-exit')
-    end
-
-    appendArgs('--', cmd)
-  else
-    -- new tab, should generate dynamic layout
-    vim.system { "render-dynamic-layout.sh", cmd, cwd }
+  -- Prepend petc if nowait is not true and cmd is not fish
+  if not opts.nowait and cmd ~= 'fish' then
+    cmd = 'petc ' .. cmd
   end
 
-  vim.system(exec_cmd)
+  if kind == 'split' then
+    -- Split pane in current tmux session
+    local exec_cmd = { 'tmux', 'split-window', '-h', '-c', cwd, cmd }
+    vim.system(exec_cmd)
+  else
+    -- Create new tmux window
+    local exec_cmd = { 'tmux', 'new-window', '-c', cwd, cmd }
+    vim.system(exec_cmd)
+  end
 end
 
 return M
