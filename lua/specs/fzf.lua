@@ -83,6 +83,7 @@ return {
     nn('<leader>Q', w(fzf.quickfix, {}), { desc = 'Quickfix picker' })
     nn('<leader>gl', fzf.git_bcommits, { desc = 'Buffer git commits' })
     nn('<leader>gL', fzf.git_commits, { desc = 'Git commits' })
+    nn('<leader>t', fzf.treesitter, { desc = 'Treesitter' })
     nn('<leader>L', fzf.builtin, { desc = 'Fzf pickers' })
     nn('<leader>R', fzf.resume, { desc = 'Resume fzf picker' })
 
