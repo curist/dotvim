@@ -2,6 +2,12 @@ return {
   {
     'curist/fennel-indent.nvim',
     ft = 'fennel',
+    opts = {
+      semantic_alignment = {
+        'if', 'do', 'and', 'or', '..', '->', '->>', '-?>', '-?>>',
+        '%', '*', '+', '/', '-', '>=', '//', '<=', '^', '>', '<', '=', 'not=',
+      },
+    },
   },
   {
     'guns/vim-sexp',
