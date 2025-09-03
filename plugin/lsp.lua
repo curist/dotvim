@@ -14,7 +14,7 @@ vim.diagnostic.config({
     border = 'rounded',
     source = 'if_many',
     prefix = ' ',
-    scope = 'cursor',
+    scope = 'line',
   },
 })
 

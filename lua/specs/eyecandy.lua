@@ -9,6 +9,10 @@ return {
         flavour = 'mocha',
         no_italic = true,
         no_bold = true,
+        float = {
+          transparent = true,
+          solid = false,
+        },
         custom_highlights = function(colors)
           return {
             WinSeparator = { fg = colors.overlay0 },
