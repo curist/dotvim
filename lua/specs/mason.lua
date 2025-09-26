@@ -7,18 +7,18 @@ return {
       'neovim/nvim-lspconfig',
     },
     config = function()
-      require("lspconfig").pyright.setup({
-        on_attach = function(client, bufnr)
-          -- Disable diagnostics entirely
-          client.handlers["textDocument/publishDiagnostics"] = function() end
+      -- require("lspconfig").pyright.setup({
+      --   on_attach = function(client, bufnr)
+      --     -- Disable diagnostics entirely
+      --     client.handlers["textDocument/publishDiagnostics"] = function() end
+      --
+      --     local caps = client.server_capabilities
+      --     caps.hoverProvider = true
+      --   end,
+      -- })
 
-          local caps = client.server_capabilities
-          caps.hoverProvider = true
-        end,
-      })
-
-      -- manually install fennel-ls, the one on luarocks is outdated
-      require("lspconfig").fennel_ls.setup({})
+      -- manually enable fennel-ls, the one on luarocks is outdated
+      vim.lsp.enable("fennel_ls")
 
       require('mason-lspconfig').setup({
         ensure_installed = {
