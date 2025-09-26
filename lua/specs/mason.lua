@@ -7,15 +7,15 @@ return {
       'neovim/nvim-lspconfig',
     },
     config = function()
-      -- require("lspconfig").pyright.setup({
-      --   on_attach = function(client, bufnr)
-      --     -- Disable diagnostics entirely
-      --     client.handlers["textDocument/publishDiagnostics"] = function() end
-      --
-      --     local caps = client.server_capabilities
-      --     caps.hoverProvider = true
-      --   end,
-      -- })
+      vim.lsp.config('pyright', {
+        on_attach = function(client)
+          -- Disable diagnostics entirely
+          client.handlers["textDocument/publishDiagnostics"] = function() end
+
+          local caps = client.server_capabilities
+          caps.hoverProvider = true
+        end,
+      })
 
       -- manually enable fennel-ls, the one on luarocks is outdated
       vim.lsp.enable("fennel_ls")
