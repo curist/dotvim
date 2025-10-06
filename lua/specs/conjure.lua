@@ -13,9 +13,9 @@ end
 local function init_conjure()
   local redbean_fennel_repl = './artifacts/redbean-fennel'
   local fennel_repl_cmd = 'fennel'
-  if vim.uv.fs_stat(redbean_fennel_repl) ~= nil then
-    fennel_repl_cmd = redbean_fennel_repl
-  end
+  -- if vim.uv.fs_stat(redbean_fennel_repl) ~= nil then
+  --   fennel_repl_cmd = redbean_fennel_repl
+  -- end
   setup_conjure({
     filetype = {
       fennel = 'conjure.client.fennel.stdio',
