@@ -22,7 +22,7 @@ return {
 
       require('mason-lspconfig').setup({
         ensure_installed = {
-          'lua_ls',
+          'emmylua_ls',
           'ts_ls',
           'gopls',
           'pyright',
