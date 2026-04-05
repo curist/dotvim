@@ -25,7 +25,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    depedencies = {
+    dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'curist/tree-sitter-lx',
     },
@@ -88,6 +88,16 @@ return {
           files = { 'src/parser.c' },
           branch = 'main',
         },
+      }
+
+      require('nvim-treesitter.parsers').get_parser_configs()['twinkle'] = {
+        install_info = {
+          url = '/Users/curist/playground/rust/twinkle/tree-sitter-twinkle',
+          files = { 'src/parser.c' },
+          generate_requires_npm = false,
+          requires_generate_from_grammar = false,
+        },
+        filetype = 'twinkle',
       }
 
       require('nvim-treesitter.configs').setup(opts)

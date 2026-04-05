@@ -1,3 +1,22 @@
+-- register server
+vim.lsp.config("lx", {
+  cmd = { "lx", "lsp" },
+  filetypes = { "lx" },
+  root_markers = { ".lxroot", ".git" },
+  single_file_support = true,
+})
+
+-- enable it
+vim.lsp.enable("lx")
+
+vim.lsp.config("twinkle", {
+  cmd = { "/Users/curist/playground/rust/twinkle/target/release/twk", "lsp" },
+  filetypes = { "twinkle" },
+  root_markers = { "twinkle.toml", ".git" },
+  single_file_support = true,
+})
+vim.lsp.enable("twinkle")
+
 return {
   {
     'curist/tree-sitter-lx',

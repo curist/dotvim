@@ -17,8 +17,8 @@ return {
         end,
       })
 
-      -- manually enable fennel-ls, the one on luarocks is outdated
-      vim.lsp.enable("fennel_ls")
+      vim.lsp.enable('fennel_ls')
+      vim.lsp.enable('gleam')
 
       require('mason-lspconfig').setup({
         ensure_installed = {
@@ -28,6 +28,7 @@ return {
           'pyright',
           'ruff',
           'clojure_lsp',
+          'ols', -- odin
         },
       })
     end,

@@ -2,7 +2,7 @@ return {
   "saghen/blink.cmp",
   version = "*",
   -- No dependencies needed for native sources
-  event = "InsertEnter",
+  lazy = false,
   opts = {
     sources = {
       default = { 'lsp', 'buffer', 'path' },
