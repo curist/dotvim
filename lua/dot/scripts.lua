@@ -1,4 +1,5 @@
 local dot = require('dot.utils')
+local dot_cfg = require('dot.config')
 
 local M = {}
 
@@ -138,9 +139,9 @@ end
 
 function M.recent_projects()
   local core = require('fzf-lua.core')
-  local base = '/Users/curist/playground/'
+  local base = dot_cfg.paths.playground .. '/'
   local opts = {
-    prompt = '~/playground/ ',
+    prompt = vim.fn.fnamemodify(dot_cfg.paths.playground, ':~') .. '/ ',
     fzf_opts = { ['--no-multi'] = '' },
     complete = function(selected)
       if not selected or selected[1] == 'esc' then
@@ -234,13 +235,14 @@ M.openTerm = function(opts)
     end
   end
 
+  local default_shell = dot_cfg.terminal.shell
   if not cmd or cmd == '' then
-    cmd = 'fish'
+    cmd = default_shell
   end
 
-  -- Prepend petc if nowait is not true and cmd is not fish
-  if not opts.nowait and cmd ~= 'fish' then
-    cmd = 'petc ' .. cmd
+  local wait_wrapper = dot_cfg.terminal.wait_wrapper
+  if not opts.nowait and wait_wrapper and cmd ~= default_shell then
+    cmd = wait_wrapper .. ' ' .. cmd
   end
 
   if kind == 'split' then

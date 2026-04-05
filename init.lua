@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.cmd('runtime! config/*.{vim,lua}')
+require('core')
 
 -- Setup lazy.nvim
 require('lazy').setup({

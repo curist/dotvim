@@ -1,0 +1,6 @@
+require('core.options')
+require('core.filetypes')
+require('core.autocmds')
+require('core.keymaps')
+require('core.commands')
+require('core.lsp')

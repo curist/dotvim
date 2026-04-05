@@ -1,3 +1,5 @@
+local dot_cfg = require('dot.config')
+
 return {
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -92,7 +94,7 @@ return {
 
       require('nvim-treesitter.parsers').get_parser_configs()['twinkle'] = {
         install_info = {
-          url = '/Users/curist/playground/rust/twinkle/tree-sitter-twinkle',
+          url = dot_cfg.paths.twinkle_parser,
           files = { 'src/parser.c' },
           generate_requires_npm = false,
           requires_generate_from_grammar = false,
