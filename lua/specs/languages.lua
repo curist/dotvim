@@ -1,4 +1,4 @@
-local dot_cfg = require('dot.config')
+local dot = require('dot')
 
 vim.lsp.config('lx', {
   cmd = { 'lx', 'lsp' },
@@ -9,7 +9,7 @@ vim.lsp.config('lx', {
 vim.lsp.enable('lx')
 
 vim.lsp.config('twinkle', {
-  cmd = { dot_cfg.paths.twinkle_lsp, 'lsp' },
+  cmd = { dot.config.paths.twinkle_lsp, 'lsp' },
   filetypes = { 'twinkle' },
   root_markers = { 'twinkle.toml', '.git' },
   single_file_support = true,

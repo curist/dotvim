@@ -1,5 +1,5 @@
-local dot = require('dot.utils')
-local dot_cfg = require('dot.config')
+local dot_utils = require('dot.utils')
+local dot = require('dot')
 
 local M = {}
 
@@ -14,13 +14,13 @@ local function filter_filepath(pwd, orig_filepath)
   local function _2_(_241)
     return vim.startswith(filepath, _241)
   end
-  return not (not vim.startswith(orig_filepath, pwd) or dot.some(suffix_ignore, _1_) or dot.some(prefix_ignore, _2_))
+  return not (not vim.startswith(orig_filepath, pwd) or dot_utils.some(suffix_ignore, _1_) or dot_utils.some(prefix_ignore, _2_))
 end
 
 local function get_buflisted_sorted()
   local buffers = {}
   local curbuf = vim.fn.bufnr()
-  local bufnrs = dot.filter(vim.api.nvim_list_bufs(), function(buf)
+  local bufnrs = dot_utils.filter(vim.api.nvim_list_bufs(), function(buf)
     local name = vim.api.nvim_buf_get_name(buf)
     if name == '' then
       return false
@@ -42,7 +42,7 @@ local function get_buflisted_sorted()
   table.sort(buffers, function(a, b)
     return a.info.lastused > b.info.lastused
   end)
-  local sorted_bufnrs = dot.map(buffers, function(buf)
+  local sorted_bufnrs = dot_utils.map(buffers, function(buf)
     return buf.bufnr
   end)
   return sorted_bufnrs
@@ -83,7 +83,7 @@ function M.cwd_oldfiles(opts)
     table.insert(results, path)
   end
 
-  dot.each(get_buflisted_sorted(), function(bufnr)
+  dot_utils.each(get_buflisted_sorted(), function(bufnr)
     local file = vim.api.nvim_buf_get_name(bufnr)
     if not vim.uv.fs_stat(file) then
       return
@@ -96,7 +96,7 @@ function M.cwd_oldfiles(opts)
     append_result(file)
   end)
 
-  dot.each(vim.v.oldfiles, function(file)
+  dot_utils.each(vim.v.oldfiles, function(file)
     if file_set[file] then
       return
     end
@@ -117,7 +117,7 @@ function M.cwd_oldfiles(opts)
   end)
 
   local contents = function(cb)
-    dot.each(results, function(x)
+    dot_utils.each(results, function(x)
       if not x then
         return
       end
@@ -139,9 +139,9 @@ end
 
 function M.recent_projects()
   local core = require('fzf-lua.core')
-  local base = dot_cfg.paths.playground .. '/'
+  local base = dot.config.paths.playground .. '/'
   local opts = {
-    prompt = vim.fn.fnamemodify(dot_cfg.paths.playground, ':~') .. '/ ',
+    prompt = vim.fn.fnamemodify(dot.config.paths.playground, ':~') .. '/ ',
     fzf_opts = { ['--no-multi'] = '' },
     complete = function(selected)
       if not selected or selected[1] == 'esc' then
@@ -235,12 +235,12 @@ M.openTerm = function(opts)
     end
   end
 
-  local default_shell = dot_cfg.terminal.shell
+  local default_shell = dot.config.terminal.shell
   if not cmd or cmd == '' then
     cmd = default_shell
   end
 
-  local wait_wrapper = dot_cfg.terminal.wait_wrapper
+  local wait_wrapper = dot.config.terminal.wait_wrapper
   if not opts.nowait and wait_wrapper and cmd ~= default_shell then
     cmd = wait_wrapper .. ' ' .. cmd
   end

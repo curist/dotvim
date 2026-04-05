@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, 'Hoverdoc')
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
       nn('<leader>lh', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
       end, 'Toggle inlay hints')

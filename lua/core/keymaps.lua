@@ -1,15 +1,15 @@
-local dot = require('dot.utils')
-local dot_qf = require('dot.qf')
-local dot_cfg = require('dot.config')
+local dot = require('dot')
+local dot_utils = dot.utils
+local dot_qf = dot.qf
 local scripts = require('dot.scripts')
-local w = dot.bind
+local w = dot_utils.bind
 
 local function nn(...)
-  vim.keymap.set('n', unpack(dot.concat({ ... }, { { silent = true } })))
+  vim.keymap.set('n', unpack(dot_utils.concat({ ... }, { { silent = true } })))
 end
 
 local function vn(...)
-  vim.keymap.set('v', unpack(dot.concat({ ... }, { { silent = true } })))
+  vim.keymap.set('v', unpack(dot_utils.concat({ ... }, { { silent = true } })))
 end
 
 nn('<c-c>', '<cmd>nohls<cr>')
@@ -68,9 +68,9 @@ nn('<m-p>', dot_qf.local_list_prev)
 
 nn('<leader>ww', function()
   local year = vim.fn.strftime('%Y')
-  vim.api.nvim_set_current_dir(dot_cfg.paths.notes)
+  vim.api.nvim_set_current_dir(dot.config.paths.notes)
   vim.cmd.edit(year .. '-daylog.md')
 end, { desc = 'We have wiki at home' })
 
 vim.keymap.set('n', '<m-t>', scripts.openTerm)
-vim.keymap.set('n', '<m-T>', dot.bind(scripts.openTerm, { use_cwd = true }))
+vim.keymap.set('n', '<m-T>', dot_utils.bind(scripts.openTerm, { use_cwd = true }))

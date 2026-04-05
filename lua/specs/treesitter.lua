@@ -1,4 +1,4 @@
-local dot_cfg = require('dot.config')
+local dot = require('dot')
 
 local parsers_to_install = {
   'c',
@@ -31,7 +31,7 @@ local function register_custom_parsers()
   parsers.twinkle = {
     filetype = 'twinkle',
     install_info = {
-      path = dot_cfg.paths.twinkle_parser,
+      path = dot.config.paths.twinkle_parser,
     },
   }
 end
