@@ -14,6 +14,12 @@ end
 
 nn('<c-c>', '<cmd>nohls<cr>')
 nn('<leader>q', dot_qf.toggle_list, { desc = 'Toggle quickfix' })
+nn('<leader>u', function()
+  if not package.loaded['undotree'] then
+    vim.cmd.packadd('nvim.undotree')
+  end
+  require('undotree').open()
+end, { desc = 'Toggle undotree' })
 
 nn('gV', '`[v`]', { desc = 'Select last edited/pasted text' })
 
