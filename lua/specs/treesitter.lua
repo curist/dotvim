@@ -1,9 +1,60 @@
 local dot_cfg = require('dot.config')
 
+local parsers_to_install = {
+  'c',
+  'css',
+  'go',
+  'javascript',
+  'typescript',
+  'clojure',
+  'fennel',
+  'hcl',
+  'html',
+  'lua',
+  'jsdoc',
+  'json',
+  'python',
+}
+
+local function register_custom_parsers()
+  local parsers = require('nvim-treesitter.parsers')
+
+  parsers.lx = {
+    filetype = 'lx',
+    install_info = {
+      url = 'https://github.com/curist/tree-sitter-lx',
+      files = { 'src/parser.c' },
+      branch = 'main',
+    },
+  }
+
+  parsers.twinkle = {
+    filetype = 'twinkle',
+    install_info = {
+      path = dot_cfg.paths.twinkle_parser,
+    },
+  }
+end
+
 return {
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
     event = 'BufRead',
+    config = function()
+      require('nvim-treesitter-textobjects').setup({
+        select = {
+          lookahead = false,
+          keymaps = {
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+          },
+          selection_modes = {
+            ['@function.outer'] = 'V',
+          },
+        },
+      })
+    end,
   },
   {
     'mizlan/iswap.nvim',
@@ -27,82 +78,48 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'curist/tree-sitter-lx',
     },
+    lazy = false,
     build = ':TSUpdate',
-    event = { 'BufRead' },
     cmd = { 'TSInstall' },
-    opts = {
-      ensure_installed = {
-        'c',
-        'css',
-        'go',
-        'javascript',
-        'typescript',
-        'clojure',
-        'fennel',
-        'hcl',
-        'html',
-        'lua',
-        'jsdoc',
-        'json',
-        'python',
-        'lx',
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { 'clojure' },
-      },
-      indent = {
-        enable = true,
-        disable = { 'fennel' },
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '+',
-          node_incremental = '+',
-          node_decremental = '-',
-          scope_incremental = false,
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = false,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-          },
-          selection_modes = {
-            ['@function.outer'] = 'V',
-          },
-        },
-      },
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.parsers').get_parser_configs()['lx'] = {
-        filetype = 'lx',
-        install_info = {
-          url = 'https://github.com/curist/tree-sitter-lx',
-          files = { 'src/parser.c' },
-          branch = 'main',
-        },
-      }
+    init = function()
+      register_custom_parsers()
 
-      require('nvim-treesitter.parsers').get_parser_configs()['twinkle'] = {
-        install_info = {
-          url = dot_cfg.paths.twinkle_parser,
-          files = { 'src/parser.c' },
-          generate_requires_npm = false,
-          requires_generate_from_grammar = false,
-        },
-        filetype = 'twinkle',
-      }
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'TSUpdate',
+        callback = register_custom_parsers,
+      })
+    end,
+    config = function()
+      local ts = require('nvim-treesitter')
 
-      require('nvim-treesitter.configs').setup(opts)
+      ts.setup({})
+
+      local filetypes = {}
+      for _, parser in ipairs(parsers_to_install) do
+        for _, ft in ipairs(vim.treesitter.language.get_filetypes(parser)) do
+          filetypes[ft] = true
+        end
+      end
+      filetypes.lx = true
+      filetypes.twinkle = true
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = vim.tbl_keys(filetypes),
+        callback = function(args)
+          local ft = vim.bo[args.buf].filetype
+          if ft ~= 'markdown' then
+            pcall(vim.treesitter.start, args.buf)
+          end
+          if ft ~= 'fennel' and ft ~= 'markdown' then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
     end,
     keys = {
       {
