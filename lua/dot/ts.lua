@@ -1,29 +1,58 @@
 -- treesitter related stuff
-local ts_utils = require('nvim-treesitter.ts_utils')
 local M = {}
 
+local function goto_node(node)
+  local row, col = node:start()
+  vim.api.nvim_win_set_cursor(0, { row + 1, col })
+end
+
 function M.get_top_node_at_cursor()
-  local node = ts_utils.get_node_at_cursor()
-  local function is_root(node)
-    return not node:parent()
+  local node = vim.treesitter.get_node()
+  if not node then
+    return nil
   end
-  while node do
+
+  while true do
     local parent = node:parent()
-    if not parent or is_root(parent) then
-      break
+
+    -- stop if node is already the top non-root node
+    if not parent or not parent:parent() then
+      return parent and node or nil
     end
+
     node = parent
   end
-  return not is_root(node) and node or nil
+end
+
+local function get_root_for_position(row, col, bufnr)
+  bufnr = bufnr or 0
+
+  local parser = vim.treesitter.get_parser(bufnr)
+  if not parser then
+    return nil, nil, nil
+  end
+
+  local range = { row, col, row, col }
+  parser:parse(range)
+
+  local langtree = parser:language_for_range(range)
+  if not langtree then
+    return nil, nil, nil
+  end
+
+  local tree = langtree:tree_for_range(range)
+  local root = tree and tree:root() or nil
+
+  return root, tree, langtree
 end
 
 local function bsearch_prev_node(current_line)
-  local root = ts_utils.get_root_for_position(0, 0)
+  local root = get_root_for_position(0, 0)
   local min, max = 1, root:named_child_count()
   while min < max do
     local mid = math.floor((min + max) / 2)
     local node = root:named_child(mid)
-    local start_line = vim.treesitter.get_node_range(node)
+    local start_line = node:range()
     if current_line < start_line then
       max = mid
     else
@@ -34,12 +63,12 @@ local function bsearch_prev_node(current_line)
 end
 
 local function bsearch_next_node(current_line)
-  local root = ts_utils.get_root_for_position(0, 0)
+  local root = get_root_for_position(0, 0)
   local min, max = 1, root:named_child_count()
   while min < max do
     local mid = math.floor((min + max) / 2)
     local node = root:named_child(mid)
-    local start_line = vim.treesitter.get_node_range(node)
+    local start_line = node:range()
     if current_line > start_line then
       min = mid + 1
     else
@@ -50,9 +79,9 @@ local function bsearch_next_node(current_line)
 end
 
 function M.print_node_at_cursor()
-  local node = ts_utils.get_node_at_cursor()
+  local node = vim.treesitter.get_node()
 
-  ts_utils.update_selection(0, node)
+  vim.treesitter.update_selection(0, node)
   vim.schedule(function()
     vim.cmd('silent normal! "py')
   end)
@@ -122,7 +151,7 @@ end
 
 function M.goto_top_node_at_cursor()
   local node = M.get_top_node_at_cursor()
-  ts_utils.goto_node(node)
+  goto_node(node)
 end
 
 function M.goto_next_top_node()
@@ -131,7 +160,7 @@ function M.goto_next_top_node()
     node = bsearch_next_node(vim.fn.line('.'))
   end
   local target = get_next_noncomment_node(node)
-  ts_utils.goto_node(target)
+  goto_node(target)
 end
 
 function M.goto_prev_top_node()
@@ -140,25 +169,25 @@ function M.goto_prev_top_node()
     node = bsearch_prev_node(vim.fn.line('.'))
   end
   local target = get_prev_noncomment_node(node)
-  ts_utils.goto_node(target)
+  goto_node(target)
 end
 
 function M.goto_next_node()
-  local node = ts_utils.get_node_at_cursor()
+  local node = vim.treesitter.get_node()
   local target = get_next_noncomment_node(node)
-  ts_utils.goto_node(target)
+  goto_node(target)
 end
 
 function M.goto_prev_node()
-  local node = ts_utils.get_node_at_cursor()
+  local node = vim.treesitter.get_node()
   local target = get_prev_noncomment_node(node)
-  ts_utils.goto_node(target)
+  goto_node(target)
 end
 
 local function find_first_parent_with_different_range(node)
   local function has_same_range(node1, node2)
-    local range1 = ts_utils.node_to_lsp_range(node1)
-    local range2 = ts_utils.node_to_lsp_range(node2)
+    local range1 = vim.treesitter.node_to_lsp_range(node1)
+    local range2 = vim.treesitter.node_to_lsp_range(node2)
     return (
       (range1.start.line == range2.start.line and range1.start.character == range2.start.character)
       or (range1['end'].line == range2['end'].line and range1['end'].character == range2['end'].character)
@@ -178,13 +207,13 @@ local function find_first_parent_with_different_range(node)
 end
 
 function M.goto_parent_node()
-  local node = ts_utils.get_node_at_cursor()
-  ts_utils.goto_node(find_first_parent_with_different_range(node))
+  local node = vim.treesitter.get_node()
+  goto_node(find_first_parent_with_different_range(node))
 end
 
 function M.goto_child_node()
-  local node = ts_utils.get_node_at_cursor()
-  ts_utils.goto_node(node:named_child(0))
+  local node = vim.treesitter.get_node()
+  goto_node(node:named_child(0))
 end
 
 return M
