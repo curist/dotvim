@@ -9,7 +9,7 @@ local M = {
     notes = home .. '/notes',
     playground = playground,
     twinkle_root = twinkle_root,
-    twinkle_lsp = twinkle_root .. '/target/release/twk',
+    twinkle_lsp = 'twk',
     twinkle_parser = twinkle_root .. '/tree-sitter-twinkle',
   },
   terminal = {
