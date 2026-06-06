@@ -11,13 +11,15 @@
 ; Keywords by semantic role
 "fn" @keyword.function
 
+"extern" @keyword.import
+
 "type" @keyword.type
 
 [ "use" "as" ] @keyword.import
 
 "pub" @keyword.modifier
 
-[ "if" "else" "case" "for" "in" "collect" ] @keyword.control
+[ "if" "else" "case" "cond" "for" "in" "collect" ] @keyword.control
 
 "try" @keyword.exception
 
@@ -57,12 +59,17 @@
 
 [ "and" "or" ] @keyword.operator
 
+(range_expression operator: _ @operator)
+
 ; Boolean literals
 (bool_literal) @boolean
 
 ; Numbers
 (int_literal) @number
 (float_literal) @number.float
+
+; Character literals (integer code points)
+(char_literal) @character
 
 ; Strings
 (string_literal) @string
@@ -76,11 +83,13 @@
 (primitive_type) @type.builtin
 
 (type_name
-  (identifier) @type)
+  (identifier) @type
+  (#match? @type "^[A-Z]"))
 
 (generic_type
   name: (type_name
-    (identifier) @type))
+    (identifier) @type
+    (#match? @type "^[A-Z]")))
 
 ; Type declarations
 (type_declaration
@@ -93,6 +102,23 @@
 ; Function definitions - higher priority
 (function_declaration
   name: (identifier) @function)
+
+(extern_declaration
+  module: (identifier) @module
+  name: (identifier) @function)
+
+(extern_type_declaration
+  module: (identifier) @module
+  name: (identifier) @type.definition)
+
+(extern_block
+  module: (identifier) @module)
+
+(extern_signature
+  name: (identifier) @function)
+
+(extern_type_signature
+  name: (identifier) @type.definition)
 
 ; Parameters
 (parameter
@@ -115,6 +141,10 @@
 (call_expression
   function: (field_access
     field: (identifier) @function.method.call))
+
+; Receiver shorthand: .method(args) in rebinding assignment
+(receiver_shorthand
+  method: (identifier) @function.method.call)
 
 ; Variants - high priority for constructors
 (variant_expression
